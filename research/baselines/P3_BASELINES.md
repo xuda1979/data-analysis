@@ -9,9 +9,28 @@ hash-order draw). Fixed in `runner.py::_decision_orders` with a deterministic
 symbol order: universe order, reserve LAST (the reserve is the residual
 sink, so in a settled-cash crunch risky buys fill first and BIL absorbs the
 remainder; disclosed choice, verified hash-seed-invariant across seeds
-0/1/5/8/42). All tables below are the corrected, reproducible numbers.
-Materiality: B1 end-NAV moves $323,215 → $322,240 (−0.3%); the selection
-outcome (B1 strongest simple control on inner mean CAGR) is unchanged.
+0/1/5/8/42). Materiality: B1 end-NAV moves $323,215 → $322,240 (−0.3%); the
+selection outcome (B1 strongest simple control on inner mean CAGR) was
+unchanged. The pre-correction table is retained in git history (c32cb61)
+and is superseded.
+**Correction (2026-11-04, P5, commit 26a4d3b):** the runner filled EVERY
+pending order at t+1's open — rotation buys included — so
+`Ledger.execute`'s `_receive_settlements(future buy date)` spent the
+same-rotation sells' **unsettled** proceeds at t+1, the exact plan §3.1
+violation the sell/buy split exists to prevent. Fixed with session-aware
+dispatch: each order fills ONLY at its own fill session's open (sells t+1;
+buys at the first session at/after the sells' settlement, regime-aware
+T+2/T+1), orders beyond the run window expire unfilled (never fire early),
+and buys with no remaining fill session are dropped at decision time with a
+warning. Dividend timing also fixed: ex-date credits now run BEFORE the
+session's fills (sell at the ex-date open does not forfeit; buy at the
+ex-date open does not receive), matching the documented semantics. All
+tables below are the re-run, corrected numbers (`.tmp/p3_reports.json`).
+Materiality: B1 end-NAV moves $322,240 → $320,686 (−0.5%); B3-minvar
+$235,178 → $231,486 (−1.6%); B3-ivvol $236,036 → $235,896 (−0.1%); B2
+$247,781 → $248,939 (+0.5%). The selection outcome (B1 strongest simple
+control on inner mean CAGR) is unchanged. The pre-correction tables are
+retained in git history (cd84009) and are superseded.
 
 **Scope:** plan §6 (clocks, costs, turnover), §7 (walk-forward), §8 (baselines);
 protocol `research/protocols/unlevered_v1.json`. B4 is deferred to P5 (it
@@ -42,12 +61,15 @@ the session. Splits are a no-op (bars fully split-adjusted, P1-verified).
 
 ## Whole-path results (2007-07-26 → 2026-11-03, $100k start)
 
-| strategy | NAV end | net CAGR | Sharpe | MaxDD | ann. half-turn | roll-252 half-turn max | gross exp max | trades | total costs |
+| strategy | NAV end | net CAGR | Sharpe | MaxDD | ann. half-turn | roll-252 half-turn max | gross exp max | trades | total costs (incl. comm.) |
 |---|---|---|---|---|---|---|---|---|---|
-| B1 equal-weight | $322,240 | 6.26% | 0.552 | 24.4% | 0.053 | 0.484 | 1.000 | 30 | $171 |
-| B2 trend/RS (cash abstain) | $247,781 | 4.82% | 0.444 | 14.6% | 1.497 | 3.257 | 1.000 | 433 | $4,913 |
-| B3-minvar | $235,178 | 4.54% | 0.570 | 16.0% | 0.149 | 0.887 | 1.000 | 119 | $479 |
-| B3-ivvol | $236,036 | 4.56% | 0.520 | 18.6% | 0.094 | 0.883 | 1.000 | 64 | $277 |
+| B1 equal-weight | $320,686 | 6.23% | 0.550 | 24.3% | 0.054 | 0.485 | 1.000 | 31 | $210 |
+| B2 trend/RS (cash abstain) | $248,939 | 4.85% | 0.450 | 14.6% | 1.503 | 3.267 | 1.000 | 437 | $5,622 |
+| B3-minvar | $231,486 | 4.45% | 0.551 | 16.4% | 0.149 | 0.886 | 1.000 | 117 | $599 |
+| B3-ivvol | $235,896 | 4.55% | 0.519 | 18.5% | 0.094 | 0.881 | 1.000 | 63 | $340 |
+
+"Total costs" = market costs (spread/impact) + IBKR Pro Fixed commissions
+(e.g. B1: $178 market + $32 commissions).
 
 ## B0 references (bookkeeping paths, no costs)
 
@@ -69,18 +91,18 @@ Per-fold inner-window metrics across the 16 folds (development data only):
 
 | strategy | mean inner CAGR | median inner CAGR | mean inner Sharpe | worst inner MaxDD | mean inner half-turn |
 |---|---|---|---|---|---|
-| B1 | 6.81% | 6.23% | 0.655 | 15.6% | 0.020 |
-| B2 | 5.07% | 4.45% | 0.428 | 14.6% | 1.580 |
-| B3-minvar | 5.17% | 6.57% | 0.784 | 11.3% | 0.103 |
-| B3-ivvol | 5.28% | 6.51% | 0.683 | 13.1% | 0.049 |
+| B1 | 6.79% | 6.27% | 0.653 | 15.6% | 0.020 |
+| B2 | 5.11% | 4.29% | 0.440 | 14.6% | 1.588 |
+| B3-minvar | 5.10% | 7.13% | 0.777 | 11.8% | 0.102 |
+| B3-ivvol | 5.28% | 6.50% | 0.681 | 13.1% | 0.048 |
 
 **Selected strongest simple control: B1 (capped equal-weight, monthly
 banded).** Rationale (disclosed): B1 has the highest inner mean CAGR; the §1
 primary gate is net CAGR (≥10%), so "strongest" is ranked on inner CAGR.
-B3-minvar wins inner Sharpe (0.784 vs 0.655) and inner drawdown; if the P4/P5
+B3-minvar wins inner Sharpe (0.777 vs 0.653) and inner drawdown; if the P4/P5
 controllers are instead evaluated on risk-adjusted terms, B3-minvar is the
 disclosed alternative control. B2 is weakest on CAGR and turnover; its trend
-rule churns (1.58 annual inner half-turn vs B1's 0.020) and its abstention
+rule churns (1.59 annual inner half-turn vs B1's 0.020) and its abstention
 sits in literal cash (plan §8 "cash when ineligible"). No strategy passes
 the §1 gates (net CAGR ≥10%, excess Sharpe ≥1.00, daily MaxDD ≤15%): **the
 honest P3 conclusion is "no demonstrated edge in the simple controls, as
@@ -97,14 +119,19 @@ disclosed not skipped). Per-fold §1 metrics slice the continuous path
 
 - **Zero failed fills; zero invariant violations** across 4850 sessions.
 - **Partial fills** (residual abandoned, disclosed not retried): B1: 4
-  cash-constrained + 1 participation-capped; B2: 38 (all cash-constrained);
-  B3-minvar: 43 cash + 14 participation; B3-ivvol: 14 cash + 14
-  participation. Participation caps bind only on BIL (early-sample ADV
-  ~$5–18M vs 0.1% cap) and one early VEA fill.
+  cash-constrained + 1 participation-capped (2007-09-06 VEA); B2: 38
+  (all cash-constrained); B3-minvar: 41 cash + 14 participation; B3-ivvol:
+  13 cash + 14 participation. Participation caps bind only on BIL
+  (early-sample ADV ~$5–18M vs 0.1% cap) and one early VEA fill.
 - **Rejected (zero-fill) buys** where settled cash could not cover even one
-  lot: B1: 0, B2: 0, B3-minvar: 4, B3-ivvol: 4. Not retried (conservative
-  account rule; plan §3.1 "reject or resize orders that would violate
-  funding limits").
+  lot: B1: 0, B2: 0, B3-minvar: 5 (2008-08-06 TIP+GLD, 2008-09-05
+  TIP+GLD, 2024-03-05 SPY), B3-ivvol: 4 (2008-08-06 TIP+GLD, 2008-09-05
+  GLD, 2021-03-03 IEF). Not retried (conservative account rule; plan §3.1
+  "reject or resize orders that would violate funding limits").
+- **Orders dropped at decision time** when no fill session remains in the
+  panel after the settlement wait (corrected-timing artifact, disclosed):
+  B2's 2026-11-02 decision drops its buys (panel ends before the
+  post-settlement fill session); B1/B3 unchanged.
 - **Terminal liquidation skipped**: the panel ends at the final mark
   (2026-11-03); the next session does not exist yet. All NAV figures are
   pre-liquidation. When the panel extends (P6 prospective), the runner
@@ -125,13 +152,19 @@ disclosed not skipped). Per-fold §1 metrics slice the continuous path
 
 ## Test coverage
 
-`research/baselines/test_baselines.py` + `research/execution/test_ledger.py`
-(49 tests), covering the §9 required evaluation tests (rf subtraction incl.
-zero-variance Sharpe=None, constant-price cases, loss/drawdown sign
-conventions, CAGR annualization, missing-fold behavior, all-in vs ongoing
-turnover reconciliation), strategy causality (future-price perturbation
-leaves decisions and past NAV paths unchanged), caps enforcement, warmup
-abstention, band suppression, whole-share flooring, the B2 cash reserve, and
-full-report disclosure keys. P4 adds a hash-seed-invariance regression test
-(re-running a B1 slice under two PYTHONHASHSEED values gives identical NAV
-paths).
+`research/baselines/test_baselines.py` +
+`research/execution/test_ledger.py`, covering the §9 required evaluation
+tests (rf subtraction incl. zero-variance Sharpe=None, constant-price
+cases, loss/drawdown sign conventions, CAGR annualization, missing-fold
+behavior, all-in vs ongoing turnover reconciliation), strategy causality
+(future-price perturbation leaves decisions and past NAV paths unchanged),
+caps enforcement, warmup abstention, band suppression, whole-share
+flooring, the B2 cash reserve, and full-report disclosure keys. P4 adds a
+hash-seed-invariance regression test (re-running a B1 slice under two
+PYTHONHASHSEED values gives identical NAV paths). The corrected timing adds
+six regressions: every fill at its own session's open (price equality),
+decision-to-fill gaps (sells ≥ t+1, buys ≥ t+2), the 2020-02-03 rotation
+case (sell t+1, buy at the settlement session, nothing at t+2's open),
+beyond-window orders expire unfilled with warnings (never fire early),
+buys dropped when no fill session remains, and ex-date dividend semantics
+(sell at ex-date open receives; buy at ex-date open does not).

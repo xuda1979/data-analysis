@@ -66,6 +66,31 @@ mechanical stress replays excluded). Registered at P0:
 | 9 | A4 | Combined controller | registered |
 | 10 | A4-loo-* | Leave-one-component-out variants of A4 | registered (family) |
 
+### Correction addendum (2026-11-04, post-P4, commit 26a4d3b)
+
+Rows 1–7 were scored under a runner with two timing defects (P3 record's
+second correction header documents both): (i) ALL pending orders filled at
+t+1's open, so rotation buys spent same-rotation sells' unsettled proceeds
+(plan §3.1 violation); (ii) ex-date dividends credited after fills instead
+of before. All rows were re-scored the same day under the corrected
+session-aware dispatch; rows are NOT consumed twice — the addendum
+supersedes the original numbers in place, per the append-only rule
+(entries are never removed; the correction is recorded, not hidden).
+
+Corrected headline numbers (whole-path, development history):
+
+| # | ID | corrected headline |
+|---|---|---|
+| 1 | B0 | unchanged (bookkeeping paths, no fills) |
+| 2 | B1 | $320,686 / 6.23% CAGR / 0.550 Sharpe / 24.3% MaxDD |
+| 3 | B2 | $248,939 / 4.85% / 0.450 / 14.6% |
+| 4 | B3 | minvar $231,486 / 4.45% / 0.551 / 16.4%; ivvol $235,896 / 4.55% / 0.519 / 18.5% |
+| 5 | B4 | $284,877 / 5.58% / 0.531 / 21.92% / 0.063 half-turn |
+| 6 | A1 | refuted stands: (d)-vs-(b) half-turn +39.3% vs required −20%; CAGR +0.19pp, MaxDD +0.26pp within margins |
+| 7 | A2 | uniform best CAGR (6.52%); persistence MaxDD 9.37%, rolling-252 breach 1.792 > 1.5 persists |
+
+Every pre-registered verdict is unchanged by the correction.
+
 Remaining budget: 14 unallocated slots. Every added candidate, failed run, manual rule change,
 and abandoned family gets a row here before scoring. Combining winning parts is an additional
 registered candidate, not a free improvement.

@@ -5,6 +5,19 @@ enumeration check). All results are **retrospective development
 diagnostics** on 2007-07-26..2026-11-03 (4850 sessions); every pre-T0
 interval is development history per the data-exposure registry
 (T0 = 2026-11-04). Nothing here is confirmation evidence.
+**Correction (2026-11-04, P5, commit 26a4d3b):** every number below was
+re-run after the P3 runner timing fix (see P3_BASELINES.md's second
+correction header): the old runner executed ALL pending orders at t+1's
+open, so rotation buys filled early on the same-rotation sells' unsettled
+proceeds (the plan §3.1 violation), and ex-date dividends were credited
+after fills. The corrected runner dispatches each order only at its own
+fill session (sells t+1; buys post-settlement), never early. All tables
+below are the corrected, re-run numbers; the pre-correction tables are
+retained in git history (59ed5f9) and are superseded. Materiality: H1
+verdict margins move slightly ((d)-vs-(b) half-turn +38.4% → +39.3%) —
+**every pre-registered verdict is unchanged**: H1 refuted on the turnover
+margin, supported on CAGR/MaxDD; H2 uniform best CAGR, persistence best
+MaxDD with the rolling-252 breach persisting (1.753 → 1.792 > 1.5).
 
 **Scope:** plan §5 (H1, H2), §6 (clocks/costs/turnover — inherited from the
 P3 runner), §9 (tests). Protocol `research/protocols/unlevered_v1.json`.
@@ -64,34 +77,34 @@ Whole-path results (2007-07-26 → 2026-11-03, $100k start, all-in costs):
 
 | arm | NAV end | net CAGR | Sharpe | MaxDD | ann. half-turn | roll-252 max | trades |
 |---|---|---|---|---|---|---|---|
-| (a) monthly | $330,833 | 6.40% | 0.678 | 12.13% | 2.234 | 4.774 | 630 |
-| (b) cost-band | $285,357 | 5.59% | 0.533 | 21.86% | 0.062 | 0.853 | 236 |
-| (c) error-band | $292,709 | 5.73% | 0.605 | 21.64% | 0.085 | 0.897 | 91 |
-| (d) full | $287,358 | 5.63% | 0.561 | 21.59% | 0.086 | 0.662 | 62 |
+| (a) monthly | $316,328 | 6.16% | 0.655 | 11.88% | 2.260 | 4.820 | 633 |
+| (b) cost-band | $284,877 | 5.58% | 0.531 | 21.92% | 0.063 | 0.860 | 236 |
+| (c) error-band | $292,673 | 5.73% | 0.603 | 21.74% | 0.084 | 0.863 | 90 |
+| (d) full | $294,978 | 5.77% | 0.576 | 22.18% | 0.087 | 0.660 | 61 |
 
 ### Pre-registered ablation verdict (d) vs (b) — plan §5 H1
 
 | margin | required | observed | verdict |
 |---|---|---|---|
-| half-turn reduction | ≥ 20% | **+38.4%** (0.062 → 0.086) | **refuted** |
-| net CAGR loss | ≤ 0.5pp | +0.04pp (5.59% → 5.63%) | supported |
-| MaxDD worsening | ≤ 1pp | −0.27pp (21.86% → 21.59%, improves) | supported |
+| half-turn reduction | ≥ 20% | **+39.3%** (0.063 → 0.087) | **refuted** |
+| net CAGR loss | ≤ 0.5pp | +0.19pp (5.58% → 5.77%) | supported |
+| MaxDD worsening | ≤ 1pp | +0.26pp (21.92% → 22.18%) | supported |
 
-Per-fold medians (16 development folds): half-turn −1.4% (7/16 folds
-≤ −20%), CAGR +0.80pp (12/16 within −0.5pp), MaxDD −0.56pp (11/16 within
+Per-fold medians (16 development folds): half-turn −3.4% (7/16 folds
+≤ −20%), CAGR +1.06pp (12/16 within −0.5pp), MaxDD −0.61pp (11/16 within
 +1pp). **The pre-registered H1 hypothesis is REFUTED: (d) does not reduce
 turnover ≥ 20% versus (b) once the zero-mu months route through each arm's
 own rule.** The turnover margin fails because with (b) nearly idle after
-2020 (0.062 ann. half-turn), (d)'s risk term (G includes the risk penalty)
+2020 (0.063 ann. half-turn), (d)'s risk term (G includes the risk penalty)
 admits MORE de-risking trades than (b)'s pure benefit>cost gate. Negative
 result recorded; H1's added complexity is not justified on this window.
 
 Honest headline: **plain monthly trading (a) dominates every threshold arm
-on Sharpe (0.678 vs 0.53–0.61) and MaxDD (12.13% vs 21.6–21.9%)** at the
-cost of 26–36x the turnover (2.234 vs 0.06–0.09 half-turn). The admission
+on Sharpe (0.655 vs 0.53–0.60) and MaxDD (11.88% vs 21.7–22.2%)** at the
+cost of 25–35x the turnover (2.260 vs 0.06–0.09 half-turn). The admission
 rules do not distinguish good from bad trend trades on this window; their
 main effect is to hold ~82% risky through 2022 (troughs: (b) 2022-10-20 at
-21.86% vs (a) 2020-03-18 at 12.13%). The de-risking value of acting on
+21.92% vs (a) 2020-03-18 at 11.88%). The de-risking value of acting on
 zero-mu months accrues to whichever arm actually trades them — (a).
 
 ### Rejected-buy disclosure (banded arms)
@@ -100,7 +113,10 @@ The band arms concentrate buys in strong-signal months with no accompanying
 sells. Funded from settled cash alone, the deterministic universe order
 lets the first buy absorb the cash; later same-rotation buys are
 zero-fill rejected (conservative account rule, disclosed not retried).
-Arm (a): 11 rejected buys. Partial fills: (a) 131. Zero failed fills and
+Corrected timing makes this visible: (b) 172 rejected buys (VWO 94, TIP
+22, SPY 22, VEA 17, IEF 11 — buys arriving a session after the sells'
+settlement, with the cash already committed); (c) 25; (d) 6; (a) 10.
+Partial fills: (a) 121, (b) 231, (c) 85, (d) 51. Zero failed fills and
 zero invariant violations across all arms.
 
 ### Decision log (plan §5 completeness)
@@ -129,21 +145,20 @@ Whole-path results (2007-07-26 → 2026-11-03, $100k start, all-in costs):
 
 | arm | NAV end | net CAGR | Sharpe | MaxDD | ann. half-turn | roll-252 max | trades | median FIFO hold |
 |---|---|---|---|---|---|---|---|---|
-| uniform | $334,569 | 7.37% | 0.585 | 21.28% | 0.399 | 1.068 | 239 | 489d |
-| fixed-bands | $310,276 | 5.59% | 0.533 | 21.86% | 0.062 | 0.853 | 236 | 579d |
-| persistence | $199,961 | 4.81% | 0.559 | 10.61% | 1.051 | 1.753 | 296 | 911d |
+| uniform | $337,683 | 6.52% | 0.521 | 21.25% | 0.363 | 0.981 | 231 | 547d |
+| fixed-bands | $284,862 | 5.58% | 0.531 | 21.93% | 0.063 | 0.860 | 234 | 274d |
+| persistence | $236,560 | 4.57% | 0.547 | 9.37% | 1.058 | 1.792 | 303 | 306d |
 
 Ablation reading (plan §5 H2: "compare equal turnover budgets with uniform
 monthly spending, fixed bands, and persistence-based spending"):
 
-- **uniform** achieves the highest net CAGR (7.37%) — spending the budget
+- **uniform** achieves the highest net CAGR (6.52%) — spending the budget
   on the highest-expected-benefit trades each month regardless of costs
   beat every cost-aware rule on this window.
-- **persistence** achieves the lowest MaxDD (10.61%, the only arm under
-  the 15% gate) and the longest realized holding time (911d median FIFO)
-  — its risk-mandated exits (420 over the path) de-risk when trends flip
-  — but pays for it with the lowest CAGR (4.81%) and breaching the
-  rolling-252 turnover gate (1.753 > 1.5): risk exits spend real turnover
+- **persistence** achieves the lowest MaxDD (9.37%, the only arm under
+  the 15% gate) — its risk-mandated exits de-risk when trends flip — but
+  pays for it with the lowest CAGR (4.57%) and breaching the
+  rolling-252 turnover gate (1.792 > 1.5): risk exits spend real turnover
   the budget cannot refuse.
 - **fixed-bands** matches H1(b) identically by construction (same gate,
   budget never binds) — its budget container never constrains because the
@@ -155,7 +170,7 @@ monthly spending, fixed bands, and persistence-based spending"):
   budget allocation.
 
 Disclosures: zero failed fills across all arms; persistence's
-rolling-252 turnover gate breach (1.753 vs 1.5 max) is a gate failure,
+rolling-252 turnover gate breach (1.792 vs 1.5 max) is a gate failure,
 recorded, not tuned away — risk-mandated exits are the design's stated
 override ("risk-mandated reductions may override this threshold, but their
 costs and turnover remain visible").
@@ -182,7 +197,9 @@ warmup-returns-drifted-weights regression), `test_enumeration.py` (3:
 exact fee/rounding check against small-universe enumeration — commission
 closed-form boundaries incl. the 1% cap region, enumerated 2-symbol
 integer allocations fee-exact through the ledger with cash floor, runner
-slice whole-share/cash invariants). Full suite: 80 passed.
+slice whole-share/cash invariants), plus the six corrected-timing
+regressions in `research/baselines/test_baselines.py` (documented in
+P3_BASELINES.md). Full suite: 86 passed.
 
 Enumeration note (plan §5 H2): the runner's greedy whole-share flooring
 is verified FEASIBLE against the enumerated set — it is not claimed to be
