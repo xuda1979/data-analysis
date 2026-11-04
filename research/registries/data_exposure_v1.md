@@ -59,9 +59,9 @@ mechanical stress replays excluded). Registered at P0:
 | 2 | B1 | Capped equal-weight, monthly banded rebalance | scored 2026-11-04 (P3 record; selected strongest simple control on inner development data; numbers corrected same-day for the hash-seed determinism bug, see P3 record header) |
 | 3 | B2 | Fixed 126-session trend/RS rule, long-only, monthly | scored 2026-11-04 (P3 record; literal-cash abstention per plan §8; corrected as above) |
 | 4 | B3 | Shrinkage min-variance + capped inverse-vol, no borrowing | scored 2026-11-04 (P3 record; both variants under one trial row, per protocol; corrected as above) |
-| 5 | B4 | Forecasts + fixed no-trade bands + realistic costs (primary control) | registered |
-| 6 | A1 | B4 + H1 uncertainty/cost hold threshold | registered |
-| 7 | A2 | B4 + H2 turnover budget | registered |
+| 5 | B4 | Forecasts + fixed no-trade bands + realistic costs (primary control) | scored 2026-11-04 as H1 arm (b) (P4 record `research/controllers/P4_CONTROLLERS.md`; whole-path 5.59% CAGR / 21.86% MaxDD / 0.062 half-turn; development history) |
+| 6 | A1 | B4 + H1 uncertainty/cost hold threshold | scored 2026-11-04 as H1 arms (c)/(d) (P4 record); pre-registered (d)-vs-(b) margins refuted on turnover (+38.4% vs required −20%); not justified on development evidence |
+| 7 | A2 | B4 + H2 turnover budget | scored 2026-11-04 as H2 arms uniform/fixed-bands/persistence (P4 record); no net-CAGR advantage over uniform spending; persistence's MaxDD profile (10.61%) carried forward to A4 evaluation on risk-adjusted grounds (disclosed judgment call, not a gate pass) |
 | 8 | A3 | B4 + H3 asymmetric risk budgets | registered |
 | 9 | A4 | Combined controller | registered |
 | 10 | A4-loo-* | Leave-one-component-out variants of A4 | registered (family) |
