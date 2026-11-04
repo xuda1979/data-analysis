@@ -63,6 +63,7 @@ class RunConfig:
     commission_schedule: str = "ibkr_pro_fixed"
     commission_multiplier: float = 1.0
     liquidate_at_end: bool = True    # terminal liquidation included (plan §6.4)
+    controller: object = None        # P4: overrides strategy fn at monthly checkpoints
 
 
 DEFAULT_CONFIGS = {
@@ -111,10 +112,12 @@ def _daily_vol(panel: Panel, symbol: str, i: int, window: int = 20) -> float:
 
 
 def _execute_at_open(ledger: Ledger, panel: Panel, orders: list, i: int,
-                     costs: dict, warnings: list, failed: list) -> float:
+                     costs: dict, warnings: list, failed: list,
+                     controller=None) -> float:
     """Fill `orders` at session i's open; returns pretrade NAV (captured before
     the first fill of the session). Failed/partial fills recorded, never
-    silently skipped."""
+    silently skipped. `controller.on_fill(fill, pretrade_nav)` fires after
+    every fill attempt (P4: H2 budget spends actual turnover)."""
     marks_all = {s: panel.close[s][i - 1] for s in panel.close}
     pretrade_nav = ledger.nav(marks_all)
     for order in orders:
@@ -128,6 +131,8 @@ def _execute_at_open(ledger: Ledger, panel: Panel, orders: list, i: int,
                 warnings.append(
                     f"{panel.sessions[i]} partial {sym}: {fill.shares_filled:.0f} of "
                     f"{order.shares:.0f} shares (participation cap); residual abandoned")
+            if controller is not None:
+                controller.on_fill(fill, pretrade_nav)
         except LedgerError as e:
             failed.append({"session": panel.sessions[i], "symbol": sym,
                            "error": str(e)})
@@ -180,9 +185,18 @@ def _decision_orders(ledger: Ledger, panel: Panel, i: int, targets: dict,
 
     band = config.band if config.band is not None else 0.0
     orderable = qualified | ({strat.RESERVE} if reserve_ok else set())
+    # Deterministic symbol order (universe order, reserve LAST: the reserve is
+    # the residual sink, so in a settled-cash crunch the risky buys fill
+    # first and BIL absorbs the remainder). P3 bug fix: this loop previously
+    # iterated a set, whose order depends on PYTHONHASHSEED; when buys
+    # competed for settled cash, the fill sequence -- and hence the whole
+    # path -- varied across processes. Any fixed order is a disclosed choice;
+    # hash order is not.
+    delta_syms = [s for s in (*strat.NON_RESERVE, strat.RESERVE)
+                  if s in (set(all_tgt) | set(cur)) & orderable]
     # pass 1: compute deltas (which symbols sell, which buy, at what weight)
     deltas = []
-    for sym in (set(all_tgt) | set(cur)) & orderable:
+    for sym in delta_syms:
         d = all_tgt.get(sym, 0.0) - cur.get(sym, 0.0)
         if abs(d) <= band or abs(d) * nav < 250.0:
             continue
@@ -235,7 +249,8 @@ def run_strategy(panel: Panel, config: RunConfig,
     days: list[DayRecord] = []
     warnings: list[str] = []
     failed: list[dict] = []
-    strat_fn = _strategy_fn(config.strategy)
+    strat_fn = None if config.controller is not None else _strategy_fn(config.strategy)
+    controller = config.controller
 
     pending_sells: list[Order] = []   # decided t, fill t+1 open
     pending_buys: list[Order] = []    # decided t, fill t+2 open (post-settle)
@@ -252,7 +267,8 @@ def run_strategy(panel: Panel, config: RunConfig,
         pretrade_nav = None
         if session_orders:
             pretrade_nav = _execute_at_open(ledger, panel, session_orders, i,
-                                            config.costs, warnings, failed)
+                                            config.costs, warnings, failed,
+                                            controller)
         pending_sells, pending_buys = [], []
 
         # ---- dividends on ex-date (shares held entering the session) --------
@@ -281,10 +297,17 @@ def run_strategy(panel: Panel, config: RunConfig,
                               panel.rf_daily[i], ledger.settled_cash))
 
         # ---- after close: monthly decision ---------------------------------
+        if controller is not None:
+            controller.on_session(panel, i, ledger)
         mk = month_key(s)
         if mk != decided_month and i + 1 < len(sessions) and (i < i1 or not config.liquidate_at_end):
             decided_month = mk
-            targets = strat_fn(panel, i)
+            if controller is not None:
+                marks = {sym: panel.close[sym][i] for sym in panel.close}
+                nav_now = ledger.nav(marks)
+                targets = controller.decide(panel, i, ledger, nav_now, marks)
+            else:
+                targets = strat_fn(panel, i)
             sells, buys = _decision_orders(ledger, panel, i, targets, config,
                                            warnings)
             pending_sells, pending_buys = sells, buys

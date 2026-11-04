@@ -56,9 +56,9 @@ mechanical stress replays excluded). Registered at P0:
 | # | ID | Role | Status |
 |---|---|---|---|
 | 1 | B0 | Zero-interest cash / Treasury reserve / equity buy-and-hold / 60-40 reference | scored 2026-11-04 (P3 record `research/baselines/P3_BASELINES.md`; development history) |
-| 2 | B1 | Capped equal-weight, monthly banded rebalance | scored 2026-11-04 (P3 record; selected strongest simple control on inner development data) |
-| 3 | B2 | Fixed 126-session trend/RS rule, long-only, monthly | scored 2026-11-04 (P3 record; literal-cash abstention per plan §8) |
-| 4 | B3 | Shrinkage min-variance + capped inverse-vol, no borrowing | scored 2026-11-04 (P3 record; both variants under one trial row, per protocol) |
+| 2 | B1 | Capped equal-weight, monthly banded rebalance | scored 2026-11-04 (P3 record; selected strongest simple control on inner development data; numbers corrected same-day for the hash-seed determinism bug, see P3 record header) |
+| 3 | B2 | Fixed 126-session trend/RS rule, long-only, monthly | scored 2026-11-04 (P3 record; literal-cash abstention per plan §8; corrected as above) |
+| 4 | B3 | Shrinkage min-variance + capped inverse-vol, no borrowing | scored 2026-11-04 (P3 record; both variants under one trial row, per protocol; corrected as above) |
 | 5 | B4 | Forecasts + fixed no-trade bands + realistic costs (primary control) | registered |
 | 6 | A1 | B4 + H1 uncertainty/cost hold threshold | registered |
 | 7 | A2 | B4 + H2 turnover budget | registered |
