@@ -25,6 +25,10 @@ coverage.json
 !research/data/
 research/data/panel/*
 !research/data/panel/coverage_report.json
+# frozen risk-free reference (DGS3MO feed snapshot) — tracked as the
+# evaluation input so metric reproduction does not depend on FRED refetch
+!research/data/panel/DGS3MO.csv
+!research/data/panel/DGS10.csv
 
 # Real-data history cache (regenerable via tools/quant/data_history.py)
 # (/* patterns + parent negations keep the archive subtree re-includable;

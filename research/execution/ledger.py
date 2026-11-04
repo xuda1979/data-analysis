@@ -20,6 +20,7 @@ Turnover (plan §6.4):
 """
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass, field
 from datetime import date
 
@@ -116,6 +117,7 @@ class Fill:
     friction_usd: float  # spread/slippage/impact charged at fill
     settles_on: date
     status: str = "filled"   # filled | partial | rejected
+    resize_reason: str | None = None  # "participation" | "cash" | "shares" when partial
 
     @property
     def notional(self) -> float:
@@ -151,6 +153,7 @@ class Ledger:
     """One account: positions, settled cash, unsettled receivables, cost ledger."""
     initial_cash: float
     commission_schedule: str = "ibkr_pro_fixed"
+    commission_multiplier: float = 1.0   # doubled-cost stress = 2.0 (plan §6.3)
     positions: dict = field(default_factory=dict)
     settled_cash: float = 0.0
     unsettled_proceeds: dict = field(default_factory=dict)  # settle_date -> USD
@@ -158,6 +161,7 @@ class Ledger:
     cost_total: float = 0.0
     commission_total: float = 0.0
     turnover_notional_total: float = 0.0  # sum |filled*ref_price| (g numerator, USD)
+    whole_shares: bool = True             # IBKR Pro whole-share schedule (plan §6.2)
     participation_breaches: int = 0
 
     def __post_init__(self):
@@ -172,6 +176,10 @@ class Ledger:
             self.settled_cash += self.unsettled_proceeds.pop(d)
 
     # ---- execution --------------------------------------------------------------
+    def _commission(self, shares: float, price: float) -> float:
+        return (self.commission_multiplier *
+                commission(shares, price, self.commission_schedule))
+
     def execute(self, order: Order, *, fill_price: float, adv_dollars: float,
                 daily_vol: float, half_spread: float, extra_slippage: float,
                 impact_coeff: float = 1.0, max_participation: float = 0.001) -> Fill:
@@ -191,14 +199,21 @@ class Ledger:
 
         cap_shares = max_participation * adv_dollars / fill_price
         requested = order.shares
+        binding: str | None = None   # constraint that shrank the order, if any
+        if self.whole_shares:
+            requested = math.floor(requested)
         fillable = min(requested, cap_shares) if cap_shares > 0 else requested
+        if fillable < requested - 1e-9:
+            binding = "participation"
+        if self.whole_shares:
+            fillable = math.floor(fillable)
         if fillable <= 0:
             fill = Fill(order, fill_price, 0.0, 0.0, 0.0,
                         settlement_days(order.session), "rejected")
             self.fills.append(fill)
             return fill
 
-        commission_usd = commission(fillable, order.ref_price, self.commission_schedule)
+        commission_usd = self._commission(fillable, order.ref_price)
         friction_usd = price_impact_cost(fillable, order.ref_price, adv_dollars, daily_vol,
                                          half_spread=half_spread,
                                          extra_slippage=extra_slippage,
@@ -211,6 +226,8 @@ class Ledger:
                 # resize to what cash can afford (reserve fees), else reject
                 budget = max(self.settled_cash - cost, 0.0)
                 affordable = min(fillable, budget / fill_price)
+                if self.whole_shares:
+                    affordable = math.floor(affordable)
                 floor_shares = 1.0  # a sub-1-share fill is rejected as uneconomic
                 if affordable < floor_shares:
                     fill = Fill(order, fill_price, 0.0, 0.0, 0.0,
@@ -218,7 +235,8 @@ class Ledger:
                     self.fills.append(fill)
                     return fill
                 fillable, gross = affordable, affordable * fill_price
-                commission_usd = commission(fillable, order.ref_price, self.commission_schedule)
+                binding = binding or "cash"
+                commission_usd = self._commission(fillable, order.ref_price)
                 friction_usd = price_impact_cost(fillable, order.ref_price, adv_dollars, daily_vol,
                                                  half_spread=half_spread,
                                                  extra_slippage=extra_slippage,
@@ -243,7 +261,10 @@ class Ledger:
                     self.fills.append(fill)
                     return fill
                 fillable = pos.shares
-                commission_usd = commission(fillable, order.ref_price, self.commission_schedule)
+                if self.whole_shares:
+                    fillable = math.floor(fillable)
+                binding = binding or "shares"
+                commission_usd = self._commission(fillable, order.ref_price)
                 friction_usd = price_impact_cost(fillable, order.ref_price, adv_dollars, daily_vol,
                                                  half_spread=half_spread,
                                                  extra_slippage=extra_slippage,
@@ -259,7 +280,7 @@ class Ledger:
         status = "partial" if fillable < requested - 1e-9 else "filled"
         fill = Fill(order, fill_price, fillable, commission_usd, friction_usd,
                     date.fromordinal(order.session.toordinal() + settlement_days(order.session)),
-                    status)
+                    status, binding if status == "partial" else None)
         self.fills.append(fill)
         self.cost_total += cost
         self.commission_total += commission_usd
