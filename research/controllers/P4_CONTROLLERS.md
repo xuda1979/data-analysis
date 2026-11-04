@@ -1,10 +1,10 @@
 # P4 Record — Controller framework, H1 hold/trade threshold arms, H2 turnover budget
 
-**Status:** in progress (H1 + H2 complete; record being finalized). All
-results are **retrospective development diagnostics** on
-2007-07-26..2026-11-03 (4850 sessions); every pre-T0 interval is
-development history per the data-exposure registry (T0 = 2026-11-04).
-Nothing here is confirmation evidence.
+**Status:** complete (P4a framework, P4b protocol, P4c H1, P4d H2, P4e
+enumeration check). All results are **retrospective development
+diagnostics** on 2007-07-26..2026-11-03 (4850 sessions); every pre-T0
+interval is development history per the data-exposure registry
+(T0 = 2026-11-04). Nothing here is confirmation evidence.
 
 **Scope:** plan §5 (H1, H2), §6 (clocks/costs/turnover — inherited from the
 P3 runner), §9 (tests). Protocol `research/protocols/unlevered_v1.json`.
@@ -178,4 +178,14 @@ hash-seed invariance regression), `test_h1_hold.py` (7),
 override with visible negative remaining, live-cohort holds,
 budget-blocked candidates logged with benefit (opportunity-lost proxy),
 synthetic FIFO holding times, causality under future perturbation,
-warmup-returns-drifted-weights regression). Full suite: 77 passed.
+warmup-returns-drifted-weights regression), `test_enumeration.py` (3:
+exact fee/rounding check against small-universe enumeration — commission
+closed-form boundaries incl. the 1% cap region, enumerated 2-symbol
+integer allocations fee-exact through the ledger with cash floor, runner
+slice whole-share/cash invariants). Full suite: 80 passed.
+
+Enumeration note (plan §5 H2): the runner's greedy whole-share flooring
+is verified FEASIBLE against the enumerated set — it is not claimed to be
+the optimum of the nonconvex integer problem ("do not claim a convex
+optimum when ticket minima or discrete selection make the problem
+nonconvex").
