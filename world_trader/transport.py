@@ -22,6 +22,7 @@ HOST_INTERVALS = {
     "finnhub.io": 1.1,
     "api.worldbank.org": 1.0,
     "api.bls.gov": 1.0,
+    "query1.finance.yahoo.com": 1.5,  # unlabeled free chart endpoint; stay conservative
 }
 SECRET_PARAMS = {"api_key", "apikey", "token", "key", "access_token"}
 MAX_BYTES = 32 * 1024 * 1024

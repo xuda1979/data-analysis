@@ -17,6 +17,14 @@ data/
 *.sqlite3*
 coverage.json
 .coverage
+# unlevered_v1 raw panel snapshots (36MB, regenerable via
+# research/data/fetch_panel.py; sha256s recorded in the tracked
+# coverage_report.json + P1_QUALIFICATION.md). Anchored patterns + parent
+# negations (cboe_options precedent) because the un-anchored `data/` rule
+# would otherwise exclude the parent.
+!research/data/
+research/data/panel/*
+!research/data/panel/coverage_report.json
 
 # Real-data history cache (regenerable via tools/quant/data_history.py)
 # (/* patterns + parent negations keep the archive subtree re-includable;

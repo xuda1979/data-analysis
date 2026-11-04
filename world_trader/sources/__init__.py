@@ -38,4 +38,5 @@ CATALOG = {
     "clinicaltrials": {"service": "ClinicalTrials.gov", "credential": None, "data": "Projected industry-sponsored trial metadata, no contacts"},
     "coingecko": {"service": "CoinGecko Demo", "credential": "COINGECKO_DEMO_API_KEY", "data": "Price, market cap, 24-hour volume; up to 365-day Demo history"},
     "finnhub-news": {"service": "Finnhub", "credential": "FINNHUB_API_KEY", "data": "Company-news metadata, subject to account entitlement and coverage"},
+    "yahoo-chart": {"service": "Yahoo Finance (unlabeled chart endpoint)", "credential": None, "data": "Daily OHLCV + adjclose + dividend/split events; evaluated-only, cross-check required before any performance claim"},
 }

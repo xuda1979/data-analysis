@@ -1,0 +1,128 @@
+{
+ "fetched_at": "2026-11-04T04:24:48.555027+00:00",
+ "symbols": {
+  "SPY": {
+   "status": "OK",
+   "bars": 6750,
+   "dividends": 108,
+   "splits": 0,
+   "first": "2000-01-03",
+   "last": "2026-11-03",
+   "gaps_over_10d": 0,
+   "largest_gaps": [],
+   "null_closes": 0
+  },
+  "VEA": {
+   "status": "OK",
+   "bars": 4850,
+   "dividends": 67,
+   "splits": 0,
+   "first": "2007-07-26",
+   "last": "2026-11-03",
+   "gaps_over_10d": 0,
+   "largest_gaps": [],
+   "null_closes": 0
+  },
+  "VWO": {
+   "status": "OK",
+   "bars": 5448,
+   "dividends": 63,
+   "splits": 1,
+   "first": "2005-03-10",
+   "last": "2026-11-03",
+   "gaps_over_10d": 0,
+   "largest_gaps": [],
+   "null_closes": 0
+  },
+  "IEF": {
+   "status": "OK",
+   "bars": 6106,
+   "dividends": 290,
+   "splits": 0,
+   "first": "2002-07-30",
+   "last": "2026-11-03",
+   "gaps_over_10d": 0,
+   "largest_gaps": [],
+   "null_closes": 0
+  },
+  "TLT": {
+   "status": "OK",
+   "bars": 6106,
+   "dividends": 288,
+   "splits": 0,
+   "first": "2002-07-30",
+   "last": "2026-11-03",
+   "gaps_over_10d": 0,
+   "largest_gaps": [],
+   "null_closes": 0
+  },
+  "TIP": {
+   "status": "OK",
+   "bars": 5764,
+   "dividends": 202,
+   "splits": 0,
+   "first": "2003-12-05",
+   "last": "2026-11-03",
+   "gaps_over_10d": 0,
+   "largest_gaps": [],
+   "null_closes": 0
+  },
+  "GLD": {
+   "status": "OK",
+   "bars": 5524,
+   "dividends": 0,
+   "splits": 0,
+   "first": "2004-11-18",
+   "last": "2026-11-03",
+   "gaps_over_10d": 0,
+   "largest_gaps": [],
+   "null_closes": 0
+  },
+  "BIL": {
+   "status": "OK",
+   "bars": 4890,
+   "dividends": 127,
+   "splits": 1,
+   "first": "2007-05-30",
+   "last": "2026-11-03",
+   "gaps_over_10d": 0,
+   "largest_gaps": [],
+   "null_closes": 0
+  }
+ },
+ "cross_check": {
+  "SPY": {
+   "cboe_spot_20261102": 752.661,
+   "yahoo_close_20261102": 752.0999755859375,
+   "rel_diff": 0.000745,
+   "within_50bps": true
+  },
+  "GLD": {
+   "cboe_spot_20261102": 362.11,
+   "yahoo_close_20261102": 361.6499938964844,
+   "rel_diff": 0.00127,
+   "within_50bps": true
+  },
+  "TLT": {
+   "cboe_spot_20261102": 81.55,
+   "yahoo_close_20261102": 81.7300033569336,
+   "rel_diff": 0.002207,
+   "within_50bps": true
+  }
+ },
+ "failures": [],
+ "manifest": {
+  "research/data/panel/SPY.json": "018df9eb668b3d91f526d4c4311154998cd5d5626b78fe733ff0ac0ba5f2f618",
+  "research/data/panel/VEA.json": "17604a656b8438b0e00d06b04d08145a01283bca103b0788e96afdbf8821914e",
+  "research/data/panel/VWO.json": "b594b543c12d758cd45b9b4124a77d1575b8addab0d63e3285374111c0094ee7",
+  "research/data/panel/IEF.json": "f878dfcc64c2c902036fa92f184184c21a6edc2c384e4dc32c8e40e9d4e5c41a",
+  "research/data/panel/TLT.json": "09e04963abd2db353415fb6c8db66f605a4fc6f9899547245ed1fd0dc15beeff",
+  "research/data/panel/TIP.json": "83cf07a999c36aa7d6e7118c5fdb09e235d27d4eedb74ca507b7404b050b0621",
+  "research/data/panel/GLD.json": "7efd440e1c23044fa7b7948710933f0924ea6b43f6af651cb922977efe4fa610",
+  "research/data/panel/BIL.json": "34988a763e414d7f5484978b1afa665aa9cfb88867e2f8180f7f01e75bfd0a12"
+ },
+ "window": [
+  "2000-01-01",
+  "2026-11-04"
+ ]
+}
