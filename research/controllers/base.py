@@ -23,6 +23,16 @@ Protocol:
   on_session(panel, i, ledger)                    (optional)
       Called at each session close (after marking, before the monthly
       decision on decision days). H3's daily risk monitor uses it (P5).
+  risk_targets(panel, i, ledger) -> dict | None   (optional, P5)
+      Daily risk monitor. Called after on_session at each session close
+      EXCEPT sessions where a monthly decide() ran (decide() embeds the
+      monitor state there). Return None (no action) or target weights for
+      non-reserve symbols: a monitor-mandated rebalance the runner executes
+      through the SAME order/ledger path with the no-trade band DISABLED
+      (predeclared reduction rule, plan §5 H3 — emergency turnover is
+      recorded, never hidden). Returned targets REPLACE any pending orders
+      (newest decision wins; a de-risking cut cancels stale buys). Base
+      default: None (P4 controllers structurally unchanged).
 
 All controller state is development-history diagnostics until T0
 (data-exposure registry).
@@ -57,6 +67,9 @@ class Controller:
 
     def on_session(self, panel, i, ledger) -> None:
         pass
+
+    def risk_targets(self, panel, i, ledger) -> dict | None:
+        return None
 
 
 class MVController(Controller):

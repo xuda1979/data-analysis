@@ -15,10 +15,13 @@ trailing 20-session dollar volume; IBKR Pro Fixed whole-share commissions.
 Funding realism (plan §3.1 conservative cash account): sells settle T+1/T+2,
 so a monthly rotation's buys cannot be same-session-funded by its sells.
 The runner therefore splits each decision into (1) sells at t+1 open,
-(2) buys at t+2 open (after the sell settle date, using settled cash only).
-Unsettled-sale proceeds are never spent (T+1 from 2024-05-28: a t+1 sell
-settles on t+2's date, so t+2 buys spend it only after _receive_settlements
-on that session — which the ledger does inside execute()).
+(2) buys at the first session at/after the sells' settlement (t+3 under
+T+2, t+2 under T+1; buy-only decisions wait to t+2), using settled cash
+only. Each pending order fills ONLY at its own fill session's open
+(session-aware dispatch); unsettled-sale proceeds are never spent (T+1
+from 2024-05-28: a t+1 sell settles on t+2's date, so t+2 buys spend it
+only after _receive_settlements on that session — which the ledger does
+inside execute()).
 
 Dividends: credited as settled cash on the ex-date to shares held entering
 that session (selling at the ex-date open does not forfeit; verified P1
@@ -109,6 +112,17 @@ def _daily_vol(panel: Panel, symbol: str, i: int, window: int = 20) -> float:
     mean = sum(rs) / len(rs)
     var = sum((x - mean) ** 2 for x in rs) / (len(rs) - 1)
     return math.sqrt(var)
+
+
+def _credit_dividends(ledger: Ledger, panel: Panel, i: int) -> None:
+    """Ex-date dividends go to shares held ENTERING the session, credited
+    before that session's fills: selling at the ex-date open does not
+    forfeit the dividend; buying at the ex-date open does not receive it."""
+    for sym, dmap in panel.dividends.items():
+        amt = dmap.get(i)
+        pos = ledger.positions.get(sym)
+        if amt and pos and pos.shares > 0:
+            ledger.settled_cash += pos.shares * amt
 
 
 def _execute_at_open(ledger: Ledger, panel: Panel, orders: list, i: int,
@@ -220,6 +234,9 @@ def _decision_orders(ledger: Ledger, panel: Panel, i: int, targets: dict,
     buy_s = date.fromisoformat(panel.sessions[k]) if k < n else None
 
     # pass 2: build orders
+    if buy_s is None and any(dd > 0 for _, dd, _ in deltas):
+        warnings.append(f"{panel.sessions[i]} buys dropped: no fill session "
+                        f"remains in the panel after the settlement wait")
     for sym, d, shares in deltas:
         if d < 0:
             held = ledger.positions.get(sym)
@@ -258,25 +275,32 @@ def run_strategy(panel: Panel, config: RunConfig,
 
     for i in range(i0, i1 + 1):
         s = sessions[i]
+        # ---- dividends on ex-date (shares held entering the session) --------
+        # BEFORE the session's fills (timing fix 2026-11-04): previously ran
+        # after fills, so an ex-date open sell forfeited its dividend and an
+        # ex-date open buy wrongly received it.
+        _credit_dividends(ledger, panel, i)
+
         # ---- open: fills ---------------------------------------------------
-        session_orders = []
-        if pending_sells:
-            session_orders += pending_sells
-        if pending_buys:
-            session_orders += pending_buys
+        # Session-aware dispatch (timing-bug fix, 2026-11-04): each pending
+        # order fills ONLY at its own fill session (sells t+1, buys at the
+        # post-settlement session k) and at that session's open. This block
+        # previously executed ALL pending orders at t+1, so buys filled at
+        # t+1's open and Ledger.execute's _receive_settlements(order.session)
+        # pulled the same-rotation sells' UNSETTLED proceeds forward at t+1
+        # -- the exact violation the sell/buy split exists to prevent (plan
+        # §3.1). Orders whose fill session lies beyond the run window expire
+        # unfilled (never fire early); disclosed after the loop.
+        d = date.fromisoformat(s)
+        session_orders = ([o for o in pending_sells if o.session == d]
+                          + [o for o in pending_buys if o.session == d])
         pretrade_nav = None
         if session_orders:
             pretrade_nav = _execute_at_open(ledger, panel, session_orders, i,
                                             config.costs, warnings, failed,
                                             controller)
-        pending_sells, pending_buys = [], []
-
-        # ---- dividends on ex-date (shares held entering the session) --------
-        for sym, dmap in panel.dividends.items():
-            amt = dmap.get(i)
-            pos = ledger.positions.get(sym)
-            if amt and pos and pos.shares > 0:
-                ledger.settled_cash += pos.shares * amt
+        pending_sells = [o for o in pending_sells if o.session != d]
+        pending_buys = [o for o in pending_buys if o.session != d]
 
         # ---- close: mark + record ------------------------------------------
         close_marks = {sym: panel.close[sym][i] for sym in ledger.positions}
@@ -311,6 +335,12 @@ def run_strategy(panel: Panel, config: RunConfig,
             sells, buys = _decision_orders(ledger, panel, i, targets, config,
                                            warnings)
             pending_sells, pending_buys = sells, buys
+
+    # ---- expired orders (fill session beyond the run window) ---------------
+    for o in (*pending_sells, *pending_buys):
+        warnings.append(f"{o.session.isoformat()} expired unfilled: {o.side} "
+                        f"{o.symbol} (decided {o.decision_session.isoformat()}; "
+                        f"fill session beyond run window; never fired early)")
 
     # ---- terminal liquidation (plan §6.4) ----------------------------------
     if config.liquidate_at_end and i1 + 1 < len(sessions):

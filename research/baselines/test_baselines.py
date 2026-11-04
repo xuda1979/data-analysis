@@ -314,3 +314,165 @@ def test_run_report_discloses_everything():
     for key in ("failed_fills", "warnings", "partial_fills",
                 "rejected_fills", "terminal_liquidation", "pre_t0_status"):
         assert key in d
+
+
+# ---------------- runner timing regressions (2026-11-04 fixes) -------------------
+# Session-aware dispatch: every pending order fills ONLY at its own fill
+# session's open (sells t+1; buys at the first session at/after the sells'
+# settlement). Pre-fix, the main loop executed ALL pending orders at t+1's
+# open, so rotation buys filled a session (or more) early and
+# Ledger.execute's _receive_settlements(future buy date) spent the
+# same-rotation sells' unsettled proceeds at t+1. Dividends: ex-date credit
+# now runs BEFORE the session's fills (sell at the ex-date open does not
+# forfeit; buy at the ex-date open does not receive). These tests fail on
+# the pre-fix code.
+
+def test_every_fill_at_its_own_sessions_open():
+    panel = load_panel()
+    r = run_strategy(panel, DEFAULT_CONFIGS["B1"])
+    for f in r["ledger"].fills:
+        if f.shares_filled <= 0:
+            continue
+        idx = panel.sessions.index(f.order.session.isoformat())
+        assert f.fill_price == panel.open[f.order.symbol][idx], (
+            f"{f.order.symbol} {f.order.side} filled at "
+            f"{f.order.session.isoformat()} with price {f.fill_price} != "
+            f"that session's open {panel.open[f.order.symbol][idx]}")
+
+
+def test_no_fill_before_decision_plus_2_for_buys():
+    """Physical fill session of every buy is at least decision+1 (sells) or
+    decision+2 (buys wait for the post-settlement session; buy-only
+    decisions also wait to t+2 by construction)."""
+    panel = load_panel()
+    r = run_strategy(panel, DEFAULT_CONFIGS["B1"])
+    for f in r["ledger"].fills:
+        gap = (f.order.session - f.order.decision_session).days
+        if f.order.side == "sell":
+            assert gap >= 1
+        else:
+            assert gap >= 2
+
+
+def _crash_panel(n=50):
+    """Weekday panel 2019-12-02..2020-02-07 (50 sessions). The Dec 2 decision
+    warmup-abstains (no trailing ADV); the Jan 1 decision is the B1
+    establishment (buys fill Jan 3); SPY gaps up to 160 and VEA down to 40 at
+    Feb 3, so the Feb 3 decision is a rotation: sell SPY (fill Feb 4 = t+1),
+    buy VEA (fill Feb 6 = first session at/after the sells' T+2 settlement).
+    Per-session price drift makes every session's open unique."""
+    import datetime as _dt
+    days = []
+    d = _dt.date(2019, 12, 2)
+    while d <= _dt.date(2020, 2, 7):
+        if d.weekday() < 5:
+            days.append(d.isoformat())
+        d += _dt.timedelta(days=1)
+    sessions = days[:n]
+    m = len(sessions)
+    feb3 = sessions.index("2020-02-03")
+    closes = {s: [100.0 + 0.1 * i for i in range(m)] for s in SYMS}
+    closes["SPY"] = [(100.0 + 0.1 * i if i < feb3 else 160.0 + 0.1 * (i - feb3))
+                     for i in range(m)]
+    closes["VEA"] = [(100.0 - 0.1 * i if i < feb3 else 40.0 + 0.1 * (i - feb3))
+                     for i in range(m)]
+    opens = {s: [c * 1.001 for c in closes[s]] for s in closes}
+    return make_panel(sessions, closes, opens=opens)
+
+
+def test_rotation_buy_fills_at_settlement_session():
+    """The Feb 3 rotation: SPY sell fills at t+1 (Feb 4) open; the VEA buy
+    fills at the first session at/after the sells' T+2 settlement (Feb 6)
+    open -- never at t+1 (the pre-fix bug) and never at Feb 5 (before
+    settlement)."""
+    panel = _crash_panel()
+    r = run_strategy(panel, DEFAULT_CONFIGS["B1"])
+    led = r["ledger"]
+    rot_sells = [f for f in led.fills if f.order.symbol == "SPY"
+                 and f.order.side == "sell" and f.shares_filled > 0
+                 and f.order.decision_session.isoformat() == "2020-02-03"]
+    rot_buys = [f for f in led.fills if f.order.symbol == "VEA"
+                and f.order.side == "buy" and f.shares_filled > 0
+                and f.order.decision_session.isoformat() == "2020-02-03"]
+    assert rot_sells and rot_buys, "rotation did not happen on the crash panel"
+    sell_f = rot_sells[0]
+    buy_f = rot_buys[0]
+    assert sell_f.order.session.isoformat() == "2020-02-04"
+    assert buy_f.order.session.isoformat() == "2020-02-06"
+    assert buy_f.order.session >= sell_f.order.session + __import__(
+        "datetime").timedelta(days=2)  # T+2 settlement (2020 regime)
+    # each fill is its own session's OPEN (1.001x close marker)
+    assert sell_f.fill_price == panel.open["SPY"][46]   # Feb 4
+    assert buy_f.fill_price == panel.open["VEA"][48]    # Feb 6
+    # nothing from the rotation fills on Feb 5: settlement wait
+    assert all(f.order.session.isoformat() != "2020-02-05"
+               for f in led.fills if f.shares_filled > 0
+               and f.order.decision_session.isoformat() == "2020-02-03")
+
+
+def test_beyond_window_orders_expire_unfilled_with_warning():
+    """Orders whose fill session lies beyond the run window expire unfilled
+    (never fire early) and are disclosed in warnings."""
+    panel = _crash_panel()
+    r = run_strategy(panel, DEFAULT_CONFIGS["B1"], end="2020-02-04")
+    led = r["ledger"]
+    # the Feb 3 decision's SPY sell filled at Feb 4 (inside the window)
+    assert any(f.order.symbol == "SPY" and f.order.side == "sell"
+               and f.order.session.isoformat() == "2020-02-04"
+               and f.order.decision_session.isoformat() == "2020-02-03"
+               for f in led.fills)
+    # the Feb 3 VEA buy (due Feb 6, beyond the window) expired, disclosed,
+    # unfilled; the Jan 3 establishment buys are unaffected
+    expired = [w for w in r["warnings"] if "expired unfilled" in w]
+    assert expired and any("VEA" in w and "buy" in w for w in expired)
+    assert any("never fired early" in w for w in expired)
+    assert not [f for f in led.fills if f.order.symbol == "VEA"
+                and f.order.side == "buy" and f.shares_filled > 0
+                and f.order.decision_session.isoformat() == "2020-02-03"]
+
+
+def test_buys_dropped_when_no_fill_session_remains():
+    """A rotation decided near the panel edge whose buys have no session at/
+    after settlement in the panel: buys are dropped at decision time with a
+    warning (never a doomed order, never an early fill)."""
+    panel = _crash_panel(48)  # sessions end at Feb 5; settle date is Feb 6
+    r = run_strategy(panel, DEFAULT_CONFIGS["B1"])
+    led = r["ledger"]
+    assert any(f.order.symbol == "SPY" and f.order.side == "sell"
+               and f.order.session.isoformat() == "2020-02-04"
+               and f.order.decision_session.isoformat() == "2020-02-03"
+               for f in led.fills)
+    dropped = [w for w in r["warnings"] if "buys dropped" in w]
+    assert dropped and any("2020-02-03" in w for w in dropped)
+    assert not [f for f in led.fills if f.order.symbol == "VEA"
+                and f.order.side == "buy" and f.shares_filled > 0
+                and f.order.decision_session.isoformat() == "2020-02-03"]
+
+
+def test_exdate_sell_receives_buy_at_exdate_open_does_not():
+    """Dividend semantics: shares held ENTERING the ex-date session receive
+    the credit; the sell at that open does not forfeit it; the buy at that
+    open does not receive it (credit runs BEFORE the session's fills)."""
+    from research.baselines.runner import _credit_dividends
+    from research.execution.ledger import Ledger, Position
+
+    panel = flat_panel(n=6)
+    panel.dividends["SPY"] = {3: 1.0}
+
+    # 50 shares entering session 3: $50 credited before fills; a sell at
+    # session 3's open (after the credit) does not forfeit it
+    led = Ledger(initial_cash=10_000.0)
+    led.positions["SPY"] = Position()
+    led.positions["SPY"].add(50, 100.0)
+    _credit_dividends(led, panel, 3)
+    assert led.settled_cash == 10_050.0
+
+    # shares bought AT session 3's open (after the credit) do not receive
+    # the dividend; no re-credit on later sessions
+    led2 = Ledger(initial_cash=10_000.0)
+    led2.positions["SPY"] = Position()
+    led2.positions["SPY"].add(30, 100.0)
+    _credit_dividends(led2, panel, 3)            # 30 entering shares -> $30
+    led2.positions["SPY"].add(20, 100.0)         # ex-date open buy
+    _credit_dividends(led2, panel, 4)            # next session: no dividend
+    assert led2.settled_cash == 10_030.0
