@@ -321,10 +321,33 @@ def run_strategy(panel: Panel, config: RunConfig,
                               panel.rf_daily[i], ledger.settled_cash))
 
         # ---- after close: monthly decision ---------------------------------
+        # risk_targets hook (P5 H3): daily monitor called at every close
+        # EXCEPT decision sessions (decide() embeds the monitor state there).
+        # Returned targets REPLACE pending orders (newest decision wins; a
+        # de-risking cut cancels stale buys) through the SAME order/ledger
+        # path with the no-trade band DISABLED (predeclared reduction rule,
+        # plan §5 H3 — emergency turnover is recorded, never hidden).
+        mk = month_key(s)
+        is_decision = (mk != decided_month and i + 1 < len(sessions)
+                       and (i < i1 or not config.liquidate_at_end))
         if controller is not None:
             controller.on_session(panel, i, ledger)
-        mk = month_key(s)
-        if mk != decided_month and i + 1 < len(sessions) and (i < i1 or not config.liquidate_at_end):
+            if not is_decision and hasattr(controller, "risk_targets"):
+                risk_w = controller.risk_targets(panel, i, ledger)
+                if risk_w is not None:
+                    warnings.append(
+                        f"{s} risk monitor triggered: emergency rebalance "
+                        f"(band disabled; sells only; turnover recorded)")
+                    risk_config = RunConfig(
+                        strategy=f"{config.strategy}-risk", reserve=config.reserve,
+                        band=None, costs=config.costs,
+                        commission_schedule=config.commission_schedule,
+                        commission_multiplier=config.commission_multiplier,
+                        liquidate_at_end=config.liquidate_at_end)
+                    sells, buys = _decision_orders(ledger, panel, i, risk_w,
+                                                   risk_config, warnings)
+                    pending_sells, pending_buys = sells, buys
+        if is_decision:
             decided_month = mk
             if controller is not None:
                 marks = {sym: panel.close[sym][i] for sym in panel.close}
