@@ -62,9 +62,9 @@ mechanical stress replays excluded). Registered at P0:
 | 5 | B4 | Forecasts + fixed no-trade bands + realistic costs (primary control) | scored 2026-11-04 as H1 arm (b) (P4 record `research/controllers/P4_CONTROLLERS.md`; whole-path 5.59% CAGR / 21.86% MaxDD / 0.062 half-turn; development history) |
 | 6 | A1 | B4 + H1 uncertainty/cost hold threshold | scored 2026-11-04 as H1 arms (c)/(d) (P4 record); pre-registered (d)-vs-(b) margins refuted on turnover (+38.4% vs required −20%); not justified on development evidence |
 | 7 | A2 | B4 + H2 turnover budget | scored 2026-11-04 as H2 arms uniform/fixed-bands/persistence (P4 record); no net-CAGR advantage over uniform spending; persistence's MaxDD profile (10.61%) carried forward to A4 evaluation on risk-adjusted grounds (disclosed judgment call, not a gate pass) |
-| 8 | A3 | B4 + H3 asymmetric risk budgets | registered |
-| 9 | A4 | Combined controller | registered |
-| 10 | A4-loo-* | Leave-one-component-out variants of A4 | registered (family) |
+| 8 | A3 | B4 + H3 asymmetric risk budgets | scored 2026-11-05 (P5 record `research/controllers/P5_H3_COMBINED.md`); FAIL promotion gate 2 (dSharpe +0.031 < +0.15) and §1 turnover gates (roll-252 4.601 > 1.5); dd improvement −9.76pp survives the matched static-cash diagnostic |
+| 9 | A4 | Combined controller | scored 2026-11-05 (P5 record); = B4 gate + H3 asymmetric + daily monitor; FAIL gate 2 (dSharpe +0.031); §1 turnover gates fail |
+| 10 | A4-loo-* | Leave-one-component-out variants of A4 | scored 2026-11-05 (P5 record; loo-vol / loo-dd / loo-monitor); all FAIL gate 2; loo-monitor dominates full A4 (MaxDD 11.39% vs 12.16% at lower turnover — the daily monitor adds no dd value on this window) |
 
 ### Correction addendum (2026-11-04, post-P4, commit 26a4d3b)
 
