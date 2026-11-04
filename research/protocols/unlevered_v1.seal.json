@@ -1,0 +1,11 @@
+{
+  "protocol_id": "unlevered_v1",
+  "sealed_by": "operator instruction 2026-11-04 (git pull until success, then develop according to the research plan)",
+  "t0": "2026-11-04",
+  "hashes": {
+    "research/protocols/unlevered_v1.json": "c8f8beaac8bc8c1beca31d9700a09d3c34c37f32d419afe547429e9526a22227",
+    "research/manifests/sources_v1.json": "017ba7e315963ec84ed44f2dbc75861c19a0a23de96080eebad7a18fa9234f28",
+    "research/registries/data_exposure_v1.md": "9b17df275c52bca4d087c23936d8e92d9716bd8872e135939dda0d49a7aa0381",
+    "docs/research-plan-unlevered.md": "4a4125d46362a067b2d564b8062ba9f348f8fde8dc1969f24454bc819d69414e"
+  }
+}

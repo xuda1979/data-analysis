@@ -1,0 +1,146 @@
+{
+  "protocol_id": "unlevered_v1",
+  "frozen_at": "2026-11-04T00:00:00Z",
+  "frozen_at_note": "Frozen before any fetch, backtest, or evaluation under this protocol (P0 of the plan's §9).",
+  "governing_document": {
+    "path": "docs/research-plan-unlevered.md",
+    "sha256": "4a4125d46362a067b2d564b8062ba9f348f8fde8dc1969f24454bc819d69414e",
+    "imported_commit": "b62268e8129189ea20a8239f8056c93ccc878fd3",
+    "head_at_freeze": "829f3355550ee339d7af91d3a5db720b69bb9d71"
+  },
+
+  "objective": {
+    "central_question": "Can a controller that jointly accounts for signal persistence, uncertainty in public data, and the retail cost of changing a position improve the return-drawdown-turnover frontier over simple, equally funded allocation rules?",
+    "account_sizes_usd": [100000, 10000, 25000, 1000000],
+    "reference_account_size_usd": 100000,
+    "cagr_definition": "CAGR = (N_end/N_start)^(365.25/elapsed_calendar_days) - 1 on a no-external-flow daily marked NAV path; initial NAV and terminal liquidation included.",
+    "sharpe_definition": "sqrt(252) * mean(r_t - rf_t) / sample_std(r_t - rf_t), rf aligned daily Treasury reference; zero-variance reported as undefined, never infinite.",
+    "maxdd_definition": "max_t(1 - N_t/max_{s<=t} N_s)."
+  },
+
+  "acceptance_gates": {
+    "net_nominal_cagr": {"minimum": 0.10, "design": [0.12, 0.15], "stretch": 0.15},
+    "annualized_daily_excess_sharpe": {"minimum": 1.00, "design": [1.25, 1.50], "stretch": 1.75},
+    "daily_max_drawdown": {"maximum": 0.15, "design": 0.12, "stretch": 0.10},
+    "annualized_half_turn_turnover": {"maximum": 1.00, "design": [0.50, 1.00], "stretch": 0.75},
+    "max_rolling_252_session_half_turn": {"maximum": 1.50, "design": 1.00, "stretch": 1.00},
+    "gross_exposure_instrument_level": {"maximum": 1.00, "always": true},
+    "borrowing_short_leveraged_products": "zero",
+    "rule": "All minimum gates must hold jointly at the stated account size. Report the whole Pareto frontier; report a failed verdict if no candidate passes. Thresholds are not lowered after examining evaluation returns.",
+    "high_cost_case_rule": "The doubled-cost stress must retain positive excess CAGR and Sharpe >= 0.5."
+  },
+
+  "investment_contract": {
+    "leverage": "none at every fill and mark: nonnegative shares, nonnegative funded cash, risky market value <= NAV, reserve cash for fees and price movement before buys",
+    "excluded_products": ["margin borrowing", "shorts", "options", "futures", "CFDs", "leveraged ETFs", "inverse ETFs", "futures-based commodity funds", "structured notes", "derivative overlays"],
+    "eligible": ["ordinary equities", "plain unlevered equity/bond ETFs", "approved short Treasury ETF", "physically backed unlevered gold"],
+    "caps": {
+      "per_non_cash_ETF": 0.35,
+      "aggregate_equity": 0.60,
+      "aggregate_bond_fund_ex_short_treasury_reserve": 0.60,
+      "gold": 0.15,
+      "per_equity_sector_lookthrough": 0.25,
+      "short_treasury_reserve_ETF_max": 1.00,
+      "individual_equity_per_issuer": 0.02,
+      "individual_equity_total_satellite": 0.20
+    },
+    "decision_frequency": "monthly reconsideration; daily risk and data-quality checks; risk-triggered rebalance allowed only through the same cost/funding/turnover ledger",
+    "settlement": "model by trade date and exchange calendar; conservative cash-account simulation spends only settled funds; T+2 before 2024-05-28, T+1 from 2024-05-28"
+  },
+
+  "universe_candidate": {
+    "tickers": ["SPY", "VEA", "VWO", "IEF", "TLT", "TIP", "GLD", "BIL"],
+    "status": "illustrative candidate list; confirm product eligibility, inception, source coverage, and current terms before freezing actual membership",
+    "rules": [
+      "Start each fund only after its true inception and sufficient observed history.",
+      "Do not extend an ETF backward using a yield series, spot commodity, or future index return.",
+      "Liquidity qualification uses trailing observations only; never future average volume.",
+      "Current-survivor ETF selection retains selection bias: label retrospective tests as conditional on that universe."
+    ]
+  },
+
+  "chronological_design": {
+    "initial_train_months": 36,
+    "inner_validation_months": 12,
+    "outer_evaluation_months": 12,
+    "roll_forward": "annually",
+    "train_mode": "expanding (rolling only if selected on inner folds)",
+    "label_purge": "exact label-end timestamps for horizons up to 126 sessions; token one-day gaps are not accepted",
+    "carry_through_boundaries": "holdings, costs, cash, signal warmups, and pending orders carry through outer boundaries; no free reset",
+    "prior_history_status": "ALL dates used in prior repo model/strategy selection are development history, even if an old report calls them OOS; renaming dates or changing cutoffs does not restore independence",
+    "fresh_holdout_rule": "A fresh historical holdout is valid only with evidence it has not informed selection; otherwise primary confirmation starts on the first eligible session after T0",
+    "evidence_minimums": ">= 3 non-overlapping annual outer intervals for a preliminary study; >= 6 months and >= 6 scheduled rebalances of paper operation for mechanics; >= 24 prospective months for stronger evidence"
+  },
+
+  "trial_budget": {
+    "max_development_configs": 24,
+    "scope": "first study, excluding fixed mechanical stress replays",
+    "role_and_seeds_declared_before_scoring": true,
+    "combination_rule": "Combining winning parts of H1-H3 is an additional registered candidate, not a free uncounted improvement.",
+    "logging_rule": "Log every candidate, failed run, manual rule change, and abandoned family."
+  },
+
+  "signal_families": ["slow_trend_persistence", "relative_strength_diversification", "macro_conditioned_risk", "slow_issuer_quality_later_stage"],
+
+  "hypotheses": {
+    "H1_uncertainty_cost_hold_threshold": {
+      "description": "Auditable public-data uncertainty set combining forecasting error, release/revision ambiguity, and cost uncertainty in the same hold-versus-trade decision.",
+      "ablation_expectation_pre_registered": "Full data/cost uncertainty (d) reduces half-turn turnover by >= 20% versus cost-only no-trade bands (b), loses <= 0.5pp net CAGR, and does not worsen drawdown by > 1pp on development folds."
+    },
+    "H2_persistent_holdings_turnover_budget": {
+      "description": "Rolling 252-session trading budget with persistence-based spending, account-size-aware minimum ticket fees, holding/settlement state, and competing demands."
+    },
+    "H3_slow_risk_budgets_asymmetric": {
+      "description": "Slow allocation policy plus separate daily risk monitor with asymmetric shrink-fast/recover-gradual budget changes; 10% annual volatility budget; exposure multiplier min(1, target_vol/forecast_vol); 8% caution / 12% reduction drawdown thresholds with 20-session recovery rule.",
+      "comparison": "Against static allocation with no monitor-driven trading AND a matched static cash allocation."
+    }
+  },
+
+  "stress_grid": {
+    "half_spread_plus_slippage_per_side_bp": {"base_liquid_ETF": [2, 2], "base_equity_sleeve": [5, 5], "stress": "double and triple both components; use larger observed values whenever available"},
+    "impact_coefficient_Y": {"base": 1.0, "stress": [0.5, 2.0, "conservative linear-impact alternative"]},
+    "order_participation": {"base": "0.001 of trailing 20-session average dollar volume", "stress": ["halve volume", "reject/part-fill beyond cap", "no overnight unlimited fill assumption"]},
+    "volatility_liquidity_shock": {"joint": ["2x volatility", "0.5x volume", "3x spread/slippage"]},
+    "cash_interest": {"base": "verified eligible schedule", "stress": "zero interest"},
+    "execution": {"base": "declared next-session rule", "stress": ["one extra session delay", "25% of orders miss first eligible session under a seeded rule independent of returns"]},
+    "account_size_usd": [100000, 10000, 25000, 1000000]
+  },
+
+  "cost_model": {
+    "commission_reference": "IBKR Pro US whole-share schedule (Fixed USD 0.005/share min USD 1.00; Tiered <=300k shares/month USD 0.0035/share min USD 0.35; cap 1% of trade value) — reference example, not an assertion about the eventual broker",
+    "formula_usd": "C = commission(Q,D) + additional_fees + D*(h + l + Y*sigma*sqrt(rho))",
+    "rules": [
+      "Use dated fee tables, not today's rates for all historical years; constant-current-schedule replays are labelled cost scenarios.",
+      "Impact embedded in simulated fill price is not subtracted again as a cash fee; implementation shortfall is not added to its own components.",
+      "Zero commission never means zero execution cost."
+    ]
+  },
+
+  "baselines": {
+    "B0": "Zero-interest cash; verified cash/Treasury reserve; equity buy-and-hold; conventional 60/40 equity/Treasury",
+    "B1": "Capped equal-weight and fixed diversified allocation, monthly banded rebalance",
+    "B2": "Fixed 126-session trend/relative-strength rule, long-only, monthly; cash when ineligible",
+    "B3": "Shrinkage minimum-variance and capped inverse-volatility allocation, no borrowing",
+    "B4": "Same forecasts plus fixed no-trade bands and realistic costs (primary control for incremental H1-H3 value)",
+    "A1-A3": "Add each of H1/H2/H3 to B4 independently",
+    "A4": "Registered combined controller and leave-one-component-out variants",
+    "selection_rule": "Select the strongest simple control on inner development data, not the final test."
+  },
+
+  "promotion_gates": [
+    "1. Integrity: free access/usage recorded, point-in-time inputs valid, no material unresolved prices/actions, ledger reconciles, no leverage or funding violations. Failure blocks the performance claim.",
+    "2. Historical research candidate: all minimum numerical gates hold jointly at the stated account size; >= 0.15 Sharpe improvement over the selected B4/simple control, <= 0.5pp CAGR sacrifice and <= 1pp drawdown deterioration, or a separately preregistered Pareto-improvement claim; report all folds.",
+    "3. Robustness: doubled-cost gate holds; delay/parameter/provider tests do not reverse the economic conclusion; tail shock losses shown.",
+    "4. Confirmation: on genuinely untouched/prospective data, paired uncertainty for the preregistered incremental metric; strong superiority requires its 95% block-bootstrap interval to exclude zero; otherwise retain 'inconclusive'.",
+    "5. Operational readiness: paper-run positions, cash, costs and orders reconcile; stale data, missed sessions, restarts and duplicate-order recovery exercised."
+  ],
+
+  "work_packages": ["P0_freeze_study", "P1_qualify_data", "P2_funded_replay", "P3_baselines", "P4_H1_H2", "P5_H3_combination", "P6_confirm_prospectively"],
+
+  "stop_conditions": [
+    "If free historical data is inadequate, say exactly which fields/dates are missing and collect prospectively.",
+    "If realistic execution removes the edge, reject or simplify the strategy.",
+    "If no portfolio meets the simultaneous targets without leverage, publish the measured feasible frontier and retain the constraint.",
+    "Stop an unsuccessful family at its registered experiment budget and record why."
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "manifest_id": "unlevered_sources_v1",
+  "frozen_at": "2026-11-04T00:00:00Z",
+  "rule": "Free and public sources only. Free registration/API keys allowed. Payment, paid trials, paid fallbacks, private feeds, and scraped access-control workarounds excluded. Store source URLs, retrieval hashes, access terms, permitted use, coverage, adjustment rules, quota, and historical availability evidence here. Keep restricted raw payloads and credentials out of git.",
+
+  "candidate_price_feeds": [
+    {
+      "id": "alpaca_basic",
+      "service": "Alpaca Market Data (Basic/IEX)",
+      "url": "https://docs.alpaca.markets/us/docs/about-market-data-api",
+      "credential_env": "ALPACA_KEY_ID / ALPACA_SECRET_KEY",
+      "credential_status_at_freeze": "NOT YET TESTED - account entitlement must be tested at P1, not inferred from marketing tables",
+      "claimed_free_history": "published history starts 2016; IEX and consolidated coverage/entitlements differ",
+      "admission_rule": "Verify actual endpoint/feed/date entitlement, coverage and action support; IEX-only bars/volume are not NBBO or market-wide ADV. If only IEX volume is available, use it as a conservative venue-volume bound without scaling to total market volume using an assumed market share; report the capacity restriction.",
+      "access_terms_note": "Recheck at implementation (plan R4)."
+    },
+    {
+      "id": "twelve_data_basic",
+      "service": "Twelve Data (Basic plan)",
+      "url": "https://twelvedata.com/pricing",
+      "credential_env": "TWELVE_DATA_API_KEY",
+      "credential_status_at_freeze": "NOT YET TESTED",
+      "claimed_free_quota": "8 credits/minute, 800/day; historical/action fields depend on endpoint entitlement",
+      "role": "Candidate independent price cross-check only"
+    }
+  ],
+
+  "context_sources": [
+    {"id": "sec_edgar", "service": "SEC EDGAR", "credential_env": "SEC_USER_AGENT", "note": "Filing dates, original financial statements; identifiable User-Agent; fair-access limits"},
+    {"id": "fred_alfred", "service": "FRED/ALFRED", "credential_env": "FRED_API_KEY", "note": "Explicit vintages; default observations are today's view of history"},
+    {"id": "us_treasury", "service": "US Treasury", "credential_env": null, "note": "Bill/yield curves and reference cash rates; not total returns"},
+    {"id": "bls_worldbank", "service": "BLS / World Bank", "credential_env": null, "note": "Slow macro context; current/revised snapshots only"},
+    {"id": "eia_cftc", "service": "EIA / CFTC", "credential_env": null, "note": "Optional energy and positioning context; use actual publication timestamps"},
+    {"id": "kenneth_french", "service": "Kenneth R. French library", "credential_env": null, "note": "Factor attribution and research diagnostics only; no synthetic factor return booked as cash investment"},
+    {"id": "etf_issuers_sec_filings", "service": "ETF issuers and SEC fund filings", "credential_env": null, "note": "Inception, mandate, distributions, splits, closures; archive exact records and effective dates"}
+  ],
+
+  "evaluated_but_not_required": [
+    "Stooq/Yahoo/community files: may be evaluated only if permitted access, provenance, adjustment semantics, and completeness can be established at zero cost. Known 2026-11-03 status from repo log: stooq PoW-blocked + Access denied. Not a required fallback dependency."
+  ],
+
+  "blocking_rule": "If no free price source passes the contract, the market backtest is BLOCKED; continue collecting prospective public snapshots and testing accounting with labelled fixtures. Do not substitute fabricated prices or a paid dataset.",
+
+  "known_local_constraints_2026_11": [
+    "THIS Linux machine is missing ~11,684 raw data files vs RAW_DATA_MANIFEST.csv (data lives on the original Mac); only tools/quant/data/cboe_options present locally.",
+    "IB Gateway paper login BROKEN since 2026-10-22 (demo creds rejected, 9 consecutive failures) - IB-based collection blocked.",
+    "FRED fredgraph.csv keyless works (rate-limit ~1 req/8s).",
+    "stooq PoW-blocked + Access denied (2026-11-03). LBMA 403.",
+    "H1 CBOE option-chain forward-collection harness runs daily; HUNT_H1_TAILFACTOR in PROTOCOL-HOLD until >= 60 panel dates (~Dec 2026)."
+  ]
+}
