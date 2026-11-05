@@ -161,3 +161,85 @@ open, so the day would have been PERMANENTLY LOST at 09:30 ET. Diagnosed at
   gap) rather than weakening TLS verification.
 
 DONE H1_forward_collection
+
+---
+
+# ADDENDUM 2026-11-05 — the deleted `cboe_options_dl.py`, the lost 20261103, and the 20261104 recovery
+
+**STATUS: PASS — module reconstructed + committed to git (single point of failure
+closed); trade date 20261104 recovered 9/9 symbols from saved payloads (factor
+rows 9, rejects 0, panel 211→220 data rows); heartbeat consecutive_failures 1→0;
+20261103 is a PERMANENT GAP recorded here honestly.**
+
+## What happened
+
+The daily run on this (Linux) machine at 2026-11-05 11:34 CST failed with
+ImportError: `cboe_options_dl.py` — the CBOE fetch/parse/serialize module that
+`h1_collect.py` imports — had been deleted from disk and was NEVER in git
+(untracked on every ref). Heartbeat `campaign/logs/h1_status.json` flipped to
+`consecutive_failures=1` (its designed tripwire). Post-mortem of the schedule
+history: no run happened on 2026-11-04 at all, so trade date **20261103 is
+permanently lost** — the CBOE delayed payload only serves the last completed
+session; no backfill source exists (free data). Recorded as a panel gap; no
+fabrication.
+
+## Module reconstruction (contract-faithful, evidence-pinned)
+
+`cboe_options_dl.py` was rebuilt 2026-11-05 from three evidence sources:
+
+1. **`h1_collect.py`** — the sole API consumer: `BASE`/`UA`, the
+   `chain_rows`/`lint_snapshot`/`write_snapshot_csv` call sites, payload
+   shape (`data.current_price`/`iv30`/`last_trade_time`/`options`).
+2. **All 212 archived snapshot CSVs** (24 trade dates, 20260908..20261102) —
+   byte-pinned the serialization: CRLF line endings including trailing CRLF
+   at EOF, 14-column header, per-row spot as first column, `%g` numerics
+   (14,482,028 cells round-trip byte-exact; 3 legitimate sci-notation cells),
+   sort order (exp asc, C before P, strike asc; verified in all 212 files).
+3. **9 live CBOE payloads captured 2026-11-05** — option dicts: all numeric
+   fields float, zero None; `iv` decimal, payload `iv30` percent.
+
+**Moneyness label (documented reconstruction choice)**: no global rule
+reproduces the original stored labels exactly. Refuted against the full
+archive: band thresholds (abs 0.5–1.0), grid multiples, delta threshold
+(3.01% wrong). The ITM/OTM boundary regions overlap, so no pure
+(typ, strike, spot) threshold exists. Chosen: plain strike rule
+(C: strike ≤ spot → itm_call else otm_call; P: strike ≤ spot → otm_put else
+itm_put) — agrees with 99.802% of 1,316,548 archived rows; the label has ZERO
+analytical consumers (recompute_day/build_symbol never read the moneyness
+column), so the 0.198% deviation is cosmetic only.
+
+**lint_snapshot**: minimal gates (rows non-empty, spot > 0, iv30 > 0) —
+zero lint failures exist in the entire archived history (only fetch timeouts
+ever recorded), so nothing further is observable from evidence.
+
+## Validation before recovery
+
+- Replay of all 9 saved payloads through chain_rows → lint_snapshot →
+  write_snapshot_csv: ALL structural checks pass (CRLF+trailing, header,
+  14 cols, sort order, %g round-trip, moneyness self-consistency, dedupe;
+  SPY 13074 raw → 12954 rows, 120 B1-prefixed non-standard symbols filtered).
+- `test_h1_collect.py`: 11/13 green on this machine; the 2 failures are the
+  documented `latest/`-missing machine limitation (FileNotFoundError
+  latest/SPY.csv), pre-existing and unrelated to the module.
+
+## 20261104 recovery (honest provenance)
+
+The 9 payloads in `/tmp/cboe_payloads_20261104/` were captured 2026-11-05
+01:04:27..04:27:27 UTC while probing the live API (all 9 underlying
+`last_trade_time` = 2026-11-04, unanimous trade-date vote). Recovery feed:
+`ok[sym] = (rows, spot, iv30, "20261104")` → `archive_day("20261104", ok, {},
+now_iso=<actual recovery clock 2026-11-05T21:56:04>)` → `recompute_day` →
+`update_panel`. 9/9 symbols, 0 rejects, factor gate passed, panel 220 data
+rows. `fetch_time` in `archive/20261104/fetch_report.json` is the honest
+recovery clock, NOT a fabricated schedule time — the payload-capture window is
+recorded here.
+
+## Residual risk / follow-ups
+
+- `archive/20261103/` does not exist and never will (permanent gap).
+- The scheduler mechanism on this Linux machine is still unverified (no
+  crontab/systemd timer found yet; the 11:34 CST run happened somehow) —
+  next session should pin how `h1_collect.py` is invoked here.
+- The never-in-git failure mode is now closed: this addendum + the
+  reconstructed module are committed together.
+

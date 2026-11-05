@@ -41,6 +41,17 @@ tools/quant/data/cboe_options/*
 # CBOE daily option-chain snapshots are irreplaceable (no refetch after
 # the session) — always track the per-date archives
 !tools/quant/data/cboe_options/archive/**
+# H1 harness SOURCE FILES must stay visible: cboe_options_dl.py was deleted
+# from disk 2026-11-05 while ignored by the `cboe_options/*` rule above —
+# the deletion was invisible to git status and the module was never in any
+# ref (single point of failure; trade date 20261103 permanently lost).
+# Without these negations any future deletion of a harness source would
+# again be silent.
+!tools/quant/data/cboe_options/cboe_options_dl.py
+!tools/quant/data/cboe_options/h1_collect.py
+!tools/quant/data/cboe_options/test_h1_collect.py
+!tools/quant/data/cboe_options/FINDINGS.md
+!tools/quant/data/cboe_options/H1_tailfactor_panel.csv
 # ...but the regenerable cache files next to them stay ignored
 tools/quant/data/cboe_options/cache/
 # L/S backtest results (regenerable, 133MB+)

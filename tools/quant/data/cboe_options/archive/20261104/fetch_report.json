@@ -1,0 +1,92 @@
+{
+ "fetch_time": "2026-11-05T21:56:04",
+ "date": "20261104",
+ "symbols_ok": [
+  "AAPL",
+  "GLD",
+  "IWM",
+  "MSFT",
+  "NVDA",
+  "QQQ",
+  "SPY",
+  "TLT",
+  "TSLA"
+ ],
+ "symbols_fail": {},
+ "files": {
+  "AAPL": {
+   "sha256": "b94cb62473c1972dee0c8698a2edf2d06bfdded9902bb642e14a7c48fb1df95b",
+   "bytes": 283347,
+   "spot": 350.7809,
+   "iv30": 22.588,
+   "n_contracts": 3440
+  },
+  "GLD": {
+   "sha256": "730876b116ee0b53b77ac0ede7984d767dfe5a868710770598a1c53a653c2749",
+   "bytes": 608491,
+   "spot": 372.49,
+   "iv30": 21.204,
+   "n_contracts": 7478
+  },
+  "IWM": {
+   "sha256": "057a9161ea6fa6257eb0dd0c5226680156503777c492bf35d94f6bd721ed753c",
+   "bytes": 422006,
+   "spot": 284.02,
+   "iv30": 17.175,
+   "n_contracts": 5118
+  },
+  "MSFT": {
+   "sha256": "6656b7f4cfb4c10dceeade4b5b96c75eee61067efe0ac642cc5709c57c4c4f35",
+   "bytes": 320480,
+   "spot": 554.0,
+   "iv30": 25.357,
+   "n_contracts": 3944
+  },
+  "NVDA": {
+   "sha256": "3978302aa0d944cd7368fe39352d0c3ca95cac2e0b34eb8a61570ba43dc1ca79",
+   "bytes": 345988,
+   "spot": 200.6126,
+   "iv30": 46.415,
+   "n_contracts": 4186
+  },
+  "QQQ": {
+   "sha256": "dde7bd291ccf6dda6faef1c09179c2635f8623e6a4f49abd010d1af1341e283d",
+   "bytes": 870349,
+   "spot": 689.02,
+   "iv30": 22.049,
+   "n_contracts": 10398
+  },
+  "SPY": {
+   "sha256": "000a913b5381d9d41c7c2538ae01472b99395b9db1cb9b3ef95304df17f17c99",
+   "bytes": 1068538,
+   "spot": 766.81,
+   "iv30": 12.944,
+   "n_contracts": 12954
+  },
+  "TLT": {
+   "sha256": "30afb5fa1dfecd47db30d22b14c14be6cb4691276a2a5c172505af183f0a00e3",
+   "bytes": 237525,
+   "spot": 81.92,
+   "iv30": 11.475,
+   "n_contracts": 2976
+  },
+  "TSLA": {
+   "sha256": "9514392749b7f22a480192d74362e3ac2a57186cce2077f809893e9bacd8a091",
+   "bytes": 429737,
+   "spot": 381.39,
+   "iv30": 43.225,
+   "n_contracts": 5208
+  }
+ },
+ "trade_dates": {
+  "AAPL": "20261104",
+  "GLD": "20261104",
+  "IWM": "20261104",
+  "MSFT": "20261104",
+  "NVDA": "20261104",
+  "QQQ": "20261104",
+  "SPY": "20261104",
+  "TLT": "20261104",
+  "TSLA": "20261104"
+ }
+}
