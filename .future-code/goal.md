@@ -10,10 +10,10 @@ Champion of record (2026-10-12): **ITER61_DDCON A_cap28** — RAW-EW13v2 relw @1
 ## Checklist
 - [x] 1. Baseline audit: champion verified byte-exact on this machine (daily sha16 `a8ed233bd0f6fd5d`, weights `2b0f5fbc43113149`); raw files missing here (~11,684) but series hash-pinned — comparisons run against the pinned series on identical windows/costs.
 - [x] 2. H1 tail-factor panel ALIVE and growing: 25 trade dates (20260908..20261104, 20261103 permanent gap); daily harness restored 2026-11-05 (deleted never-in-git `cboe_options_dl.py` reconstructed + .gitignore root-cause fixed + committed); trade date 20261104 recovered 9/9; heartbeat green. HUNT_H1_TAILFACTOR adjudication needs ≥60 dates (~early Dec 2026) — paper-forward pre-registration is the lawful design.
-- [ ] 3. Rates-side axis (direction 4, free data confirmed): KW THREEFYTP1-10 (daily 1990+) / ACM term premia — pre-register a term-premia-aware overlay hunt on champion-relevant windows.
-- [ ] 4. Pre-register gates BEFORE measurement (no gate-moving; append-only; DEAD_IDEAS.csv on refutation).
-- [ ] 5. Smallest evaluable artifact + negative controls; score vs champion identical windows/costs.
-- [ ] 6. If gates pass: promotion memo + independent verification. If refuted: record negative, advance to next axis.
+- [x] 3. Rates-side axis (direction 4): KW_TERMPREMIA_HUNT1 executed 2026-11-06 — sealed precommit e96d87c BEFORE measurement; 5 arms (A/B/C/P/N) + champion scored identical windows/costs. NEGATIVE: all treatment arms fail G2 (CAGR sacrifice 2.83-3.88pp vs 0.5pp); B's G1 pass (+0.246) is the sealed CAGR-sacrifice refutation branch; G6 holds (machinery valid); de-risk windows never overlapped champion MDD (0/12 sessions in 2023-12 window). Evidence: FINDINGS.md + work/ + DEAD_IDEAS.csv row 77, commit 32a904e. KW data panel survives for conditioning use.
+- [x] 4. Pre-register gates BEFORE measurement — DONE for KW hunt (FINDINGS_PRECOMMIT.md + sha256 sidecar, commit e96d87c); no gate edits after unblinding; DEAD_IDEAS.csv appended on refutation.
+- [x] 5. Smallest evaluable artifact + negative controls — DONE: run_arms.py (frozen artifact, 4806-row champion pin) + placebo P (time-reversed) + random N (seed 20261106) controls; both controls failed G1 as required (G6 valid).
+- [x] 6. Refuted → negative recorded (FINDINGS.md honest negative + DEAD_IDEAS.csv + commit 32a904e); advance to next axis.
 - [ ] 7. Evidence hygiene: append-only scorecard/registry; no git push without explicit authorization; explicit-pathspec commits only.
 
 ## Unknowns to resolve first
@@ -29,4 +29,8 @@ Champion of record (2026-10-12): **ITER61_DDCON A_cap28** — RAW-EW13v2 relw @1
 - Raw-data provenance manifest GREEN or deliberately re-pinned with ledger note.
 
 ## Status: in_progress
-Round opened 2026-11-05 (innovation-focused). Highest-impact first step: checklist item 1 — baseline audit, then H1 panel count (item 2) to pick the pre-registration target.
+Round opened 2026-11-05 (innovation-focused). Items 1-6 complete for the KW rates axis (item 3): NEGATIVE recorded 2026-11-06, KW_TERMPREMIA_HUNT1 closed.
+
+2026-11-06 KW hunt record: precommit sealed e96d87c → artifact run_arms.py → single frozen measurement → FINDINGS.md + DEAD_IDEAS row + evidence commit 32a904e. No treatment arm passes G1-G6 (all fail G2 on 5-8x CAGR over-sacrifice; A/C also fail G1; B's G1 pass is the sealed refutation branch). G6 machinery-valid. Structural lesson: market-implied TP levels do not time the champion's tail — de-risk episodes (2008-2021) never overlapped the champion MDD window (2023-12). Future de-risk hunts must first pass an in-sample drawdown-overlap pre-screen.
+
+Next axis per memory priority order (2026-11 reviews): (1) ICP causal overlay — surviving TVPVECM lesson applies (trailing-window invariance scores are pro-cyclical; pre-register that concern), or (3) 13F holdings parsing (metadata already collected; holdings tables never parsed). (2-honest) conformal layer still blocked until ≥60 H1 panel dates (~Dec 2026).
