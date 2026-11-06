@@ -1,0 +1,119 @@
+{
+  "champion": {
+    "SR": 3.7844894672049048,
+    "CAGR": 0.23860978396835986,
+    "MDD": -0.03304849169440516,
+    "neg_years": 0,
+    "worst_year": 0.07553011883208494
+  },
+  "arms": {
+    "A": {
+      "SR": 3.9229687368642323,
+      "CAGR": 0.2101333289930103,
+      "MDD": -0.03304849169440505,
+      "neg_years": 0,
+      "worst_year": 0.061314774006865136,
+      "dSR": 0.13847926965932755,
+      "dCAGR_pp": -2.8476454975349563,
+      "dMDD_pp": 1.1102230246251565e-14,
+      "ann_half_turn": 0.1415730337078652,
+      "roll252_half_turn": 0.6000000000000001,
+      "toggles": 18,
+      "frac_sessions_derisked": 0.30087390761548066
+    },
+    "B": {
+      "SR": 4.030418885765055,
+      "CAGR": 0.19982119871699577,
+      "MDD": -0.03304849169440516,
+      "neg_years": 0,
+      "worst_year": 0.05223616603828485,
+      "dSR": 0.24592941856015038,
+      "dCAGR_pp": -3.8788585251364083,
+      "dMDD_pp": 0.0,
+      "ann_half_turn": 0.1310861423220974,
+      "roll252_half_turn": 0.5,
+      "toggles": 10,
+      "frac_sessions_derisked": 0.24719101123595505
+    },
+    "C": {
+      "SR": 3.9164966734912743,
+      "CAGR": 0.2102605872015526,
+      "MDD": -0.03304849169440516,
+      "neg_years": 0,
+      "worst_year": 0.061314774006865136,
+      "dSR": 0.13200720628636953,
+      "dCAGR_pp": -2.834919676680725,
+      "dMDD_pp": 0.0,
+      "ann_half_turn": 0.11011235955056184,
+      "roll252_half_turn": 0.45000000000000007,
+      "toggles": 14,
+      "frac_sessions_derisked": 0.2958801498127341
+    },
+    "P": {
+      "SR": 3.565515391258766,
+      "CAGR": 0.2054779900707604,
+      "MDD": -0.03304849169440505,
+      "neg_years": 0,
+      "worst_year": 0.049988384144471265,
+      "dSR": -0.21897407594613894,
+      "dCAGR_pp": -3.313179389759946,
+      "dMDD_pp": 1.1102230246251565e-14,
+      "ann_half_turn": 0.2988764044943821,
+      "roll252_half_turn": 1.5000000000000002,
+      "toggles": 38,
+      "frac_sessions_derisked": 0.4783603828547649
+    },
+    "N": {
+      "SR": 3.652492400421301,
+      "CAGR": 0.21037850183120876,
+      "MDD": -0.03251668931468987,
+      "neg_years": 0,
+      "worst_year": 0.056208599672946225,
+      "dSR": -0.13199706678360368,
+      "dCAGR_pp": -2.8231282137151092,
+      "dMDD_pp": 0.05318023797152849,
+      "ann_half_turn": 9.548314606741576,
+      "roll252_half_turn": 12.900000000000002,
+      "toggles": 1214,
+      "frac_sessions_derisked": 0.1820640865584686
+    }
+  },
+  "gates": {
+    "A": {
+      "G1_dSR_ge_0.15": "False",
+      "G2_cagr_sacrifice_le_0.5pp": "False",
+      "G3_mdd_le_champ_plus_1pp": "True",
+      "G4_ann_half_turn_le_1.0": "True",
+      "G5_roll252_le_1.5": "True"
+    },
+    "B": {
+      "G1_dSR_ge_0.15": "True",
+      "G2_cagr_sacrifice_le_0.5pp": "False",
+      "G3_mdd_le_champ_plus_1pp": "True",
+      "G4_ann_half_turn_le_1.0": "True",
+      "G5_roll252_le_1.5": "True"
+    },
+    "C": {
+      "G1_dSR_ge_0.15": "False",
+      "G2_cagr_sacrifice_le_0.5pp": "False",
+      "G3_mdd_le_champ_plus_1pp": "True",
+      "G4_ann_half_turn_le_1.0": "True",
+      "G5_roll252_le_1.5": "True"
+    },
+    "P": {
+      "G1_dSR_ge_0.15": "False",
+      "G2_cagr_sacrifice_le_0.5pp": "False",
+      "G3_mdd_le_champ_plus_1pp": "True",
+      "G4_ann_half_turn_le_1.0": "True",
+      "G5_roll252_le_1.5": "False"
+    },
+    "N": {
+      "G1_dSR_ge_0.15": "False",
+      "G2_cagr_sacrifice_le_0.5pp": "False",
+      "G3_mdd_le_champ_plus_1pp": "True",
+      "G4_ann_half_turn_le_1.0": "False",
+      "G5_roll252_le_1.5": "False"
+    },
+    "G6_P_and_N_fail_G1": true
+  }
+}
