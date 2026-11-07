@@ -14,7 +14,9 @@ Champion of record (2026-10-12): **ITER61_DDCON A_cap28** — RAW-EW13v2 relw @1
 - [x] 4. Pre-register gates BEFORE measurement — DONE for KW hunt (FINDINGS_PRECOMMIT.md + sha256 sidecar, commit e96d87c); no gate edits after unblinding; DEAD_IDEAS.csv appended on refutation.
 - [x] 5. Smallest evaluable artifact + negative controls — DONE: run_arms.py (frozen artifact, 4806-row champion pin) + placebo P (time-reversed) + random N (seed 20261106) controls; both controls failed G1 as required (G6 valid).
 - [x] 6. Refuted → negative recorded (FINDINGS.md honest negative + DEAD_IDEAS.csv + commit 32a904e); advance to next axis.
-- [ ] 7. Evidence hygiene: append-only scorecard/registry; no git push without explicit authorization; explicit-pathspec commits only.
+- [x] 7. Evidence hygiene: append-only scorecard/registry; no git push without explicit authorization; explicit-pathspec commits only.
+- [x] 8. ICP_CAUSAL_HUNT1 axis (direction 1, ICP variable-selection mechanism — NEW to repo, frontier law-compliant): precommit sealed 9bb7b21 BEFORE measurement (sha 5ddfc3bac…); prerequisites verified GREEN; run_hunt.py frozen artifact (§4: 8-subset linear ICP, AG+BF invariance tests, 4 IS blocks; arms A/C/P/N seed 20261107; G0 kill-switch + G1-G6); single frozen run 2026-11-07. NEGATIVE — no-subset-accepted branch: ALL 8 subsets reject invariance (p_S 1.97e-06..2.96e-06 vs α=0.05); EMPTY-subset rejection shows champion IS distribution block-non-stationary in mean AND variance (AG ~2e-06 / BF ~1e-14), no parent absorbs it; ICP fail-closed per design; no overlay measured (pre-registered branch). Evidence: FINDINGS.md + work/icp_selection.json + work/arm_results.json + DEAD_IDEAS.csv row 78.
+- [x] 9. Verdict recorded: FINDINGS.md honest negative (no-subset-accepted branch, per §4.1/§5 sealed rule) + DEAD_IDEAS.csv row 78 + evidence commit with explicit pathspec.
 
 ## Unknowns to resolve first
 - Is the champion daily/weights series on THIS machine (hash-pinnable) or only on the Mac?
@@ -29,8 +31,8 @@ Champion of record (2026-10-12): **ITER61_DDCON A_cap28** — RAW-EW13v2 relw @1
 - Raw-data provenance manifest GREEN or deliberately re-pinned with ledger note.
 
 ## Status: in_progress
-Round opened 2026-11-05 (innovation-focused). Items 1-6 complete for the KW rates axis (item 3): NEGATIVE recorded 2026-11-06, KW_TERMPREMIA_HUNT1 closed.
+Round opened 2026-11-05 (innovation-focused). Items 1-6 complete for the KW rates axis: NEGATIVE recorded 2026-11-06, KW_TERMPREMIA_HUNT1 closed. Items 8-9 complete for the ICP causal axis: NEGATIVE recorded 2026-11-07 (no-subset-accepted branch), ICP_CAUSAL_HUNT1 closed.
 
-2026-11-06 KW hunt record: precommit sealed e96d87c → artifact run_arms.py → single frozen measurement → FINDINGS.md + DEAD_IDEAS row + evidence commit 32a904e. No treatment arm passes G1-G6 (all fail G2 on 5-8x CAGR over-sacrifice; A/C also fail G1; B's G1 pass is the sealed refutation branch). G6 machinery-valid. Structural lesson: market-implied TP levels do not time the champion's tail — de-risk episodes (2008-2021) never overlapped the champion MDD window (2023-12). Future de-risk hunts must first pass an in-sample drawdown-overlap pre-screen.
+2026-11-07 ICP hunt record: precommit sealed 9bb7b21 → verify_prereqs.py GREEN → run_hunt.py frozen artifact → single frozen measurement → FINDINGS.md + DEAD_IDEAS row 78. All 8 subsets reject invariance (p_S ~2e-06, 5-14 orders below α=0.05); EMPTY-subset rejection is the diagnostic: champion IS return distribution is block-non-stationary in mean AND variance and no FRED parent innovation absorbs it. ICP fail-closed per design — no spurious causal parent handed back. Structural lesson: any future parent-selection mechanism must ALSO render the champion's conditional distribution environment-stable, or it fails the same invariance wall.
 
-Next axis per memory priority order (2026-11 reviews): (1) ICP causal overlay — surviving TVPVECM lesson applies (trailing-window invariance scores are pro-cyclical; pre-register that concern), or (3) 13F holdings parsing (metadata already collected; holdings tables never parsed). (2-honest) conformal layer still blocked until ≥60 H1 panel dates (~Dec 2026).
+Two innovation axes now measured-closed this round (KW rates overlay, ICP parent-selection). Next axis per memory priority order (2026-11 reviews): **(3) 13F holdings parsing**. (2-honest) conformal layer still blocked until ≥60 H1 panel dates (~early Dec 2026).
