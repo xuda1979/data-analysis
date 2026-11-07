@@ -1,0 +1,163 @@
+{
+  "champion": {
+    "file_sha256": "a8ed233bd0f6fd5dad4056fda8fbd4cdde10d87ca4886c104c25b93c8014fbf4",
+    "sha16": "a8ed233bd0f6fd5d",
+    "rows": 4806,
+    "first": "2008-03-31",
+    "last": "2026-08-28",
+    "SR": 3.7844894672049048,
+    "CAGR": 0.23860978396835986,
+    "MDD": -0.03304849169440516,
+    "neg_years": 0,
+    "worst_year": 0.07553011883208494
+  },
+  "split": {
+    "IS_rows": 2286,
+    "OOS_rows": 2520,
+    "IS_first": "2008-03-31",
+    "IS_last": "2016-12-30",
+    "OOS_first": "2017-01-02",
+    "OOS_last": "2026-08-28"
+  },
+  "blocks": [
+    {
+      "block": "b1",
+      "n": 572,
+      "first": "2008-03-31",
+      "last": "2010-06-07"
+    },
+    {
+      "block": "b2",
+      "n": 572,
+      "first": "2010-06-08",
+      "last": "2012-08-15"
+    },
+    {
+      "block": "b3",
+      "n": 571,
+      "first": "2012-08-16",
+      "last": "2014-10-23"
+    },
+    {
+      "block": "b4",
+      "n": 571,
+      "first": "2014-10-24",
+      "last": "2016-12-30"
+    }
+  ],
+  "episodes_top6": [
+    {
+      "start": "2023-12-28",
+      "trough_date": "2024-01-11",
+      "end": "2024-03-05",
+      "depth": -0.03304849169440516,
+      "n_decline_sessions": 11,
+      "n_underwater_sessions": 48
+    },
+    {
+      "start": "2018-06-20",
+      "trough_date": "2018-06-25",
+      "end": "2018-07-11",
+      "depth": -0.032516689314690095,
+      "n_decline_sessions": 4,
+      "n_underwater_sessions": 15
+    },
+    {
+      "start": "2026-03-10",
+      "trough_date": "2026-03-17",
+      "end": "2026-03-31",
+      "depth": -0.027620084425269642,
+      "n_decline_sessions": 6,
+      "n_underwater_sessions": 15
+    },
+    {
+      "start": "2008-12-17",
+      "trough_date": "2008-12-19",
+      "end": "2009-01-16",
+      "depth": -0.027133420931042873,
+      "n_decline_sessions": 3,
+      "n_underwater_sessions": 22
+    },
+    {
+      "start": "2020-03-23",
+      "trough_date": "2020-03-26",
+      "end": "2020-04-01",
+      "depth": -0.02621199017607001,
+      "n_decline_sessions": 4,
+      "n_underwater_sessions": 7
+    },
+    {
+      "start": "2009-02-06",
+      "trough_date": "2009-02-11",
+      "end": "2009-02-27",
+      "depth": -0.023513049406979403,
+      "n_decline_sessions": 4,
+      "n_underwater_sessions": 15
+    }
+  ],
+  "kw_g_pins": {
+    "A": {
+      "sha16": "cc49cfba4664cef5",
+      "rows": 4806,
+      "derisked_sessions": 1446,
+      "g_levels": [
+        0.7,
+        1.0
+      ]
+    },
+    "B": {
+      "sha16": "1f9d77019459089c",
+      "rows": 4806,
+      "derisked_sessions": 1188,
+      "g_levels": [
+        0.5,
+        1.0
+      ]
+    },
+    "C": {
+      "sha16": "b4fa8aefde66d8be",
+      "rows": 4806,
+      "derisked_sessions": 1422,
+      "g_levels": [
+        0.7,
+        1.0
+      ]
+    }
+  },
+  "fred": {
+    "DTWEXBGS": {
+      "file": "fred_DTWEXBGS.csv",
+      "sha256": "908a19a96d1ba529ef51ae559b8bc384bf8af4d4013185426e5ee9c3cca4213f",
+      "sha16": "908a19a96d1ba529",
+      "rows": 5222,
+      "first": "2006-01-02",
+      "last": "2026-10-30",
+      "champ_window_coverage": 1.0,
+      "max_staleness_bdays": 4.0,
+      "within_ffill5_limit": true
+    },
+    "T10YIE": {
+      "file": "fred_T10YIE.csv",
+      "sha256": "5b669e4b20edd027e94c36ae0654151d08afd22d7eed13f5d6f5ec9093942233",
+      "sha16": "5b669e4b20edd027",
+      "rows": 5966,
+      "first": "2003-01-02",
+      "last": "2026-11-05",
+      "champ_window_coverage": 1.0,
+      "max_staleness_bdays": 1.0,
+      "within_ffill5_limit": true
+    },
+    "DGS3MO": {
+      "file": "fred_DGS3MO.csv",
+      "sha256": "488f612215354356411de73118868f7123ec588f133e5388d58fc0143edc9241",
+      "sha16": "488f612215354356",
+      "rows": 11294,
+      "first": "1981-09-01",
+      "last": "2026-11-04",
+      "champ_window_coverage": 1.0,
+      "max_staleness_bdays": 1.0,
+      "within_ffill5_limit": true
+    }
+  },
+  "scipy_available": true
+}
