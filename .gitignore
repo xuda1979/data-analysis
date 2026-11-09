@@ -66,3 +66,6 @@ ibkr_paper_portal_*.png
 # per-project playwright browser-session logs (regenerable)
 .playwright-mcp/
 .tmp/
+# F13F_CROWDING_HUNT1 fetch caches (136MB regenerable HTML/XML/txt source
+# documents; sha256-pinned via work/fetch_manifest.json + data/holdings_*.csv.gz)
+campaign/hunts/F13F_CROWDING_HUNT1/work/cache/

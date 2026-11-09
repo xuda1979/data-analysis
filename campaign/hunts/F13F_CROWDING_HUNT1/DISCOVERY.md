@@ -20,7 +20,7 @@ constructed on the champion grid, no gate was scored, no arm was run.
 - CONCLUSION: **the 13F holdings axis is lawful to hunt** — no
   holdings-derived estimand has ever been measured against the champion.
 
-## 2. SEC EDGAR fetch chain (proven end-to-end, 2008–2026, both format eras)
+## 2. SEC EDGAR fetch chain (all links verified 2026-11-07/08, both format eras)
 
 1. **Submissions JSON**: `https://data.sec.gov/submissions/CIK{cik:010d}.json`
    — CIK must be ZERO-PADDED 10 DIGITS (9 digits → HTTP 403 empty body).
@@ -35,12 +35,56 @@ constructed on the champion grid, no gate was scored, no arm was run.
 3. **Filing directory**: `www.sec.gov/Archives/edgar/data/{cik}/{accession-no-dashes}/`
    — information-table filename VARIES per filing (`form13fInfoTable.xml`,
    `infotable.xml`, numbered like `56757.xml`): must discover from the
-   directory index each time.
-4. **Information table**: one namespace across all eras
-   (`http://www.sec.gov/edgar/document/thirteenf/informationtable`);
+   directory index each time. **Directory-index hrefs are FULL ABSOLUTE
+   PATHS** (`/Archives/edgar/data/{cik}/{acc}/{file}`), not bare filenames
+   — probe lists must extract basenames (bug found + fixed 2026-11-08).
+4. **TWO format eras** (census `work/chk_pd_ext.py`, 2026-11-08: 771
+   roster HR+HR/A filings = 412 txt + 331 xml + 28 missing
+   primaryDocument; the 28 no-pd are report periods 1998-12-31..2000-03-31,
+   all pre-parse-scope. Extension by report year: all txt through 2012;
+   **2013 is the transition year: 6 txt + 19 xml** — the 6 txt are 2013Q1
+   report stragglers filed mid-2013; xml only from 2014 on. Parse scope
+   report ≥ 2006-01-01: in scope 541 = 331 xml + 210 txt; skipped 230):
+   - **XML era** (primary doc .xml; report ≥ 2013Q2, plus 2013 transition
+     filings): the submissions `primaryDocument` is the **COVER PAGE**
+     (331/331; e.g. `xslForm13F_X01/primary_doc.xml`), NOT the information
+     table. The info table is discovered by candidate-name probes
+     (`form13fInfoTable.xml`, `Form13FInfoTable.xml`, `infotable.xml`)
+     with a strict `thirteenf/informationtable` namespace content check,
+     then a directory-index fallback probing every `.xml` (cover excluded
+     by name; covers fail the content check regardless — their namespace
+     is `.../thirteenf/coverpage`).
+   - **TEXT era** (primary doc .txt; report 1999..2013Q1): the primary
+     document contains the info table as `<TABLE>` text markup, parsed by
+     the verified frozen `work/proto_text_parser.py` (19/19 harness PASS;
+     three-method cross-verification: token parse on collapsed text,
+     independent re-parse, fixed-column-position slicing on
+     whitespace-preserved text). Two styles observed: **Berkshire style**
+     (space-separated 6-2-1 CUSIPs, comma-formatted values/shares, wrapped
+     issuer names, `X` discretion, sub-account continuation rows, per-page
+     subtotals) and **contiguous style** (other 5 managers: 9-char
+     contiguous CUSIP, value right after, optional SH/PRN, discretion
+     word, voting triple).
+5. **Information table (xml era)**: one namespace across all xml-era
+   filings (`http://www.sec.gov/edgar/document/thirteenf/informationtable`);
    stdlib `xml.etree.ElementTree` parses all. Fields: nameOfIssuer,
    titleOfClass, cusip, value, shrsOrPrnAmt/sshPrnamt(+sshPrnamtType),
-   putCall (optional/None), investmentDiscretion, votingAuthority.
+   putCall (optional/None), investmentDiscretion, votingAuthority
+   (Sole|Shared|None).
+6. **Filer cover errors (4 verified — parsed TABLE truth is
+   authoritative; a filing's own cover page can be wrong)**:
+   - bridgewater 2008Q1 (000091412108000387): table 523 rows / 4,818,350
+     vs cover Entry=5232, Value=4,059,999.
+   - renaissance 2008Q1 (000103738908000003): table 51,582,503 vs cover
+     51,582,492 (+11).
+   - renaissance 2013Q1 (000103738913000054): table 41,273,179 vs cover
+     41,273,211 (−32).
+   - appaloosaOld 2008Q1 (000100643808000002): table 28 rows / 1,814,515
+     (thousands) vs cover 1,814,514,000 (dollars; /1000 → 1,814,514;
+     table truth verified two independent ways).
+   **Policy**: row count vs cover Entry Total is the hard verification
+   gate; cover Value Totals are ADVISORY only — reconciliation deltas are
+   recorded in the fetch manifest, never used to alter parsed rows.
 
 ## 3. Value-units era rule (verified via implied-price cross-checks)
 
@@ -55,7 +99,10 @@ era). Normalization: `value_dollars = value * 1000 if acceptance <
 
 - **Duplicate rows**: large positions split across multiple infoTable rows
   (sub-accounts) — position-level features MUST aggregate by cusip within
-  each filing.
+  each filing. Text-era continuation rows (Berkshire sub-account pattern)
+  are frozen with entry_kind="cont" and EMPTY cusip; the forward-fill +
+  aggregate-by-cusip rule is sealed in the precommit, not applied at
+  freeze.
 - **Amendments**: 13F-HR/A exist (e.g. Berkshire 2008-11-14 amendment for
   2008-06-30 period). Precommit must seal the handling rule.
 - **Stale entities**: Baupost CIK 0001054420 is a stale /ADV entity (only 5
@@ -94,6 +141,11 @@ quarters** (report periods 2008Q1..2016Q4):
   Paulson, Appaloosa (both CIKs) fit in `recent`.
 - Download budget: ~771 total 13F filings across the roster — minutes at
   ≤10 req/s. Trivially feasible.
+- **Freeze parse scope** (fetch_freeze_13f.py): report periods ≥
+  2006-01-01 — the estimand window 2008Q1+ plus 8 quarters of warmup
+  before grid start 2008-03-31 — so the frozen panel holds 44 report
+  periods per manager (2006Q1..2016Q4) on the IS side; the roster rule's
+  36/36 estimand quarters (2008Q1..2016Q4) is unchanged.
 
 ## 6. Design anchor (for precommit §1)
 
@@ -110,6 +162,8 @@ distribution environment-stable or it fails the same invariance wall).
 
 No holdings-derived feature was computed on the champion grid; no overlay
 was measured; no gate scored; no arm run; zero unlevered_v1 trial slots
-consumed. Probes parsed a handful of XMLs (Berkshire quarterly, dual eras)
-solely to verify format/units — no feature values were recorded or compared
-to champion returns.
+consumed. Verification parsing (format/units probes, the text-era parser
+harness and its three-method cross-verification, and the full freeze
+fetch) touched filings solely to establish format, units, and parse
+correctness — no feature values were recorded or compared to champion
+returns.
