@@ -1,0 +1,183 @@
+{
+  "champion": {
+    "file_sha256": "a8ed233bd0f6fd5dad4056fda8fbd4cdde10d87ca4886c104c25b93c8014fbf4",
+    "sha16": "a8ed233bd0f6fd5d",
+    "rows": 4806,
+    "first": "2008-03-31",
+    "last": "2026-08-28",
+    "SR": 3.7844894672049048,
+    "CAGR": 0.23860978396835986,
+    "MDD": -0.03304849169440516,
+    "neg_years": 0,
+    "worst_year": 0.07553011883208494
+  },
+  "split": {
+    "IS_rows": 2286,
+    "OOS_rows": 2520,
+    "IS_first": "2008-03-31",
+    "IS_last": "2016-12-30",
+    "OOS_first": "2017-01-02",
+    "OOS_last": "2026-08-28"
+  },
+  "blocks": [
+    {
+      "block": "b1",
+      "n": 572,
+      "first": "2008-03-31",
+      "last": "2010-06-07"
+    },
+    {
+      "block": "b2",
+      "n": 572,
+      "first": "2010-06-08",
+      "last": "2012-08-15"
+    },
+    {
+      "block": "b3",
+      "n": 571,
+      "first": "2012-08-16",
+      "last": "2014-10-23"
+    },
+    {
+      "block": "b4",
+      "n": 571,
+      "first": "2014-10-24",
+      "last": "2016-12-30"
+    }
+  ],
+  "g0_windows": [
+    {
+      "window": "E1",
+      "start": "2023-12-28",
+      "end": "2024-01-11",
+      "champion_sessions": 11
+    },
+    {
+      "window": "E2",
+      "start": "2018-06-20",
+      "end": "2018-06-25",
+      "champion_sessions": 4
+    },
+    {
+      "window": "E3",
+      "start": "2026-03-10",
+      "end": "2026-03-17",
+      "champion_sessions": 6
+    }
+  ],
+  "holdings": {
+    "berkshire": {
+      "file": "data/holdings_berkshire.csv.gz",
+      "sha256": "2a2c15902adbf519e287eb0b838371d17f2516b05db19120cd0714ced50c4007",
+      "sha16": "2a2c15902adbf519",
+      "rows": 11344,
+      "manifest_rows": 11344,
+      "manifest_sha16": "2a2c15902adbf519",
+      "n_filings": 110,
+      "is_report_periods": 44,
+      "is_first": "2006-03-31",
+      "is_last": "2016-12-31"
+    },
+    "bridgewater": {
+      "file": "data/holdings_bridgewater.csv.gz",
+      "sha256": "52260cb344cf884d200a2589dc7ea047e19eba12a4be4b397efb92433c79160e",
+      "sha16": "52260cb344cf884d",
+      "rows": 39906,
+      "manifest_rows": 39906,
+      "manifest_sha16": "52260cb344cf884d",
+      "n_filings": 95,
+      "is_report_periods": 44,
+      "is_first": "2006-03-31",
+      "is_last": "2016-12-31"
+    },
+    "paulson": {
+      "file": "data/holdings_paulson.csv.gz",
+      "sha256": "f809d2d46de50f7e9d983255af5c213902881cd6006530e5ad62cb1e4b9eb9d6",
+      "sha16": "f809d2d46de50f7e",
+      "rows": 4416,
+      "manifest_rows": 4416,
+      "manifest_sha16": "f809d2d46de50f7e",
+      "n_filings": 84,
+      "is_report_periods": 44,
+      "is_first": "2006-03-31",
+      "is_last": "2016-12-31"
+    },
+    "renaissance": {
+      "file": "data/holdings_renaissance.csv.gz",
+      "sha256": "0479a3f421f13bd0aa57a6d6491f27b2a54ae770e24630064cb4560d9624be9c",
+      "sha16": "0479a3f421f13bd0",
+      "rows": 273190,
+      "manifest_rows": 273190,
+      "manifest_sha16": "0479a3f421f13bd0",
+      "n_filings": 85,
+      "is_report_periods": 44,
+      "is_first": "2006-03-31",
+      "is_last": "2016-12-31"
+    },
+    "southeastern": {
+      "file": "data/holdings_southeastern.csv.gz",
+      "sha256": "525227641ead1538e00c43016ffaf2dfd3a475caeb5e7cd4f74aae73f12a0d39",
+      "sha16": "525227641ead1538",
+      "rows": 6310,
+      "manifest_rows": 6310,
+      "manifest_sha16": "525227641ead1538",
+      "n_filings": 82,
+      "is_report_periods": 44,
+      "is_first": "2006-03-31",
+      "is_last": "2016-12-31"
+    },
+    "appaloosa": {
+      "file": "data/holdings_appaloosa.csv.gz",
+      "sha256": "59118438797d1c90915286d1f6f748fffc0015812dbb6182aa01970434ee7e77",
+      "sha16": "59118438797d1c90",
+      "rows": 3559,
+      "manifest_rows": 3559,
+      "manifest_sha16": "59118438797d1c90",
+      "n_filings": 85,
+      "is_report_periods": 44,
+      "is_first": "2006-03-31",
+      "is_last": "2016-12-31"
+    }
+  },
+  "holdings_total_filings": 541,
+  "kw_g_pins": {
+    "A": {
+      "sha16": "cc49cfba4664cef5",
+      "rows": 4806,
+      "derisked_sessions": 1446,
+      "g_levels": [
+        0.7,
+        1.0
+      ]
+    },
+    "B": {
+      "sha16": "1f9d77019459089c",
+      "rows": 4806,
+      "derisked_sessions": 1188,
+      "g_levels": [
+        0.5,
+        1.0
+      ]
+    },
+    "C": {
+      "sha16": "b4fa8aefde66d8be",
+      "rows": 4806,
+      "derisked_sessions": 1422,
+      "g_levels": [
+        0.7,
+        1.0
+      ]
+    }
+  },
+  "environment": {
+    "python": "3.12.16",
+    "scipy": "1.18.1",
+    "numpy": "2.5.4",
+    "pandas": "3.1.0"
+  },
+  "scipy_available": {
+    "alexandergovern": true,
+    "levene": true
+  },
+  "prereqs_green": true
+}
