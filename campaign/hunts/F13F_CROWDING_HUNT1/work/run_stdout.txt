@@ -1,0 +1,2 @@
+[first-stage] reg_rows=2285 block_ns=[571, 572, 571, 571] p_AG=1.59414e-06 p_BF=1.11955e-14 p_first=1.59414e-06 pass=False
+[verdict] NEGATIVE_FIRST_STAGE_FAIL — no overlay measured

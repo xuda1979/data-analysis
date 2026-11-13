@@ -1,0 +1,79 @@
+{
+  "first_stage": {
+    "reg_rows": 2285,
+    "first_stage_dropped_shift": 1,
+    "block_ns": [
+      571,
+      572,
+      571,
+      571
+    ],
+    "beta": [
+      0.0007467795051517239,
+      4.048286955874242e-05
+    ],
+    "p_alexandergovern": 1.5941378482984285e-06,
+    "p_brownforsythe": 1.1195506076667615e-14,
+    "p_first": 1.5941378482984285e-06,
+    "pass": false
+  },
+  "holdings": {
+    "dropped_no_cusip": {
+      "appaloosa": 0,
+      "berkshire": 0,
+      "bridgewater": 0,
+      "paulson": 0,
+      "renaissance": 0,
+      "southeastern": 0
+    },
+    "zero_total_filings": {
+      "appaloosa": 0,
+      "berkshire": 0,
+      "bridgewater": 0,
+      "paulson": 0,
+      "renaissance": 0,
+      "southeastern": 0
+    },
+    "unique_accessions": {
+      "appaloosa": 85,
+      "berkshire": 110,
+      "bridgewater": 94,
+      "paulson": 84,
+      "renaissance": 85,
+      "southeastern": 82
+    }
+  },
+  "composite": {
+    "step_days": 5479,
+    "composite_first_valid": "2006-05-15",
+    "managers_active_first": 0,
+    "per_mgr_mean_HHI": {
+      "appaloosa": 0.08825128185034783,
+      "berkshire": 0.15826249595047778,
+      "bridgewater": 0.11144548253205348,
+      "paulson": 0.09086833114858639,
+      "renaissance": 0.09907046387573298,
+      "southeastern": 0.062040294771709616
+    },
+    "per_mgr_mean_TOP10": {
+      "appaloosa": 0.6948833652798614,
+      "berkshire": 0.8619339385595987,
+      "bridgewater": 0.5479937623066432,
+      "paulson": 0.7268335465196133,
+      "renaissance": 0.20589094802014968,
+      "southeastern": 0.6381031666614576
+    },
+    "per_mgr_active_days": {
+      "appaloosa": 5384,
+      "berkshire": 5384,
+      "bridgewater": 5383,
+      "paulson": 5384,
+      "renaissance": 5393,
+      "southeastern": 5385
+    },
+    "zA_nan_on_champ": 0,
+    "zC_nan_on_champ": 0
+  },
+  "arms": null,
+  "mechanical_verdict": "NEGATIVE_FIRST_STAGE_FAIL (row-78 wall; no overlay measured, \u00a74.3 fail-closed)"
+}

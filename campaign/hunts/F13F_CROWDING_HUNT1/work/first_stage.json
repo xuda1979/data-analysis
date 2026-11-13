@@ -1,0 +1,18 @@
+{
+  "reg_rows": 2285,
+  "first_stage_dropped_shift": 1,
+  "block_ns": [
+    571,
+    572,
+    571,
+    571
+  ],
+  "beta": [
+    0.0007467795051517239,
+    4.048286955874242e-05
+  ],
+  "p_alexandergovern": 1.5941378482984285e-06,
+  "p_brownforsythe": 1.1195506076667615e-14,
+  "p_first": 1.5941378482984285e-06,
+  "pass": false
+}

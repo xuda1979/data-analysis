@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/home/david/software/world-trader/campaign/hunts/F13F_CROWDING_HUNT1/run_hunt.py", line 413, in <module>
+    main()
+  File "/home/david/software/world-trader/campaign/hunts/F13F_CROWDING_HUNT1/run_hunt.py", line 280, in main
+    zA, zC, comp_diag = build_composite(feats, champ)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/david/software/world-trader/campaign/hunts/F13F_CROWDING_HUNT1/run_hunt.py", line 203, in build_composite
+    start = step.searchsorted(acc, side="left")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/david/software/world-trader/.venv/lib/python3.12/site-packages/pandas/core/base.py", line 1679, in searchsorted
+    result = values.searchsorted(value, side=side, sorter=sorter)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/david/software/world-trader/.venv/lib/python3.12/site-packages/pandas/core/arrays/_mixins.py", line 316, in searchsorted
+    npvalue = self._validate_setitem_value(value)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/david/software/world-trader/.venv/lib/python3.12/site-packages/pandas/core/arrays/datetimelike.py", line 707, in _validate_setitem_value
+    return self._validate_scalar(value, allow_listlike=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/david/software/world-trader/.venv/lib/python3.12/site-packages/pandas/core/arrays/datetimelike.py", line 584, in _validate_scalar
+    return self._unbox_scalar(value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/david/software/world-trader/.venv/lib/python3.12/site-packages/pandas/core/arrays/datetimes.py", line 553, in _unbox_scalar
+    self._check_compatible_with(value)
+  File "/home/david/software/world-trader/.venv/lib/python3.12/site-packages/pandas/core/arrays/datetimes.py", line 565, in _check_compatible_with
+    self._assert_tzawareness_compat(other)
+  File "/home/david/software/world-trader/.venv/lib/python3.12/site-packages/pandas/core/arrays/datetimes.py", line 780, in _assert_tzawareness_compat
+    raise TypeError(
+TypeError: Cannot compare tz-naive and tz-aware datetime-like objects.
