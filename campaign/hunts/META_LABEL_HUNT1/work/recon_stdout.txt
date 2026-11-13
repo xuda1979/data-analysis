@@ -1,0 +1,8 @@
+[Path A: local refit — diagnostic only, solver path is scipy-version-dependent]
+A(local refit): n=4806 inner=4806 max|new-old|=5.019e-10 DIFF | weights max|committed-built|=9.576e-09
+B(pinned wts ): n=4806 inner=4806 max|new-old|=6.870e-16 IDENTICAL | weights max|committed-built|=0.000e+00
+[Path B] gross mean 1.000000 max 1.000000000000 days>1.6 0 turnover 4.1917 bp/yr
+rebuilt  SR 3.7844894672048910  ann 0.2386097839683592  mdd -0.0330484916944048
+PIN      SR 3.7844894672049048  ann 0.2386097839683599  mdd -0.0330484916944052
+PIN match: SR True  ann True  mdd True
+RECON VERDICT (Path B, pinned weights): GREEN
