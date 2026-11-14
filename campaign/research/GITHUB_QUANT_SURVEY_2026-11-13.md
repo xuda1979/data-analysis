@@ -1,0 +1,115 @@
+# GITHUB QUANT SURVEY — What Popular Open-Source Quant Projects Offer the Champion
+
+**Date:** 2026-11-13. **Scope:** research-only survey of top open-source quant projects (live repo/tree/file inspection via GitHub API + raw fetches; star counts verified 2026-11-13, order-of-magnitude). **Law check:** every recommendation is either (a) a NEW free data axis or (b) a rule change on existing on-disk data, per frontier-closure law #147/#148. Nothing here was measured against the champion; this is a pre-discovery survey only.
+
+---
+
+## (A) Project-by-project findings
+
+| Project (stars, verified) | What it actually contains (files verified) | Transferable to champion | NOT applicable / why |
+|---|---|---|---|
+| **microsoft/qlib** (~50.3k) | AI quant platform. `qlib/contrib/data/loader.py`: **Alpha158** (kbar features KMID/KLEN/KUP..., rolling features ROC/MA/STD/MAX/MIN/QTLU/QTLD/RANK/RSV/IMAX/IMIN/IMXD/CORR/CORD/CNTP/CNTN/CNTD/SUMP/SUMN/SUMD/VMA/VSTD/WVMA/VSUMP... at windows 5/10/20/30/60) and **Alpha360** (60d OHLCV normalized by latest close/volume). `qlib/contrib/model/`: 30+ models (LGBM, XGBoost, CatBoost, DoubleEnsemble, ADARNN, ALSTM, GATs, TRA, HIST, IGMTF, TabNet, TCN, TCTS, SFM). `qlib/contrib/rolling/` + `examples/model_rolling/task_manager_rolling.py` + `qlib/contrib/online/manager.py`: **rolling re-train / online model management**. `examples/benchmarks_dynamic/DDG-DA` + `qlib/contrib/rolling/ddgda.py`: predictable **concept-drift adaptation** (forecast future data distribution, reweight training samples). `qlib/model/riskmodel/shrink.py`: Ledoit-Wolf / OAS / const-corr / single-factor shrinkage targets + `poet.py`; `structured.py` PCA-factor covariance. `qlib/contrib/model/double_ensemble.py`: sample-resampling + feature-reselection GBM ensembling. | Alpha158 rolling operators as meta-features (rule change b); rolling-refit pattern (b); shrink-target comparison (b); DoubleEnsemble for meta-model robustness (b). | Deep model zoo is cross-sectional equity (CSI300/500, stock graphs for HIST, concept graphs); 13-sleeve daily book has ~4.8k sessions — far below sample complexity. RD-Agent (microsoft/RD-Agent, ~15.4k) is LLM factor-factory automation — costs money, equities-oriented. |
+| **QuantConnect/LEAN** (~22.5k) | C#/Python engine. `Indicators/` 232 indicators (incl. 60+ candlestick patterns, ATR, Aroon, AugenPriceSpike). `Algorithm.Framework/Portfolio/`: BlackLitterman, MeanVariance, **RiskParity** (with optimizer), Insight/Confidence weighting. `Algorithm.Framework/Risk/`: MaximumDrawdown, TrailingStop, sector caps. Extensive futures continuous-contract machinery (rollover, back-month, data-mapping regression algos). | BlackLitterman/risk-parity as alternative weight rules (b); nothing else — repo already has a stricter backtest standard than LEAN's. | Execution/live-trading engine: no live futures broker here; candlestick/indicator zoo is refuted "indicator soup" territory; risk-management models are F2-DDC analogs (dead). |
+| **freqtrade** (~56.8k) | Crypto bot. `freqtrade/optimize/hyperopt_loss/`: **12 objective functions** — Calmar, Sortino, Sharpe, Sharpe-daily, MaxDrawdown, profit-drawdown, multi-metric. `freqtrade/freqai/`: periodic-retrain supervised ML sandbox (LightGBM/XGBoost/PyTorch/RL, live+backtest-consistent retraining). `freqtrade/optimize/analysis/lookahead.py` + `recursive.py`: **lookahead and recursive-analysis bias detectors**. `freqtrade/plugins/protections/`: cooldown, stoploss-guard, max-drawdown-protection. | Objective-function library for the weight fit (b); FreqAI's "retrain on schedule, identical in backtest and live" pattern (b); lookahead/recursive bias tests as harness hygiene. | Crypto-exchange microstructure, pairlists, protections (F2-DDC family, dead), intraday candles. |
+| **polakowo/vectorbt** (~9.8k) | Vectorized research engine. `vectorbt/generic/splitters.py`: Range/Rolling/**Expanding** splitters for walk-forward. `vectorbt/returns/metrics.py` + `qs_adapter.py` (quantstats adapter). `vectorbt/portfolio/trades.py`: full trade records from vectorized sims. | Splitters for walk-forward refit evaluation (b); fast parameter sweeps for gate grids. | Pro-grade speed unneeded at this data scale; nothing methodologically new. |
+| **stefan-jansen/machine-learning-for-trading** (~21.8k) | 27-chapter notebook library (2nd/3rd ed. structure verified). Key: `07_defining_the_learning_task/03_label_methods.ipynb` (fixed-horizon, triple-barrier, trend-scanning), `04_maximum_favorable_adverse_excursion.ipynb`; `09_model_based_features/03_fractional_differencing.ipynb`, `11_hmm_regimes`, `12_wasserstein_regimes`, `13_regime_as_feature.ipynb`; `11_ml_pipeline/06_conformal_prediction.ipynb`; `12_gradient_boosting/11_conformal_gbm.ipynb`; `16_strategy_simulation/12_dsr_validation.ipynb`; `17_portfolio_construction/06_hierarchical_risk_parity.ipynb`, `07_conformal_position_sizing.ipynb`; `19_risk_management/03_position_sizing_mae_mfe.ipynb`, `08_ml_exit_signals.ipynb`. | Fractional differencing; **regime-as-feature** (vs regime-gate); MAE/MFE-based position sizing; HRP; conformal position sizing; DSR validation hygiene. | Chapters 03/10/21/22-25 (microstructure, NLP, RL execution, RAG, agents) need tick/text data or are equities-only. `zipline-reloaded` (~2.0k) itself: maintenance-mode equities bundle backtester — infrastructure only, nothing to import. |
+| **hudson-and-thames/mlfinlab** (open core ~5.0k; last open code on dependabot branch — master README now paywalled) | López de Prado AFML library. `labeling/labeling.py`: **triple-barrier** (get_events, add_vertical_barrier, get_bins) + `trend_scanning.py`; `cross_validation/cross_validation.py`: **PurgedKFold** with embargo (ml_get_train_times); `combinatorial.py`: **CombinatorialPurgedKFold** (CPCV backtest paths); `sample_weights/attribution.py`: uniqueness/time-decay weights; `bet_sizing/bet_sizing.py`: **bet_size_probability** (meta-labeling → position size), bet_size_dynamic; `features/fracdiff.py`: Fracdiff (get_weights, frac_diff, FFD); `clustering/hierarchical_clustering.py` + `networks/{mst,pmfg}.py`: HRP infrastructure; `data_generation/`: HCBM, vine copulas, correlated random walks. | **Meta-labeling** + bet sizing on existing sleeves (b); PurgedKFold/CPCV as evaluation machinery; fracdiff features; HRP weighting. | `data_structures/` (dollar/volume/imbalance bars), `microstructural_features/` (VPIN, Kyle lambda, Amihud): tick data required — not on disk, not free for futures. Bet-sizing from *filings-side* uniqueness (concurrent-sides) not relevant. |
+| **AI4Finance-Foundation/FinRL** (~17.1k; FinRL-Meta ~2.0k) | Deep RL for trading. `finrl/agents/`: ElegantRL, SB3, RLlib wrappers. `finrl/meta/env_stock_trading/env_stocktrading.py`: daily equity env; **turbulence index** = Mahalanobis distance of cross-asset daily returns vs 252d rolling covariance (`processor_yahoofinance.py:calculate_turbulence`), position liquidation above threshold. `env_portfolio_optimization/`: cross-sectional portfolio env. | Turbulence-style Mahalanobis "distance from own recent regime" as a *feature* (not gate) — cheap to compute on the sleeve panel. | Deep RL entirely: ~4.8k daily sessions, non-stationary env, reward hacking; every RL-env design (episode resets, action masking) presumes cross-sectional rebalancing, not a continuous CTA book. |
+| **yli188/WorldQuant_alpha101_code** (~0.9k) + siblings (ram-ki/101_formulaic_alphas ~0.05k, yinxiuqu/alpha101-verified ~0.0k) | The 101 Formulaic Alphas (Kakushadze 2016) implemented: `101Alpha_code_1.py` = 83 alphas + operator library (ts_sum, sma, stddev, correlation, covariance, ts_rank, rolling_prod, ts_min/max, decay_linear, delta, rank, scale, sign, ts_argmax...). Verified: alphas are rank(x) of formula combos over OHLCV+volume. | Operator vocabulary (ts_rank, ts_argmax, decay_linear, scale) for time-series features on free futures proxies — as meta-model inputs only. | Alphas are **cross-sectional equity long-short** by construction (rank across universe); volume fields unreliable for pre-2008 commodity proxies; cross-sectional application to a 13-sleeve book is meaningless. |
+| **awesome-quant** (~30.6k), **awesome-systematic-trading** (~15.3k), **quantstats** (~7.9k), **backtrader** (~23.7k), **skfolio** (~2.6k), **neat-python** (~1.6k), **OpenBB** (~75k per README) | Curated lists; quantstats = tearsheet metrics; backtrader = event-driven engine; skfolio = sklearn-style portfolio optimization (estimators + risk measures, cross-validation of portfolios); neat-python = neuroevolution (no credible quant-trading results in any NEAT repo found — top hit has 33 stars). OpenBB = data-integration platform. | skfolio's portfolio-CV framing (cross-validated weight selection) reinforces candidate #2; awesome lists used as survey index. | NEAT: no demonstrated edge, hyperparameter-sensitive, daily-grid sample too small. OpenBB: aggregator over sources repo already accesses directly. |
+
+---
+
+## (B) Transferable-technique inventory
+
+1. **Meta-labeling / bet sizing** (mlfinlab `bet_sizing/bet_sizing.py`): secondary classifier predicts P(win) of primary signal's position; position size = f(2p−1). Never attempted in this campaign (no "meta-label" match anywhere in repo). Directly answers "rule change on existing data."
+2. **Triple-barrier / trend-scanning labels + MAE/MFE analysis** (mlfinlab `labeling/`; ml4t ch07/19): path-dependent labels more informative than fixed-horizon for sizing/exit decisions on continuously-positioned sleeves.
+3. **Purged K-fold + embargo, CPCV** (mlfinlab `cross_validation/`): leakage-safe CV for any overlapping-label model; CPCV generates multiple backtest paths to de-risk the single IS/OOS split.
+4. **Fractional differentiation (FFD)** (mlfinlab `features/fracdiff.py`; ml4t 09/03): stationary-but-memory-preserving price transforms as features.
+5. **Rolling/walk-forward retraining with identical backtest/live semantics** (qlib `contrib/rolling/`, `examples/model_rolling/`, `contrib/online/manager.py`; freqtrade `freqai/freqai_interface.py`; vectorbt `generic/splitters.py`).
+6. **Concept-drift-aware sample weighting** (qlib DDG-DA `contrib/rolling/ddgda.py`): predict future distribution shift, weight training samples toward it.
+7. **Regime-as-feature, not regime-as-gate** (ml4t 09/11-13): HMM/Wasserstein regime probabilities as model inputs. Campaign killed *gates* (all pro-cyclical or never-overlapping champion DD); a learned interaction is a different estimand.
+8. **Alternative portfolio objectives** (freqtrade `hyperopt_loss/` 12 objectives; skfolio risk measures): the ITER15 weight fit maximizes shrunk-covariance Sharpe only; Calmar/Sortino/DD-penalized objectives are one-line rule variants.
+9. **HRP / network-based weighting** (mlfinlab `clustering/`, `networks/`; ml4t 17/06): inversion-free allocation robust to the ~0.90-correlated brwt energy block.
+10. **Alpha158/Alpha101 time-series operator vocabulary** (qlib `contrib/data/loader.py`; yli188 `101Alpha_code_1.py`): CNTP/CNTD (up/down-day fraction), RSV, IMAX/IMIN (days since extreme), SUMP/SUMD (gain share), CORR/CORD (price-volume), decay_linear, ts_rank — none computed in this campaign.
+11. **Harness hygiene** (freqtrade `optimize/analysis/lookahead.py`, `recursive.py`; ml4t 16/11-12 DSR/SR-inference): lookahead/recursive-bias detectors; deflated-SR for multi-candidate adjudication.
+12. **Covariance-shrink target menu** (qlib `model/riskmodel/shrink.py`: LW, OAS, const-corr, single-factor, POET): the 0.62-to-diagonal rule is one point in a documented family.
+
+---
+
+## (C) Ranked lawful candidate directions
+
+All are rule changes (b) on existing on-disk data unless marked (a). All respect dead-idea lessons: no vol-targeting, no DD-triggered de-risk, no trailing-credibility gates, no cross-sectional equity books, no macro gate soup.
+
+**1. Meta-labeling bet-sizing layer on the 13 champion sleeves** — *highest priority.*
+- **Mechanism:** the sleeves are continuously-positioned; their daily positions are known. Label each sleeve-day (triple-barrier or fixed-horizon on the sleeve's own forward return), train a small classifier (logistic / LightGBM, IS<2017 only) on features below, predict P(win), scale sleeve weight by bet_size_probability-style transform (mlfinlab `bet_size_mixed` pattern). Improves SR if the model learns *which* of a sleeve's trend/carry states pay — this is orthogonal to every dead overlay family (it re-sizes from signal-state, not from macro/DD state).
+- **Data:** sleeve daily CSVs all on this machine (verified: `campaign/agents/E1_20yspan/sleeves/`, `CAMP_COST/sleeves/`, `HUNT_BASIS2/sleeves/`), champion series `campaign/results/GOAL100_RAWEW13v2_WEIGHTED_GEAR16_daily.csv`. No new data needed.
+- **Buildability:** high. ~4.8k sessions × 13 sleeves × ~30 features ≈ trivial memory. Purged K-fold + embargo for feature/model selection (mlfinlab `PurgedKFold`); CPCV paths for robustness.
+- **Popular-project lineage:** mlfinlab bet_sizing + labeling + sample_weights (AFML ch3/7); qlib's `ScoreIC`/report machinery for IC-style feature screening (`qlib/contrib/report/analysis_position/score_ic.py`).
+- **Key risks to pre-register:** must not degenerate into vol-targeting (cap size in [0.5, 1.5]× base weight, cost full |dW| at 6.4bps); pro-cyclicality screen (TVP-VECM lesson) — features must score *prospect*, not trailing realized quality; champion-corr gate unchanged.
+
+**2. Rolling/walk-forward weight refit** (qlib model_rolling pattern).
+- **Mechanism:** champion weights are fit ONCE on IS<2017 (shrunk max-Sharpe). Covariance drift since (energy concentration) was handled manually via ITER61 DDCON cap. Quarterly or annual re-fit of the same rule on trailing expanding window (embargo ≥ 63d) adapts the book continuously.
+- **Data:** same sleeve CSVs. **Buildability:** high; refit turnover cost is the binding constraint — pre-register a half-turn cap (e.g. roll-252 ≤ 1.5, KW convention).
+- **Lineage:** qlib `examples/model_rolling/task_manager_rolling.py`, `qlib/contrib/rolling/base.py`, `qlib/contrib/online/manager.py`; freqtrade FreqAI; vectorbt `ExpandingSplitter`.
+- **Risk:** selection-overfit — evaluate under CPCV and keep the refit rule frozen (frequency, window, shrinkage) before any OOS reveal.
+
+**3. Fractional-differentiation feature block** (feeds #1; independently lawful as a rule change).
+- **Mechanism:** FFD (d≈0.3-0.7, weight threshold 1e-4) of Brent/WTI/GS10/DGS2/SP500 series retains low-frequency "memory" that returns destroy; well-documented stationarity-memory tradeoff (AFML ch5). As meta-model inputs they carry level-regime information without unit-root leakage.
+- **Data:** all series already on disk (`campaign/hunts/KW_TERMPREMIA_HUNT1/data/`, `TVPVECM_HUNT1/data/`, `ICP_CAUSAL_HUNT1/data/`). **Buildability:** trivial (~40 lines numpy; mlfinlab `fracdiff.py` as reference).
+- **Lineage:** mlfinlab `features/fracdiff.py`; ml4t `09_model_based_features/03_fractional_differencing.ipynb`.
+
+**4. Regime-as-feature meta-model term** (HMM/Wasserstein probabilities as inputs to #1).
+- **Mechanism:** all regime *gates* died pro-cyclically; but regime probabilities as *features* let the meta-model learn state-contingent sleeve reliability (e.g. trend sleeves in high-vol regimes) without hard blocking. DDG-DA framing: treat sleeve-return distribution drift as predictable and weight training samples accordingly.
+- **Data:** champion sleeve panel; **Buildability:** high (hmmlearn or distance-based; 3-state HMM on 13-sleeve return panel).
+- **Lineage:** ml4t `11_hmm_regimes`, `12_wasserstein_regimes`, `13_regime_as_feature`; qlib DDG-DA.
+- **Guard:** pre-register that no hard threshold/gate variant is run (that family is dead), and apply the 13F precommit §4.3 environment-stability first-stage test.
+
+**5. Objective-function sweep in the weight fit** (freqtrade hyperopt-loss pattern).
+- **Mechanism:** one-line rule variants of ITER15: maximize Calmar / Sortino / DD-penalized Sharpe on the same shrunk IS covariance. MDD −3.30% is already excellent, so expected gain is small, but the cost is near-zero and it is exactly the "rule change" the law permits. Alternatively LW/OAS/const-corr shrink targets (qlib `riskmodel/shrink.py`) vs the fixed 0.62 diagonal shrink.
+- **Data/Buildability:** trivial. **Lineage:** `freqtrade/optimize/hyperopt_loss/{hyperopt_loss_calmar,hyperopt_loss_sortino_daily}.py`; qlib shrinkage menu; skfolio risk-measure abstraction.
+- **Risk:** multiple testing — cap at ≤4 pre-registered arms, single OOS reveal, DSR-adjusted adjudication.
+
+**6. HRP / network-based weight variant.**
+- **Mechanism:** near-singular energy block (brwt triad ~0.90 corr, ~76% gross) is exactly HRP's use case — allocation via correlation hierarchy without covariance inversion. May beat shrunk max-Sharpe on OOS robustness even at similar IS SR.
+- **Buildability:** trivial (mlfinlab `clustering/hierarchical_clustering.py`, `networks/{mst,pmfg}.py` as reference). **Lineage:** ml4t 17/06; mlfinlab ch16.
+
+**7. Alpha158/Alpha101 operator feature block on free futures proxies** (feeds #1).
+- **Mechanism:** time-series-only operators (CNTP/CNTD up-day fraction, RSV position, IMAX/IMIN recency-of-extreme, SUMP/SUMD gain share, CORR price-volume corr, decay_linear, ts_rank, ts_argmax) on Brent/WTI/GS10/GASREGW daily series (on disk) — none ever computed in this campaign; they summarize trend *quality* (persistence, participation) rather than trend *magnitude*, complementing the TSMOM/carry cores.
+- **Buildability:** high; `qlib/contrib/data/loader.py` (Alpha158 config) and yli188 `101Alpha_code_1.py` operator set are direct implementation references. Cross-sectional-only alphas excluded (volume/universe-dependent).
+- **Caveat:** these proxies are the same axes where new-engine hunts died — use ONLY as sizing features inside #1, not as new engines (DEAD_IDEAS rows on curve/momentum variants).
+
+**8. (Harness, not alpha) CPCV + lookahead/recursive bias detectors as standing adjudication upgrade.**
+- CombinatorialPurgedKFold backtest paths (mlfinlab `combinatorial.py`) + freqtrade-style lookahead/recursive analysis for any candidate from #1-#7. This directly hardens the campaign's biggest known statistical weakness (single IS/OOS split, ~78 dead ideas adjudicated on one path each) at zero data cost.
+
+---
+
+## (D) Explicit dead-ends to avoid
+
+1. **Deep RL (FinRL, freqtrade-RL, qlib RL):** ~4.8k daily sessions is orders of magnitude below RL sample complexity; envs are cross-sectional equity/crypto; no free futures tick data for state enrichment. FinRL's own turbulence-liquidation logic is a macro-gate analog — that family is 100% dead in this campaign (NFCIRISK/STLFSI/TED/RRP all dead).
+2. **Tick/bar data structures and microstructure features (mlfinlab `data_structures/`, `microstructural_features/`, VPIN, Kyle-lambda):** require tick data; not on this machine; not free for futures history.
+3. **Indicator-soup / candlestick libraries (LEAN's 232 indicators incl. 60 candlestick patterns; pandas-ta 150+ indicators — repo currently 404, PyPI pre-release only):** the campaign has measured-closed trend/mean-reversion variations; OHLC-pattern signals on daily proxies are the most crowded, most refuted territory in DEAD_IDEAS.
+4. **Protective circuit breakers (freqtrade `plugins/protections/`: cooldown, stoploss-guard, max-DD-protection; LEAN `Framework/Risk/`):** structurally identical to the F2-DDC family — REFUTED with a structural cause (champion DDs too shallow/recover too fast; DD-triggered de-risk sells dip bottoms).
+5. **Cross-sectional equity alphas (Alpha101 rank-based alphas, qlib model zoo, industry/sector momentum):** need a cross-section; equity cross-sections are closed (48-industry, sector-basket, twelve_liq, xs-momentum all dead); Alpha101's volume fields don't exist for pre-2008 commodity proxies.
+6. **Deep time-series models (qlib ALSTM/GATs/TRA/HIST/IGMTF/TCN/Transformer; ml4t ch13):** designed for panels of hundreds of equities × 60-day windows; HIST needs stock-concept graphs; a 13-sleeve daily book cannot support them.
+7. **Vol-targeting, DD-scaling, kurtosis-scaling overlays (any project's "risk management" section):** VOLTGT/K1/F2 all dead; GOAL5DIR meta-conclusion "overlays cost money."
+8. **Duplicate in-flight axes:** 13F crowding overlay (being measured now) and CBOE H1 implied-vol panel (needs ≥60 dates ~Dec 2026) — do not open parallel hunts on these axes.
+9. **Text/NLP/RAG/LLM-agent pipelines (ml4t ch10/22-24; RD-Agent; AutoHedge-type projects):** equities-filing sentiment; no free commodity-text corpus with PIT guarantees; RD-Agent's factor factory burns LLM budget for cross-sectional equity factors.
+10. **Synthetic-data GANs (mlfinlab `data_generation/`, ml4t ch05):** useful only for stress augmentation, not signal generation; cannot create information the champion lacks.
+
+---
+
+## Sources
+
+- [microsoft/qlib](https://github.com/microsoft/qlib) — Alpha158/360 loaders, model zoo, rolling/online, DDG-DA, riskmodel (files inspected at `qlib/contrib/data/loader.py`, `qlib/contrib/rolling/ddgda.py`, `qlib/model/riskmodel/shrink.py`, `examples/model_rolling/task_manager_rolling.py`)
+- [QuantConnect/Lean](https://github.com/QuantConnect/Lean) — Indicators/, Algorithm.Framework/Portfolio/, futures templates
+- [freqtrade/freqtrade](https://github.com/freqtrade/freqtrade) — hyperopt_loss/, freqai/, optimize/analysis/lookahead.py, plugins/protections/
+- [polakowo/vectorbt](https://github.com/polakowo/vectorbt) — generic/splitters.py, returns/metrics.py
+- [stefan-jansen/machine-learning-for-trading](https://github.com/stefan-jansen/machine-learning-for-trading) — 27-chapter notebook tree (ch07/09/11/16/17/19 inspected)
+- [stefan-jansen/zipline-reloaded](https://github.com/stefan-jansen/zipline-reloaded) — maintenance-mode equities bundle backtester
+- [hudson-and-thames/mlfinlab](https://github.com/hudson-and-thames/mlfinlab) — open core on dependabot branch: labeling/, bet_sizing/, cross_validation/, features/fracdiff.py, clustering/, networks/
+- [AI4Finance-Foundation/FinRL](https://github.com/AI4Finance-Foundation/FinRL) — finrl/meta/env_stock_trading/, processor_yahoofinance.py calculate_turbulence
+- [yli188/WorldQuant_alpha101_code](https://github.com/yli188/WorldQuant_alpha101_code) — 101Alpha_code_1.py (83 alphas + operator library)
+- [microsoft/RD-Agent](https://github.com/microsoft/RD-Agent) — RD-Agent(Q) automated factor mining
+- [wilsonfreitas/awesome-quant](https://github.com/wilsonfreitas/awesome-quant), [paperswithbacktest/awesome-systematic-trading](https://github.com/paperswithbacktest/awesome-systematic-trading) — survey indexes
+- [skfolio/skfolio](https://github.com/skfolio/skfolio), [CodeReclaimers/neat-python](https://github.com/CodeReclaimers/neat-python), [ranaroussi/quantstats](https://github.com/ranaroussi/quantstats), [mementum/backtrader](https://github.com/mementum/backtrader), [OpenBB-finance/OpenBB](https://github.com/OpenBB-finance/OpenBB)
