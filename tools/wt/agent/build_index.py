@@ -1,17 +1,24 @@
 #!/usr/bin/env python3
 """Build results/equity_research/INDEX.md from all report JSONs.
 
-Ranks covered names by the judge's base-case 12-mo price target (the
-report's own estimate of expected return). Re-run after any batch:
+Ranks covered names by the effective base-case 12-mo price target: the
+risk manager's deterministic override for vetoed reports, else the
+judge's scenarios (see report_view.effective_scenarios). Re-run after any
+batch:
     python tools/wt/agent/build_index.py
 """
 from __future__ import annotations
-import glob, json, os
+import json, os, sys
 
-OUT_DIR = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.dirname(
-        os.path.dirname(os.path.abspath(__file__))))),
-    "results", "equity_research")
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__)))))
+for p in (os.path.join(ROOT, "tools"), ROOT):
+    if p not in sys.path:
+        sys.path.insert(0, p)
+
+from wt.agent.report_view import (  # noqa: E402
+    OUT_DIR, latest_json_per_sym, effective_scenarios,
+)
 
 RATING_ORDER = {"BUY": 0, "OVERWEIGHT": 1, "HOLD": 2, "UNDERWEIGHT": 3, "SELL": 4}
 
@@ -22,27 +29,20 @@ def _pct(x) -> str:
     return f"{x * 100:+.1f}%"
 
 
-def _latest_json_per_sym() -> list:
-    """All report JSONs, keeping only the newest date per symbol."""
-    files = {}
-    for f in glob.glob(os.path.join(OUT_DIR, "*.json")):
-        name = os.path.basename(f)
-        if "_" not in name or not name.endswith(".json"):
-            continue
-        sym, date = name.rsplit("_", 1)[0], name.rsplit("_", 1)[1][:-5]
-        if sym == "INDEX" or sym == "TOP":
-            continue
-        if sym not in files or date > files[sym][0]:
-            files[sym] = (date, f)
-    return [f for _, f in sorted(files.values())]
+def _num(x) -> str:
+    """Format a price/PT at 2dp — never leak binary floats like
+    886.510009765625 onto the page."""
+    if x is None:
+        return "n/a"
+    return f"{x:,.2f}"
 
 
 def main() -> int:
     rows = []
-    for f in _latest_json_per_sym():
+    for f in latest_json_per_sym():
         d = json.load(open(f))
         j = d.get("judge") or {}
-        sc = j.get("scenarios") or {}
+        sc = effective_scenarios(d)
         base = sc.get("base") or {}
         bull = sc.get("bull") or {}
         bear = sc.get("bear") or {}
@@ -65,9 +65,11 @@ def main() -> int:
                                 else -999), RATING_ORDER.get(r["rating"], 9)))
 
     L = ["# Equity research coverage — index (agent debate reports)", ""]
-    L.append(f"*{len(rows)} names covered. Ranks by the judge's base-case "
-             f"12-mo target vs last price = the report's expected-return "
-             f"estimate. Updated {__import__('datetime').datetime.utcnow().strftime('%Y-%m-%d')} "
+    L.append(f"*{len(rows)} names covered. Ranks by the effective base-case "
+             f"12-mo PT (risk-team deterministic override when the judge was "
+             f"vetoed, else the judge's target) vs last price = the report's "
+             f"expected-return estimate. Updated "
+             f"{__import__('datetime').datetime.now(__import__('datetime').timezone.utc).strftime('%Y-%m-%d')} "
              f"UTC. Research only; not investment advice.*")
     L.append("")
 
@@ -81,8 +83,8 @@ def main() -> int:
         L.append("")
         for r in picks:
             L.append(f"- **{r['sym']}** — {r['rating']} ({r['conv']}), base PT "
-                     f"{r['base_pt']} → **{_pct(r['exp_ret'])}** vs price "
-                     f"{r['price']}; bear-case PT {r['bear_pt']} caps the "
+                     f"{_num(r['base_pt'])} → **{_pct(r['exp_ret'])}** vs price "
+                     f"{_num(r['price'])}; bear-case PT {_num(r['bear_pt'])} caps the "
                      f"downside scenario.")
         L.append("")
         L.append("> Caveat: single-run LLM ratings vary between runs (e.g. "
@@ -93,10 +95,10 @@ def main() -> int:
     L.append("|---|---|---|---|---|---|---|---|---|")
     for i, r in enumerate(rows, 1):
         L.append(
-            f"| {i} | **{r['sym']}** | {r['price'] or 'n/a'} | "
-            f"{r['base_pt'] or 'n/a'} | {_pct(r['exp_ret'])} | "
+            f"| {i} | **{r['sym']}** | {_num(r['price'])} | "
+            f"{_num(r['base_pt'])} | {_pct(r['exp_ret'])} | "
             f"{r['rating']} | {r['conv'] or 'n/a'} | "
-            f"{r['bear_pt'] or 'n/a'} | {'yes' if r['convg'] else 'no'} |")
+            f"{_num(r['bear_pt'])} | {'yes' if r['convg'] else 'no'} |")
     L.append("")
     L.append("## Rationales (judge)")
     for r in rows:
@@ -105,9 +107,10 @@ def main() -> int:
     L.append("## Notes")
     L.append("- Screening: top names by 12-mo Sharpe on the repo's US price "
              "panel, diversified across sectors.")
-    L.append("- Base PT = judge's 12-mo base-case target, anchored to the "
-             "deterministic valuation where available (see per-report "
-             "valuation notes for basis: forward vs trailing EPS).")
+    L.append("- Base PT = the effective 12-mo base-case target: the judge's "
+             "target when the risk manager approved it, else the risk team's "
+             "deterministic override (anchored to the Python valuation; see "
+             "per-report valuation notes for basis: forward vs trailing EPS).")
     L.append("- Convergence 'no' means the bull/bear debate was genuinely "
              "unresolved — treat those ratings as lower-confidence.")
     L.append("- Full reports: `results/equity_research/<SYM>_<date>.md` "

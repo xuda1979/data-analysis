@@ -423,3 +423,57 @@ None of these are direct code copies.
 - FinAgent: judge node, convergence detection, scenario probabilities.
 - ai-hedge-fund v2: abstain-on-missing-data; LLM writes no numbers.
 - TradingAgents (already Tier 1): structured JSON per node.
+
+## 2026-11-10 — popularity re-check + v2 deep-dive (pre-60-report upgrade)
+
+GitHub API re-queried (stars move fast in this space):
+
+| Project | Stars (2026-11-10) | Δ vs Aug survey | Note |
+|---|---|---|---|
+| TauricResearch/TradingAgents | 121,740 | 93.8k → 121.7k | Still the reference architecture; active (pushed 2026-11-04). |
+| virattt/ai-hedge-fund | 64,604 | 63k → 64.6k | v2 restructure confirmed (hedge_fund/ package, 151 files). |
+| HKUDS/Vibe-Trading | 37,982 | 25.8k → 38.0k | Personal-agent, not research-report shaped. |
+| OpenByteInc/QuantDinger | 13,665 | NEW | Self-hosted "Agentic Trading OS"; most notable idea = JEV gate. |
+| wquguru/nof0 | 2,753 | NEW | NOF1 Alpha Arena reproduction; eval-by-real-PnL arena. |
+| kyky2347/ALTA | 1,077 | NEW | "evidence" platform; README 404 on main — not readable, skipped. |
+
+### New mechanics adopted (from source, not READMEs)
+
+1. **ai-hedge-fund v2 `portfolio/construction.py` — `blend_signals`** (read in full, 105 lines):
+   - Abstentions excluded from vote averages but the analyst still counts in
+     ownership denominator; **short-permission gating**: a long-only analyst's
+     bearish vote reduces ownership but can NEVER create/strengthen a short.
+   - Three modes: long_only / long_short / dollar_neutral; dollar_neutral
+     allocates gross/2 per side with explicit flat_reasons
+     (`no_eligible_positions`, `missing_long_side`, `missing_short_side`).
+   - Signal values are hard-validated to [-1,1] finite; weights finite>0.
+   → Adopted verbatim in our portfolio builder (Task: portfolios from research).
+
+2. **ai-hedge-fund v2 `signals/llm_agent.py` — failure contract**:
+   - Data-layer errors PROPAGATE (fail loud — a broken snapshot must never
+     silently become a neutral view); LLM call/parse failures ABSTAIN with
+     `metadata.abstained=True` + reason.
+   - **Every LLM decision persists its exact prompt + response** (PromptCache);
+     an unchanged snapshot is a cache hit, never a second paid call.
+   → Adopted: per-stage transcript persistence + abstention contract.
+
+3. **ai-hedge-fund v2 blind prompts**: backtest prompts withhold ticker,
+   industry, calendar dates and dollar values (size survives only as a
+   market-cap percentile) so the LLM can't lean on memorized fundamentals —
+   an anti-lookahead *eval* discipline. Not directly portable (our reports
+   are live-date, not backtest), but informs our QA: judge prompts must not
+   contain the prior run's rating (prevents anchoring/rating stickiness).
+
+4. **QuantDinger JEV pre-trade gate**: typed `Choice` results with full
+   probabilities + confidence instead of prose parsing; auditable decision
+   timeline (provider, checks, confidence, latency, reason stored with the
+   order); provider failure **fails open** for entries, and every exit
+   bypasses AI entirely (never let an LLM block risk management).
+   → Adopted the spirit: our judge emits typed fields (already JSON) and the
+   report shows a per-stage audit trail; risk limits in the portfolio builder
+   are pure code, never LLM-gated.
+
+5. **nof0 arena**: honest eval = real PnL leaderboard of competing prompts,
+   not self-reported quality. → Adopted: our TOP_PICKS/INDEX track-record
+   section scores every past report by realized forward returns
+   (track_record.py extended to report-level scoring in the upgrade).

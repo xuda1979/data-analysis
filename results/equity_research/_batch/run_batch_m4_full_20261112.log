@@ -1,0 +1,35 @@
+[batch] 60 tickers, force=True, out=/home/david/software/world-trader/results/equity_research
+[agent.llm_chat] huanxin-dp4 error: TimeoutError('The read operation timed out')
+[agent.llm_chat] all providers returned empty (attempt 1/3); sleeping 0.8s and retrying
+[batch] 01/60 VTRS: done (188s, errors=0) risk=approved
+[agent.llm_chat] huanxin-dp4 error: URLError(ConnectionResetError(104, 'Connection reset by peer'))
+[agent.llm_chat] all providers returned empty (attempt 1/3); sleeping 0.8s and retrying
+[batch] 02/60 MPC: done (152s, errors=0) risk=vetoed
+[agent.llm_chat] huanxin-dp4 error: URLError(TimeoutError('timed out'))
+[agent.llm_chat] all providers returned empty (attempt 1/3); sleeping 0.8s and retrying
+[agent.llm_chat] huanxin-dp4 error: URLError(TimeoutError('timed out'))
+[agent.llm_chat] all providers returned empty (attempt 2/3); sleeping 1.6s and retrying
+[agent.llm_chat] huanxin-dp4 error: URLError(TimeoutError('timed out'))
+[agent.llm_chat] huanxin-dp4 error: URLError(ConnectionResetError(104, 'Connection reset by peer'))
+[agent.llm_chat] all providers returned empty (attempt 1/3); sleeping 0.8s and retrying
+[agent.llm_chat] huanxin-dp4 error: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[agent.llm_chat] all providers returned empty (attempt 2/3); sleeping 1.6s and retrying
+[agent.llm_chat] huanxin-dp4 error: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[agent.llm_chat] huanxin-dp4 error: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[agent.llm_chat] all providers returned empty (attempt 1/3); sleeping 0.8s and retrying
+[agent.llm_chat] huanxin-dp4 error: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[agent.llm_chat] all providers returned empty (attempt 2/3); sleeping 1.6s and retrying
+[agent.llm_chat] huanxin-dp4 error: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[batch] 03/60 TGT: done (229s, errors=3) risk=vetoed
+       - bull_researcher: LLM returned empty
+       - bear_researcher: LLM returned empty
+       - judge: LLM returned empty
+[agent.llm_chat] huanxin-dp4 error: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[agent.llm_chat] all providers returned empty (attempt 1/3); sleeping 0.8s and retrying
+[agent.llm_chat] huanxin-dp4 error: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[agent.llm_chat] all providers returned empty (attempt 2/3); sleeping 1.6s and retrying
+[agent.llm_chat] huanxin-dp4 error: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[agent.llm_chat] huanxin-dp4 error: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[agent.llm_chat] all providers returned empty (attempt 1/3); sleeping 0.8s and retrying
+[agent.llm_chat] huanxin-dp4 error: URLError(ConnectionRefusedError(111, 'Connection refused'))
+[agent.llm_chat] all providers returned empty (attempt 2/3); sleeping 1.6s and retrying

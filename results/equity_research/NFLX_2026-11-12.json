@@ -1,0 +1,462 @@
+{
+  "sym": "NFLX",
+  "generated_utc": "2026-11-12T03:31:23Z",
+  "price": 63.95000076293945,
+  "data_sections": [
+    "quote",
+    "fundamentals",
+    "news",
+    "filings",
+    "hn_mentions",
+    "clusters"
+  ],
+  "bull": {
+    "stance": "bullish",
+    "confidence": 0.75,
+    "claims": [
+      {
+        "claim": "Netflix is attractively valued relative to its growth, with a PEG ratio of 0.86 indicating the stock is undervalued for its expected earnings growth.",
+        "evidence": "fundamentals.peg",
+        "impact": "positive"
+      },
+      {
+        "claim": "Netflix has delivered strong profitability, with a return on equity of 53.46% and a profit margin of 29.69%, demonstrating efficient capital use and pricing power.",
+        "evidence": "fundamentals.roe",
+        "impact": "positive"
+      },
+      {
+        "claim": "Netflix's revenue and EPS are growing robustly, with year-over-year revenue growth of 11.23% and EPS growth of 21.23%, indicating strong business momentum.",
+        "evidence": "fundamentals.revenue_growth_yoy",
+        "impact": "positive"
+      },
+      {
+        "claim": "Netflix generates substantial free cash flow of $11.38 billion, providing ample resources for content investment, debt reduction, or shareholder returns.",
+        "evidence": "fundamentals.fcf",
+        "impact": "positive"
+      },
+      {
+        "claim": "Analysts are bullish on Netflix, with a consensus 'Buy' recommendation and a price target of $84.76, implying significant upside from the current price of $63.26.",
+        "evidence": "fundamentals.analyst_recommendation",
+        "impact": "positive"
+      },
+      {
+        "claim": "Netflix's valuation metrics, such as a trailing P/E of 18.68 and forward P/E of 17.97, are reasonable for a company with its growth and profitability profile.",
+        "evidence": "fundamentals.pe_ttm",
+        "impact": "positive"
+      }
+    ]
+  },
+  "bear": {
+    "stance": "bearish",
+    "confidence": 0.7,
+    "claims": [
+      {
+        "claim": "Netflix's stock has already plunged 11% in October, indicating negative momentum and investor sentiment.",
+        "evidence": "news.headline",
+        "impact": "negative"
+      },
+      {
+        "claim": "The stock is trading at a premium valuation with a P/B of 9.05 and P/S of 5.33, which leaves little room for error if growth slows.",
+        "evidence": "fundamentals.pb",
+        "impact": "negative"
+      },
+      {
+        "claim": "Netflix has negative net cash per share of -2.27, indicating the company is carrying significant debt relative to its cash position.",
+        "evidence": "fundamentals.net_cash_per_share",
+        "impact": "negative"
+      },
+      {
+        "claim": "The high beta of 1.61 suggests the stock is more volatile than the market, amplifying downside risk in a downturn.",
+        "evidence": "fundamentals.beta",
+        "impact": "negative"
+      },
+      {
+        "claim": "Recent insider selling, as indicated by multiple Form 4 filings, may signal that executives are less confident in the stock's near-term prospects.",
+        "evidence": "filings.form",
+        "impact": "negative"
+      },
+      {
+        "claim": "Despite a 'Buy' analyst recommendation, the price target of 84.76 implies only a modest upside from the current price of 63.95, suggesting limited appreciation potential.",
+        "evidence": "fundamentals.price_target",
+        "impact": "negative"
+      }
+    ]
+  },
+  "rebuttals": {
+    "bear": {
+      "rebuttals": [
+        {
+          "target_claim": "Netflix is attractively valued relative to its growth, with a PEG ratio of 0.86 indicating the stock is undervalued for its expected earnings growth.",
+          "response": "The PEG ratio of 0.86 is misleading because it relies on forward EPS growth estimates that may not materialize; the trailing P/E of 18.68 and forward P/E of 17.97 are nearly identical, suggesting the market already prices in limited acceleration, and the stock has fallen 11% in October per news, indicating negative momentum.",
+          "counter_evidence": "fundamentals.pe_ttm",
+          "concede": false,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "Netflix has delivered strong profitability, with a return on equity of 53.46% and a profit margin of 29.69%, demonstrating efficient capital use and pricing power.",
+          "response": "While ROE is high, it is inflated by a negative cash per share of -$2.27 and debt-to-equity of 0.6, meaning the company is leveraging up to achieve these returns; the high beta of 1.61 indicates significant risk that could undermine these metrics.",
+          "counter_evidence": "fundamentals.net_cash_per_share",
+          "concede": true,
+          "strength": 0.4
+        },
+        {
+          "target_claim": "Netflix's revenue and EPS are growing robustly, with year-over-year revenue growth of 11.23% and EPS growth of 21.23%, indicating strong business momentum.",
+          "response": "Revenue growth of 11.23% is solid but not exceptional for a tech leader, and EPS growth of 21.23% is partly driven by share buybacks (shares outstanding at 4.11B) rather than organic profitability; the stock's 11% October plunge suggests the market is skeptical of sustainability.",
+          "counter_evidence": "fundamentals.shares_outstanding",
+          "concede": false,
+          "strength": 0.5
+        },
+        {
+          "target_claim": "Netflix generates substantial free cash flow of $11.38 billion, providing ample resources for content investment, debt reduction, or shareholder returns.",
+          "response": "The FCF of $11.38B is impressive, but the company still carries $17.53B in debt and has negative net cash of -$9.31B, meaning much of that FCF will be needed for debt servicing rather than shareholder returns; the FCF yield of only 4.29% is modest relative to the stock's valuation.",
+          "counter_evidence": "fundamentals.debt",
+          "concede": true,
+          "strength": 0.5
+        },
+        {
+          "target_claim": "Analysts are bullish on Netflix, with a consensus 'Buy' recommendation and a price target of $84.76, implying significant upside from the current price of $63.26.",
+          "response": "The price target of $84.76 is 34% above the current price, but the stock recently plunged 11% in October, and the high beta of 1.61 suggests the downside risk is equally large; analyst targets often lag market corrections and may be revised downward.",
+          "counter_evidence": "fundamentals.beta",
+          "concede": false,
+          "strength": 0.4
+        },
+        {
+          "target_claim": "Netflix's valuation metrics, such as a trailing P/E of 18.68 and forward P/E of 17.97, are reasonable for a company with its growth and profitability profile.",
+          "response": "A P/E of 18.68 is not cheap for a company with a beta of 1.61 and negative cash per share; the forward P/E of 17.97 implies only 4% earnings growth, which contradicts the claimed 21% EPS growth, suggesting the market is pricing in a slowdown.",
+          "counter_evidence": "fundamentals.forward_pe",
+          "concede": false,
+          "strength": 0.6
+        }
+      ]
+    },
+    "bull": {
+      "rebuttals": [
+        {
+          "target_claim": "Netflix's stock has already plunged 11% in October, indicating negative momentum and investor sentiment.",
+          "response": "The October decline is a short-term price move that has already created a buying opportunity; the stock's PEG of 0.86 and forward P/E of 17.97 show it is still attractively valued relative to its growth, and the analyst consensus remains 'Buy' with a price target 33% above current levels.",
+          "counter_evidence": "fundamentals.peg",
+          "concede": true,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "The stock is trading at a premium valuation with a P/B of 9.05 and P/S of 5.33, which leaves little room for error if growth slows.",
+          "response": "The P/B is misleading for a company with only $7.13 book value per share due to heavy buybacks; the more relevant P/E of 18.68 and forward P/E of 17.97 are reasonable for a company growing EPS 21.2% YoY, and the PEG of 0.86 indicates the stock is actually undervalued on a growth-adjusted basis.",
+          "counter_evidence": "fundamentals.pe_ttm",
+          "concede": false,
+          "strength": 0.8
+        },
+        {
+          "target_claim": "Netflix has negative net cash per share of -2.27, indicating the company is carrying significant debt relative to its cash position.",
+          "response": "The debt-to-equity ratio of 0.6 is moderate, and the company generates massive free cash flow of $11.38B with a 22.9% FCF margin, easily covering its $17.53B debt; the negative net cash is a function of timing, not distress.",
+          "counter_evidence": "fundamentals.debt_eq",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "The high beta of 1.61 suggests the stock is more volatile than the market, amplifying downside risk in a downturn.",
+          "response": "Beta is backward-looking and ignores the company's improving fundamentals; with a 53.5% ROE and 34.1% ROIC, Netflix's strong profitability provides a cushion that more than compensates for historical volatility.",
+          "counter_evidence": "fundamentals.roe",
+          "concede": true,
+          "strength": 0.4
+        },
+        {
+          "target_claim": "Recent insider selling, as indicated by multiple Form 4 filings, may signal that executives are less confident in the stock's near-term prospects.",
+          "response": "Form 4 filings are routine and often reflect pre-planned compensation diversification, not directional bets; the fact that the stock has a 'Buy' rating and a price target 33% above current levels from analysts who monitor insider behavior more closely outweighs this signal.",
+          "counter_evidence": "fundamentals.analyst_recommendation",
+          "concede": true,
+          "strength": 0.3
+        },
+        {
+          "target_claim": "Despite a 'Buy' analyst recommendation, the price target of 84.76 implies only a modest upside from the current price of 63.95, suggesting limited appreciation potential.",
+          "response": "A 33% upside from $63.95 to $84.76 is substantial, not modest; combined with a PEG of 0.86 and 21.2% EPS growth, the stock offers strong risk-reward even if the target is only partially reached.",
+          "counter_evidence": "fundamentals.peg",
+          "concede": false,
+          "strength": 0.9
+        }
+      ]
+    }
+  },
+  "grading": {
+    "bull": {
+      "side": "bull",
+      "n_claims": 6,
+      "grounded": 6,
+      "ungrounded": 0,
+      "sections_cited": [
+        "fundamentals"
+      ],
+      "claims": [
+        {
+          "claim": "Netflix is attractively valued relative to its growth, with a PEG ratio of 0.86 indicating the stock is undervalued for its expected earnings growth.",
+          "evidence": "fundamentals.peg",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Netflix has delivered strong profitability, with a return on equity of 53.46% and a profit margin of 29.69%, demonstrating efficient capital use and pricing power.",
+          "evidence": "fundamentals.roe",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Netflix's revenue and EPS are growing robustly, with year-over-year revenue growth of 11.23% and EPS growth of 21.23%, indicating strong business momentum.",
+          "evidence": "fundamentals.revenue_growth_yoy",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Netflix generates substantial free cash flow of $11.38 billion, providing ample resources for content investment, debt reduction, or shareholder returns.",
+          "evidence": "fundamentals.fcf",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Analysts are bullish on Netflix, with a consensus 'Buy' recommendation and a price target of $84.76, implying significant upside from the current price of $63.26.",
+          "evidence": "fundamentals.analyst_recommendation",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Netflix's valuation metrics, such as a trailing P/E of 18.68 and forward P/E of 17.97, are reasonable for a company with its growth and profitability profile.",
+          "evidence": "fundamentals.pe_ttm",
+          "grounded": true,
+          "reason": "ok"
+        }
+      ]
+    },
+    "bear": {
+      "side": "bear",
+      "n_claims": 6,
+      "grounded": 6,
+      "ungrounded": 0,
+      "sections_cited": [
+        "filings",
+        "fundamentals",
+        "news"
+      ],
+      "claims": [
+        {
+          "claim": "Netflix's stock has already plunged 11% in October, indicating negative momentum and investor sentiment.",
+          "evidence": "news.headline",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The stock is trading at a premium valuation with a P/B of 9.05 and P/S of 5.33, which leaves little room for error if growth slows.",
+          "evidence": "fundamentals.pb",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Netflix has negative net cash per share of -2.27, indicating the company is carrying significant debt relative to its cash position.",
+          "evidence": "fundamentals.net_cash_per_share",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The high beta of 1.61 suggests the stock is more volatile than the market, amplifying downside risk in a downturn.",
+          "evidence": "fundamentals.beta",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Recent insider selling, as indicated by multiple Form 4 filings, may signal that executives are less confident in the stock's near-term prospects.",
+          "evidence": "filings.form",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Despite a 'Buy' analyst recommendation, the price target of 84.76 implies only a modest upside from the current price of 63.95, suggesting limited appreciation potential.",
+          "evidence": "fundamentals.price_target",
+          "grounded": true,
+          "reason": "ok"
+        }
+      ]
+    }
+  },
+  "valuation": {
+    "sym": "NFLX",
+    "price": 63.95000076293945,
+    "deterministic": true,
+    "inputs": {
+      "eps_ttm": 3.45,
+      "eps_forward (consensus-derived)": 3.52031163049527,
+      "pe_ttm": 18.68,
+      "forward_pe": 17.97,
+      "eps_growth_3y_fcst": 0.21230000000000002,
+      "revenue_growth_3y_fcst": 0.11230000000000001,
+      "beta": 1.61,
+      "net_cash_per_share": -2.27,
+      "base EPS used": 3.45,
+      "valuation multiple (P/E) used": 18.68,
+      "P/E band (bear/base/bull)": "14.9 / 18.7 / 23.4",
+      "DCF growth (5y)": 0.0663,
+      "DCF discount rate": 0.1122,
+      "DCF exit P/E": 16.8
+    },
+    "outputs": {
+      "quality_signals": {
+        "roe": 0.5346,
+        "roic": 0.34049999999999997,
+        "debt_eq": 0.6,
+        "fcf_margin": 0.22870000000000001,
+        "beta": 1.61
+      },
+      "dcf_lite": {
+        "method": "5-yr EPS power value discounted at beta-tilted flat rate, terminal exit P/E + net cash/share",
+        "growth_5y": 0.0663,
+        "discount_rate": 0.1122,
+        "exit_pe": 16.8,
+        "fair_value": 59.93
+      },
+      "scenario_grid": {
+        "bear": {
+          "growth": 0.0331,
+          "exit_pe": 14.9,
+          "value": 47.19,
+          "upside": -0.262
+        },
+        "base": {
+          "growth": 0.0663,
+          "exit_pe": 18.7,
+          "value": 65.21,
+          "upside": 0.02
+        },
+        "bull": {
+          "growth": 0.0994,
+          "exit_pe": 23.4,
+          "value": 90.59,
+          "upside": 0.417
+        }
+      },
+      "fair_value_basis": "DCF-lite base scenario (5-yr EPS power value + net cash/share)",
+      "fair_value": {
+        "bear": 47.19,
+        "base": 65.21,
+        "bull": 90.59
+      },
+      "upside_base": 0.02,
+      "peg": 2.82
+    },
+    "notes": [
+      "3Y cumulative growth forecast converted to per-year CAGR ((1+G)^(1/3)-1)",
+      "DCF-lite: growth clamped to [0%, 25%]; discount 10% base + 2pp per beta-unit above 1 (clamped [7%,14%]); exit P/E 0.9x trailing; +net cash/share"
+    ]
+  },
+  "judge": {
+    "convergence": false,
+    "rating": "HOLD",
+    "conviction": 0.55,
+    "scenarios": {
+      "bull": {
+        "prob": 0.3,
+        "pt": 90.59,
+        "thesis": "Strong profitability, robust growth, and attractive PEG support a re-rating to a higher multiple."
+      },
+      "base": {
+        "prob": 0.45,
+        "pt": 65.21,
+        "thesis": "Fundamentals are solid but valuation is fair, leading to modest upside in line with the deterministic fair value."
+      },
+      "bear": {
+        "prob": 0.25,
+        "pt": 47.19,
+        "thesis": "High beta, negative net cash, and insider selling could trigger a de-rating if growth disappoints."
+      }
+    },
+    "catalysts": [
+      {
+        "catalyst": "Next earnings report",
+        "date": "unknown",
+        "impact": "positive"
+      },
+      {
+        "catalyst": "Analyst price target revisions",
+        "date": "unknown",
+        "impact": "positive"
+      },
+      {
+        "catalyst": "Insider selling activity",
+        "date": "unknown",
+        "impact": "negative"
+      }
+    ],
+    "risks": [
+      {
+        "risk": "Market volatility due to high beta",
+        "likelihood": "medium"
+      },
+      {
+        "risk": "Debt burden and negative net cash",
+        "likelihood": "medium"
+      },
+      {
+        "risk": "Growth slowdown leading to de-rating",
+        "likelihood": "medium"
+      }
+    ],
+    "decision_rationale": "The bull and bear cases present conflicting signals: strong profitability and growth versus high volatility and leverage. The deterministic valuation places fair value near the current price, suggesting limited upside. Given the unresolved debate and balanced risk-reward, a HOLD rating with moderate conviction is appropriate."
+  },
+  "risk_manager": {
+    "sym": "NFLX",
+    "verdict": "approved",
+    "checks": {
+      "base_pt_within_25pct": {
+        "ok": true,
+        "detail": "judge base PT 65.21 vs deterministic base fair value 65.21 (deviation 0.0%)"
+      },
+      "probs_sum_1": {
+        "ok": true,
+        "detail": "bull/base/bear probs sum to 1.000"
+      },
+      "rating_in_scale": {
+        "ok": true,
+        "detail": "rating 'HOLD'"
+      },
+      "conviction_01": {
+        "ok": true,
+        "detail": "conviction 0.55"
+      }
+    },
+    "n_checks_passed": 4,
+    "n_checks": 4,
+    "override_applied": false,
+    "reason": "all deterministic checks passed; judge verdict stands"
+  },
+  "audit": {
+    "bull_researcher": {
+      "system": "You are the bull case researcher for an equity research report. Your job is to argue the strongest honest bull case for the ticker, based ONLY on the data provided. Rules:\n1. Every claim MUST be grounded in a specific data field. Cite it in the 'evidence' field as <section>.<field>, e.g. 'fundamentals.pe_ttm' or 'catalyst.eps_est' or 'earnings.surprise_pct'.\n2. If the data does not support a claim, do NOT make it. Missing data is a reason to stay silent or to say so explicitly.\n3. Do not hedge: this is your side's case. Pick the 4-6 strongest claims. No filler.\n4. Return ONLY the JSON object:\n{\"stance\": \"bullish|bearish\", \"confidence\": <0-1>, \"claims\": [{\"claim\": \"<one sentence>\", \"evidence\": \"<section.field>\", \"impact\": \"positive|negative\"}]}",
+      "user": "TICKER: NFLX\n\nROLE: BULL case\n\n[fundamentals] valuation & quality: market cap, P/E, P/B, P/S, ROE, margins, growth, cash/debt, 52w range, analyst targets\n{\n\"price\": 63.26,\n\"market_cap\": 265019999999.99997,\n\"enterprise_value\": 274329999999.99997,\n\"pe_ttm\": 18.68,\n\"forward_pe\": 17.97,\n\"peg\": 0.86,\n\"ps_ttm\": 5.33,\n\"pb\": 9.05,\n\"pfcf\": 23.29,\n\"ev_ebitda\": 17.19,\n\"eps_ttm\": 3.45,\n\"eps_forward\": 3.52031163049527,\n\"fcf_per_share\": 2.77,\n\"revenue_per_share\": null,\n\"cash_per_share\": -2.27,\n\"book_value_per_share\": 7.13,\n\"roe\": 0.5346,\n\"roa\": 0.17120000000000002,\n\"roic\": 0.34049999999999997,\n\"roce\": 0.3356,\n\"gross_margin\": 0.5068,\n\"operating_margin\": 0.313,\n\"profit_margin\": 0.2969,\n\"fcf_margin\": 0.22870000000000001,\n\"ebitda_margin\": 0.3208,\n\"pretax_margin\": 0.35590000000000005,\n\"revenue_growth_yoy\": 0.11230000000000001,\n\"eps_growth_yoy\": 0.21230000000000002,\n\"fcf\": 11380000000.0,\n\"ocf\": 12310000000....<truncated 5175 chars>",
+      "response": "{\n  \"stance\": \"bullish\",\n  \"confidence\": 0.75,\n  \"claims\": [\n    {\n      \"claim\": \"Netflix is attractively valued relative to its growth, with a PEG ratio of 0.86 indicating the stock is undervalued for its expected earnings growth.\",\n      \"evidence\": \"fundamentals.peg\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"Netflix has delivered strong profitability, with a return on equity of 53.46% and a profit margin of 29.69%, demonstrating efficient capital use and pricing power.\",\n      \"evidence\": \"fundamentals.roe\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"Netflix's revenue and EPS are growing robustly, with year-over-year revenue growth of 11.23% and EPS growth of 21.23%, indicating strong business momentum.\",\n      \"evidence\": \"fundamentals.revenue_growth_yoy\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"Netflix generates substantial free cash flow of $11.38 billion, providing ample resources for content investment, debt reduction, or shareholder returns.\",\n      \"evidence\": \"fundamentals.fcf\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"Analysts are bullish on Netflix, with a consensus 'Buy' recommendation and a price target of $84.76, implying significant upside from the current price of $63.26.\",\n      \"evidence\": \"fundamentals.analyst_recommendation\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"Netflix's valuation metrics, such as a trailing P/E of 18.68 and forward P/E of 17.97, are reasonable for a company with its growth and profitability profile.\",\n      \"evidence\": \"fundamentals.pe_ttm\",\n      \"impact\": \"positive\"\n    }\n  ]\n}",
+      "ok": true
+    },
+    "bear_researcher": {
+      "system": "You are the bear case researcher for an equity research report. Your job is to argue the strongest honest bear case for the ticker, based ONLY on the data provided. Rules:\n1. Every claim MUST be grounded in a specific data field. Cite it in the 'evidence' field as <section>.<field>, e.g. 'fundamentals.pe_ttm' or 'catalyst.eps_est' or 'earnings.surprise_pct'.\n2. If the data does not support a claim, do NOT make it. Missing data is a reason to stay silent or to say so explicitly.\n3. Do not hedge: this is your side's case. Pick the 4-6 strongest claims. No filler.\n4. Return ONLY the JSON object:\n{\"stance\": \"bullish|bearish\", \"confidence\": <0-1>, \"claims\": [{\"claim\": \"<one sentence>\", \"evidence\": \"<section.field>\", \"impact\": \"positive|negative\"}]}",
+      "user": "TICKER: NFLX\n\nROLE: BEAR case\n\n[filings] recent SEC filings (8-K etc.)\n[\n{\n\"form\": \"4\",\n\"filing_date\": \"2026-11-10\",\n\"accession\": \"0001583109-26-000006\",\n\"primary_doc\": \"xslF345X06/wk-form4_1794355937.xml\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/1065280/000158310926000006/xslF345X06/wk-form4_1794355937.xml\"\n},\n{\n\"form\": \"144\",\n\"filing_date\": \"2026-11-09\",\n\"accession\": \"0001628280-26-072200\",\n\"primary_doc\": \"xsl144X01/primary_doc.xml\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/1065280/000162828026072200/xsl144X01/primary_doc.xml\"\n},\n{\n\"form\": \"4\",\n\"filing_date\": \"2026-11-05\",\n\"accession\": \"0001065280-26-000322\",\n\"primary_doc\": \"xslF345X06/wk-form4_1793928269.xml\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/1065280/000106528026000322/xslF345X06/wk-form4_1793928269.xml\"\n},\n{\n\"form\": \"4\",\n\"filing_date\": \"2026-11-05\",\n\"accession\": \"0001065280-26-000320\",\n\"primary_doc\": \"xs...<truncated 5175 chars>",
+      "response": "{\n  \"stance\": \"bearish\",\n  \"confidence\": 0.7,\n  \"claims\": [\n    {\n      \"claim\": \"Netflix's stock has already plunged 11% in October, indicating negative momentum and investor sentiment.\",\n      \"evidence\": \"news.headline\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The stock is trading at a premium valuation with a P/B of 9.05 and P/S of 5.33, which leaves little room for error if growth slows.\",\n      \"evidence\": \"fundamentals.pb\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"Netflix has negative net cash per share of -2.27, indicating the company is carrying significant debt relative to its cash position.\",\n      \"evidence\": \"fundamentals.net_cash_per_share\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The high beta of 1.61 suggests the stock is more volatile than the market, amplifying downside risk in a downturn.\",\n      \"evidence\": \"fundamentals.beta\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"Recent insider selling, as indicated by multiple Form 4 filings, may signal that executives are less confident in the stock's near-term prospects.\",\n      \"evidence\": \"filings.form\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"Despite a 'Buy' analyst recommendation, the price target of 84.76 implies only a modest upside from the current price of 63.95, suggesting limited appreciation potential.\",\n      \"evidence\": \"fundamentals.price_target\",\n      \"impact\": \"negative\"\n    }\n  ]\n}",
+      "ok": true
+    },
+    "bear_rebuttal": {
+      "system": "You are the bear researcher responding to the OPPOSING case. Address each of the opposing side's claims head-on. For each one: either concede it, or rebut it using a specific counter-field from the data (evidence as <section>.<field>), or point out the inference gap. Be specific and numerical. Return ONLY:\n{\"rebuttals\": [{\"target_claim\": \"<the claim you are answering>\", \"response\": \"<your counter-argument, 1-2 sentences>\", \"counter_evidence\": \"<section.field or null>\", \"concede\": true|false, \"strength\": <0-1>}]}",
+      "user": "OPPOSING (bull) CLAIMS:\n[{\"claim\": \"Netflix is attractively valued relative to its growth, with a PEG ratio of 0.86 indicating the stock is undervalued for its expected earnings growth.\", \"evidence\": \"fundamentals.peg\", \"impact\": \"positive\"}, {\"claim\": \"Netflix has delivered strong profitability, with a return on equity of 53.46% and a profit margin of 29.69%, demonstrating efficient capital use and pricing power.\", \"evidence\": \"fundamentals.roe\", \"impact\": \"positive\"}, {\"claim\": \"Netflix's revenue and EPS are growing robustly, with year-over-year revenue growth of 11.23% and EPS growth of 21.23%, indicating strong business momentum.\", \"evidence\": \"fundamentals.revenue_growth_yoy\", \"impact\": \"positive\"}, {\"claim\": \"Netflix generates substantial free cash flow of $11.38 billion, providing ample resources for content investment, debt reduction, or shareholder returns.\", \"evidence\": \"fundam...<truncated 6615 chars>",
+      "response": "{\"rebuttals\": [{\"target_claim\": \"Netflix is attractively valued relative to its growth, with a PEG ratio of 0.86 indicating the stock is undervalued for its expected earnings growth.\", \"response\": \"The PEG ratio of 0.86 is misleading because it relies on forward EPS growth estimates that may not materialize; the trailing P/E of 18.68 and forward P/E of 17.97 are nearly identical, suggesting the market already prices in limited acceleration, and the stock has fallen 11% in October per news, indicating negative momentum.\", \"counter_evidence\": \"fundamentals.pe_ttm\", \"concede\": false, \"strength\": 0.6}, {\"target_claim\": \"Netflix has delivered strong profitability, with a return on equity of 53.46% and a profit margin of 29.69%, demonstrating efficient capital use and pricing power.\", \"response\": \"While ROE is high, it is inflated by a negative cash per share of -$2.27 and debt-to-equity of 0.6, meaning the company is leveraging up to achieve these returns; the high beta of 1.61 indicates significant risk that could undermine these metrics.\", \"counter_evidence\": \"fundamentals.net_cash_per_share\", \"concede\": true, \"strength\": 0.4}, {\"target_claim\": \"Netflix's revenue and EPS are growing robustly, with year-over-year revenue growth of 11.23% and EPS growth of 21.23%, indicating strong business momentum.\", \"response\": \"Revenue growth of 11.23% is solid but not exceptional for a tech leader, and EPS growth of 21.23% is partly driven by share buybacks (shares outstanding at 4.11B) rather than organic profitability; the stock's 11% October plunge suggests the market is skeptical of sustainability.\", \"counter_evidence\": \"fundamentals.shares_outstanding\", \"concede\": false, \"strength\": 0.5}, {\"target_claim\": \"Netflix generates substantial free cash flow of $11.38 billion, providing am...<truncated 1500 chars>",
+      "ok": true
+    },
+    "bull_rebuttal": {
+      "system": "You are the bull researcher responding to the OPPOSING case. Address each of the opposing side's claims head-on. For each one: either concede it, or rebut it using a specific counter-field from the data (evidence as <section>.<field>), or point out the inference gap. Be specific and numerical. Return ONLY:\n{\"rebuttals\": [{\"target_claim\": \"<the claim you are answering>\", \"response\": \"<your counter-argument, 1-2 sentences>\", \"counter_evidence\": \"<section.field or null>\", \"concede\": true|false, \"strength\": <0-1>}]}",
+      "user": "OPPOSING (bear) CLAIMS:\n[{\"claim\": \"Netflix's stock has already plunged 11% in October, indicating negative momentum and investor sentiment.\", \"evidence\": \"news.headline\", \"impact\": \"negative\"}, {\"claim\": \"The stock is trading at a premium valuation with a P/B of 9.05 and P/S of 5.33, which leaves little room for error if growth slows.\", \"evidence\": \"fundamentals.pb\", \"impact\": \"negative\"}, {\"claim\": \"Netflix has negative net cash per share of -2.27, indicating the company is carrying significant debt relative to its cash position.\", \"evidence\": \"fundamentals.net_cash_per_share\", \"impact\": \"negative\"}, {\"claim\": \"The high beta of 1.61 suggests the stock is more volatile than the market, amplifying downside risk in a downturn.\", \"evidence\": \"fundamentals.beta\", \"impact\": \"negative\"}, {\"claim\": \"Recent insider selling, as indicated by multiple Form 4 filings, may signal that executives are...<truncated 6452 chars>",
+      "response": "{\"rebuttals\": [{\"target_claim\": \"Netflix's stock has already plunged 11% in October, indicating negative momentum and investor sentiment.\", \"response\": \"The October decline is a short-term price move that has already created a buying opportunity; the stock's PEG of 0.86 and forward P/E of 17.97 show it is still attractively valued relative to its growth, and the analyst consensus remains 'Buy' with a price target 33% above current levels.\", \"counter_evidence\": \"fundamentals.peg\", \"concede\": true, \"strength\": 0.6}, {\"target_claim\": \"The stock is trading at a premium valuation with a P/B of 9.05 and P/S of 5.33, which leaves little room for error if growth slows.\", \"response\": \"The P/B is misleading for a company with only $7.13 book value per share due to heavy buybacks; the more relevant P/E of 18.68 and forward P/E of 17.97 are reasonable for a company growing EPS 21.2% YoY, and the PEG of 0.86 indicates the stock is actually undervalued on a growth-adjusted basis.\", \"counter_evidence\": \"fundamentals.pe_ttm\", \"concede\": false, \"strength\": 0.8}, {\"target_claim\": \"Netflix has negative net cash per share of -2.27, indicating the company is carrying significant debt relative to its cash position.\", \"response\": \"The debt-to-equity ratio of 0.6 is moderate, and the company generates massive free cash flow of $11.38B with a 22.9% FCF margin, easily covering its $17.53B debt; the negative net cash is a function of timing, not distress.\", \"counter_evidence\": \"fundamentals.debt_eq\", \"concede\": false, \"strength\": 0.7}, {\"target_claim\": \"The high beta of 1.61 suggests the stock is more volatile than the market, amplifying downside risk in a downturn.\", \"response\": \"Beta is backward-looking and ignores the company's improving fundamentals; with a 53.5% ROE and 34.1% ROIC, Netflix's...<truncated 1200 chars>",
+      "ok": true
+    },
+    "judge": {
+      "system": "You are the head of a sell-side equity research team. You have read the bull case, the bear case, their rebuttals, the evidence grading, and a deterministic valuation computed in Python (never modify its numbers). Produce the final verdict.\nRules:\n1. Scenarios: bull/base/bear 12-month price targets and probabilities. Base-case target MUST stay within +-25% of the deterministic valuation's base fair value when one exists. Probabilities must sum to 1.0.\n2. Rating scale: BUY / OVERWEIGHT / HOLD / UNDERWEIGHT / SELL.\n3. In the 'catalysts' list, when the data's 'catalyst' section has an explicit date (e.g. next earnings date), use it as the date; otherwise 'unknown'.\n4. Convergence detection: if bull and bear largely agree on direction (or disagree on nothing material), set convergence true and keep conviction; if the debate is unresolved, convergence false and lower conviction.\n4. All facts ...<truncated 478 chars>",
+      "user": "TICKER: NFLX\nPRICE: 63.95000076293945\n\n=== BULL CASE ===\nbull (confidence 0.75):\n- [positive] Netflix is attractively valued relative to its growth, with a PEG ratio of 0.86 indicating the stock is undervalued for its expected earnings growth. (evidence: fundamentals.peg)\n- [positive] Netflix has delivered strong profitability, with a return on equity of 53.46% and a profit margin of 29.69%, demonstrating efficient capital use and pricing power. (evidence: fundamentals.roe)\n- [positive] Netflix's revenue and EPS are growing robustly, with year-over-year revenue growth of 11.23% and EPS growth of 21.23%, indicating strong business momentum. (evidence: fundamentals.revenue_growth_yoy)\n- [positive] Netflix generates substantial free cash flow of $11.38 billion, providing ample resources for content investment, debt reduction, or shareholder returns. (evidence: fundamentals.fcf)\n- [positive]...<truncated 8527 chars>",
+      "response": "{\n  \"convergence\": false,\n  \"rating\": \"HOLD\",\n  \"conviction\": 0.55,\n  \"scenarios\": {\n    \"bull\": {\n      \"prob\": 0.3,\n      \"pt\": 90.59,\n      \"thesis\": \"Strong profitability, robust growth, and attractive PEG support a re-rating to a higher multiple.\"\n    },\n    \"base\": {\n      \"prob\": 0.45,\n      \"pt\": 65.21,\n      \"thesis\": \"Fundamentals are solid but valuation is fair, leading to modest upside in line with the deterministic fair value.\"\n    },\n    \"bear\": {\n      \"prob\": 0.25,\n      \"pt\": 47.19,\n      \"thesis\": \"High beta, negative net cash, and insider selling could trigger a de-rating if growth disappoints.\"\n    }\n  },\n  \"catalysts\": [\n    {\n      \"catalyst\": \"Next earnings report\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"catalyst\": \"Analyst price target revisions\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"catalyst\": \"Insider selling activity\",\n      \"date\": \"unknown\",\n      \"impact\": \"negative\"\n    }\n  ],\n  \"risks\": [\n    {\n      \"risk\": \"Market volatility due to high beta\",\n      \"likelihood\": \"medium\"\n    },\n    {\n      \"risk\": \"Debt burden and negative net cash\",\n      \"likelihood\": \"medium\"\n    },\n    {\n      \"risk\": \"Growth slowdown leading to de-rating\",\n      \"likelihood\": \"medium\"\n    }\n  ],\n  \"decision_rationale\": \"The bull and bear cases present conflicting signals: strong profitability and growth versus high volatility and leverage. The deterministic valuation places fair value near the current price, suggesting limited upside. Given the unresolved debate and balanced risk-reward, a HOLD rating with moderate conviction is appropriate.\"\n}",
+      "ok": true
+    }
+  },
+  "errors": [],
+  "elapsed_sec": 0.0,
+  "report_path": null,
+  "json_path": null
+}

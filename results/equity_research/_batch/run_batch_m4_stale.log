@@ -1,0 +1,11 @@
+[batch] 60 tickers, force=False, out=/home/david/software/world-trader/results/equity_research
+[batch] 01/60 VTRS: skipped (0s, errors=1) risk=None
+       - report for VTRS already exists for 2026-11-11 (use force=True to regenerate)
+[batch] 02/60 MPC: skipped (0s, errors=1) risk=None
+       - report for MPC already exists for 2026-11-11 (use force=True to regenerate)
+[batch] 03/60 TGT: done (73s, errors=0) risk=approved
+[batch] 04/60 VLO: done (74s, errors=0) risk=vetoed
+[batch] 05/60 MRNA: done (75s, errors=0) risk=approved
+[batch] 06/60 PSX: done (75s, errors=0) risk=approved
+[batch] 07/60 MU: done (89s, errors=0) risk=approved
+[batch] 08/60 CRL: done (85s, errors=0) risk=vetoed

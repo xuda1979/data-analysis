@@ -1,0 +1,443 @@
+{
+  "sym": "CSGP",
+  "generated_utc": "2026-11-12T03:30:10Z",
+  "price": 31.239999771118164,
+  "data_sections": [
+    "quote",
+    "fundamentals",
+    "news",
+    "filings",
+    "hn_mentions",
+    "clusters"
+  ],
+  "bull": {
+    "stance": "bullish",
+    "confidence": 0.8,
+    "claims": [
+      {
+        "claim": "CSGP trades at a steep discount to its growth potential, with a PEG of 0.47 and a forward P/E of 17.88 versus a trailing P/E of 71.03, indicating the market is pricing in substantial earnings growth.",
+        "evidence": "fundamentals.peg",
+        "impact": "positive"
+      },
+      {
+        "claim": "The company is growing rapidly, with revenue up 12.5% year-over-year and EPS up 35.9%, demonstrating strong operational momentum.",
+        "evidence": "fundamentals.revenue_growth_yoy",
+        "impact": "positive"
+      },
+      {
+        "claim": "CSGP maintains a fortress balance sheet with a debt-to-equity ratio of just 0.15 and positive free cash flow of $357 million, providing ample financial flexibility for future investments or buybacks.",
+        "evidence": "fundamentals.debt_eq",
+        "impact": "positive"
+      },
+      {
+        "claim": "Analysts are bullish, with a consensus 'Buy' rating and a price target of $35.85, implying roughly 15% upside from the current price of $30.33.",
+        "evidence": "fundamentals.analyst_recommendation",
+        "impact": "positive"
+      },
+      {
+        "claim": "CSGP's high gross margin of 78.3% reflects a strong competitive moat and pricing power, which should support continued profitability as the company scales.",
+        "evidence": "fundamentals.gross_margin",
+        "impact": "positive"
+      },
+      {
+        "claim": "The stock's low beta of 0.78 suggests it is less volatile than the market, making it an attractive risk-adjusted investment.",
+        "evidence": "fundamentals.beta",
+        "impact": "positive"
+      }
+    ]
+  },
+  "bear": {
+    "stance": "bearish",
+    "confidence": 0.7,
+    "claims": [
+      {
+        "claim": "CSGP's trailing P/E of 71.03 is extremely elevated, indicating the stock is priced for perfection despite modest profitability.",
+        "evidence": "fundamentals.pe_ttm",
+        "impact": "negative"
+      },
+      {
+        "claim": "The company's return on equity is only 2.15%, showing weak shareholder value creation relative to its valuation.",
+        "evidence": "fundamentals.roe",
+        "impact": "negative"
+      },
+      {
+        "claim": "Net cash is deeply negative at -$672 million, meaning the company has more debt than cash, which could pressure financial flexibility.",
+        "evidence": "fundamentals.net_cash",
+        "impact": "negative"
+      },
+      {
+        "claim": "The stock has recently dropped 4.7% and is trading below its analyst price target, suggesting negative momentum and potential downside risk.",
+        "evidence": "news[1].headline",
+        "impact": "negative"
+      },
+      {
+        "claim": "With a short interest of 3.76% of float and a short ratio of 2.47, there is notable bearish sentiment from investors.",
+        "evidence": "fundamentals.short_interest_pct_float",
+        "impact": "negative"
+      }
+    ]
+  },
+  "rebuttals": {
+    "bear": {
+      "rebuttals": [
+        {
+          "target_claim": "CSGP trades at a steep discount to its growth potential, with a PEG of 0.47 and a forward P/E of 17.88 versus a trailing P/E of 71.03, indicating the market is pricing in substantial earnings growth.",
+          "response": "The PEG of 0.47 relies on forward EPS estimates that imply a massive jump from $0.43 TTM to $1.70 forward\u2014a 295% increase that is not supported by current profitability (ROE is only 2.15%). The trailing P/E of 71x already reflects high expectations, and the forward P/E is based on optimistic analyst projections that may not materialize.",
+          "counter_evidence": "fundamentals.roe",
+          "concede": false,
+          "strength": 0.8
+        },
+        {
+          "target_claim": "The company is growing rapidly, with revenue up 12.5% year-over-year and EPS up 35.9%, demonstrating strong operational momentum.",
+          "response": "While revenue growth is solid, EPS growth of 35.9% is misleading because it comes off a very low base (TTM EPS of just $0.43). The absolute profitability is thin\u2014net income margin is only 4.87% and operating margin is just 5.77%\u2014so the growth is not translating into meaningful bottom-line strength.",
+          "counter_evidence": "fundamentals.profit_margin",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "CSGP maintains a fortress balance sheet with a debt-to-equity ratio of just 0.15 and positive free cash flow of $357 million, providing ample financial flexibility for future investments or buybacks.",
+          "response": "The debt-to-equity ratio of 0.15 is indeed low, but the company has negative net cash of -$672 million (net cash per share of -$1.67), meaning it actually has more debt than cash. The $357 million FCF is modest relative to its $12.18 billion market cap (FCF yield of only 2.93%), limiting the scale of buybacks or investments it can fund.",
+          "counter_evidence": "fundamentals.net_cash",
+          "concede": true,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "Analysts are bullish, with a consensus 'Buy' rating and a price target of $35.85, implying roughly 15% upside from the current price of $30.33.",
+          "response": "Analyst price targets are often lagging indicators and can be slow to adjust to deteriorating fundamentals. The stock recently dropped 4.7% (per news), suggesting market sentiment is turning negative, and the consensus target may not reflect the latest data.",
+          "counter_evidence": "news",
+          "concede": false,
+          "strength": 0.5
+        },
+        {
+          "target_claim": "CSGP's high gross margin of 78.3% reflects a strong competitive moat and pricing power, which should support continued profitability as the company scales.",
+          "response": "A high gross margin of 78.3% is impressive, but it does not translate into strong operating profitability\u2014operating margin is only 5.77%, indicating significant operating expenses that are eating into the gross profit. This suggests the moat is not translating into pricing power at the bottom line.",
+          "counter_evidence": "fundamentals.operating_margin",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "The stock's low beta of 0.78 suggests it is less volatile than the market, making it an attractive risk-adjusted investment.",
+          "response": "A low beta of 0.78 does reduce market risk, but it does not compensate for the company's fundamental risks, including negative net cash, thin margins, and a high trailing P/E. The stock's recent 4.7% drop shows it is not immune to downside, and the low beta may simply reflect limited trading liquidity rather than true stability.",
+          "counter_evidence": "fundamentals.net_cash",
+          "concede": false,
+          "strength": 0.5
+        }
+      ]
+    },
+    "bull": {
+      "rebuttals": [
+        {
+          "target_claim": "CSGP's trailing P/E of 71.03 is extremely elevated, indicating the stock is priced for perfection despite modest profitability.",
+          "response": "The trailing P/E is misleading because CSGP's forward P/E is just 17.88 and its PEG is 0.47, indicating the market is pricing in strong near-term earnings growth (EPS expected to jump from $0.43 to $1.70). A PEG below 1.0 typically signals undervaluation relative to growth, not perfection pricing.",
+          "counter_evidence": "fundamentals.forward_pe, fundamentals.peg",
+          "concede": false,
+          "strength": 0.9
+        },
+        {
+          "target_claim": "The company's return on equity is only 2.15%, showing weak shareholder value creation relative to its valuation.",
+          "response": "ROE of 2.15% is depressed by the company's heavy investment phase\u2014revenue grew 12.5% YoY and EPS grew 35.9%\u2014and its low leverage (debt/equity of 0.15) means ROE will expand as earnings scale. The 78.3% gross margin and 15.2% EBITDA margin demonstrate strong underlying profitability that will flow through to ROE.",
+          "counter_evidence": "fundamentals.revenue_growth_yoy, fundamentals.eps_growth_yoy, fundamentals.gross_margin, fundamentals.ebitda_margin",
+          "concede": false,
+          "strength": 0.8
+        },
+        {
+          "target_claim": "Net cash is deeply negative at -$672 million, meaning the company has more debt than cash, which could pressure financial flexibility.",
+          "response": "While net cash is negative, the debt-to-equity ratio is only 0.15, and the company generates $617M in operating cash flow and $357M in free cash flow, providing ample coverage for its $1.17B debt. The negative net cash is a function of strategic investment, not distress.",
+          "counter_evidence": "fundamentals.debt_eq, fundamentals.ocf, fundamentals.fcf",
+          "concede": true,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "The stock has recently dropped 4.7% and is trading below its analyst price target, suggesting negative momentum and potential downside risk.",
+          "response": "The 4.7% drop is a short-term blip; the stock trades at $30.33 versus a $35.85 analyst price target (18% upside) with a 'Buy' recommendation. The drop actually creates a better entry point for a fundamentally growing company.",
+          "counter_evidence": "fundamentals.price_target, fundamentals.analyst_recommendation",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "With a short interest of 3.76% of float and a short ratio of 2.47, there is notable bearish sentiment from investors.",
+          "response": "Short interest of 3.76% is moderate, not extreme, and the low beta of 0.78 indicates the stock is less volatile than the market. Short interest can also fuel a short squeeze if positive catalysts emerge, and the analyst consensus remains 'Buy'.",
+          "counter_evidence": "fundamentals.beta, fundamentals.analyst_recommendation",
+          "concede": false,
+          "strength": 0.5
+        }
+      ]
+    }
+  },
+  "grading": {
+    "bull": {
+      "side": "bull",
+      "n_claims": 6,
+      "grounded": 6,
+      "ungrounded": 0,
+      "sections_cited": [
+        "fundamentals"
+      ],
+      "claims": [
+        {
+          "claim": "CSGP trades at a steep discount to its growth potential, with a PEG of 0.47 and a forward P/E of 17.88 versus a trailing P/E of 71.03, indicating the market is pricing in substantial earnings growth.",
+          "evidence": "fundamentals.peg",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The company is growing rapidly, with revenue up 12.5% year-over-year and EPS up 35.9%, demonstrating strong operational momentum.",
+          "evidence": "fundamentals.revenue_growth_yoy",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "CSGP maintains a fortress balance sheet with a debt-to-equity ratio of just 0.15 and positive free cash flow of $357 million, providing ample financial flexibility for future investments or buybacks.",
+          "evidence": "fundamentals.debt_eq",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Analysts are bullish, with a consensus 'Buy' rating and a price target of $35.85, implying roughly 15% upside from the current price of $30.33.",
+          "evidence": "fundamentals.analyst_recommendation",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "CSGP's high gross margin of 78.3% reflects a strong competitive moat and pricing power, which should support continued profitability as the company scales.",
+          "evidence": "fundamentals.gross_margin",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The stock's low beta of 0.78 suggests it is less volatile than the market, making it an attractive risk-adjusted investment.",
+          "evidence": "fundamentals.beta",
+          "grounded": true,
+          "reason": "ok"
+        }
+      ]
+    },
+    "bear": {
+      "side": "bear",
+      "n_claims": 5,
+      "grounded": 4,
+      "ungrounded": 1,
+      "sections_cited": [
+        "fundamentals",
+        "news[1]"
+      ],
+      "claims": [
+        {
+          "claim": "CSGP's trailing P/E of 71.03 is extremely elevated, indicating the stock is priced for perfection despite modest profitability.",
+          "evidence": "fundamentals.pe_ttm",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The company's return on equity is only 2.15%, showing weak shareholder value creation relative to its valuation.",
+          "evidence": "fundamentals.roe",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Net cash is deeply negative at -$672 million, meaning the company has more debt than cash, which could pressure financial flexibility.",
+          "evidence": "fundamentals.net_cash",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The stock has recently dropped 4.7% and is trading below its analyst price target, suggesting negative momentum and potential downside risk.",
+          "evidence": "news[1].headline",
+          "grounded": false,
+          "reason": "'news[1].headline': section 'news[1]' not present in gathered data"
+        },
+        {
+          "claim": "With a short interest of 3.76% of float and a short ratio of 2.47, there is notable bearish sentiment from investors.",
+          "evidence": "fundamentals.short_interest_pct_float",
+          "grounded": true,
+          "reason": "ok"
+        }
+      ]
+    }
+  },
+  "valuation": {
+    "sym": "CSGP",
+    "price": 31.239999771118164,
+    "deterministic": true,
+    "inputs": {
+      "eps_ttm": 0.43,
+      "eps_forward (consensus-derived)": 1.6963087248322148,
+      "pe_ttm": 71.03,
+      "forward_pe": 17.88,
+      "eps_growth_3y_fcst": 0.35850000000000004,
+      "revenue_growth_3y_fcst": 0.1246,
+      "beta": 0.78,
+      "net_cash_per_share": -1.67,
+      "base EPS used": 0.43,
+      "valuation multiple (P/E) used": 71.03,
+      "P/E band (bear/base/bull)": "56.8 / 71.0 / 88.8",
+      "DCF growth (5y)": 0.1075,
+      "DCF discount rate": 0.0956,
+      "DCF exit P/E": 63.9
+    },
+    "outputs": {
+      "quality_signals": {
+        "roe": 0.0215,
+        "roic": 0.0199,
+        "debt_eq": 0.15,
+        "fcf_margin": 0.09720000000000001,
+        "beta": 0.78
+      },
+      "dcf_lite": {
+        "method": "5-yr EPS power value discounted at beta-tilted flat rate, terminal exit P/E + net cash/share",
+        "growth_5y": 0.1075,
+        "discount_rate": 0.0956,
+        "exit_pe": 63.9,
+        "fair_value": 29.57
+      },
+      "scenario_grid": {
+        "bear": {
+          "growth": 0.0538,
+          "exit_pe": 56.8,
+          "value": 20.35,
+          "upside": -0.349
+        },
+        "base": {
+          "growth": 0.1075,
+          "exit_pe": 71.0,
+          "value": 32.78,
+          "upside": 0.049
+        },
+        "bull": {
+          "growth": 0.1613,
+          "exit_pe": 88.8,
+          "value": 51.99,
+          "upside": 0.664
+        }
+      },
+      "fair_value_basis": "DCF-lite base scenario (5-yr EPS power value + net cash/share)",
+      "fair_value": {
+        "bear": 20.35,
+        "base": 32.78,
+        "bull": 51.99
+      },
+      "upside_base": 0.049,
+      "peg": 6.61
+    },
+    "notes": [
+      "3Y cumulative growth forecast converted to per-year CAGR ((1+G)^(1/3)-1)",
+      "DCF-lite: growth clamped to [0%, 25%]; discount 10% base + 2pp per beta-unit above 1 (clamped [7%,14%]); exit P/E 0.9x trailing; +net cash/share"
+    ]
+  },
+  "judge": {
+    "convergence": false,
+    "rating": "HOLD",
+    "conviction": 0.4,
+    "scenarios": {
+      "bull": {
+        "prob": 0.25,
+        "pt": 51.99,
+        "thesis": "Strong revenue and EPS growth, low PEG, and high gross margins support a re-rating to a higher multiple."
+      },
+      "base": {
+        "prob": 0.5,
+        "pt": 32.78,
+        "thesis": "Growth continues at a moderate pace, and the stock trades near its fair value based on DCF-lite."
+      },
+      "bear": {
+        "prob": 0.25,
+        "pt": 20.35,
+        "thesis": "Elevated valuation, thin margins, and negative net cash lead to de-rating and downside."
+      }
+    },
+    "catalysts": [
+      {
+        "catalyst": "Next earnings report",
+        "date": "unknown",
+        "impact": "positive"
+      },
+      {
+        "catalyst": "Analyst price target revisions",
+        "date": "unknown",
+        "impact": "positive"
+      },
+      {
+        "catalyst": "Short interest dynamics",
+        "date": "unknown",
+        "impact": "negative"
+      }
+    ],
+    "risks": [
+      {
+        "risk": "Earnings growth fails to meet forward estimates",
+        "likelihood": "medium"
+      },
+      {
+        "risk": "Negative net cash position limits financial flexibility",
+        "likelihood": "medium"
+      },
+      {
+        "risk": "High trailing P/E leaves little room for disappointment",
+        "likelihood": "high"
+      }
+    ],
+    "decision_rationale": "The bull case highlights strong growth metrics and a low PEG, but the bear case correctly points out that the trailing P/E is elevated and margins are thin. The deterministic valuation places fair value at $32.78, only 4.9% above the current price, suggesting limited upside. With unresolved debate and a wide scenario range, a HOLD rating with moderate conviction is appropriate."
+  },
+  "risk_manager": {
+    "sym": "CSGP",
+    "verdict": "approved",
+    "checks": {
+      "base_pt_within_25pct": {
+        "ok": true,
+        "detail": "judge base PT 32.78 vs deterministic base fair value 32.78 (deviation 0.0%)"
+      },
+      "probs_sum_1": {
+        "ok": true,
+        "detail": "bull/base/bear probs sum to 1.000"
+      },
+      "rating_in_scale": {
+        "ok": true,
+        "detail": "rating 'HOLD'"
+      },
+      "conviction_01": {
+        "ok": true,
+        "detail": "conviction 0.4"
+      }
+    },
+    "n_checks_passed": 4,
+    "n_checks": 4,
+    "override_applied": false,
+    "reason": "all deterministic checks passed; judge verdict stands"
+  },
+  "audit": {
+    "bull_researcher": {
+      "system": "You are the bull case researcher for an equity research report. Your job is to argue the strongest honest bull case for the ticker, based ONLY on the data provided. Rules:\n1. Every claim MUST be grounded in a specific data field. Cite it in the 'evidence' field as <section>.<field>, e.g. 'fundamentals.pe_ttm' or 'catalyst.eps_est' or 'earnings.surprise_pct'.\n2. If the data does not support a claim, do NOT make it. Missing data is a reason to stay silent or to say so explicitly.\n3. Do not hedge: this is your side's case. Pick the 4-6 strongest claims. No filler.\n4. Return ONLY the JSON object:\n{\"stance\": \"bullish|bearish\", \"confidence\": <0-1>, \"claims\": [{\"claim\": \"<one sentence>\", \"evidence\": \"<section.field>\", \"impact\": \"positive|negative\"}]}",
+      "user": "TICKER: CSGP\n\nROLE: BULL case\n\n[fundamentals] valuation & quality: market cap, P/E, P/B, P/S, ROE, margins, growth, cash/debt, 52w range, analyst targets\n{\n\"price\": 30.33,\n\"market_cap\": 12180000000.0,\n\"enterprise_value\": 12850000000.0,\n\"pe_ttm\": 71.03,\n\"forward_pe\": 17.88,\n\"peg\": 0.47,\n\"ps_ttm\": 3.32,\n\"pb\": 1.53,\n\"pfcf\": 34.13,\n\"ev_ebitda\": 23.04,\n\"eps_ttm\": 0.43,\n\"eps_forward\": 1.6963087248322148,\n\"fcf_per_share\": 0.89,\n\"revenue_per_share\": null,\n\"cash_per_share\": -1.67,\n\"book_value_per_share\": 19.84,\n\"roe\": 0.0215,\n\"roa\": 0.0126,\n\"roic\": 0.0199,\n\"roce\": 0.0222,\n\"gross_margin\": 0.7831,\n\"operating_margin\": 0.057699999999999994,\n\"profit_margin\": 0.0487,\n\"fcf_margin\": 0.09720000000000001,\n\"ebitda_margin\": 0.1519,\n\"pretax_margin\": 0.0629,\n\"revenue_growth_yoy\": 0.1246,\n\"eps_growth_yoy\": 0.35850000000000004,\n\"fcf\": 357000000.0,\n\"ocf\": 617000000.0,\n\"capex\": -260000000.0,\n\"cash\": null,\n\"debt\": ...<truncated 5139 chars>",
+      "response": "{\n  \"stance\": \"bullish\",\n  \"confidence\": 0.8,\n  \"claims\": [\n    {\n      \"claim\": \"CSGP trades at a steep discount to its growth potential, with a PEG of 0.47 and a forward P/E of 17.88 versus a trailing P/E of 71.03, indicating the market is pricing in substantial earnings growth.\",\n      \"evidence\": \"fundamentals.peg\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"The company is growing rapidly, with revenue up 12.5% year-over-year and EPS up 35.9%, demonstrating strong operational momentum.\",\n      \"evidence\": \"fundamentals.revenue_growth_yoy\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"CSGP maintains a fortress balance sheet with a debt-to-equity ratio of just 0.15 and positive free cash flow of $357 million, providing ample financial flexibility for future investments or buybacks.\",\n      \"evidence\": \"fundamentals.debt_eq\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"Analysts are bullish, with a consensus 'Buy' rating and a price target of $35.85, implying roughly 15% upside from the current price of $30.33.\",\n      \"evidence\": \"fundamentals.analyst_recommendation\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"CSGP's high gross margin of 78.3% reflects a strong competitive moat and pricing power, which should support continued profitability as the company scales.\",\n      \"evidence\": \"fundamentals.gross_margin\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"The stock's low beta of 0.78 suggests it is less volatile than the market, making it an attractive risk-adjusted investment.\",\n      \"evidence\": \"fundamentals.beta\",\n      \"impact\": \"positive\"\n    }\n  ]\n}",
+      "ok": true
+    },
+    "bear_researcher": {
+      "system": "You are the bear case researcher for an equity research report. Your job is to argue the strongest honest bear case for the ticker, based ONLY on the data provided. Rules:\n1. Every claim MUST be grounded in a specific data field. Cite it in the 'evidence' field as <section>.<field>, e.g. 'fundamentals.pe_ttm' or 'catalyst.eps_est' or 'earnings.surprise_pct'.\n2. If the data does not support a claim, do NOT make it. Missing data is a reason to stay silent or to say so explicitly.\n3. Do not hedge: this is your side's case. Pick the 4-6 strongest claims. No filler.\n4. Return ONLY the JSON object:\n{\"stance\": \"bullish|bearish\", \"confidence\": <0-1>, \"claims\": [{\"claim\": \"<one sentence>\", \"evidence\": \"<section.field>\", \"impact\": \"positive|negative\"}]}",
+      "user": "TICKER: CSGP\n\nROLE: BEAR case\n\n[filings] recent SEC filings (8-K etc.)\n[\n{\n\"form\": \"4\",\n\"filing_date\": \"2026-11-10\",\n\"accession\": \"0001984144-26-000003\",\n\"primary_doc\": \"xslF345X06/wk-form4_1794350746.xml\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/1057352/000198414426000003/xslF345X06/wk-form4_1794350746.xml\"\n},\n{\n\"form\": \"3\",\n\"filing_date\": \"2026-11-10\",\n\"accession\": \"0001057352-26-000085\",\n\"primary_doc\": \"xslF345X06/wk-form3_1794350660.xml\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/1057352/000105735226000085/xslF345X06/wk-form3_1794350660.xml\"\n},\n{\n\"form\": \"10-Q\",\n\"filing_date\": \"2026-10-28\",\n\"accession\": \"0001057352-26-000083\",\n\"primary_doc\": \"csgp-20260930.htm\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/1057352/000105735226000083/csgp-20260930.htm\"\n},\n{\n\"form\": \"8-K\",\n\"filing_date\": \"2026-10-27\",\n\"accession\": \"0001057352-26-000078\",\n\"primary_doc\": \"csgp-20261027.h...<truncated 5139 chars>",
+      "response": "{\n  \"stance\": \"bearish\",\n  \"confidence\": 0.7,\n  \"claims\": [\n    {\n      \"claim\": \"CSGP's trailing P/E of 71.03 is extremely elevated, indicating the stock is priced for perfection despite modest profitability.\",\n      \"evidence\": \"fundamentals.pe_ttm\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The company's return on equity is only 2.15%, showing weak shareholder value creation relative to its valuation.\",\n      \"evidence\": \"fundamentals.roe\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"Net cash is deeply negative at -$672 million, meaning the company has more debt than cash, which could pressure financial flexibility.\",\n      \"evidence\": \"fundamentals.net_cash\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The stock has recently dropped 4.7% and is trading below its analyst price target, suggesting negative momentum and potential downside risk.\",\n      \"evidence\": \"news[1].headline\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"With a short interest of 3.76% of float and a short ratio of 2.47, there is notable bearish sentiment from investors.\",\n      \"evidence\": \"fundamentals.short_interest_pct_float\",\n      \"impact\": \"negative\"\n    }\n  ]\n}",
+      "ok": true
+    },
+    "bear_rebuttal": {
+      "system": "You are the bear researcher responding to the OPPOSING case. Address each of the opposing side's claims head-on. For each one: either concede it, or rebut it using a specific counter-field from the data (evidence as <section>.<field>), or point out the inference gap. Be specific and numerical. Return ONLY:\n{\"rebuttals\": [{\"target_claim\": \"<the claim you are answering>\", \"response\": \"<your counter-argument, 1-2 sentences>\", \"counter_evidence\": \"<section.field or null>\", \"concede\": true|false, \"strength\": <0-1>}]}",
+      "user": "OPPOSING (bull) CLAIMS:\n[{\"claim\": \"CSGP trades at a steep discount to its growth potential, with a PEG of 0.47 and a forward P/E of 17.88 versus a trailing P/E of 71.03, indicating the market is pricing in substantial earnings growth.\", \"evidence\": \"fundamentals.peg\", \"impact\": \"positive\"}, {\"claim\": \"The company is growing rapidly, with revenue up 12.5% year-over-year and EPS up 35.9%, demonstrating strong operational momentum.\", \"evidence\": \"fundamentals.revenue_growth_yoy\", \"impact\": \"positive\"}, {\"claim\": \"CSGP maintains a fortress balance sheet with a debt-to-equity ratio of just 0.15 and positive free cash flow of $357 million, providing ample financial flexibility for future investments or buybacks.\", \"evidence\": \"fundamentals.debt_eq\", \"impact\": \"positive\"}, {\"claim\": \"Analysts are bullish, with a consensus 'Buy' rating and a price target of $35.85, implying roughly 15% upside f...<truncated 6599 chars>",
+      "response": "{\"rebuttals\": [{\"target_claim\": \"CSGP trades at a steep discount to its growth potential, with a PEG of 0.47 and a forward P/E of 17.88 versus a trailing P/E of 71.03, indicating the market is pricing in substantial earnings growth.\", \"response\": \"The PEG of 0.47 relies on forward EPS estimates that imply a massive jump from $0.43 TTM to $1.70 forward\u2014a 295% increase that is not supported by current profitability (ROE is only 2.15%). The trailing P/E of 71x already reflects high expectations, and the forward P/E is based on optimistic analyst projections that may not materialize.\", \"counter_evidence\": \"fundamentals.roe\", \"concede\": false, \"strength\": 0.8}, {\"target_claim\": \"The company is growing rapidly, with revenue up 12.5% year-over-year and EPS up 35.9%, demonstrating strong operational momentum.\", \"response\": \"While revenue growth is solid, EPS growth of 35.9% is misleading because it comes off a very low base (TTM EPS of just $0.43). The absolute profitability is thin\u2014net income margin is only 4.87% and operating margin is just 5.77%\u2014so the growth is not translating into meaningful bottom-line strength.\", \"counter_evidence\": \"fundamentals.profit_margin\", \"concede\": false, \"strength\": 0.7}, {\"target_claim\": \"CSGP maintains a fortress balance sheet with a debt-to-equity ratio of just 0.15 and positive free cash flow of $357 million, providing ample financial flexibility for future investments or buybacks.\", \"response\": \"The debt-to-equity ratio of 0.15 is indeed low, but the company has negative net cash of -$672 million (net cash per share of -$1.67), meaning it actually has more debt than cash. The $357 million FCF is modest relative to its $12.18 billion market cap (FCF yield of only 2.93%), limiting the scale of buybacks or investments it can fund.\", \"counter_e...<truncated 1724 chars>",
+      "ok": true
+    },
+    "bull_rebuttal": {
+      "system": "You are the bull researcher responding to the OPPOSING case. Address each of the opposing side's claims head-on. For each one: either concede it, or rebut it using a specific counter-field from the data (evidence as <section>.<field>), or point out the inference gap. Be specific and numerical. Return ONLY:\n{\"rebuttals\": [{\"target_claim\": \"<the claim you are answering>\", \"response\": \"<your counter-argument, 1-2 sentences>\", \"counter_evidence\": \"<section.field or null>\", \"concede\": true|false, \"strength\": <0-1>}]}",
+      "user": "OPPOSING (bear) CLAIMS:\n[{\"claim\": \"CSGP's trailing P/E of 71.03 is extremely elevated, indicating the stock is priced for perfection despite modest profitability.\", \"evidence\": \"fundamentals.pe_ttm\", \"impact\": \"negative\"}, {\"claim\": \"The company's return on equity is only 2.15%, showing weak shareholder value creation relative to its valuation.\", \"evidence\": \"fundamentals.roe\", \"impact\": \"negative\"}, {\"claim\": \"Net cash is deeply negative at -$672 million, meaning the company has more debt than cash, which could pressure financial flexibility.\", \"evidence\": \"fundamentals.net_cash\", \"impact\": \"negative\"}, {\"claim\": \"The stock has recently dropped 4.7% and is trading below its analyst price target, suggesting negative momentum and potential downside risk.\", \"evidence\": \"news[1].headline\", \"impact\": \"negative\"}, {\"claim\": \"With a short interest of 3.76% of float and a short ratio of 2.47, ...<truncated 6192 chars>",
+      "response": "{\"rebuttals\": [{\"target_claim\": \"CSGP's trailing P/E of 71.03 is extremely elevated, indicating the stock is priced for perfection despite modest profitability.\", \"response\": \"The trailing P/E is misleading because CSGP's forward P/E is just 17.88 and its PEG is 0.47, indicating the market is pricing in strong near-term earnings growth (EPS expected to jump from $0.43 to $1.70). A PEG below 1.0 typically signals undervaluation relative to growth, not perfection pricing.\", \"counter_evidence\": \"fundamentals.forward_pe, fundamentals.peg\", \"concede\": false, \"strength\": 0.9}, {\"target_claim\": \"The company's return on equity is only 2.15%, showing weak shareholder value creation relative to its valuation.\", \"response\": \"ROE of 2.15% is depressed by the company's heavy investment phase\u2014revenue grew 12.5% YoY and EPS grew 35.9%\u2014and its low leverage (debt/equity of 0.15) means ROE will expand as earnings scale. The 78.3% gross margin and 15.2% EBITDA margin demonstrate strong underlying profitability that will flow through to ROE.\", \"counter_evidence\": \"fundamentals.revenue_growth_yoy, fundamentals.eps_growth_yoy, fundamentals.gross_margin, fundamentals.ebitda_margin\", \"concede\": false, \"strength\": 0.8}, {\"target_claim\": \"Net cash is deeply negative at -$672 million, meaning the company has more debt than cash, which could pressure financial flexibility.\", \"response\": \"While net cash is negative, the debt-to-equity ratio is only 0.15, and the company generates $617M in operating cash flow and $357M in free cash flow, providing ample coverage for its $1.17B debt. The negative net cash is a function of strategic investment, not distress.\", \"counter_evidence\": \"fundamentals.debt_eq, fundamentals.ocf, fundamentals.fcf\", \"concede\": true, \"strength\": 0.6}, {\"target_claim\": \"The stock ...<truncated 1008 chars>",
+      "ok": true
+    },
+    "judge": {
+      "system": "You are the head of a sell-side equity research team. You have read the bull case, the bear case, their rebuttals, the evidence grading, and a deterministic valuation computed in Python (never modify its numbers). Produce the final verdict.\nRules:\n1. Scenarios: bull/base/bear 12-month price targets and probabilities. Base-case target MUST stay within +-25% of the deterministic valuation's base fair value when one exists. Probabilities must sum to 1.0.\n2. Rating scale: BUY / OVERWEIGHT / HOLD / UNDERWEIGHT / SELL.\n3. In the 'catalysts' list, when the data's 'catalyst' section has an explicit date (e.g. next earnings date), use it as the date; otherwise 'unknown'.\n4. Convergence detection: if bull and bear largely agree on direction (or disagree on nothing material), set convergence true and keep conviction; if the debate is unresolved, convergence false and lower conviction.\n4. All facts ...<truncated 478 chars>",
+      "user": "TICKER: CSGP\nPRICE: 31.239999771118164\n\n=== BULL CASE ===\nbull (confidence 0.8):\n- [positive] CSGP trades at a steep discount to its growth potential, with a PEG of 0.47 and a forward P/E of 17.88 versus a trailing P/E of 71.03, indicating the market is pricing in substantial earnings growth. (evidence: fundamentals.peg)\n- [positive] The company is growing rapidly, with revenue up 12.5% year-over-year and EPS up 35.9%, demonstrating strong operational momentum. (evidence: fundamentals.revenue_growth_yoy)\n- [positive] CSGP maintains a fortress balance sheet with a debt-to-equity ratio of just 0.15 and positive free cash flow of $357 million, providing ample financial flexibility for future investments or buybacks. (evidence: fundamentals.debt_eq)\n- [positive] Analysts are bullish, with a consensus 'Buy' rating and a price target of $35.85, implying roughly 15% upside from the current pric...<truncated 8257 chars>",
+      "response": "{\n  \"convergence\": false,\n  \"rating\": \"HOLD\",\n  \"conviction\": 0.4,\n  \"scenarios\": {\n    \"bull\": {\n      \"prob\": 0.25,\n      \"pt\": 51.99,\n      \"thesis\": \"Strong revenue and EPS growth, low PEG, and high gross margins support a re-rating to a higher multiple.\"\n    },\n    \"base\": {\n      \"prob\": 0.5,\n      \"pt\": 32.78,\n      \"thesis\": \"Growth continues at a moderate pace, and the stock trades near its fair value based on DCF-lite.\"\n    },\n    \"bear\": {\n      \"prob\": 0.25,\n      \"pt\": 20.35,\n      \"thesis\": \"Elevated valuation, thin margins, and negative net cash lead to de-rating and downside.\"\n    }\n  },\n  \"catalysts\": [\n    {\n      \"catalyst\": \"Next earnings report\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"catalyst\": \"Analyst price target revisions\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"catalyst\": \"Short interest dynamics\",\n      \"date\": \"unknown\",\n      \"impact\": \"negative\"\n    }\n  ],\n  \"risks\": [\n    {\n      \"risk\": \"Earnings growth fails to meet forward estimates\",\n      \"likelihood\": \"medium\"\n    },\n    {\n      \"risk\": \"Negative net cash position limits financial flexibility\",\n      \"likelihood\": \"medium\"\n    },\n    {\n      \"risk\": \"High trailing P/E leaves little room for disappointment\",\n      \"likelihood\": \"high\"\n    }\n  ],\n  \"decision_rationale\": \"The bull case highlights strong growth metrics and a low PEG, but the bear case correctly points out that the trailing P/E is elevated and margins are thin. The deterministic valuation places fair value at $32.78, only 4.9% above the current price, suggesting limited upside. With unresolved debate and a wide scenario range, a HOLD rating with moderate conviction is appropriate.\"\n}",
+      "ok": true
+    }
+  },
+  "errors": [],
+  "elapsed_sec": 0.0,
+  "report_path": null,
+  "json_path": null
+}

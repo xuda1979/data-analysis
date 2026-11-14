@@ -1,0 +1,470 @@
+{
+  "sym": "LULU",
+  "generated_utc": "2026-11-12T03:57:12Z",
+  "price": 112.52999877929688,
+  "data_sections": [
+    "quote",
+    "fundamentals",
+    "news",
+    "filings",
+    "hn_mentions",
+    "clusters"
+  ],
+  "bull": {
+    "stance": "bullish",
+    "confidence": 0.7,
+    "claims": [
+      {
+        "claim": "LULU trades at a steep discount to its historical valuation with a P/E of 8.8 and a forward P/E of 12.79, suggesting the market is pricing in excessive pessimism.",
+        "evidence": "fundamentals.pe_ttm",
+        "impact": "positive"
+      },
+      {
+        "claim": "The company generates strong free cash flow, with a FCF yield of 11.4% and a P/FCF of 8.78, indicating robust cash generation relative to its market cap.",
+        "evidence": "fundamentals.fcf_yield",
+        "impact": "positive"
+      },
+      {
+        "claim": "LULU maintains high profitability with a gross margin of 54.9% and an ROE of 30.9%, demonstrating a durable competitive advantage and efficient capital use.",
+        "evidence": "fundamentals.gross_margin",
+        "impact": "positive"
+      },
+      {
+        "claim": "The stock is trading below the average analyst price target of $104.26, implying potential upside of about 5% from the current price of $110.37, and the recommendation is 'Hold' rather than 'Sell'.",
+        "evidence": "fundamentals.price_target",
+        "impact": "positive"
+      },
+      {
+        "claim": "Michael Burry, a prominent investor, recently bought back into Lululemon, signaling confidence in the company's future prospects despite recent headwinds.",
+        "evidence": "news.0.headline",
+        "impact": "positive"
+      },
+      {
+        "claim": "The company has a low beta of 0.84, providing defensive characteristics and lower volatility compared to the broader market, which is attractive in uncertain times.",
+        "evidence": "fundamentals.beta",
+        "impact": "positive"
+      }
+    ]
+  },
+  "bear": {
+    "stance": "bearish",
+    "confidence": 0.75,
+    "claims": [
+      {
+        "claim": "LULU's revenue is contracting, with year-over-year growth at -1.38%, indicating a shrinking top line.",
+        "evidence": "fundamentals.revenue_growth_yoy",
+        "impact": "negative"
+      },
+      {
+        "claim": "Earnings per share are declining faster than revenue, with EPS growth at -10.78%, signaling margin compression and operational inefficiency.",
+        "evidence": "fundamentals.eps_growth_yoy",
+        "impact": "negative"
+      },
+      {
+        "claim": "The stock trades at a forward P/E of 12.79, which is a premium to its trailing P/E of 8.8, implying the market expects earnings to decline further.",
+        "evidence": "fundamentals.forward_pe",
+        "impact": "negative"
+      },
+      {
+        "claim": "Analysts have set a price target of $104.26, which is below the current price of $110.37, suggesting the stock is overvalued and likely to fall.",
+        "evidence": "fundamentals.price_target",
+        "impact": "negative"
+      },
+      {
+        "claim": "The company has negative net cash per share of -$6.79, indicating a net debt position that could strain financial flexibility.",
+        "evidence": "fundamentals.net_cash_per_share",
+        "impact": "negative"
+      },
+      {
+        "claim": "Short interest is elevated at 15.99% of float, reflecting bearish sentiment among investors.",
+        "evidence": "fundamentals.short_interest_pct_float",
+        "impact": "negative"
+      }
+    ]
+  },
+  "rebuttals": {
+    "bear": {
+      "rebuttals": [
+        {
+          "target_claim": "LULU trades at a steep discount to its historical valuation with a P/E of 8.8 and a forward P/E of 12.79, suggesting the market is pricing in excessive pessimism.",
+          "response": "The low trailing P/E is misleading because earnings are declining: EPS growth is -10.8% YoY and revenue growth is -1.4%. The forward P/E of 12.79 already reflects the market's correct anticipation of lower future earnings, not excessive pessimism.",
+          "counter_evidence": "fundamentals.eps_growth_yoy",
+          "concede": false,
+          "strength": 0.8
+        },
+        {
+          "target_claim": "The company generates strong free cash flow, with a FCF yield of 11.4% and a P/FCF of 8.78, indicating robust cash generation relative to its market cap.",
+          "response": "The FCF yield is inflated by heavy capex cuts (capex of -$627.7M) that may not be sustainable, and the company has negative net cash per share of -$6.79 with $2.14B in debt, so the cash generation is not as clean as it appears.",
+          "counter_evidence": "fundamentals.net_cash_per_share",
+          "concede": false,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "LULU maintains high profitability with a gross margin of 54.9% and an ROE of 30.9%, demonstrating a durable competitive advantage and efficient capital use.",
+          "response": "While gross margin is high, operating margin has compressed to 16.6% and profit margin to 12.8%, and with revenue declining, the high ROE is partly a function of a shrinking equity base rather than growth. The 'durable advantage' is eroding as growth stalls.",
+          "counter_evidence": "fundamentals.operating_margin",
+          "concede": false,
+          "strength": 0.5
+        },
+        {
+          "target_claim": "The stock is trading below the average analyst price target of $104.26, implying potential upside of about 5% from the current price of $110.37, and the recommendation is 'Hold' rather than 'Sell'.",
+          "response": "The claim is internally inconsistent: the stock at $110.37 is actually ABOVE the $104.26 price target, implying downside, not upside. A 'Hold' rating with a target below the current price signals analysts see limited upside, not a buying opportunity.",
+          "counter_evidence": "fundamentals.price_target",
+          "concede": false,
+          "strength": 0.9
+        },
+        {
+          "target_claim": "Michael Burry, a prominent investor, recently bought back into Lululemon, signaling confidence in the company's future prospects despite recent headwinds.",
+          "response": "Burry's position is a small part of a diversified portfolio and he is known for contrarian bets that often fail; the news headline alone does not provide evidence of fundamental improvement, and his past LULU trades have not been consistently profitable.",
+          "counter_evidence": "news.0.headline",
+          "concede": false,
+          "strength": 0.3
+        },
+        {
+          "target_claim": "The company has a low beta of 0.84, providing defensive characteristics and lower volatility compared to the broader market, which is attractive in uncertain times.",
+          "response": "Low beta is a double-edged sword: it also means less upside in a recovery, and with short interest at 16% of float and a short ratio of 3.43, the stock is heavily shorted, indicating many investors expect further downside despite the low beta.",
+          "counter_evidence": "fundamentals.short_interest_pct_float",
+          "concede": false,
+          "strength": 0.4
+        }
+      ]
+    },
+    "bull": {
+      "rebuttals": [
+        {
+          "target_claim": "LULU's revenue is contracting, with year-over-year growth at -1.38%, indicating a shrinking top line.",
+          "response": "A -1.38% revenue dip is a minor blip, not a contraction\u2014the company still generates $11.09B in TTM revenue with a 54.89% gross margin, and the market cap of $11.9B prices in this temporary slowdown.",
+          "counter_evidence": "fundamentals.revenue_ttm",
+          "concede": false,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "Earnings per share are declining faster than revenue, with EPS growth at -10.78%, signaling margin compression and operational inefficiency.",
+          "response": "EPS decline is partly due to one-time items and investments; trailing EPS of $12.22 still supports a P/E of 8.8, and ROE of 30.9% shows the company remains highly profitable despite the dip.",
+          "counter_evidence": "fundamentals.roe",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "The stock trades at a forward P/E of 12.79, which is a premium to its trailing P/E of 8.8, implying the market expects earnings to decline further.",
+          "response": "The forward P/E reflects analyst estimates that may be conservative; the stock's earnings yield of 11.37% and FCF yield of 11.39% show it's deeply undervalued on a cash-flow basis, not overvalued.",
+          "counter_evidence": "fundamentals.fcf_yield",
+          "concede": false,
+          "strength": 0.8
+        },
+        {
+          "target_claim": "Analysts have set a price target of $104.26, which is below the current price of $110.37, suggesting the stock is overvalued and likely to fall.",
+          "response": "The price target is a lagging consensus figure; the stock recently traded at $112.53, above the target, and the 'Hold' recommendation doesn't preclude upside given the 8.8x trailing P/E and 30.9% ROE.",
+          "counter_evidence": "quote.c",
+          "concede": false,
+          "strength": 0.5
+        },
+        {
+          "target_claim": "The company has negative net cash per share of -$6.79, indicating a net debt position that could strain financial flexibility.",
+          "response": "Net debt of $751M is modest relative to $1.35B in FCF and $1.98B in operating cash flow, giving ample flexibility; debt-to-equity of 0.45 is conservative for a company with 23.7% ROIC.",
+          "counter_evidence": "fundamentals.fcf",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "Short interest is elevated at 15.99% of float, reflecting bearish sentiment among investors.",
+          "response": "High short interest can fuel a short squeeze, especially with Michael Burry recently buying back into LULU; the stock's low 0.84 beta and strong fundamentals make it a contrarian long candidate.",
+          "counter_evidence": "news",
+          "concede": false,
+          "strength": 0.6
+        }
+      ]
+    }
+  },
+  "grading": {
+    "bull": {
+      "side": "bull",
+      "n_claims": 6,
+      "grounded": 5,
+      "ungrounded": 1,
+      "sections_cited": [
+        "fundamentals",
+        "news"
+      ],
+      "claims": [
+        {
+          "claim": "LULU trades at a steep discount to its historical valuation with a P/E of 8.8 and a forward P/E of 12.79, suggesting the market is pricing in excessive pessimism.",
+          "evidence": "fundamentals.pe_ttm",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The company generates strong free cash flow, with a FCF yield of 11.4% and a P/FCF of 8.78, indicating robust cash generation relative to its market cap.",
+          "evidence": "fundamentals.fcf_yield",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "LULU maintains high profitability with a gross margin of 54.9% and an ROE of 30.9%, demonstrating a durable competitive advantage and efficient capital use.",
+          "evidence": "fundamentals.gross_margin",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The stock is trading below the average analyst price target of $104.26, implying potential upside of about 5% from the current price of $110.37, and the recommendation is 'Hold' rather than 'Sell'.",
+          "evidence": "fundamentals.price_target",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Michael Burry, a prominent investor, recently bought back into Lululemon, signaling confidence in the company's future prospects despite recent headwinds.",
+          "evidence": "news.0.headline",
+          "grounded": false,
+          "reason": "'news.0.headline': '0.headline' not found in section 'news'"
+        },
+        {
+          "claim": "The company has a low beta of 0.84, providing defensive characteristics and lower volatility compared to the broader market, which is attractive in uncertain times.",
+          "evidence": "fundamentals.beta",
+          "grounded": true,
+          "reason": "ok"
+        }
+      ]
+    },
+    "bear": {
+      "side": "bear",
+      "n_claims": 6,
+      "grounded": 6,
+      "ungrounded": 0,
+      "sections_cited": [
+        "fundamentals"
+      ],
+      "claims": [
+        {
+          "claim": "LULU's revenue is contracting, with year-over-year growth at -1.38%, indicating a shrinking top line.",
+          "evidence": "fundamentals.revenue_growth_yoy",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Earnings per share are declining faster than revenue, with EPS growth at -10.78%, signaling margin compression and operational inefficiency.",
+          "evidence": "fundamentals.eps_growth_yoy",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The stock trades at a forward P/E of 12.79, which is a premium to its trailing P/E of 8.8, implying the market expects earnings to decline further.",
+          "evidence": "fundamentals.forward_pe",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Analysts have set a price target of $104.26, which is below the current price of $110.37, suggesting the stock is overvalued and likely to fall.",
+          "evidence": "fundamentals.price_target",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The company has negative net cash per share of -$6.79, indicating a net debt position that could strain financial flexibility.",
+          "evidence": "fundamentals.net_cash_per_share",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Short interest is elevated at 15.99% of float, reflecting bearish sentiment among investors.",
+          "evidence": "fundamentals.short_interest_pct_float",
+          "grounded": true,
+          "reason": "ok"
+        }
+      ]
+    }
+  },
+  "valuation": {
+    "sym": "LULU",
+    "price": 112.52999877929688,
+    "deterministic": true,
+    "inputs": {
+      "eps_ttm": 12.22,
+      "eps_forward (consensus-derived)": 8.629397967161847,
+      "pe_ttm": 8.8,
+      "forward_pe": 12.79,
+      "eps_growth_3y_fcst": -0.10779999999999999,
+      "revenue_growth_3y_fcst": -0.0138,
+      "beta": 0.84,
+      "net_cash_per_share": -6.79,
+      "base EPS used": 12.22,
+      "valuation multiple (P/E) used": 8.8,
+      "P/E band (bear/base/bull)": "7.0 / 8.8 / 11.0",
+      "DCF growth (5y)": 0.0,
+      "DCF discount rate": 0.0968,
+      "DCF exit P/E": 8.0
+    },
+    "outputs": {
+      "quality_signals": {
+        "roe": 0.309,
+        "roic": 0.237,
+        "debt_eq": 0.45,
+        "fcf_margin": 0.12210000000000001,
+        "beta": 0.84
+      },
+      "dcf_lite": {
+        "method": "5-yr EPS power value discounted at beta-tilted flat rate, terminal exit P/E + net cash/share",
+        "growth_5y": 0.0,
+        "discount_rate": 0.0968,
+        "exit_pe": 8.0,
+        "fair_value": 101.51
+      },
+      "scenario_grid": {
+        "bear": {
+          "growth": 0.0,
+          "exit_pe": 7.0,
+          "value": 93.81,
+          "upside": -0.166
+        },
+        "base": {
+          "growth": 0.0,
+          "exit_pe": 8.8,
+          "value": 107.67,
+          "upside": -0.043
+        },
+        "bull": {
+          "growth": 0.0,
+          "exit_pe": 11.0,
+          "value": 124.6,
+          "upside": 0.107
+        }
+      },
+      "fair_value_basis": "DCF-lite base scenario (5-yr EPS power value + net cash/share)",
+      "fair_value": {
+        "bear": 93.81,
+        "base": 107.67,
+        "bull": 124.6
+      },
+      "upside_base": -0.043,
+      "peg": null
+    },
+    "notes": [
+      "3Y cumulative growth forecast converted to per-year CAGR ((1+G)^(1/3)-1)",
+      "DCF-lite: growth clamped to [0%, 25%]; discount 10% base + 2pp per beta-unit above 1 (clamped [7%,14%]); exit P/E 0.9x trailing; +net cash/share"
+    ]
+  },
+  "judge": {
+    "convergence": false,
+    "rating": "HOLD",
+    "conviction": 0.4,
+    "scenarios": {
+      "bull": {
+        "prob": 0.3,
+        "pt": 124.6,
+        "thesis": "Deep value with strong cash flows and profitability, plus a potential short squeeze, could drive re-rating toward historical multiples."
+      },
+      "base": {
+        "prob": 0.45,
+        "pt": 107.67,
+        "thesis": "Fundamentals are stable but growth is flat, keeping the stock near fair value with limited upside."
+      },
+      "bear": {
+        "prob": 0.25,
+        "pt": 93.81,
+        "thesis": "Continued revenue and EPS declines, coupled with high short interest and net debt, could pressure the stock toward lower multiples."
+      }
+    },
+    "catalysts": [
+      {
+        "catalyst": "Next earnings report",
+        "date": "unknown",
+        "impact": "positive"
+      },
+      {
+        "catalyst": "Michael Burry's position disclosure",
+        "date": "unknown",
+        "impact": "positive"
+      },
+      {
+        "catalyst": "Short squeeze potential",
+        "date": "unknown",
+        "impact": "positive"
+      },
+      {
+        "catalyst": "Analyst price target revisions",
+        "date": "unknown",
+        "impact": "negative"
+      }
+    ],
+    "risks": [
+      {
+        "risk": "Revenue contraction continues",
+        "likelihood": "medium"
+      },
+      {
+        "risk": "Earnings decline accelerates",
+        "likelihood": "medium"
+      },
+      {
+        "risk": "High short interest leads to further downside",
+        "likelihood": "medium"
+      },
+      {
+        "risk": "Net debt position limits financial flexibility",
+        "likelihood": "low"
+      }
+    ],
+    "decision_rationale": "The bull and bear cases are sharply divided on whether the low valuation is a bargain or a value trap, with no clear resolution given conflicting signals on growth and cash flow. The deterministic valuation places fair value near the current price, suggesting limited upside or downside in the base case. With high uncertainty and a balanced risk/reward, a HOLD rating with moderate conviction is appropriate."
+  },
+  "risk_manager": {
+    "sym": "LULU",
+    "verdict": "approved",
+    "checks": {
+      "base_pt_within_25pct": {
+        "ok": true,
+        "detail": "judge base PT 107.67 vs deterministic base fair value 107.67 (deviation 0.0%)"
+      },
+      "probs_sum_1": {
+        "ok": true,
+        "detail": "bull/base/bear probs sum to 1.000"
+      },
+      "rating_in_scale": {
+        "ok": true,
+        "detail": "rating 'HOLD'"
+      },
+      "conviction_01": {
+        "ok": true,
+        "detail": "conviction 0.4"
+      }
+    },
+    "n_checks_passed": 4,
+    "n_checks": 4,
+    "override_applied": false,
+    "reason": "all deterministic checks passed; judge verdict stands"
+  },
+  "audit": {
+    "bull_researcher": {
+      "system": "You are the bull case researcher for an equity research report. Your job is to argue the strongest honest bull case for the ticker, based ONLY on the data provided. Rules:\n1. Every claim MUST be grounded in a specific data field. Cite it in the 'evidence' field as <section>.<field>, e.g. 'fundamentals.pe_ttm' or 'catalyst.eps_est' or 'earnings.surprise_pct'.\n2. If the data does not support a claim, do NOT make it. Missing data is a reason to stay silent or to say so explicitly.\n3. Do not hedge: this is your side's case. Pick the 4-6 strongest claims. No filler.\n4. Return ONLY the JSON object:\n{\"stance\": \"bullish|bearish\", \"confidence\": <0-1>, \"claims\": [{\"claim\": \"<one sentence>\", \"evidence\": \"<section.field>\", \"impact\": \"positive|negative\"}]}",
+      "user": "TICKER: LULU\n\nROLE: BULL case\n\n[fundamentals] valuation & quality: market cap, P/E, P/B, P/S, ROE, margins, growth, cash/debt, 52w range, analyst targets\n{\n\"price\": 110.37,\n\"market_cap\": 11900000000.0,\n\"enterprise_value\": 12650000000.0,\n\"pe_ttm\": 8.8,\n\"forward_pe\": 12.79,\n\"peg\": null,\n\"ps_ttm\": 1.07,\n\"pb\": 2.57,\n\"pfcf\": 8.78,\n\"ev_ebitda\": 5.3,\n\"eps_ttm\": 12.22,\n\"eps_forward\": 8.629397967161847,\n\"fcf_per_share\": 12.23,\n\"revenue_per_share\": null,\n\"cash_per_share\": -6.79,\n\"book_value_per_share\": 42.9,\n\"roe\": 0.309,\n\"roa\": 0.14400000000000002,\n\"roic\": 0.237,\n\"roce\": 0.276,\n\"gross_margin\": 0.5489,\n\"operating_margin\": 0.16620000000000001,\n\"profit_margin\": 0.1278,\n\"fcf_margin\": 0.12210000000000001,\n\"ebitda_margin\": 0.21489999999999998,\n\"pretax_margin\": 0.18100000000000002,\n\"revenue_growth_yoy\": -0.0138,\n\"eps_growth_yoy\": -0.10779999999999999,\n\"fcf\": 1350000000.0,\n\"ocf\": 1980000000.0,\n\"capex\": -...<truncated 5176 chars>",
+      "response": "{\n  \"stance\": \"bullish\",\n  \"confidence\": 0.7,\n  \"claims\": [\n    {\n      \"claim\": \"LULU trades at a steep discount to its historical valuation with a P/E of 8.8 and a forward P/E of 12.79, suggesting the market is pricing in excessive pessimism.\",\n      \"evidence\": \"fundamentals.pe_ttm\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"The company generates strong free cash flow, with a FCF yield of 11.4% and a P/FCF of 8.78, indicating robust cash generation relative to its market cap.\",\n      \"evidence\": \"fundamentals.fcf_yield\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"LULU maintains high profitability with a gross margin of 54.9% and an ROE of 30.9%, demonstrating a durable competitive advantage and efficient capital use.\",\n      \"evidence\": \"fundamentals.gross_margin\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"The stock is trading below the average analyst price target of $104.26, implying potential upside of about 5% from the current price of $110.37, and the recommendation is 'Hold' rather than 'Sell'.\",\n      \"evidence\": \"fundamentals.price_target\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"Michael Burry, a prominent investor, recently bought back into Lululemon, signaling confidence in the company's future prospects despite recent headwinds.\",\n      \"evidence\": \"news.0.headline\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"The company has a low beta of 0.84, providing defensive characteristics and lower volatility compared to the broader market, which is attractive in uncertain times.\",\n      \"evidence\": \"fundamentals.beta\",\n      \"impact\": \"positive\"\n    }\n  ]\n}",
+      "ok": true
+    },
+    "bear_researcher": {
+      "system": "You are the bear case researcher for an equity research report. Your job is to argue the strongest honest bear case for the ticker, based ONLY on the data provided. Rules:\n1. Every claim MUST be grounded in a specific data field. Cite it in the 'evidence' field as <section>.<field>, e.g. 'fundamentals.pe_ttm' or 'catalyst.eps_est' or 'earnings.surprise_pct'.\n2. If the data does not support a claim, do NOT make it. Missing data is a reason to stay silent or to say so explicitly.\n3. Do not hedge: this is your side's case. Pick the 4-6 strongest claims. No filler.\n4. Return ONLY the JSON object:\n{\"stance\": \"bullish|bearish\", \"confidence\": <0-1>, \"claims\": [{\"claim\": \"<one sentence>\", \"evidence\": \"<section.field>\", \"impact\": \"positive|negative\"}]}",
+      "user": "TICKER: LULU\n\nROLE: BEAR case\n\n[filings] recent SEC filings (8-K etc.)\n[\n{\n\"form\": \"3\",\n\"filing_date\": \"2026-10-29\",\n\"accession\": \"0001397187-26-000142\",\n\"primary_doc\": \"xslF345X06/form3.xml\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/1397187/000139718726000142/xslF345X06/form3.xml\"\n},\n{\n\"form\": \"3\",\n\"filing_date\": \"2026-10-29\",\n\"accession\": \"0001397187-26-000141\",\n\"primary_doc\": \"xslF345X06/form3.xml\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/1397187/000139718726000141/xslF345X06/form3.xml\"\n},\n{\n\"form\": \"3\",\n\"filing_date\": \"2026-10-29\",\n\"accession\": \"0001397187-26-000140\",\n\"primary_doc\": \"xslF345X06/form3.xml\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/1397187/000139718726000140/xslF345X06/form3.xml\"\n},\n{\n\"form\": \"SCHEDULE 13G/A\",\n\"filing_date\": \"2026-10-27\",\n\"accession\": \"0002012383-26-003920\",\n\"primary_doc\": \"xslSCHEDULE_13G_X02/primary_doc.xml\",\n\"url\": \"https://www...<truncated 5176 chars>",
+      "response": "{\n  \"stance\": \"bearish\",\n  \"confidence\": 0.75,\n  \"claims\": [\n    {\n      \"claim\": \"LULU's revenue is contracting, with year-over-year growth at -1.38%, indicating a shrinking top line.\",\n      \"evidence\": \"fundamentals.revenue_growth_yoy\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"Earnings per share are declining faster than revenue, with EPS growth at -10.78%, signaling margin compression and operational inefficiency.\",\n      \"evidence\": \"fundamentals.eps_growth_yoy\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The stock trades at a forward P/E of 12.79, which is a premium to its trailing P/E of 8.8, implying the market expects earnings to decline further.\",\n      \"evidence\": \"fundamentals.forward_pe\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"Analysts have set a price target of $104.26, which is below the current price of $110.37, suggesting the stock is overvalued and likely to fall.\",\n      \"evidence\": \"fundamentals.price_target\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The company has negative net cash per share of -$6.79, indicating a net debt position that could strain financial flexibility.\",\n      \"evidence\": \"fundamentals.net_cash_per_share\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"Short interest is elevated at 15.99% of float, reflecting bearish sentiment among investors.\",\n      \"evidence\": \"fundamentals.short_interest_pct_float\",\n      \"impact\": \"negative\"\n    }\n  ]\n}",
+      "ok": true
+    },
+    "bear_rebuttal": {
+      "system": "You are the bear researcher responding to the OPPOSING case. Address each of the opposing side's claims head-on. For each one: either concede it, or rebut it using a specific counter-field from the data (evidence as <section>.<field>), or point out the inference gap. Be specific and numerical. Return ONLY:\n{\"rebuttals\": [{\"target_claim\": \"<the claim you are answering>\", \"response\": \"<your counter-argument, 1-2 sentences>\", \"counter_evidence\": \"<section.field or null>\", \"concede\": true|false, \"strength\": <0-1>}]}",
+      "user": "OPPOSING (bull) CLAIMS:\n[{\"claim\": \"LULU trades at a steep discount to its historical valuation with a P/E of 8.8 and a forward P/E of 12.79, suggesting the market is pricing in excessive pessimism.\", \"evidence\": \"fundamentals.pe_ttm\", \"impact\": \"positive\"}, {\"claim\": \"The company generates strong free cash flow, with a FCF yield of 11.4% and a P/FCF of 8.78, indicating robust cash generation relative to its market cap.\", \"evidence\": \"fundamentals.fcf_yield\", \"impact\": \"positive\"}, {\"claim\": \"LULU maintains high profitability with a gross margin of 54.9% and an ROE of 30.9%, demonstrating a durable competitive advantage and efficient capital use.\", \"evidence\": \"fundamentals.gross_margin\", \"impact\": \"positive\"}, {\"claim\": \"The stock is trading below the average analyst price target of $104.26, implying potential upside of about 5% from the current price of $110.37, and the recommendation ...<truncated 6652 chars>",
+      "response": "{\"rebuttals\": [{\"target_claim\": \"LULU trades at a steep discount to its historical valuation with a P/E of 8.8 and a forward P/E of 12.79, suggesting the market is pricing in excessive pessimism.\", \"response\": \"The low trailing P/E is misleading because earnings are declining: EPS growth is -10.8% YoY and revenue growth is -1.4%. The forward P/E of 12.79 already reflects the market's correct anticipation of lower future earnings, not excessive pessimism.\", \"counter_evidence\": \"fundamentals.eps_growth_yoy\", \"concede\": false, \"strength\": 0.8}, {\"target_claim\": \"The company generates strong free cash flow, with a FCF yield of 11.4% and a P/FCF of 8.78, indicating robust cash generation relative to its market cap.\", \"response\": \"The FCF yield is inflated by heavy capex cuts (capex of -$627.7M) that may not be sustainable, and the company has negative net cash per share of -$6.79 with $2.14B in debt, so the cash generation is not as clean as it appears.\", \"counter_evidence\": \"fundamentals.net_cash_per_share\", \"concede\": false, \"strength\": 0.6}, {\"target_claim\": \"LULU maintains high profitability with a gross margin of 54.9% and an ROE of 30.9%, demonstrating a durable competitive advantage and efficient capital use.\", \"response\": \"While gross margin is high, operating margin has compressed to 16.6% and profit margin to 12.8%, and with revenue declining, the high ROE is partly a function of a shrinking equity base rather than growth. The 'durable advantage' is eroding as growth stalls.\", \"counter_evidence\": \"fundamentals.operating_margin\", \"concede\": false, \"strength\": 0.5}, {\"target_claim\": \"The stock is trading below the average analyst price target of $104.26, implying potential upside of about 5% from the current price of $110.37, and the recommendation is 'Hold' rather t...<truncated 1426 chars>",
+      "ok": true
+    },
+    "bull_rebuttal": {
+      "system": "You are the bull researcher responding to the OPPOSING case. Address each of the opposing side's claims head-on. For each one: either concede it, or rebut it using a specific counter-field from the data (evidence as <section>.<field>), or point out the inference gap. Be specific and numerical. Return ONLY:\n{\"rebuttals\": [{\"target_claim\": \"<the claim you are answering>\", \"response\": \"<your counter-argument, 1-2 sentences>\", \"counter_evidence\": \"<section.field or null>\", \"concede\": true|false, \"strength\": <0-1>}]}",
+      "user": "OPPOSING (bear) CLAIMS:\n[{\"claim\": \"LULU's revenue is contracting, with year-over-year growth at -1.38%, indicating a shrinking top line.\", \"evidence\": \"fundamentals.revenue_growth_yoy\", \"impact\": \"negative\"}, {\"claim\": \"Earnings per share are declining faster than revenue, with EPS growth at -10.78%, signaling margin compression and operational inefficiency.\", \"evidence\": \"fundamentals.eps_growth_yoy\", \"impact\": \"negative\"}, {\"claim\": \"The stock trades at a forward P/E of 12.79, which is a premium to its trailing P/E of 8.8, implying the market expects earnings to decline further.\", \"evidence\": \"fundamentals.forward_pe\", \"impact\": \"negative\"}, {\"claim\": \"Analysts have set a price target of $104.26, which is below the current price of $110.37, suggesting the stock is overvalued and likely to fall.\", \"evidence\": \"fundamentals.price_target\", \"impact\": \"negative\"}, {\"claim\": \"The company ha...<truncated 6467 chars>",
+      "response": "{\"rebuttals\": [{\"target_claim\": \"LULU's revenue is contracting, with year-over-year growth at -1.38%, indicating a shrinking top line.\", \"response\": \"A -1.38% revenue dip is a minor blip, not a contraction\u2014the company still generates $11.09B in TTM revenue with a 54.89% gross margin, and the market cap of $11.9B prices in this temporary slowdown.\", \"counter_evidence\": \"fundamentals.revenue_ttm\", \"concede\": false, \"strength\": 0.6}, {\"target_claim\": \"Earnings per share are declining faster than revenue, with EPS growth at -10.78%, signaling margin compression and operational inefficiency.\", \"response\": \"EPS decline is partly due to one-time items and investments; trailing EPS of $12.22 still supports a P/E of 8.8, and ROE of 30.9% shows the company remains highly profitable despite the dip.\", \"counter_evidence\": \"fundamentals.roe\", \"concede\": false, \"strength\": 0.7}, {\"target_claim\": \"The stock trades at a forward P/E of 12.79, which is a premium to its trailing P/E of 8.8, implying the market expects earnings to decline further.\", \"response\": \"The forward P/E reflects analyst estimates that may be conservative; the stock's earnings yield of 11.37% and FCF yield of 11.39% show it's deeply undervalued on a cash-flow basis, not overvalued.\", \"counter_evidence\": \"fundamentals.fcf_yield\", \"concede\": false, \"strength\": 0.8}, {\"target_claim\": \"Analysts have set a price target of $104.26, which is below the current price of $110.37, suggesting the stock is overvalued and likely to fall.\", \"response\": \"The price target is a lagging consensus figure; the stock recently traded at $112.53, above the target, and the 'Hold' recommendation doesn't preclude upside given the 8.8x trailing P/E and 30.9% ROE.\", \"counter_evidence\": \"quote.c\", \"concede\": false, \"strength\": 0.5}, {\"target_cla...<truncated 798 chars>",
+      "ok": true
+    },
+    "judge": {
+      "system": "You are the head of a sell-side equity research team. You have read the bull case, the bear case, their rebuttals, the evidence grading, and a deterministic valuation computed in Python (never modify its numbers). Produce the final verdict.\nRules:\n1. Scenarios: bull/base/bear 12-month price targets and probabilities. Base-case target MUST stay within +-25% of the deterministic valuation's base fair value when one exists. Probabilities must sum to 1.0.\n2. Rating scale: BUY / OVERWEIGHT / HOLD / UNDERWEIGHT / SELL.\n3. In the 'catalysts' list, when the data's 'catalyst' section has an explicit date (e.g. next earnings date), use it as the date; otherwise 'unknown'.\n4. Convergence detection: if bull and bear largely agree on direction (or disagree on nothing material), set convergence true and keep conviction; if the debate is unresolved, convergence false and lower conviction.\n4. All facts ...<truncated 478 chars>",
+      "user": "TICKER: LULU\nPRICE: 112.52999877929688\n\n=== BULL CASE ===\nbull (confidence 0.7):\n- [positive] LULU trades at a steep discount to its historical valuation with a P/E of 8.8 and a forward P/E of 12.79, suggesting the market is pricing in excessive pessimism. (evidence: fundamentals.pe_ttm)\n- [positive] The company generates strong free cash flow, with a FCF yield of 11.4% and a P/FCF of 8.78, indicating robust cash generation relative to its market cap. (evidence: fundamentals.fcf_yield)\n- [positive] LULU maintains high profitability with a gross margin of 54.9% and an ROE of 30.9%, demonstrating a durable competitive advantage and efficient capital use. (evidence: fundamentals.gross_margin)\n- [positive] The stock is trading below the average analyst price target of $104.26, implying potential upside of about 5% from the current price of $110.37, and the recommendation is 'Hold' rather tha...<truncated 8056 chars>",
+      "response": "{\n  \"convergence\": false,\n  \"rating\": \"HOLD\",\n  \"conviction\": 0.4,\n  \"scenarios\": {\n    \"bull\": {\n      \"prob\": 0.3,\n      \"pt\": 124.6,\n      \"thesis\": \"Deep value with strong cash flows and profitability, plus a potential short squeeze, could drive re-rating toward historical multiples.\"\n    },\n    \"base\": {\n      \"prob\": 0.45,\n      \"pt\": 107.67,\n      \"thesis\": \"Fundamentals are stable but growth is flat, keeping the stock near fair value with limited upside.\"\n    },\n    \"bear\": {\n      \"prob\": 0.25,\n      \"pt\": 93.81,\n      \"thesis\": \"Continued revenue and EPS declines, coupled with high short interest and net debt, could pressure the stock toward lower multiples.\"\n    }\n  },\n  \"catalysts\": [\n    {\n      \"catalyst\": \"Next earnings report\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"catalyst\": \"Michael Burry's position disclosure\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"catalyst\": \"Short squeeze potential\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"catalyst\": \"Analyst price target revisions\",\n      \"date\": \"unknown\",\n      \"impact\": \"negative\"\n    }\n  ],\n  \"risks\": [\n    {\n      \"risk\": \"Revenue contraction continues\",\n      \"likelihood\": \"medium\"\n    },\n    {\n      \"risk\": \"Earnings decline accelerates\",\n      \"likelihood\": \"medium\"\n    },\n    {\n      \"risk\": \"High short interest leads to further downside\",\n      \"likelihood\": \"medium\"\n    },\n    {\n      \"risk\": \"Net debt position limits financial flexibility\",\n      \"likelihood\": \"low\"\n    }\n  ],\n  \"decision_rationale\": \"The bull and bear cases are sharply divided on whether the low valuation is a bargain or a value trap, with no clear resolution given conflicting signals on growth and cash flow. The deterministic valuation ...<truncated 205 chars>",
+      "ok": true
+    }
+  },
+  "errors": [],
+  "elapsed_sec": 0.0,
+  "report_path": null,
+  "json_path": null
+}

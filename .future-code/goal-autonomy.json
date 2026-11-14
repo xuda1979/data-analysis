@@ -1,10 +1,23 @@
 {
   "schema": 1,
-  "goal": "improve the champion significantly using innovational ideas.",
-  "state": "ACTIVE",
+  "goal": "learn from all super popular quant trading projects in github to improve this repo. especially we need multiple agents to collaborate and debate to write extremely high quality equity research reports so we can build our porfolios based on the research. the equities we would like to research on the top equities top 30 and buttom 30. we need to give current price and target price in the equity reports. the equity reports must be world best quality possible.",
+  "state": "REVIEW",
   "continuations": 0,
   "totalContinuations": 0,
   "maxContinuations": null,
-  "updatedAt": "2026-11-05T11:27:08.596Z",
-  "reason": null
+  "updatedAt": "2026-11-12T11:06:00.440Z",
+  "reason": "Goal file declares completion; independent acceptance is still required. Review the verified artifacts.",
+  "ignoredGoalReport": "eef2ea761aee622a7a764e88785ac0d41f425c00eb8ca6c2d55024a2a68d469f",
+  "revision": 2,
+  "previousGoal": "improve the champion significantly using innovational ideas.",
+  "supersededGoals": [
+    "improve the champion significantly using innovational ideas."
+  ],
+  "horizon": "long",
+  "stagnantContinuations": 0,
+  "lastProgressFingerprint": "b4ade4f9714166767d0f3c48d30fb240d7d058283f9bef2cbb843c828663cefb",
+  "transition": "review",
+  "activeSteering": [
+    "Continue your folder objective per .future-code/goal.md: prioritize the 3 unfinished milestones - (1) the 60 world-class equity research reports with current and target prices, (2) portfolio construction from the research, (3) independent verification with pytest green and QA audit. Work autonomously through them."
+  ]
 }

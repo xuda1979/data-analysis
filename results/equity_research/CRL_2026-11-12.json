@@ -1,0 +1,461 @@
+{
+  "sym": "CRL",
+  "generated_utc": "2026-11-12T02:50:41Z",
+  "price": 353.3399963378906,
+  "data_sections": [
+    "quote",
+    "fundamentals",
+    "news",
+    "filings",
+    "hn_mentions",
+    "clusters"
+  ],
+  "bull": {
+    "stance": "bullish",
+    "confidence": 0.6,
+    "claims": [
+      {
+        "claim": "CRL's forward P/E of 26.86 is dramatically lower than its trailing P/E of 413.56, indicating the market expects a massive earnings rebound that is not yet priced in.",
+        "evidence": "fundamentals.pe_ttm, fundamentals.forward_pe",
+        "impact": "positive"
+      },
+      {
+        "claim": "Analysts rate CRL a Buy with a price target of $346.07, which is above the current price of $345.80, suggesting modest upside and institutional endorsement.",
+        "evidence": "fundamentals.analyst_recommendation, fundamentals.price_target, fundamentals.price",
+        "impact": "positive"
+      },
+      {
+        "claim": "CRL's strong operating margin of 14.27% and EBITDA margin of 22.87% demonstrate solid core profitability despite a low net margin due to one-time items.",
+        "evidence": "fundamentals.operating_margin, fundamentals.ebitda_margin",
+        "impact": "positive"
+      },
+      {
+        "claim": "The company generates robust free cash flow of $399.63 million with a 10.05% FCF margin, providing financial flexibility for debt reduction or growth investments.",
+        "evidence": "fundamentals.fcf, fundamentals.fcf_margin",
+        "impact": "positive"
+      },
+      {
+        "claim": "Recent news highlights that CRL stock is up on positive developments, including an analyst day that raised fair value targets, signaling improving investor sentiment.",
+        "evidence": "news[0].headline, news[1].headline",
+        "impact": "positive"
+      },
+      {
+        "claim": "CRL's forward EPS estimate of $12.87 implies a significant earnings recovery from the trailing EPS of $0.83, which could drive substantial share price appreciation if realized.",
+        "evidence": "fundamentals.eps_forward, fundamentals.eps_ttm",
+        "impact": "positive"
+      }
+    ]
+  },
+  "bear": {
+    "stance": "bearish",
+    "confidence": 0.75,
+    "claims": [
+      {
+        "claim": "The stock is extremely overvalued on trailing earnings, trading at a P/E of 413.56, which implies an earnings yield of just 0.24%.",
+        "evidence": "fundamentals.pe_ttm",
+        "impact": "negative"
+      },
+      {
+        "claim": "The company's profitability is razor-thin, with a net profit margin of only 1.01% and a negative pretax margin of -2.52%, indicating weak underlying earnings power.",
+        "evidence": "fundamentals.profit_margin",
+        "impact": "negative"
+      },
+      {
+        "claim": "The stock's PEG ratio of 2.21 suggests that the expected earnings growth does not justify the current valuation, making the forward P/E of 26.86 still expensive.",
+        "evidence": "fundamentals.peg",
+        "impact": "negative"
+      },
+      {
+        "claim": "The company has a significant net debt position of -$2.65 billion, with negative cash per share of -$55.34, which could strain financial flexibility.",
+        "evidence": "fundamentals.net_cash",
+        "impact": "negative"
+      },
+      {
+        "claim": "Return on equity is a dismal 1.27%, indicating that the company is generating very little profit relative to shareholder equity.",
+        "evidence": "fundamentals.roe",
+        "impact": "negative"
+      },
+      {
+        "claim": "The stock's price is already near the analyst consensus target of $346.07, leaving limited upside and potential downside if expectations are not met.",
+        "evidence": "fundamentals.price_target",
+        "impact": "negative"
+      }
+    ]
+  },
+  "rebuttals": {
+    "bear": {
+      "rebuttals": [
+        {
+          "target_claim": "CRL's forward P/E of 26.86 is dramatically lower than its trailing P/E of 413.56, indicating the market expects a massive earnings rebound that is not yet priced in.",
+          "response": "The forward P/E is based on analyst estimates of $12.87 EPS, but the PEG ratio of 2.21 and the fact that trailing EPS is only $0.83 (with a profit margin of just 1.01%) suggest the market is already pricing in a highly optimistic recovery that may not materialize given the company's negative pretax margin of -2.52%.",
+          "counter_evidence": "fundamentals.peg, fundamentals.pretax_margin",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "Analysts rate CRL a Buy with a price target of $346.07, which is above the current price of $345.80, suggesting modest upside and institutional endorsement.",
+          "response": "The price target of $346.07 is only 0.08% above the current price of $345.80, implying virtually no upside, and the stock is already trading at $353.34 (per the quote data), above the target, indicating the market has already exceeded analyst expectations.",
+          "counter_evidence": "quote.c, fundamentals.price_target",
+          "concede": false,
+          "strength": 0.8
+        },
+        {
+          "target_claim": "CRL's strong operating margin of 14.27% and EBITDA margin of 22.87% demonstrate solid core profitability despite a low net margin due to one-time items.",
+          "response": "While operating margin is 14.27%, the pretax margin is -2.52%, meaning the company actually loses money before taxes; the gap between operating and pretax margins suggests significant non-operating charges or interest expenses that are not one-time in nature, given the debt-to-equity ratio of 0.87.",
+          "counter_evidence": "fundamentals.pretax_margin, fundamentals.debt_eq",
+          "concede": false,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "The company generates robust free cash flow of $399.63 million with a 10.05% FCF margin, providing financial flexibility for debt reduction or growth investments.",
+          "response": "Despite $399.63M in FCF, the company has net cash of -$2.65 billion (net cash per share of -$55.34), meaning the FCF is insufficient to meaningfully reduce debt; the FCF yield is only 2.43%, which is not particularly attractive for a stock trading at 41x FCF.",
+          "counter_evidence": "fundamentals.net_cash, fundamentals.fcf_yield, fundamentals.pfcf",
+          "concede": false,
+          "strength": 0.8
+        },
+        {
+          "target_claim": "Recent news highlights that CRL stock is up on positive developments, including an analyst day that raised fair value targets, signaling improving investor sentiment.",
+          "response": "The news also includes a GuruFocus headline stating 'GF Value Says Overvalued' with a GF Score of 64/100, which directly contradicts the bullish sentiment and suggests the stock is overvalued despite the analyst day optimism.",
+          "counter_evidence": "news[2].headline",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "CRL's forward EPS estimate of $12.87 implies a significant earnings recovery from the trailing EPS of $0.83, which could drive substantial share price appreciation if realized.",
+          "response": "The forward EPS estimate of $12.87 is 15.5x the trailing EPS of $0.83, but the company's revenue growth is only 2.5% YoY and ROE is just 1.27%, making such a massive earnings recovery implausible without a dramatic margin expansion that is not supported by current fundamentals.",
+          "counter_evidence": "fundamentals.revenue_growth_yoy, fundamentals.roe",
+          "concede": false,
+          "strength": 0.8
+        }
+      ]
+    },
+    "bull": {
+      "rebuttals": [
+        {
+          "target_claim": "The stock is extremely overvalued on trailing earnings, trading at a P/E of 413.56, which implies an earnings yield of just 0.24%.",
+          "response": "The trailing P/E is distorted by one-time charges that depressed EPS to $0.83; the forward P/E of 26.86 reflects normalized earnings power of $12.87 per share, and the 15.5x jump in forward EPS shows the market is pricing a recovery, not a permanent 0.24% yield.",
+          "counter_evidence": "fundamentals.forward_pe",
+          "concede": false,
+          "strength": 0.8
+        },
+        {
+          "target_claim": "The company's profitability is razor-thin, with a net profit margin of only 1.01% and a negative pretax margin of -2.52%, indicating weak underlying earnings power.",
+          "response": "The negative pretax margin is driven by non-recurring items; operating margin is a healthy 14.27% and ROIC is 9.74%, showing strong core operations that will flow through to net income once one-time costs subside.",
+          "counter_evidence": "fundamentals.operating_margin",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "The stock's PEG ratio of 2.21 suggests that the expected earnings growth does not justify the current valuation, making the forward P/E of 26.86 still expensive.",
+          "response": "The PEG uses trailing EPS growth of 12.61%, but forward EPS of $12.87 implies a 1,450% growth rate from the depressed trailing base, which would make the PEG far below 1.0 on a forward basis.",
+          "counter_evidence": "fundamentals.eps_forward",
+          "concede": false,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "The company has a significant net debt position of -$2.65 billion, with negative cash per share of -$55.34, which could strain financial flexibility.",
+          "response": "Debt-to-equity of 0.87 is manageable, and the company generates $622M in operating cash flow and $400M in free cash flow, providing ample coverage for interest and debt service without strain.",
+          "counter_evidence": "fundamentals.debt_eq",
+          "concede": false,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "Return on equity is a dismal 1.27%, indicating that the company is generating very little profit relative to shareholder equity.",
+          "response": "ROE is depressed by the same one-time charges that hit net income; ROIC of 9.74% and ROCE of 8.92% show the underlying business generates solid returns on invested capital, which will lift ROE as earnings normalize.",
+          "counter_evidence": "fundamentals.roic",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "The stock's price is already near the analyst consensus target of $346.07, leaving limited upside and potential downside if expectations are not met.",
+          "response": "The current price of $353.34 is actually above the consensus target, but the analyst recommendation is 'Buy' and the recent 8-K and analyst day news indicate upward target revisions; the target likely lags the latest positive developments.",
+          "counter_evidence": "fundamentals.analyst_recommendation",
+          "concede": true,
+          "strength": 0.4
+        }
+      ]
+    }
+  },
+  "grading": {
+    "bull": {
+      "side": "bull",
+      "n_claims": 6,
+      "grounded": 5,
+      "ungrounded": 1,
+      "sections_cited": [
+        "fundamentals",
+        "news[0]"
+      ],
+      "claims": [
+        {
+          "claim": "CRL's forward P/E of 26.86 is dramatically lower than its trailing P/E of 413.56, indicating the market expects a massive earnings rebound that is not yet priced in.",
+          "evidence": "fundamentals.pe_ttm, fundamentals.forward_pe",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Analysts rate CRL a Buy with a price target of $346.07, which is above the current price of $345.80, suggesting modest upside and institutional endorsement.",
+          "evidence": "fundamentals.analyst_recommendation, fundamentals.price_target, fundamentals.price",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "CRL's strong operating margin of 14.27% and EBITDA margin of 22.87% demonstrate solid core profitability despite a low net margin due to one-time items.",
+          "evidence": "fundamentals.operating_margin, fundamentals.ebitda_margin",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The company generates robust free cash flow of $399.63 million with a 10.05% FCF margin, providing financial flexibility for debt reduction or growth investments.",
+          "evidence": "fundamentals.fcf, fundamentals.fcf_margin",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Recent news highlights that CRL stock is up on positive developments, including an analyst day that raised fair value targets, signaling improving investor sentiment.",
+          "evidence": "news[0].headline, news[1].headline",
+          "grounded": false,
+          "reason": "'news[0].headline': section 'news[0]' not present in gathered data; 'news[1].headline': section 'news[1]' not present in gathered data"
+        },
+        {
+          "claim": "CRL's forward EPS estimate of $12.87 implies a significant earnings recovery from the trailing EPS of $0.83, which could drive substantial share price appreciation if realized.",
+          "evidence": "fundamentals.eps_forward, fundamentals.eps_ttm",
+          "grounded": true,
+          "reason": "ok"
+        }
+      ]
+    },
+    "bear": {
+      "side": "bear",
+      "n_claims": 6,
+      "grounded": 6,
+      "ungrounded": 0,
+      "sections_cited": [
+        "fundamentals"
+      ],
+      "claims": [
+        {
+          "claim": "The stock is extremely overvalued on trailing earnings, trading at a P/E of 413.56, which implies an earnings yield of just 0.24%.",
+          "evidence": "fundamentals.pe_ttm",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The company's profitability is razor-thin, with a net profit margin of only 1.01% and a negative pretax margin of -2.52%, indicating weak underlying earnings power.",
+          "evidence": "fundamentals.profit_margin",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The stock's PEG ratio of 2.21 suggests that the expected earnings growth does not justify the current valuation, making the forward P/E of 26.86 still expensive.",
+          "evidence": "fundamentals.peg",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The company has a significant net debt position of -$2.65 billion, with negative cash per share of -$55.34, which could strain financial flexibility.",
+          "evidence": "fundamentals.net_cash",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Return on equity is a dismal 1.27%, indicating that the company is generating very little profit relative to shareholder equity.",
+          "evidence": "fundamentals.roe",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The stock's price is already near the analyst consensus target of $346.07, leaving limited upside and potential downside if expectations are not met.",
+          "evidence": "fundamentals.price_target",
+          "grounded": true,
+          "reason": "ok"
+        }
+      ]
+    }
+  },
+  "valuation": {
+    "sym": "CRL",
+    "price": 353.3399963378906,
+    "deterministic": true,
+    "inputs": {
+      "eps_ttm": 0.83,
+      "eps_forward (consensus-derived)": 12.874162323157112,
+      "pe_ttm": 413.56,
+      "forward_pe": 26.86,
+      "eps_growth_3y_fcst": 0.1261,
+      "revenue_growth_3y_fcst": 0.025,
+      "beta": 1.34,
+      "net_cash_per_share": -55.34,
+      "base EPS used": 0.83,
+      "valuation multiple (P/E) used": 413.56,
+      "P/E band (bear/base/bull)": "330.8 / 413.6 / 517.0",
+      "DCF growth (5y)": 0.0404,
+      "DCF discount rate": 0.1068,
+      "DCF exit P/E": 372.2
+    },
+    "outputs": {
+      "quality_signals": {
+        "roe": 0.0127,
+        "roic": 0.0974,
+        "debt_eq": 0.87,
+        "fcf_margin": 0.1005,
+        "beta": 1.34
+      },
+      "dcf_lite": {
+        "method": "5-yr EPS power value discounted at beta-tilted flat rate, terminal exit P/E + net cash/share",
+        "growth_5y": 0.0404,
+        "discount_rate": 0.1068,
+        "exit_pe": 372.2,
+        "fair_value": 174.83
+      },
+      "scenario_grid": {
+        "bear": {
+          "growth": 0.0202,
+          "exit_pe": 330.8,
+          "value": 130.62,
+          "upside": -0.63
+        },
+        "base": {
+          "growth": 0.0404,
+          "exit_pe": 413.6,
+          "value": 200.05,
+          "upside": -0.434
+        },
+        "bull": {
+          "growth": 0.0606,
+          "exit_pe": 517.0,
+          "value": 294.99,
+          "upside": -0.165
+        }
+      },
+      "fair_value_basis": "DCF-lite base scenario (5-yr EPS power value + net cash/share)",
+      "fair_value": {
+        "bear": 130.62,
+        "base": 200.05,
+        "bull": 294.99
+      },
+      "upside_base": -0.434,
+      "peg": 102.42
+    },
+    "notes": [
+      "3Y cumulative growth forecast converted to per-year CAGR ((1+G)^(1/3)-1)",
+      "DCF-lite: growth clamped to [0%, 25%]; discount 10% base + 2pp per beta-unit above 1 (clamped [7%,14%]); exit P/E 0.9x trailing; +net cash/share"
+    ]
+  },
+  "judge": {
+    "convergence": false,
+    "rating": "UNDERWEIGHT",
+    "conviction": 0.35,
+    "scenarios": {
+      "bull": {
+        "prob": 0.2,
+        "pt": 294.99,
+        "thesis": "If the market re-rates to a 517x trailing P/E on a strong earnings recovery, the stock could approach $295, but this requires unprecedented margin expansion and multiple expansion."
+      },
+      "base": {
+        "prob": 0.5,
+        "pt": 200.05,
+        "thesis": "The deterministic valuation implies a fair value of $200 based on normalized earnings power, suggesting the current price is significantly overvalued."
+      },
+      "bear": {
+        "prob": 0.3,
+        "pt": 130.62,
+        "thesis": "If earnings recovery disappoints and the multiple contracts to 330x trailing earnings, the stock could fall to $131."
+      }
+    },
+    "catalysts": [
+      {
+        "catalyst": "Next earnings report",
+        "date": "unknown",
+        "impact": "positive"
+      },
+      {
+        "catalyst": "Analyst day fair value target revisions",
+        "date": "unknown",
+        "impact": "positive"
+      },
+      {
+        "catalyst": "Debt reduction or refinancing announcements",
+        "date": "unknown",
+        "impact": "positive"
+      }
+    ],
+    "risks": [
+      {
+        "risk": "Earnings recovery fails to materialize as expected",
+        "likelihood": "medium"
+      },
+      {
+        "risk": "High leverage and negative net cash position strain financial flexibility",
+        "likelihood": "medium"
+      },
+      {
+        "risk": "Multiple compression from current extreme trailing P/E",
+        "likelihood": "high"
+      }
+    ],
+    "decision_rationale": "The deterministic valuation, which uses conservative but reasonable assumptions, places fair value at $200, implying 43% downside from the current price. The bull case relies on a massive earnings recovery that is not supported by current profitability metrics (net margin 1.01%, ROE 1.27%) and is contradicted by a PEG of 102.42 on a forward basis. The bear case is better grounded in the data, and the unresolved debate over the sustainability of the earnings rebound lowers conviction."
+  },
+  "risk_manager": {
+    "sym": "CRL",
+    "verdict": "approved",
+    "checks": {
+      "base_pt_within_25pct": {
+        "ok": true,
+        "detail": "judge base PT 200.05 vs deterministic base fair value 200.05 (deviation 0.0%)"
+      },
+      "probs_sum_1": {
+        "ok": true,
+        "detail": "bull/base/bear probs sum to 1.000"
+      },
+      "rating_in_scale": {
+        "ok": true,
+        "detail": "rating 'UNDERWEIGHT'"
+      },
+      "conviction_01": {
+        "ok": true,
+        "detail": "conviction 0.35"
+      }
+    },
+    "n_checks_passed": 4,
+    "n_checks": 4,
+    "override_applied": false,
+    "reason": "all deterministic checks passed; judge verdict stands"
+  },
+  "audit": {
+    "bull_researcher": {
+      "system": "You are the bull case researcher for an equity research report. Your job is to argue the strongest honest bull case for the ticker, based ONLY on the data provided. Rules:\n1. Every claim MUST be grounded in a specific data field. Cite it in the 'evidence' field as <section>.<field>, e.g. 'fundamentals.pe_ttm' or 'catalyst.eps_est' or 'earnings.surprise_pct'.\n2. If the data does not support a claim, do NOT make it. Missing data is a reason to stay silent or to say so explicitly.\n3. Do not hedge: this is your side's case. Pick the 4-6 strongest claims. No filler.\n4. Return ONLY the JSON object:\n{\"stance\": \"bullish|bearish\", \"confidence\": <0-1>, \"claims\": [{\"claim\": \"<one sentence>\", \"evidence\": \"<section.field>\", \"impact\": \"positive|negative\"}]}",
+      "user": "TICKER: CRL\n\nROLE: BULL case\n\n[fundamentals] valuation & quality: market cap, P/E, P/B, P/S, ROE, margins, growth, cash/debt, 52w range, analyst targets\n{\n\"price\": 345.8,\n\"market_cap\": 16420000000.000002,\n\"enterprise_value\": 19070000000.0,\n\"pe_ttm\": 413.56,\n\"forward_pe\": 26.86,\n\"peg\": 2.21,\n\"ps_ttm\": 4.13,\n\"pb\": 5.08,\n\"pfcf\": 41.09,\n\"ev_ebitda\": 20.97,\n\"eps_ttm\": 0.83,\n\"eps_forward\": 12.874162323157112,\n\"fcf_per_share\": 8.34,\n\"revenue_per_share\": null,\n\"cash_per_share\": -55.34,\n\"book_value_per_share\": 67.4,\n\"roe\": 0.0127,\n\"roa\": 0.047400000000000005,\n\"roic\": 0.0974,\n\"roce\": 0.0892,\n\"gross_margin\": 0.35100000000000003,\n\"operating_margin\": 0.1427,\n\"profit_margin\": 0.0101,\n\"fcf_margin\": 0.1005,\n\"ebitda_margin\": 0.22870000000000001,\n\"pretax_margin\": -0.0252,\n\"revenue_growth_yoy\": 0.025,\n\"eps_growth_yoy\": 0.1261,\n\"fcf\": 399630000.0,\n\"ocf\": 622410000.0,\n\"capex\": -222770000.0,\n\"cash\": null,\n\"de...<truncated 5144 chars>",
+      "response": "{\n  \"stance\": \"bullish\",\n  \"confidence\": 0.6,\n  \"claims\": [\n    {\n      \"claim\": \"CRL's forward P/E of 26.86 is dramatically lower than its trailing P/E of 413.56, indicating the market expects a massive earnings rebound that is not yet priced in.\",\n      \"evidence\": \"fundamentals.pe_ttm, fundamentals.forward_pe\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"Analysts rate CRL a Buy with a price target of $346.07, which is above the current price of $345.80, suggesting modest upside and institutional endorsement.\",\n      \"evidence\": \"fundamentals.analyst_recommendation, fundamentals.price_target, fundamentals.price\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"CRL's strong operating margin of 14.27% and EBITDA margin of 22.87% demonstrate solid core profitability despite a low net margin due to one-time items.\",\n      \"evidence\": \"fundamentals.operating_margin, fundamentals.ebitda_margin\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"The company generates robust free cash flow of $399.63 million with a 10.05% FCF margin, providing financial flexibility for debt reduction or growth investments.\",\n      \"evidence\": \"fundamentals.fcf, fundamentals.fcf_margin\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"Recent news highlights that CRL stock is up on positive developments, including an analyst day that raised fair value targets, signaling improving investor sentiment.\",\n      \"evidence\": \"news[0].headline, news[1].headline\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"CRL's forward EPS estimate of $12.87 implies a significant earnings recovery from the trailing EPS of $0.83, which could drive substantial share price appreciation if realized.\",\n      \"evidence\": \"fundamentals.eps_forward, fundamentals.eps_ttm\",\n      \"...<truncated 31 chars>",
+      "ok": true
+    },
+    "bear_researcher": {
+      "system": "You are the bear case researcher for an equity research report. Your job is to argue the strongest honest bear case for the ticker, based ONLY on the data provided. Rules:\n1. Every claim MUST be grounded in a specific data field. Cite it in the 'evidence' field as <section>.<field>, e.g. 'fundamentals.pe_ttm' or 'catalyst.eps_est' or 'earnings.surprise_pct'.\n2. If the data does not support a claim, do NOT make it. Missing data is a reason to stay silent or to say so explicitly.\n3. Do not hedge: this is your side's case. Pick the 4-6 strongest claims. No filler.\n4. Return ONLY the JSON object:\n{\"stance\": \"bullish|bearish\", \"confidence\": <0-1>, \"claims\": [{\"claim\": \"<one sentence>\", \"evidence\": \"<section.field>\", \"impact\": \"positive|negative\"}]}",
+      "user": "TICKER: CRL\n\nROLE: BEAR case\n\n[filings] recent SEC filings (8-K etc.)\n[\n{\n\"form\": \"SCHEDULE 13G/A\",\n\"filing_date\": \"2026-11-10\",\n\"accession\": \"0000914208-26-000392\",\n\"primary_doc\": \"xslSCHEDULE_13G_X02/primary_doc.xml\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/1100682/000091420826000392/xslSCHEDULE_13G_X02/primary_doc.xml\"\n},\n{\n\"form\": \"4\",\n\"filing_date\": \"2026-11-09\",\n\"accession\": \"0001100682-26-000159\",\n\"primary_doc\": \"xslF345X06/form4.xml\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/1100682/000110068226000159/xslF345X06/form4.xml\"\n},\n{\n\"form\": \"8-K\",\n\"filing_date\": \"2026-11-09\",\n\"accession\": \"0000950103-26-017127\",\n\"primary_doc\": \"dp256497_8k.htm\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/1100682/000095010326017127/dp256497_8k.htm\"\n},\n{\n\"form\": \"SCHEDULE 13G/A\",\n\"filing_date\": \"2026-11-05\",\n\"accession\": \"0000315066-26-002705\",\n\"primary_doc\": \"xslSCHEDULE_13G_X02/pri...<truncated 5144 chars>",
+      "response": "{\n  \"stance\": \"bearish\",\n  \"confidence\": 0.75,\n  \"claims\": [\n    {\n      \"claim\": \"The stock is extremely overvalued on trailing earnings, trading at a P/E of 413.56, which implies an earnings yield of just 0.24%.\",\n      \"evidence\": \"fundamentals.pe_ttm\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The company's profitability is razor-thin, with a net profit margin of only 1.01% and a negative pretax margin of -2.52%, indicating weak underlying earnings power.\",\n      \"evidence\": \"fundamentals.profit_margin\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The stock's PEG ratio of 2.21 suggests that the expected earnings growth does not justify the current valuation, making the forward P/E of 26.86 still expensive.\",\n      \"evidence\": \"fundamentals.peg\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The company has a significant net debt position of -$2.65 billion, with negative cash per share of -$55.34, which could strain financial flexibility.\",\n      \"evidence\": \"fundamentals.net_cash\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"Return on equity is a dismal 1.27%, indicating that the company is generating very little profit relative to shareholder equity.\",\n      \"evidence\": \"fundamentals.roe\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The stock's price is already near the analyst consensus target of $346.07, leaving limited upside and potential downside if expectations are not met.\",\n      \"evidence\": \"fundamentals.price_target\",\n      \"impact\": \"negative\"\n    }\n  ]\n}",
+      "ok": true
+    },
+    "bear_rebuttal": {
+      "system": "You are the bear researcher responding to the OPPOSING case. Address each of the opposing side's claims head-on. For each one: either concede it, or rebut it using a specific counter-field from the data (evidence as <section>.<field>), or point out the inference gap. Be specific and numerical. Return ONLY:\n{\"rebuttals\": [{\"target_claim\": \"<the claim you are answering>\", \"response\": \"<your counter-argument, 1-2 sentences>\", \"counter_evidence\": \"<section.field or null>\", \"concede\": true|false, \"strength\": <0-1>}]}",
+      "user": "OPPOSING (bull) CLAIMS:\n[{\"claim\": \"CRL's forward P/E of 26.86 is dramatically lower than its trailing P/E of 413.56, indicating the market expects a massive earnings rebound that is not yet priced in.\", \"evidence\": \"fundamentals.pe_ttm, fundamentals.forward_pe\", \"impact\": \"positive\"}, {\"claim\": \"Analysts rate CRL a Buy with a price target of $346.07, which is above the current price of $345.80, suggesting modest upside and institutional endorsement.\", \"evidence\": \"fundamentals.analyst_recommendation, fundamentals.price_target, fundamentals.price\", \"impact\": \"positive\"}, {\"claim\": \"CRL's strong operating margin of 14.27% and EBITDA margin of 22.87% demonstrate solid core profitability despite a low net margin due to one-time items.\", \"evidence\": \"fundamentals.operating_margin, fundamentals.ebitda_margin\", \"impact\": \"positive\"}, {\"claim\": \"The company generates robust free cash flow of $3...<truncated 6792 chars>",
+      "response": "{\"rebuttals\": [{\"target_claim\": \"CRL's forward P/E of 26.86 is dramatically lower than its trailing P/E of 413.56, indicating the market expects a massive earnings rebound that is not yet priced in.\", \"response\": \"The forward P/E is based on analyst estimates of $12.87 EPS, but the PEG ratio of 2.21 and the fact that trailing EPS is only $0.83 (with a profit margin of just 1.01%) suggest the market is already pricing in a highly optimistic recovery that may not materialize given the company's negative pretax margin of -2.52%.\", \"counter_evidence\": \"fundamentals.peg, fundamentals.pretax_margin\", \"concede\": false, \"strength\": 0.7}, {\"target_claim\": \"Analysts rate CRL a Buy with a price target of $346.07, which is above the current price of $345.80, suggesting modest upside and institutional endorsement.\", \"response\": \"The price target of $346.07 is only 0.08% above the current price of $345.80, implying virtually no upside, and the stock is already trading at $353.34 (per the quote data), above the target, indicating the market has already exceeded analyst expectations.\", \"counter_evidence\": \"quote.c, fundamentals.price_target\", \"concede\": false, \"strength\": 0.8}, {\"target_claim\": \"CRL's strong operating margin of 14.27% and EBITDA margin of 22.87% demonstrate solid core profitability despite a low net margin due to one-time items.\", \"response\": \"While operating margin is 14.27%, the pretax margin is -2.52%, meaning the company actually loses money before taxes; the gap between operating and pretax margins suggests significant non-operating charges or interest expenses that are not one-time in nature, given the debt-to-equity ratio of 0.87.\", \"counter_evidence\": \"fundamentals.pretax_margin, fundamentals.debt_eq\", \"concede\": false, \"strength\": 0.6}, {\"target_claim\": \"The c...<truncated 1663 chars>",
+      "ok": true
+    },
+    "bull_rebuttal": {
+      "system": "You are the bull researcher responding to the OPPOSING case. Address each of the opposing side's claims head-on. For each one: either concede it, or rebut it using a specific counter-field from the data (evidence as <section>.<field>), or point out the inference gap. Be specific and numerical. Return ONLY:\n{\"rebuttals\": [{\"target_claim\": \"<the claim you are answering>\", \"response\": \"<your counter-argument, 1-2 sentences>\", \"counter_evidence\": \"<section.field or null>\", \"concede\": true|false, \"strength\": <0-1>}]}",
+      "user": "OPPOSING (bear) CLAIMS:\n[{\"claim\": \"The stock is extremely overvalued on trailing earnings, trading at a P/E of 413.56, which implies an earnings yield of just 0.24%.\", \"evidence\": \"fundamentals.pe_ttm\", \"impact\": \"negative\"}, {\"claim\": \"The company's profitability is razor-thin, with a net profit margin of only 1.01% and a negative pretax margin of -2.52%, indicating weak underlying earnings power.\", \"evidence\": \"fundamentals.profit_margin\", \"impact\": \"negative\"}, {\"claim\": \"The stock's PEG ratio of 2.21 suggests that the expected earnings growth does not justify the current valuation, making the forward P/E of 26.86 still expensive.\", \"evidence\": \"fundamentals.peg\", \"impact\": \"negative\"}, {\"claim\": \"The company has a significant net debt position of -$2.65 billion, with negative cash per share of -$55.34, which could strain financial flexibility.\", \"evidence\": \"fundamentals.net_cash\", ...<truncated 6515 chars>",
+      "response": "{\"rebuttals\": [{\"target_claim\": \"The stock is extremely overvalued on trailing earnings, trading at a P/E of 413.56, which implies an earnings yield of just 0.24%.\", \"response\": \"The trailing P/E is distorted by one-time charges that depressed EPS to $0.83; the forward P/E of 26.86 reflects normalized earnings power of $12.87 per share, and the 15.5x jump in forward EPS shows the market is pricing a recovery, not a permanent 0.24% yield.\", \"counter_evidence\": \"fundamentals.forward_pe\", \"concede\": false, \"strength\": 0.8}, {\"target_claim\": \"The company's profitability is razor-thin, with a net profit margin of only 1.01% and a negative pretax margin of -2.52%, indicating weak underlying earnings power.\", \"response\": \"The negative pretax margin is driven by non-recurring items; operating margin is a healthy 14.27% and ROIC is 9.74%, showing strong core operations that will flow through to net income once one-time costs subside.\", \"counter_evidence\": \"fundamentals.operating_margin\", \"concede\": false, \"strength\": 0.7}, {\"target_claim\": \"The stock's PEG ratio of 2.21 suggests that the expected earnings growth does not justify the current valuation, making the forward P/E of 26.86 still expensive.\", \"response\": \"The PEG uses trailing EPS growth of 12.61%, but forward EPS of $12.87 implies a 1,450% growth rate from the depressed trailing base, which would make the PEG far below 1.0 on a forward basis.\", \"counter_evidence\": \"fundamentals.eps_forward\", \"concede\": false, \"strength\": 0.6}, {\"target_claim\": \"The company has a significant net debt position of -$2.65 billion, with negative cash per share of -$55.34, which could strain financial flexibility.\", \"response\": \"Debt-to-equity of 0.87 is manageable, and the company generates $622M in operating cash flow and $400M in free cas...<truncated 1137 chars>",
+      "ok": true
+    },
+    "judge": {
+      "system": "You are the head of a sell-side equity research team. You have read the bull case, the bear case, their rebuttals, the evidence grading, and a deterministic valuation computed in Python (never modify its numbers). Produce the final verdict.\nRules:\n1. Scenarios: bull/base/bear 12-month price targets and probabilities. Base-case target MUST stay within +-25% of the deterministic valuation's base fair value when one exists. Probabilities must sum to 1.0.\n2. Rating scale: BUY / OVERWEIGHT / HOLD / UNDERWEIGHT / SELL.\n3. In the 'catalysts' list, when the data's 'catalyst' section has an explicit date (e.g. next earnings date), use it as the date; otherwise 'unknown'.\n4. Convergence detection: if bull and bear largely agree on direction (or disagree on nothing material), set convergence true and keep conviction; if the debate is unresolved, convergence false and lower conviction.\n4. All facts ...<truncated 478 chars>",
+      "user": "TICKER: CRL\nPRICE: 353.3399963378906\n\n=== BULL CASE ===\nbull (confidence 0.6):\n- [positive] CRL's forward P/E of 26.86 is dramatically lower than its trailing P/E of 413.56, indicating the market expects a massive earnings rebound that is not yet priced in. (evidence: fundamentals.pe_ttm, fundamentals.forward_pe)\n- [positive] Analysts rate CRL a Buy with a price target of $346.07, which is above the current price of $345.80, suggesting modest upside and institutional endorsement. (evidence: fundamentals.analyst_recommendation, fundamentals.price_target, fundamentals.price)\n- [positive] CRL's strong operating margin of 14.27% and EBITDA margin of 22.87% demonstrate solid core profitability despite a low net margin due to one-time items. (evidence: fundamentals.operating_margin, fundamentals.ebitda_margin)\n- [positive] The company generates robust free cash flow of $399.63 million with a 1...<truncated 8748 chars>",
+      "response": "{\n  \"convergence\": false,\n  \"rating\": \"UNDERWEIGHT\",\n  \"conviction\": 0.35,\n  \"scenarios\": {\n    \"bull\": {\n      \"prob\": 0.2,\n      \"pt\": 294.99,\n      \"thesis\": \"If the market re-rates to a 517x trailing P/E on a strong earnings recovery, the stock could approach $295, but this requires unprecedented margin expansion and multiple expansion.\"\n    },\n    \"base\": {\n      \"prob\": 0.5,\n      \"pt\": 200.05,\n      \"thesis\": \"The deterministic valuation implies a fair value of $200 based on normalized earnings power, suggesting the current price is significantly overvalued.\"\n    },\n    \"bear\": {\n      \"prob\": 0.3,\n      \"pt\": 130.62,\n      \"thesis\": \"If earnings recovery disappoints and the multiple contracts to 330x trailing earnings, the stock could fall to $131.\"\n    }\n  },\n  \"catalysts\": [\n    {\n      \"catalyst\": \"Next earnings report\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"catalyst\": \"Analyst day fair value target revisions\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"catalyst\": \"Debt reduction or refinancing announcements\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    }\n  ],\n  \"risks\": [\n    {\n      \"risk\": \"Earnings recovery fails to materialize as expected\",\n      \"likelihood\": \"medium\"\n    },\n    {\n      \"risk\": \"High leverage and negative net cash position strain financial flexibility\",\n      \"likelihood\": \"medium\"\n    },\n    {\n      \"risk\": \"Multiple compression from current extreme trailing P/E\",\n      \"likelihood\": \"high\"\n    }\n  ],\n  \"decision_rationale\": \"The deterministic valuation, which uses conservative but reasonable assumptions, places fair value at $200, implying 43% downside from the current price. The bull case relies on a massive earnings recovery that is not supported by current p...<truncated 251 chars>",
+      "ok": true
+    }
+  },
+  "errors": [],
+  "elapsed_sec": 0.0,
+  "report_path": null,
+  "json_path": null
+}

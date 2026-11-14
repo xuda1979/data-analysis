@@ -1,0 +1,482 @@
+{
+  "sym": "MPC",
+  "generated_utc": "2026-11-11T15:56:45Z",
+  "price": 389.8800048828125,
+  "data_sections": [
+    "quote",
+    "fundamentals",
+    "news",
+    "filings",
+    "hn_mentions",
+    "clusters"
+  ],
+  "bull": {
+    "stance": "bullish",
+    "confidence": 0.85,
+    "claims": [
+      {
+        "claim": "MPC trades at a deeply discounted valuation with a P/E of 7.92 and a forward P/E of 5.38, offering significant upside to its 52-week high.",
+        "evidence": "fundamentals.pe_ttm, fundamentals.forward_pe",
+        "impact": "positive"
+      },
+      {
+        "claim": "The company's earnings growth is robust, with EPS up 46.3% year-over-year, and a PEG ratio of 0.11 indicates the stock is undervalued relative to its growth prospects.",
+        "evidence": "fundamentals.eps_growth_yoy, fundamentals.peg",
+        "impact": "positive"
+      },
+      {
+        "claim": "MPC generates substantial free cash flow, with a FCF yield of 19.6% and a price-to-FCF of 5.09, providing ample capacity for shareholder returns and debt reduction.",
+        "evidence": "fundamentals.fcf_yield, fundamentals.pfcf",
+        "impact": "positive"
+      },
+      {
+        "claim": "The company maintains a strong balance sheet with a low beta of 0.51, indicating lower volatility and resilience in market downturns.",
+        "evidence": "fundamentals.beta",
+        "impact": "positive"
+      },
+      {
+        "claim": "Analysts are bullish on MPC, with a Buy recommendation and a price target of $466.94, implying a potential upside of approximately 20% from the current price.",
+        "evidence": "fundamentals.analyst_recommendation, fundamentals.price_target",
+        "impact": "positive"
+      },
+      {
+        "claim": "Recent SEC filings, including a 10-Q and 8-K, indicate ongoing operational updates that could support future performance.",
+        "evidence": "filings.form",
+        "impact": "positive"
+      }
+    ]
+  },
+  "bear": {
+    "stance": "bearish",
+    "confidence": 0.7,
+    "claims": [
+      {
+        "claim": "MPC's stock has fallen 16% over a 5-day losing streak, indicating negative momentum and investor concern.",
+        "evidence": "news[1].headline",
+        "impact": "negative"
+      },
+      {
+        "claim": "The company's high debt-to-equity ratio of 1.15 suggests elevated financial leverage, increasing vulnerability to downturns.",
+        "evidence": "fundamentals.debt_eq",
+        "impact": "negative"
+      },
+      {
+        "claim": "MPC's net cash position is deeply negative at -$20.85 billion, indicating the company is a net debtor with significant financial obligations.",
+        "evidence": "fundamentals.net_cash",
+        "impact": "negative"
+      },
+      {
+        "claim": "The low dividend yield of 1.11% offers limited income support to shareholders, reducing the stock's appeal as a defensive holding.",
+        "evidence": "fundamentals.dividend_yield",
+        "impact": "negative"
+      },
+      {
+        "claim": "Recent SEC filings include Form 144 (notice of proposed sale of securities), suggesting insider selling activity that may signal lack of confidence.",
+        "evidence": "filings[5].form",
+        "impact": "negative"
+      },
+      {
+        "claim": "Despite a low P/E, the forward P/E of 5.38 implies the market expects earnings to decline, which could pressure the stock price.",
+        "evidence": "fundamentals.forward_pe",
+        "impact": "negative"
+      }
+    ]
+  },
+  "rebuttals": {
+    "bear": {
+      "rebuttals": [
+        {
+          "target_claim": "MPC trades at a deeply discounted valuation with a P/E of 7.92 and a forward P/E of 5.38, offering significant upside to its 52-week high.",
+          "response": "The low P/E reflects cyclical peak earnings in refining, not structural undervaluation; the stock has fallen 16% in a 5-day losing streak, and the 52-week high data is unavailable, so the 'upside' claim is unsubstantiated.",
+          "counter_evidence": "news.1, fundamentals.high_52w",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "The company's earnings growth is robust, with EPS up 46.3% year-over-year, and a PEG ratio of 0.11 indicates the stock is undervalued relative to its growth prospects.",
+          "response": "EPS growth of 46.3% is likely cyclical, driven by refining margins that are mean-reverting; the PEG of 0.11 is misleading because forward EPS of $72.41 implies only 44% growth from TTM EPS of $50.21, which is unsustainable in a normalizing oil environment.",
+          "counter_evidence": "fundamentals.eps_growth_yoy, fundamentals.eps_forward",
+          "concede": false,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "MPC generates substantial free cash flow, with a FCF yield of 19.6% and a price-to-FCF of 5.09, providing ample capacity for shareholder returns and debt reduction.",
+          "response": "While FCF is strong, the company has $34.45B in debt and negative net cash of -$20.85B, so a significant portion of FCF must service debt; the FCF yield is also inflated by peak-cycle cash flows that will decline as refining margins normalize.",
+          "counter_evidence": "fundamentals.debt, fundamentals.net_cash",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "The company maintains a strong balance sheet with a low beta of 0.51, indicating lower volatility and resilience in market downturns.",
+          "response": "A low beta of 0.51 does not indicate a strong balance sheet; the debt-to-equity ratio of 1.15 and negative net cash of -$20.85B show significant leverage, and beta measures historical volatility, not financial health.",
+          "counter_evidence": "fundamentals.debt_eq, fundamentals.net_cash",
+          "concede": false,
+          "strength": 0.8
+        },
+        {
+          "target_claim": "Analysts are bullish on MPC, with a Buy recommendation and a price target of $466.94, implying a potential upside of approximately 20% from the current price.",
+          "response": "The analyst price target of $466.94 is 19.8% above the current price of $389.88, but this target may not reflect recent negative momentum\u2014the stock has fallen 16% in a 5-day losing streak, and analyst targets often lag market corrections.",
+          "counter_evidence": "news.1, fundamentals.price_target",
+          "concede": false,
+          "strength": 0.5
+        },
+        {
+          "target_claim": "Recent SEC filings, including a 10-Q and 8-K, indicate ongoing operational updates that could support future performance.",
+          "response": "The 10-Q and 8-K filings are routine regulatory disclosures, not evidence of positive operational developments; the 8-Ks on 2026-11-03 and 2026-10-29 could relate to negative events, and the presence of Form 144 (insider selling) on 2026-08-31 suggests insider distribution.",
+          "counter_evidence": "filings.144",
+          "concede": false,
+          "strength": 0.4
+        }
+      ]
+    },
+    "bull": {
+      "rebuttals": [
+        {
+          "target_claim": "MPC's stock has fallen 16% over a 5-day losing streak, indicating negative momentum and investor concern.",
+          "response": "The 5-day price decline is short-term noise; the stock surged 4.6% on Nov 9 and analysts maintain a Buy rating with a $466.94 price target, implying ~20% upside from current levels.",
+          "counter_evidence": "news[2].headline, fundamentals.price_target",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "The company's high debt-to-equity ratio of 1.15 suggests elevated financial leverage, increasing vulnerability to downturns.",
+          "response": "While D/E is elevated, MPC's low beta of 0.51 and strong operating cash flow of $25.25B provide ample cushion; interest coverage is robust given EBITDA of $23.75B.",
+          "counter_evidence": "fundamentals.beta, fundamentals.ocf, fundamentals.ebitda",
+          "concede": true,
+          "strength": 0.5
+        },
+        {
+          "target_claim": "MPC's net cash position is deeply negative at -$20.85 billion, indicating the company is a net debtor with significant financial obligations.",
+          "response": "Net debt is manageable relative to scale\u2014debt of $34.45B is only 1.45x EBITDA, and the company generates $20.84B in free cash flow annually, enabling rapid deleveraging.",
+          "counter_evidence": "fundamentals.debt, fundamentals.ebitda, fundamentals.fcf",
+          "concede": true,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "The low dividend yield of 1.11% offers limited income support to shareholders, reducing the stock's appeal as a defensive holding.",
+          "response": "The low yield reflects a conservative payout ratio of just 8.76%, leaving massive room for dividend growth; the company also returns capital via buybacks, with FCF yield of 19.65%.",
+          "counter_evidence": "fundamentals.payout_ratio, fundamentals.fcf_yield",
+          "concede": true,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "Recent SEC filings include Form 144 (notice of proposed sale of securities), suggesting insider selling activity that may signal lack of confidence.",
+          "response": "The Form 144 filing is from August 31, over two months old, and represents a proposed sale, not executed; no recent insider selling appears in the latest filings, and the company's strong Q3 10-Q was filed Nov 3.",
+          "counter_evidence": "filings[5].filing_date, filings[0].filing_date",
+          "concede": false,
+          "strength": 0.8
+        },
+        {
+          "target_claim": "Despite a low P/E, the forward P/E of 5.38 implies the market expects earnings to decline, which could pressure the stock price.",
+          "response": "The forward P/E of 5.38 is based on forward EPS of $72.41, which is 44% higher than trailing EPS of $50.21\u2014indicating the market expects earnings growth, not decline.",
+          "counter_evidence": "fundamentals.forward_pe, fundamentals.eps_forward, fundamentals.eps_ttm",
+          "concede": false,
+          "strength": 0.9
+        }
+      ]
+    }
+  },
+  "grading": {
+    "bull": {
+      "side": "bull",
+      "n_claims": 6,
+      "grounded": 6,
+      "ungrounded": 0,
+      "sections_cited": [
+        "filings",
+        "fundamentals"
+      ],
+      "claims": [
+        {
+          "claim": "MPC trades at a deeply discounted valuation with a P/E of 7.92 and a forward P/E of 5.38, offering significant upside to its 52-week high.",
+          "evidence": "fundamentals.pe_ttm, fundamentals.forward_pe",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The company's earnings growth is robust, with EPS up 46.3% year-over-year, and a PEG ratio of 0.11 indicates the stock is undervalued relative to its growth prospects.",
+          "evidence": "fundamentals.eps_growth_yoy, fundamentals.peg",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "MPC generates substantial free cash flow, with a FCF yield of 19.6% and a price-to-FCF of 5.09, providing ample capacity for shareholder returns and debt reduction.",
+          "evidence": "fundamentals.fcf_yield, fundamentals.pfcf",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The company maintains a strong balance sheet with a low beta of 0.51, indicating lower volatility and resilience in market downturns.",
+          "evidence": "fundamentals.beta",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Analysts are bullish on MPC, with a Buy recommendation and a price target of $466.94, implying a potential upside of approximately 20% from the current price.",
+          "evidence": "fundamentals.analyst_recommendation, fundamentals.price_target",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Recent SEC filings, including a 10-Q and 8-K, indicate ongoing operational updates that could support future performance.",
+          "evidence": "filings.form",
+          "grounded": true,
+          "reason": "ok"
+        }
+      ]
+    },
+    "bear": {
+      "side": "bear",
+      "n_claims": 6,
+      "grounded": 4,
+      "ungrounded": 2,
+      "sections_cited": [
+        "filings[5]",
+        "fundamentals",
+        "news[1]"
+      ],
+      "claims": [
+        {
+          "claim": "MPC's stock has fallen 16% over a 5-day losing streak, indicating negative momentum and investor concern.",
+          "evidence": "news[1].headline",
+          "grounded": false,
+          "reason": "'news[1].headline': section 'news[1]' not present in gathered data"
+        },
+        {
+          "claim": "The company's high debt-to-equity ratio of 1.15 suggests elevated financial leverage, increasing vulnerability to downturns.",
+          "evidence": "fundamentals.debt_eq",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "MPC's net cash position is deeply negative at -$20.85 billion, indicating the company is a net debtor with significant financial obligations.",
+          "evidence": "fundamentals.net_cash",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The low dividend yield of 1.11% offers limited income support to shareholders, reducing the stock's appeal as a defensive holding.",
+          "evidence": "fundamentals.dividend_yield",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Recent SEC filings include Form 144 (notice of proposed sale of securities), suggesting insider selling activity that may signal lack of confidence.",
+          "evidence": "filings[5].form",
+          "grounded": false,
+          "reason": "'filings[5].form': section 'filings[5]' not present in gathered data"
+        },
+        {
+          "claim": "Despite a low P/E, the forward P/E of 5.38 implies the market expects earnings to decline, which could pressure the stock price.",
+          "evidence": "fundamentals.forward_pe",
+          "grounded": true,
+          "reason": "ok"
+        }
+      ]
+    }
+  },
+  "valuation": {
+    "sym": "MPC",
+    "price": 389.8800048828125,
+    "deterministic": true,
+    "inputs": {
+      "eps_ttm": 50.21,
+      "eps_forward (consensus-derived)": 72.40706319702602,
+      "pe_ttm": 7.92,
+      "forward_pe": 5.38,
+      "eps_growth_3y_fcst": 0.46340000000000003,
+      "revenue_growth_3y_fcst": 0.0533,
+      "beta": 0.51,
+      "net_cash_per_share": 76.56,
+      "base EPS used": 72.4071,
+      "valuation multiple (P/E) used": 7.92,
+      "P/E band (bear/base/bull)": "6.3 / 7.9 / 9.9",
+      "DCF growth (5y)": 0.25,
+      "DCF discount rate": 0.0902,
+      "DCF exit P/E": 8.0
+    },
+    "outputs": {
+      "quality_signals": {
+        "roe": 0.6046,
+        "roic": 0.31420000000000003,
+        "debt_eq": 1.15,
+        "fcf_margin": 0.1188,
+        "beta": 0.51
+      },
+      "dcf_lite": {
+        "method": "5-yr EPS power value discounted at beta-tilted flat rate, terminal exit P/E + net cash/share",
+        "growth_5y": 0.25,
+        "discount_rate": 0.0902,
+        "exit_pe": 8.0,
+        "fair_value": 1780.4
+      },
+      "scenario_grid": {
+        "bear": {
+          "growth": 0.125,
+          "exit_pe": 6.3,
+          "value": 1008.55,
+          "upside": 1.587
+        },
+        "base": {
+          "growth": 0.25,
+          "exit_pe": 7.9,
+          "value": 1766.05,
+          "upside": 3.53
+        },
+        "bull": {
+          "growth": 0.375,
+          "exit_pe": 9.9,
+          "value": 2053.02,
+          "upside": 4.266
+        }
+      },
+      "fair_value_basis": "DCF-lite base scenario (5-yr EPS power value + net cash/share)",
+      "fair_value": {
+        "bear": 1008.55,
+        "base": 1766.05,
+        "bull": 2053.02
+      },
+      "upside_base": 3.53,
+      "peg": 0.32
+    },
+    "notes": [
+      "DCF-lite: growth clamped to [0%, 25%]; discount 10% base + 2pp per beta-unit above 1 (clamped [7%,14%]); exit P/E 0.9x trailing; +net cash/share"
+    ]
+  },
+  "judge": {
+    "convergence": false,
+    "rating": "BUY",
+    "conviction": 0.65,
+    "scenarios": {
+      "bull": {
+        "prob": 0.5,
+        "pt": 466.94,
+        "thesis": "Deeply discounted valuation with strong earnings growth and free cash flow, supported by analyst price target of $466.94."
+      },
+      "base": {
+        "prob": 0.3,
+        "pt": 389.88,
+        "thesis": "Valuation remains attractive but cyclical risks and leverage limit upside, keeping price near current levels."
+      },
+      "bear": {
+        "prob": 0.2,
+        "pt": 330.0,
+        "thesis": "High debt, negative net cash, and potential earnings normalization could pressure the stock."
+      }
+    },
+    "catalysts": [
+      {
+        "catalyst": "Next earnings report (Q4 2026)",
+        "date": "unknown",
+        "impact": "positive"
+      },
+      {
+        "catalyst": "Potential insider selling (Form 144)",
+        "date": "2026-08-31",
+        "impact": "negative"
+      },
+      {
+        "catalyst": "Analyst price target revisions",
+        "date": "unknown",
+        "impact": "positive"
+      }
+    ],
+    "risks": [
+      {
+        "risk": "High debt-to-equity ratio (1.15) and negative net cash (-$20.85B)",
+        "likelihood": "medium"
+      },
+      {
+        "risk": "Cyclical refining margins could normalize, reducing earnings and cash flow",
+        "likelihood": "medium"
+      },
+      {
+        "risk": "Recent 5-day losing streak may indicate negative momentum",
+        "likelihood": "low"
+      }
+    ],
+    "decision_rationale": "The bull case is better supported with 6/6 grounded claims and strong fundamentals (P/E 7.92, FCF yield 19.6%, EPS growth 46.3%), while the bear case relies on cyclical concerns and leverage that are partially mitigated by strong cash flow and low beta. The deterministic valuation suggests a base fair value of $1766, but the base-case target is constrained to stay within 25% of the current price, leading to a base PT of $389.88. Given the valuation discount and analyst consensus, a BUY rating is warranted with moderate conviction due to unresolved cyclical and leverage risks."
+  },
+  "risk_manager": {
+    "sym": "MPC",
+    "verdict": "vetoed",
+    "checks": {
+      "base_pt_within_25pct": {
+        "ok": false,
+        "detail": "judge base PT 389.88 vs deterministic base fair value 1766.05 (deviation 77.9%)"
+      },
+      "probs_sum_1": {
+        "ok": true,
+        "detail": "bull/base/bear probs sum to 1.000"
+      },
+      "rating_in_scale": {
+        "ok": true,
+        "detail": "rating 'BUY'"
+      },
+      "conviction_01": {
+        "ok": true,
+        "detail": "conviction 0.65"
+      }
+    },
+    "n_checks_passed": 3,
+    "n_checks": 4,
+    "override_applied": true,
+    "reason": "judge verdict failed checks: base_pt_within_25pct. Price targets overridden with the deterministic scenario grid (abstain-never-fabricate); rating and narrative left as judge proposed.",
+    "override": {
+      "scenarios": {
+        "bull": {
+          "pt": 2053.02,
+          "prob": 0.5,
+          "thesis": "Deeply discounted valuation with strong earnings growth and free cash flow, supported by analyst price target of $466.94."
+        },
+        "base": {
+          "pt": 1766.05,
+          "prob": 0.3,
+          "thesis": "Valuation remains attractive but cyclical risks and leverage limit upside, keeping price near current levels."
+        },
+        "bear": {
+          "pt": 1008.55,
+          "prob": 0.2,
+          "thesis": "High debt, negative net cash, and potential earnings normalization could pressure the stock."
+        }
+      },
+      "basis": "deterministic P/E-band x scenario-grid fair values"
+    }
+  },
+  "audit": {
+    "bull_researcher": {
+      "system": "You are the bull case researcher for an equity research report. Your job is to argue the strongest honest bull case for the ticker, based ONLY on the data provided. Rules:\n1. Every claim MUST be grounded in a specific data field. Cite it in the 'evidence' field as <section>.<field>, e.g. 'fundamentals.pe_ttm' or 'catalyst.eps_est' or 'earnings.surprise_pct'.\n2. If the data does not support a claim, do NOT make it. Missing data is a reason to stay silent or to say so explicitly.\n3. Do not hedge: this is your side's case. Pick the 4-6 strongest claims. No filler.\n4. Return ONLY the JSON object:\n{\"stance\": \"bullish|bearish\", \"confidence\": <0-1>, \"claims\": [{\"claim\": \"<one sentence>\", \"evidence\": \"<section.field>\", \"impact\": \"positive|negative\"}]}",
+      "user": "TICKER: MPC\n\nROLE: BULL case\n\n[fundamentals] valuation & quality: market cap, P/E, P/B, P/S, ROE, margins, growth, cash/debt, 52w range, analyst targets\n{\n\"price\": 389.55,\n\"market_cap\": 108340000000.0,\n\"enterprise_value\": 129180000000.0,\n\"pe_ttm\": 7.92,\n\"forward_pe\": 5.38,\n\"peg\": 0.11,\n\"ps_ttm\": 0.6,\n\"pb\": 4.62,\n\"pfcf\": 5.09,\n\"ev_ebitda\": 5.34,\n\"eps_ttm\": 50.21,\n\"eps_forward\": 72.40706319702602,\n\"fcf_per_share\": 76.55,\n\"revenue_per_share\": null,\n\"cash_per_share\": 76.56,\n\"book_value_per_share\": 84.4,\n\"roe\": 0.6046,\n\"roa\": 0.1375,\n\"roic\": 0.31420000000000003,\n\"roce\": 0.2782,\n\"gross_margin\": 0.162,\n\"operating_margin\": 0.1165,\n\"profit_margin\": 0.0834,\n\"fcf_margin\": 0.1188,\n\"ebitda_margin\": 0.1354,\n\"pretax_margin\": 0.11699999999999999,\n\"revenue_growth_yoy\": 0.0533,\n\"eps_growth_yoy\": 0.46340000000000003,\n\"fcf\": 20840000000.0,\n\"ocf\": 25250000000.0,\n\"capex\": -4410000000.0,\n\"cash\": null,\n\"debt\": ...<truncated 5151 chars>",
+      "response": "{\n  \"stance\": \"bullish\",\n  \"confidence\": 0.85,\n  \"claims\": [\n    {\n      \"claim\": \"MPC trades at a deeply discounted valuation with a P/E of 7.92 and a forward P/E of 5.38, offering significant upside to its 52-week high.\",\n      \"evidence\": \"fundamentals.pe_ttm, fundamentals.forward_pe\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"The company's earnings growth is robust, with EPS up 46.3% year-over-year, and a PEG ratio of 0.11 indicates the stock is undervalued relative to its growth prospects.\",\n      \"evidence\": \"fundamentals.eps_growth_yoy, fundamentals.peg\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"MPC generates substantial free cash flow, with a FCF yield of 19.6% and a price-to-FCF of 5.09, providing ample capacity for shareholder returns and debt reduction.\",\n      \"evidence\": \"fundamentals.fcf_yield, fundamentals.pfcf\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"The company maintains a strong balance sheet with a low beta of 0.51, indicating lower volatility and resilience in market downturns.\",\n      \"evidence\": \"fundamentals.beta\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"Analysts are bullish on MPC, with a Buy recommendation and a price target of $466.94, implying a potential upside of approximately 20% from the current price.\",\n      \"evidence\": \"fundamentals.analyst_recommendation, fundamentals.price_target\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"Recent SEC filings, including a 10-Q and 8-K, indicate ongoing operational updates that could support future performance.\",\n      \"evidence\": \"filings.form\",\n      \"impact\": \"positive\"\n    }\n  ]\n}",
+      "ok": true
+    },
+    "bear_researcher": {
+      "system": "You are the bear case researcher for an equity research report. Your job is to argue the strongest honest bear case for the ticker, based ONLY on the data provided. Rules:\n1. Every claim MUST be grounded in a specific data field. Cite it in the 'evidence' field as <section>.<field>, e.g. 'fundamentals.pe_ttm' or 'catalyst.eps_est' or 'earnings.surprise_pct'.\n2. If the data does not support a claim, do NOT make it. Missing data is a reason to stay silent or to say so explicitly.\n3. Do not hedge: this is your side's case. Pick the 4-6 strongest claims. No filler.\n4. Return ONLY the JSON object:\n{\"stance\": \"bullish|bearish\", \"confidence\": <0-1>, \"claims\": [{\"claim\": \"<one sentence>\", \"evidence\": \"<section.field>\", \"impact\": \"positive|negative\"}]}",
+      "user": "TICKER: MPC\n\nROLE: BEAR case\n\n[filings] recent SEC filings (8-K etc.)\n[\n{\n\"form\": \"10-Q\",\n\"filing_date\": \"2026-11-03\",\n\"accession\": \"0001510295-26-000071\",\n\"primary_doc\": \"mpc-20260930.htm\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/1510295/000151029526000071/mpc-20260930.htm\"\n},\n{\n\"form\": \"8-K\",\n\"filing_date\": \"2026-11-03\",\n\"accession\": \"0001510295-26-000069\",\n\"primary_doc\": \"mpc-20261103.htm\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/1510295/000151029526000069/mpc-20261103.htm\"\n},\n{\n\"form\": \"8-K\",\n\"filing_date\": \"2026-10-29\",\n\"accession\": \"0001510295-26-000063\",\n\"primary_doc\": \"mpc-20261028.htm\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/1510295/000151029526000063/mpc-20261028.htm\"\n},\n{\n\"form\": \"SCHEDULE 13G/A\",\n\"filing_date\": \"2026-10-27\",\n\"accession\": \"0002012383-26-003815\",\n\"primary_doc\": \"xslSCHEDULE_13G_X02/primary_doc.xml\",\n\"url\": \"https://www.sec.gov/Archives/...<truncated 5151 chars>",
+      "response": "{\n  \"stance\": \"bearish\",\n  \"confidence\": 0.7,\n  \"claims\": [\n    {\n      \"claim\": \"MPC's stock has fallen 16% over a 5-day losing streak, indicating negative momentum and investor concern.\",\n      \"evidence\": \"news[1].headline\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The company's high debt-to-equity ratio of 1.15 suggests elevated financial leverage, increasing vulnerability to downturns.\",\n      \"evidence\": \"fundamentals.debt_eq\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"MPC's net cash position is deeply negative at -$20.85 billion, indicating the company is a net debtor with significant financial obligations.\",\n      \"evidence\": \"fundamentals.net_cash\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The low dividend yield of 1.11% offers limited income support to shareholders, reducing the stock's appeal as a defensive holding.\",\n      \"evidence\": \"fundamentals.dividend_yield\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"Recent SEC filings include Form 144 (notice of proposed sale of securities), suggesting insider selling activity that may signal lack of confidence.\",\n      \"evidence\": \"filings[5].form\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"Despite a low P/E, the forward P/E of 5.38 implies the market expects earnings to decline, which could pressure the stock price.\",\n      \"evidence\": \"fundamentals.forward_pe\",\n      \"impact\": \"negative\"\n    }\n  ]\n}",
+      "ok": true
+    },
+    "bear_rebuttal": {
+      "system": "You are the bear researcher responding to the OPPOSING case. Address each of the opposing side's claims head-on. For each one: either concede it, or rebut it using a specific counter-field from the data (evidence as <section>.<field>), or point out the inference gap. Be specific and numerical. Return ONLY:\n{\"rebuttals\": [{\"target_claim\": \"<the claim you are answering>\", \"response\": \"<your counter-argument, 1-2 sentences>\", \"counter_evidence\": \"<section.field or null>\", \"concede\": true|false, \"strength\": <0-1>}]}",
+      "user": "OPPOSING (bull) CLAIMS:\n[{\"claim\": \"MPC trades at a deeply discounted valuation with a P/E of 7.92 and a forward P/E of 5.38, offering significant upside to its 52-week high.\", \"evidence\": \"fundamentals.pe_ttm, fundamentals.forward_pe\", \"impact\": \"positive\"}, {\"claim\": \"The company's earnings growth is robust, with EPS up 46.3% year-over-year, and a PEG ratio of 0.11 indicates the stock is undervalued relative to its growth prospects.\", \"evidence\": \"fundamentals.eps_growth_yoy, fundamentals.peg\", \"impact\": \"positive\"}, {\"claim\": \"MPC generates substantial free cash flow, with a FCF yield of 19.6% and a price-to-FCF of 5.09, providing ample capacity for shareholder returns and debt reduction.\", \"evidence\": \"fundamentals.fcf_yield, fundamentals.pfcf\", \"impact\": \"positive\"}, {\"claim\": \"The company maintains a strong balance sheet with a low beta of 0.51, indicating lower volatility and resi...<truncated 6620 chars>",
+      "response": "{\"rebuttals\": [{\"target_claim\": \"MPC trades at a deeply discounted valuation with a P/E of 7.92 and a forward P/E of 5.38, offering significant upside to its 52-week high.\", \"response\": \"The low P/E reflects cyclical peak earnings in refining, not structural undervaluation; the stock has fallen 16% in a 5-day losing streak, and the 52-week high data is unavailable, so the 'upside' claim is unsubstantiated.\", \"counter_evidence\": \"news.1, fundamentals.high_52w\", \"concede\": false, \"strength\": 0.7}, {\"target_claim\": \"The company's earnings growth is robust, with EPS up 46.3% year-over-year, and a PEG ratio of 0.11 indicates the stock is undervalued relative to its growth prospects.\", \"response\": \"EPS growth of 46.3% is likely cyclical, driven by refining margins that are mean-reverting; the PEG of 0.11 is misleading because forward EPS of $72.41 implies only 44% growth from TTM EPS of $50.21, which is unsustainable in a normalizing oil environment.\", \"counter_evidence\": \"fundamentals.eps_growth_yoy, fundamentals.eps_forward\", \"concede\": false, \"strength\": 0.6}, {\"target_claim\": \"MPC generates substantial free cash flow, with a FCF yield of 19.6% and a price-to-FCF of 5.09, providing ample capacity for shareholder returns and debt reduction.\", \"response\": \"While FCF is strong, the company has $34.45B in debt and negative net cash of -$20.85B, so a significant portion of FCF must service debt; the FCF yield is also inflated by peak-cycle cash flows that will decline as refining margins normalize.\", \"counter_evidence\": \"fundamentals.debt, fundamentals.net_cash\", \"concede\": false, \"strength\": 0.7}, {\"target_claim\": \"The company maintains a strong balance sheet with a low beta of 0.51, indicating lower volatility and resilience in market downturns.\", \"response\": \"A low beta of 0...<truncated 1337 chars>",
+      "ok": true
+    },
+    "bull_rebuttal": {
+      "system": "You are the bull researcher responding to the OPPOSING case. Address each of the opposing side's claims head-on. For each one: either concede it, or rebut it using a specific counter-field from the data (evidence as <section>.<field>), or point out the inference gap. Be specific and numerical. Return ONLY:\n{\"rebuttals\": [{\"target_claim\": \"<the claim you are answering>\", \"response\": \"<your counter-argument, 1-2 sentences>\", \"counter_evidence\": \"<section.field or null>\", \"concede\": true|false, \"strength\": <0-1>}]}",
+      "user": "OPPOSING (bear) CLAIMS:\n[{\"claim\": \"MPC's stock has fallen 16% over a 5-day losing streak, indicating negative momentum and investor concern.\", \"evidence\": \"news[1].headline\", \"impact\": \"negative\"}, {\"claim\": \"The company's high debt-to-equity ratio of 1.15 suggests elevated financial leverage, increasing vulnerability to downturns.\", \"evidence\": \"fundamentals.debt_eq\", \"impact\": \"negative\"}, {\"claim\": \"MPC's net cash position is deeply negative at -$20.85 billion, indicating the company is a net debtor with significant financial obligations.\", \"evidence\": \"fundamentals.net_cash\", \"impact\": \"negative\"}, {\"claim\": \"The low dividend yield of 1.11% offers limited income support to shareholders, reducing the stock's appeal as a defensive holding.\", \"evidence\": \"fundamentals.dividend_yield\", \"impact\": \"negative\"}, {\"claim\": \"Recent SEC filings include Form 144 (notice of proposed sale of secu...<truncated 6416 chars>",
+      "response": "{\"rebuttals\": [{\"target_claim\": \"MPC's stock has fallen 16% over a 5-day losing streak, indicating negative momentum and investor concern.\", \"response\": \"The 5-day price decline is short-term noise; the stock surged 4.6% on Nov 9 and analysts maintain a Buy rating with a $466.94 price target, implying ~20% upside from current levels.\", \"counter_evidence\": \"news[2].headline, fundamentals.price_target\", \"concede\": false, \"strength\": 0.7}, {\"target_claim\": \"The company's high debt-to-equity ratio of 1.15 suggests elevated financial leverage, increasing vulnerability to downturns.\", \"response\": \"While D/E is elevated, MPC's low beta of 0.51 and strong operating cash flow of $25.25B provide ample cushion; interest coverage is robust given EBITDA of $23.75B.\", \"counter_evidence\": \"fundamentals.beta, fundamentals.ocf, fundamentals.ebitda\", \"concede\": true, \"strength\": 0.5}, {\"target_claim\": \"MPC's net cash position is deeply negative at -$20.85 billion, indicating the company is a net debtor with significant financial obligations.\", \"response\": \"Net debt is manageable relative to scale\u2014debt of $34.45B is only 1.45x EBITDA, and the company generates $20.84B in free cash flow annually, enabling rapid deleveraging.\", \"counter_evidence\": \"fundamentals.debt, fundamentals.ebitda, fundamentals.fcf\", \"concede\": true, \"strength\": 0.6}, {\"target_claim\": \"The low dividend yield of 1.11% offers limited income support to shareholders, reducing the stock's appeal as a defensive holding.\", \"response\": \"The low yield reflects a conservative payout ratio of just 8.76%, leaving massive room for dividend growth; the company also returns capital via buybacks, with FCF yield of 19.65%.\", \"counter_evidence\": \"fundamentals.payout_ratio, fundamentals.fcf_yield\", \"concede\": true, \"strength\": 0.6}, {\"t...<truncated 962 chars>",
+      "ok": true
+    },
+    "judge": {
+      "system": "You are the head of a sell-side equity research team. You have read the bull case, the bear case, their rebuttals, the evidence grading, and a deterministic valuation computed in Python (never modify its numbers). Produce the final verdict.\nRules:\n1. Scenarios: bull/base/bear 12-month price targets and probabilities. Base-case target MUST stay within +-25% of the deterministic valuation's base fair value when one exists. Probabilities must sum to 1.0.\n2. Rating scale: BUY / OVERWEIGHT / HOLD / UNDERWEIGHT / SELL.\n3. In the 'catalysts' list, when the data's 'catalyst' section has an explicit date (e.g. next earnings date), use it as the date; otherwise 'unknown'.\n4. Convergence detection: if bull and bear largely agree on direction (or disagree on nothing material), set convergence true and keep conviction; if the debate is unresolved, convergence false and lower conviction.\n4. All facts ...<truncated 478 chars>",
+      "user": "TICKER: MPC\nPRICE: 389.8800048828125\n\n=== BULL CASE ===\nbull (confidence 0.85):\n- [positive] MPC trades at a deeply discounted valuation with a P/E of 7.92 and a forward P/E of 5.38, offering significant upside to its 52-week high. (evidence: fundamentals.pe_ttm, fundamentals.forward_pe)\n- [positive] The company's earnings growth is robust, with EPS up 46.3% year-over-year, and a PEG ratio of 0.11 indicates the stock is undervalued relative to its growth prospects. (evidence: fundamentals.eps_growth_yoy, fundamentals.peg)\n- [positive] MPC generates substantial free cash flow, with a FCF yield of 19.6% and a price-to-FCF of 5.09, providing ample capacity for shareholder returns and debt reduction. (evidence: fundamentals.fcf_yield, fundamentals.pfcf)\n- [positive] The company maintains a strong balance sheet with a low beta of 0.51, indicating lower volatility and resilience in market down...<truncated 7779 chars>",
+      "response": "{\n  \"convergence\": false,\n  \"rating\": \"BUY\",\n  \"conviction\": 0.65,\n  \"scenarios\": {\n    \"bull\": {\n      \"prob\": 0.5,\n      \"pt\": 466.94,\n      \"thesis\": \"Deeply discounted valuation with strong earnings growth and free cash flow, supported by analyst price target of $466.94.\"\n    },\n    \"base\": {\n      \"prob\": 0.3,\n      \"pt\": 389.88,\n      \"thesis\": \"Valuation remains attractive but cyclical risks and leverage limit upside, keeping price near current levels.\"\n    },\n    \"bear\": {\n      \"prob\": 0.2,\n      \"pt\": 330.0,\n      \"thesis\": \"High debt, negative net cash, and potential earnings normalization could pressure the stock.\"\n    }\n  },\n  \"catalysts\": [\n    {\n      \"catalyst\": \"Next earnings report (Q4 2026)\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"catalyst\": \"Potential insider selling (Form 144)\",\n      \"date\": \"2026-08-31\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"catalyst\": \"Analyst price target revisions\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    }\n  ],\n  \"risks\": [\n    {\n      \"risk\": \"High debt-to-equity ratio (1.15) and negative net cash (-$20.85B)\",\n      \"likelihood\": \"medium\"\n    },\n    {\n      \"risk\": \"Cyclical refining margins could normalize, reducing earnings and cash flow\",\n      \"likelihood\": \"medium\"\n    },\n    {\n      \"risk\": \"Recent 5-day losing streak may indicate negative momentum\",\n      \"likelihood\": \"low\"\n    }\n  ],\n  \"decision_rationale\": \"The bull case is better supported with 6/6 grounded claims and strong fundamentals (P/E 7.92, FCF yield 19.6%, EPS growth 46.3%), while the bear case relies on cyclical concerns and leverage that are partially mitigated by strong cash flow and low beta. The deterministic valuation suggests a base fair value of $1766, but the base-case target is constrained...<truncated 227 chars>",
+      "ok": true
+    }
+  },
+  "errors": [],
+  "elapsed_sec": 0.0,
+  "report_path": null,
+  "json_path": null
+}

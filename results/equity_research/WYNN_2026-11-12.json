@@ -1,0 +1,442 @@
+{
+  "sym": "WYNN",
+  "generated_utc": "2026-11-12T03:49:02Z",
+  "price": 86.69999694824219,
+  "data_sections": [
+    "quote",
+    "fundamentals",
+    "news",
+    "filings",
+    "hn_mentions",
+    "clusters"
+  ],
+  "bull": {
+    "stance": "bullish",
+    "confidence": 0.72,
+    "claims": [
+      {
+        "claim": "WYNN trades at a discount to its intrinsic value, with a forward P/E of 21.85 versus a price target of $116.75, implying ~34% upside.",
+        "evidence": "fundamentals.forward_pe, fundamentals.price_target",
+        "impact": "positive"
+      },
+      {
+        "claim": "The company generates strong free cash flow, with a 5.94% FCF yield and a price-to-FCF of 16.82, indicating solid cash generation relative to its market cap.",
+        "evidence": "fundamentals.fcf_yield, fundamentals.pfcf",
+        "impact": "positive"
+      },
+      {
+        "claim": "WYNN maintains high profitability with a gross margin of 67.6% and an EBITDA margin of 23.5%, reflecting efficient operations and pricing power.",
+        "evidence": "fundamentals.gross_margin, fundamentals.ebitda_margin",
+        "impact": "positive"
+      },
+      {
+        "claim": "The stock is rated 'Strong Buy' by analysts, with a consensus price target of $116.75, representing a significant premium to the current price of $87.30.",
+        "evidence": "fundamentals.analyst_recommendation, fundamentals.price_target",
+        "impact": "positive"
+      },
+      {
+        "claim": "Recent news highlights resilience in WYNN's global hotel/casino portfolio, supporting the bull case for continued revenue stability and growth.",
+        "evidence": "news[1].headline",
+        "impact": "positive"
+      },
+      {
+        "claim": "WYNN's revenue and EPS are growing, with year-over-year increases of 3.7% and 8.8% respectively, indicating positive momentum.",
+        "evidence": "fundamentals.revenue_growth_yoy, fundamentals.eps_growth_yoy",
+        "impact": "positive"
+      }
+    ]
+  },
+  "bear": {
+    "stance": "bearish",
+    "confidence": 0.8,
+    "claims": [
+      {
+        "claim": "WYNN's valuation is stretched with a PEG ratio of 6.94, indicating that the stock is priced at a significant premium to its expected earnings growth.",
+        "evidence": "fundamentals.peg",
+        "impact": "negative"
+      },
+      {
+        "claim": "The company has a massive net debt position of $10.56 billion, with negative net cash per share of -$104.55, raising concerns about financial leverage and balance sheet risk.",
+        "evidence": "fundamentals.net_cash",
+        "impact": "negative"
+      },
+      {
+        "claim": "WYNN's book value per share is negative at -$2.15, suggesting that liabilities exceed assets on a per-share basis, which could signal financial instability.",
+        "evidence": "fundamentals.book_value_per_share",
+        "impact": "negative"
+      },
+      {
+        "claim": "The stock has a high short interest of 12.46% of float, indicating bearish sentiment among investors and potential downward pressure on the price.",
+        "evidence": "fundamentals.short_interest_pct_float",
+        "impact": "negative"
+      },
+      {
+        "claim": "Despite a 'Strong Buy' analyst consensus, the recent Q3 results were described as 'nothing to brag about,' suggesting that the company's operational performance may not justify the current valuation.",
+        "evidence": "news[2].headline",
+        "impact": "negative"
+      }
+    ]
+  },
+  "rebuttals": {
+    "bear": {
+      "rebuttals": [
+        {
+          "target_claim": "WYNN trades at a discount to its intrinsic value, with a forward P/E of 21.85 versus a price target of $116.75, implying ~34% upside.",
+          "response": "The forward P/E of 21.85 is not a discount; it's a premium to the broader market, and the PEG ratio of 6.94 indicates the stock is extremely overvalued relative to its growth rate. The price target is analyst opinion, not intrinsic value, and the stock has already fallen sharply per the news headline, suggesting the market disagrees with that target.",
+          "counter_evidence": "fundamentals.peg",
+          "concede": false,
+          "strength": 0.8
+        },
+        {
+          "target_claim": "The company generates strong free cash flow, with a 5.94% FCF yield and a price-to-FCF of 16.82, indicating solid cash generation relative to its market cap.",
+          "response": "The FCF yield of 5.94% is modest, and the company's massive net debt of $10.56 billion (net cash per share of -$104.55) means much of that cash flow is consumed by debt servicing, not available to shareholders. The price-to-FCF of 16.82 is not compelling given the leverage.",
+          "counter_evidence": "fundamentals.net_cash_per_share",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "WYNN maintains high profitability with a gross margin of 67.6% and an EBITDA margin of 23.5%, reflecting efficient operations and pricing power.",
+          "response": "While gross margin is high, the operating margin of 14.66% and profit margin of just 5.2% show that significant costs\u2014including interest on the $12.36 billion debt\u2014erode profitability. The EBITDA margin of 23.5% is inflated by depreciation and interest costs that are very real for a leveraged company.",
+          "counter_evidence": "fundamentals.operating_margin",
+          "concede": false,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "The stock is rated 'Strong Buy' by analysts, with a consensus price target of $116.75, representing a significant premium to the current price of $87.30.",
+          "response": "Analyst recommendations are often lagging indicators, and the recent news headline 'Wynn Resorts (WYNN) Stock Seems About Right After Its Sharp Fall' suggests the market has already corrected to fair value. The price target of $116.75 is 34% above the current price, but with a PEG of 6.94, the implied growth expectations are unrealistic.",
+          "counter_evidence": "news[0].headline",
+          "concede": false,
+          "strength": 0.5
+        },
+        {
+          "target_claim": "Recent news highlights resilience in WYNN's global hotel/casino portfolio, supporting the bull case for continued revenue stability and growth.",
+          "response": "The headline is from a Seeking Alpha opinion piece, not a factual earnings report. The more recent Casino.org headline from November 6, 2026, states 'Wynn Q3 Results Nothing to Brag About,' directly contradicting the resilience narrative.",
+          "counter_evidence": "news[2].headline",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "WYNN's revenue and EPS are growing, with year-over-year increases of 3.7% and 8.8% respectively, indicating positive momentum.",
+          "response": "Revenue growth of 3.7% is tepid, and EPS growth of 8.8% is insufficient to justify the 24.11 trailing P/E or the 6.94 PEG ratio. The company's net income margin of 5.2% shows that growth is not translating into meaningful shareholder value, especially with $10.56 billion in net debt.",
+          "counter_evidence": "fundamentals.profit_margin",
+          "concede": false,
+          "strength": 0.6
+        }
+      ]
+    },
+    "bull": {
+      "rebuttals": [
+        {
+          "target_claim": "WYNN's valuation is stretched with a PEG ratio of 6.94, indicating that the stock is priced at a significant premium to its expected earnings growth.",
+          "response": "The PEG ratio is misleading here because it's based on trailing EPS growth of only 8.8%, while forward EPS is expected to grow to $3.995 (a 12.9% increase), and the stock trades at a forward P/E of 21.85, which is reasonable for a company with a 'Strong Buy' consensus and a price target of $116.75 (34% upside).",
+          "counter_evidence": "fundamentals.forward_pe, fundamentals.eps_forward, fundamentals.price_target",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "The company has a massive net debt position of $10.56 billion, with negative net cash per share of -$104.55, raising concerns about financial leverage and balance sheet risk.",
+          "response": "While net debt is high, WYNN generates $1.22 billion in operating cash flow and $515 million in free cash flow, with an EV/EBITDA of 11.28 and a debt load that is typical for the capital-intensive casino industry; the company also pays a dividend, indicating financial flexibility.",
+          "counter_evidence": "fundamentals.ocf, fundamentals.fcf, fundamentals.ev_ebitda, fundamentals.dividend_yield",
+          "concede": false,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "WYNN's book value per share is negative at -$2.15, suggesting that liabilities exceed assets on a per-share basis, which could signal financial instability.",
+          "response": "Negative book value is common for companies with large share buybacks and high debt in asset-heavy industries; WYNN's ROA of 5.14% and ROIC of 9.27% show it is generating solid returns on its assets, and the negative book value does not impair its ability to operate or grow.",
+          "counter_evidence": "fundamentals.roa, fundamentals.roic",
+          "concede": false,
+          "strength": 0.5
+        },
+        {
+          "target_claim": "The stock has a high short interest of 12.46% of float, indicating bearish sentiment among investors and potential downward pressure on the price.",
+          "response": "Short interest of 12.46% can also signal a potential short squeeze, especially given the 'Strong Buy' analyst consensus and a price target 34% above the current price; the stock has already fallen sharply, and high short interest often precedes a rally when positive catalysts emerge.",
+          "counter_evidence": "fundamentals.analyst_recommendation, fundamentals.price_target",
+          "concede": false,
+          "strength": 0.5
+        },
+        {
+          "target_claim": "Despite a 'Strong Buy' analyst consensus, the recent Q3 results were described as 'nothing to brag about,' suggesting that the company's operational performance may not justify the current valuation.",
+          "response": "The headline itself notes that 'Analysts Say Stock Deserves More Credit,' and the data shows revenue grew 3.7% YoY with EPS growth of 8.8%, while the stock trades at a forward P/E of 21.85, which is not excessive for a company with a 'Strong Buy' rating and a price target of $116.75.",
+          "counter_evidence": "fundamentals.revenue_growth_yoy, fundamentals.eps_growth_yoy, fundamentals.forward_pe, fundamentals.price_target",
+          "concede": false,
+          "strength": 0.6
+        }
+      ]
+    }
+  },
+  "grading": {
+    "bull": {
+      "side": "bull",
+      "n_claims": 6,
+      "grounded": 5,
+      "ungrounded": 1,
+      "sections_cited": [
+        "fundamentals",
+        "news[1]"
+      ],
+      "claims": [
+        {
+          "claim": "WYNN trades at a discount to its intrinsic value, with a forward P/E of 21.85 versus a price target of $116.75, implying ~34% upside.",
+          "evidence": "fundamentals.forward_pe, fundamentals.price_target",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The company generates strong free cash flow, with a 5.94% FCF yield and a price-to-FCF of 16.82, indicating solid cash generation relative to its market cap.",
+          "evidence": "fundamentals.fcf_yield, fundamentals.pfcf",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "WYNN maintains high profitability with a gross margin of 67.6% and an EBITDA margin of 23.5%, reflecting efficient operations and pricing power.",
+          "evidence": "fundamentals.gross_margin, fundamentals.ebitda_margin",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The stock is rated 'Strong Buy' by analysts, with a consensus price target of $116.75, representing a significant premium to the current price of $87.30.",
+          "evidence": "fundamentals.analyst_recommendation, fundamentals.price_target",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Recent news highlights resilience in WYNN's global hotel/casino portfolio, supporting the bull case for continued revenue stability and growth.",
+          "evidence": "news[1].headline",
+          "grounded": false,
+          "reason": "'news[1].headline': section 'news[1]' not present in gathered data"
+        },
+        {
+          "claim": "WYNN's revenue and EPS are growing, with year-over-year increases of 3.7% and 8.8% respectively, indicating positive momentum.",
+          "evidence": "fundamentals.revenue_growth_yoy, fundamentals.eps_growth_yoy",
+          "grounded": true,
+          "reason": "ok"
+        }
+      ]
+    },
+    "bear": {
+      "side": "bear",
+      "n_claims": 5,
+      "grounded": 4,
+      "ungrounded": 1,
+      "sections_cited": [
+        "fundamentals",
+        "news[2]"
+      ],
+      "claims": [
+        {
+          "claim": "WYNN's valuation is stretched with a PEG ratio of 6.94, indicating that the stock is priced at a significant premium to its expected earnings growth.",
+          "evidence": "fundamentals.peg",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The company has a massive net debt position of $10.56 billion, with negative net cash per share of -$104.55, raising concerns about financial leverage and balance sheet risk.",
+          "evidence": "fundamentals.net_cash",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "WYNN's book value per share is negative at -$2.15, suggesting that liabilities exceed assets on a per-share basis, which could signal financial instability.",
+          "evidence": "fundamentals.book_value_per_share",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The stock has a high short interest of 12.46% of float, indicating bearish sentiment among investors and potential downward pressure on the price.",
+          "evidence": "fundamentals.short_interest_pct_float",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Despite a 'Strong Buy' analyst consensus, the recent Q3 results were described as 'nothing to brag about,' suggesting that the company's operational performance may not justify the current valuation.",
+          "evidence": "news[2].headline",
+          "grounded": false,
+          "reason": "'news[2].headline': section 'news[2]' not present in gathered data"
+        }
+      ]
+    }
+  },
+  "valuation": {
+    "sym": "WYNN",
+    "price": 86.69999694824219,
+    "deterministic": true,
+    "inputs": {
+      "eps_ttm": 3.54,
+      "eps_forward (consensus-derived)": 3.995423340961098,
+      "pe_ttm": 24.11,
+      "forward_pe": 21.85,
+      "eps_growth_3y_fcst": 0.08779999999999999,
+      "revenue_growth_3y_fcst": 0.037000000000000005,
+      "beta": 0.95,
+      "net_cash_per_share": -104.55,
+      "base EPS used": 3.54,
+      "valuation multiple (P/E) used": 24.11,
+      "P/E band (bear/base/bull)": "19.3 / 24.1 / 30.1",
+      "DCF growth (5y)": 0.0284,
+      "DCF discount rate": 0.099,
+      "DCF exit P/E": 21.7
+    },
+    "outputs": {
+      "quality_signals": {
+        "roic": 0.09269999999999999,
+        "fcf_margin": 0.0709,
+        "beta": 0.95
+      },
+      "dcf_lite": {
+        "method": "5-yr EPS power value discounted at beta-tilted flat rate, terminal exit P/E + net cash/share",
+        "growth_5y": 0.0284,
+        "discount_rate": 0.099,
+        "exit_pe": 21.7,
+        "fair_value": -34.85
+      },
+      "scenario_grid": {
+        "bear": {
+          "growth": 0.0142,
+          "exit_pe": 19.3,
+          "value": -44.81,
+          "upside": -1.517
+        },
+        "base": {
+          "growth": 0.0284,
+          "exit_pe": 24.1,
+          "value": -28.75,
+          "upside": -1.332
+        },
+        "bull": {
+          "growth": 0.0427,
+          "exit_pe": 30.1,
+          "value": -7.48,
+          "upside": -1.086
+        }
+      },
+      "fair_value_basis": "DCF-lite base scenario (5-yr EPS power value + net cash/share)",
+      "fair_value": {
+        "bear": -44.81,
+        "base": -28.75,
+        "bull": -7.48
+      },
+      "upside_base": -1.332,
+      "peg": 8.47
+    },
+    "notes": [
+      "3Y cumulative growth forecast converted to per-year CAGR ((1+G)^(1/3)-1)",
+      "DCF-lite: growth clamped to [0%, 25%]; discount 10% base + 2pp per beta-unit above 1 (clamped [7%,14%]); exit P/E 0.9x trailing; +net cash/share"
+    ]
+  },
+  "judge": {
+    "convergence": false,
+    "rating": "UNDERWEIGHT",
+    "conviction": 0.6,
+    "scenarios": {
+      "bull": {
+        "prob": 0.25,
+        "pt": 116.75,
+        "thesis": "Analyst consensus and strong margins support a re-rating to the $116.75 target, driven by operational resilience and cash flow generation."
+      },
+      "base": {
+        "prob": 0.45,
+        "pt": 65.0,
+        "thesis": "The stock trades near current levels as high leverage and modest growth offset solid margins, with the deterministic valuation suggesting significant downside."
+      },
+      "bear": {
+        "prob": 0.3,
+        "pt": 45.0,
+        "thesis": "Elevated debt, negative book value, and a stretched PEG ratio lead to further de-rating and price decline."
+      }
+    },
+    "catalysts": [
+      {
+        "catalyst": "Next earnings report (Q4 2026) could confirm or refute operational resilience",
+        "date": "unknown",
+        "impact": "positive"
+      },
+      {
+        "catalyst": "Analyst price target revisions following recent sharp fall",
+        "date": "unknown",
+        "impact": "positive"
+      },
+      {
+        "catalyst": "Potential short squeeze given high short interest",
+        "date": "unknown",
+        "impact": "positive"
+      }
+    ],
+    "risks": [
+      {
+        "risk": "High net debt and negative book value increase financial distress risk",
+        "likelihood": "medium"
+      },
+      {
+        "risk": "Valuation premium (PEG 6.94) leaves little room for growth disappointment",
+        "likelihood": "high"
+      },
+      {
+        "risk": "High short interest could lead to sharp downward moves if sentiment deteriorates",
+        "likelihood": "medium"
+      }
+    ],
+    "decision_rationale": "The bull case relies on analyst targets and operational strength, but the bear case highlights severe balance sheet risks and valuation concerns that are not fully rebutted. The deterministic valuation, which incorporates net debt, yields a deeply negative fair value, indicating that the current price is not supported by fundamentals. With unresolved debate and a base-case target that must stay within \u00b125% of the deterministic fair value (which is negative), we set a conservative base target of $65, reflecting a substantial downside from the current price. Hence, we rate the stock UNDERWEIGHT with moderate conviction."
+  },
+  "risk_manager": {
+    "sym": "WYNN",
+    "verdict": "approved",
+    "checks": {
+      "base_pt_within_25pct": {
+        "ok": true,
+        "detail": "judge base PT 65.0 vs deterministic base fair value -28.75 (deviation -326.1%)"
+      },
+      "probs_sum_1": {
+        "ok": true,
+        "detail": "bull/base/bear probs sum to 1.000"
+      },
+      "rating_in_scale": {
+        "ok": true,
+        "detail": "rating 'UNDERWEIGHT'"
+      },
+      "conviction_01": {
+        "ok": true,
+        "detail": "conviction 0.6"
+      }
+    },
+    "n_checks_passed": 4,
+    "n_checks": 4,
+    "override_applied": false,
+    "reason": "all deterministic checks passed; judge verdict stands"
+  },
+  "audit": {
+    "bull_researcher": {
+      "system": "You are the bull case researcher for an equity research report. Your job is to argue the strongest honest bull case for the ticker, based ONLY on the data provided. Rules:\n1. Every claim MUST be grounded in a specific data field. Cite it in the 'evidence' field as <section>.<field>, e.g. 'fundamentals.pe_ttm' or 'catalyst.eps_est' or 'earnings.surprise_pct'.\n2. If the data does not support a claim, do NOT make it. Missing data is a reason to stay silent or to say so explicitly.\n3. Do not hedge: this is your side's case. Pick the 4-6 strongest claims. No filler.\n4. Return ONLY the JSON object:\n{\"stance\": \"bullish|bearish\", \"confidence\": <0-1>, \"claims\": [{\"claim\": \"<one sentence>\", \"evidence\": \"<section.field>\", \"impact\": \"positive|negative\"}]}",
+      "user": "TICKER: WYNN\n\nROLE: BULL case\n\n[fundamentals] valuation & quality: market cap, P/E, P/B, P/S, ROE, margins, growth, cash/debt, 52w range, analyst targets\n{\n\"price\": 87.3,\n\"market_cap\": 8630000000.0,\n\"enterprise_value\": 19190000000.0,\n\"pe_ttm\": 24.11,\n\"forward_pe\": 21.85,\n\"peg\": 6.94,\n\"ps_ttm\": 1.19,\n\"pb\": null,\n\"pfcf\": 16.82,\n\"ev_ebitda\": 11.28,\n\"eps_ttm\": 3.54,\n\"eps_forward\": 3.995423340961098,\n\"fcf_per_share\": 5.1,\n\"revenue_per_share\": null,\n\"cash_per_share\": -104.55,\n\"book_value_per_share\": -2.15,\n\"roe\": null,\n\"roa\": 0.051399999999999994,\n\"roic\": 0.09269999999999999,\n\"roce\": 0.10189999999999999,\n\"gross_margin\": 0.6762999999999999,\n\"operating_margin\": 0.1466,\n\"profit_margin\": 0.052000000000000005,\n\"fcf_margin\": 0.0709,\n\"ebitda_margin\": 0.2345,\n\"pretax_margin\": 0.07519999999999999,\n\"revenue_growth_yoy\": 0.037000000000000005,\n\"eps_growth_yoy\": 0.08779999999999999,\n\"fcf\": 515280000.0,\n\"oc...<truncated 3986 chars>",
+      "response": "{\n  \"stance\": \"bullish\",\n  \"confidence\": 0.72,\n  \"claims\": [\n    {\n      \"claim\": \"WYNN trades at a discount to its intrinsic value, with a forward P/E of 21.85 versus a price target of $116.75, implying ~34% upside.\",\n      \"evidence\": \"fundamentals.forward_pe, fundamentals.price_target\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"The company generates strong free cash flow, with a 5.94% FCF yield and a price-to-FCF of 16.82, indicating solid cash generation relative to its market cap.\",\n      \"evidence\": \"fundamentals.fcf_yield, fundamentals.pfcf\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"WYNN maintains high profitability with a gross margin of 67.6% and an EBITDA margin of 23.5%, reflecting efficient operations and pricing power.\",\n      \"evidence\": \"fundamentals.gross_margin, fundamentals.ebitda_margin\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"The stock is rated 'Strong Buy' by analysts, with a consensus price target of $116.75, representing a significant premium to the current price of $87.30.\",\n      \"evidence\": \"fundamentals.analyst_recommendation, fundamentals.price_target\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"Recent news highlights resilience in WYNN's global hotel/casino portfolio, supporting the bull case for continued revenue stability and growth.\",\n      \"evidence\": \"news[1].headline\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"WYNN's revenue and EPS are growing, with year-over-year increases of 3.7% and 8.8% respectively, indicating positive momentum.\",\n      \"evidence\": \"fundamentals.revenue_growth_yoy, fundamentals.eps_growth_yoy\",\n      \"impact\": \"positive\"\n    }\n  ]\n}",
+      "ok": true
+    },
+    "bear_researcher": {
+      "system": "You are the bear case researcher for an equity research report. Your job is to argue the strongest honest bear case for the ticker, based ONLY on the data provided. Rules:\n1. Every claim MUST be grounded in a specific data field. Cite it in the 'evidence' field as <section>.<field>, e.g. 'fundamentals.pe_ttm' or 'catalyst.eps_est' or 'earnings.surprise_pct'.\n2. If the data does not support a claim, do NOT make it. Missing data is a reason to stay silent or to say so explicitly.\n3. Do not hedge: this is your side's case. Pick the 4-6 strongest claims. No filler.\n4. Return ONLY the JSON object:\n{\"stance\": \"bullish|bearish\", \"confidence\": <0-1>, \"claims\": [{\"claim\": \"<one sentence>\", \"evidence\": \"<section.field>\", \"impact\": \"positive|negative\"}]}",
+      "user": "TICKER: WYNN\n\nROLE: BEAR case\n\n[filings] recent SEC filings (8-K etc.)\n[\n{\n\"form\": \"10-Q\",\n\"filing_date\": \"2026-11-05\",\n\"accession\": \"0001174922-26-000079\",\n\"primary_doc\": \"wynn-20260930.htm\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/1174922/000117492226000079/wynn-20260930.htm\"\n},\n{\n\"form\": \"4\",\n\"filing_date\": \"2026-11-05\",\n\"accession\": \"0001104659-26-123376\",\n\"primary_doc\": \"xslF345X06/tm2629099-1_4seq1.xml\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/1174922/000110465926123376/xslF345X06/tm2629099-1_4seq1.xml\"\n},\n{\n\"form\": \"8-K\",\n\"filing_date\": \"2026-11-05\",\n\"accession\": \"0001174922-26-000078\",\n\"primary_doc\": \"wynn-20261105.htm\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/1174922/000117492226000078/wynn-20261105.htm\"\n},\n{\n\"form\": \"4\",\n\"filing_date\": \"2026-11-03\",\n\"accession\": \"0001104659-26-122038\",\n\"primary_doc\": \"xslF345X06/tm2628852-1_4seq1.xml\",\n\"url\": \"https://ww...<truncated 3986 chars>",
+      "response": "{\n  \"stance\": \"bearish\",\n  \"confidence\": 0.8,\n  \"claims\": [\n    {\n      \"claim\": \"WYNN's valuation is stretched with a PEG ratio of 6.94, indicating that the stock is priced at a significant premium to its expected earnings growth.\",\n      \"evidence\": \"fundamentals.peg\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The company has a massive net debt position of $10.56 billion, with negative net cash per share of -$104.55, raising concerns about financial leverage and balance sheet risk.\",\n      \"evidence\": \"fundamentals.net_cash\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"WYNN's book value per share is negative at -$2.15, suggesting that liabilities exceed assets on a per-share basis, which could signal financial instability.\",\n      \"evidence\": \"fundamentals.book_value_per_share\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The stock has a high short interest of 12.46% of float, indicating bearish sentiment among investors and potential downward pressure on the price.\",\n      \"evidence\": \"fundamentals.short_interest_pct_float\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"Despite a 'Strong Buy' analyst consensus, the recent Q3 results were described as 'nothing to brag about,' suggesting that the company's operational performance may not justify the current valuation.\",\n      \"evidence\": \"news[2].headline\",\n      \"impact\": \"negative\"\n    }\n  ]\n}",
+      "ok": true
+    },
+    "bear_rebuttal": {
+      "system": "You are the bear researcher responding to the OPPOSING case. Address each of the opposing side's claims head-on. For each one: either concede it, or rebut it using a specific counter-field from the data (evidence as <section>.<field>), or point out the inference gap. Be specific and numerical. Return ONLY:\n{\"rebuttals\": [{\"target_claim\": \"<the claim you are answering>\", \"response\": \"<your counter-argument, 1-2 sentences>\", \"counter_evidence\": \"<section.field or null>\", \"concede\": true|false, \"strength\": <0-1>}]}",
+      "user": "OPPOSING (bull) CLAIMS:\n[{\"claim\": \"WYNN trades at a discount to its intrinsic value, with a forward P/E of 21.85 versus a price target of $116.75, implying ~34% upside.\", \"evidence\": \"fundamentals.forward_pe, fundamentals.price_target\", \"impact\": \"positive\"}, {\"claim\": \"The company generates strong free cash flow, with a 5.94% FCF yield and a price-to-FCF of 16.82, indicating solid cash generation relative to its market cap.\", \"evidence\": \"fundamentals.fcf_yield, fundamentals.pfcf\", \"impact\": \"positive\"}, {\"claim\": \"WYNN maintains high profitability with a gross margin of 67.6% and an EBITDA margin of 23.5%, reflecting efficient operations and pricing power.\", \"evidence\": \"fundamentals.gross_margin, fundamentals.ebitda_margin\", \"impact\": \"positive\"}, {\"claim\": \"The stock is rated 'Strong Buy' by analysts, with a consensus price target of $116.75, representing a significant premium to th...<truncated 5491 chars>",
+      "response": "{\"rebuttals\": [{\"target_claim\": \"WYNN trades at a discount to its intrinsic value, with a forward P/E of 21.85 versus a price target of $116.75, implying ~34% upside.\", \"response\": \"The forward P/E of 21.85 is not a discount; it's a premium to the broader market, and the PEG ratio of 6.94 indicates the stock is extremely overvalued relative to its growth rate. The price target is analyst opinion, not intrinsic value, and the stock has already fallen sharply per the news headline, suggesting the market disagrees with that target.\", \"counter_evidence\": \"fundamentals.peg\", \"concede\": false, \"strength\": 0.8}, {\"target_claim\": \"The company generates strong free cash flow, with a 5.94% FCF yield and a price-to-FCF of 16.82, indicating solid cash generation relative to its market cap.\", \"response\": \"The FCF yield of 5.94% is modest, and the company's massive net debt of $10.56 billion (net cash per share of -$104.55) means much of that cash flow is consumed by debt servicing, not available to shareholders. The price-to-FCF of 16.82 is not compelling given the leverage.\", \"counter_evidence\": \"fundamentals.net_cash_per_share\", \"concede\": false, \"strength\": 0.7}, {\"target_claim\": \"WYNN maintains high profitability with a gross margin of 67.6% and an EBITDA margin of 23.5%, reflecting efficient operations and pricing power.\", \"response\": \"While gross margin is high, the operating margin of 14.66% and profit margin of just 5.2% show that significant costs\u2014including interest on the $12.36 billion debt\u2014erode profitability. The EBITDA margin of 23.5% is inflated by depreciation and interest costs that are very real for a leveraged company.\", \"counter_evidence\": \"fundamentals.operating_margin\", \"concede\": false, \"strength\": 0.6}, {\"target_claim\": \"The stock is rated 'Strong Buy' by ana...<truncated 1576 chars>",
+      "ok": true
+    },
+    "bull_rebuttal": {
+      "system": "You are the bull researcher responding to the OPPOSING case. Address each of the opposing side's claims head-on. For each one: either concede it, or rebut it using a specific counter-field from the data (evidence as <section>.<field>), or point out the inference gap. Be specific and numerical. Return ONLY:\n{\"rebuttals\": [{\"target_claim\": \"<the claim you are answering>\", \"response\": \"<your counter-argument, 1-2 sentences>\", \"counter_evidence\": \"<section.field or null>\", \"concede\": true|false, \"strength\": <0-1>}]}",
+      "user": "OPPOSING (bear) CLAIMS:\n[{\"claim\": \"WYNN's valuation is stretched with a PEG ratio of 6.94, indicating that the stock is priced at a significant premium to its expected earnings growth.\", \"evidence\": \"fundamentals.peg\", \"impact\": \"negative\"}, {\"claim\": \"The company has a massive net debt position of $10.56 billion, with negative net cash per share of -$104.55, raising concerns about financial leverage and balance sheet risk.\", \"evidence\": \"fundamentals.net_cash\", \"impact\": \"negative\"}, {\"claim\": \"WYNN's book value per share is negative at -$2.15, suggesting that liabilities exceed assets on a per-share basis, which could signal financial instability.\", \"evidence\": \"fundamentals.book_value_per_share\", \"impact\": \"negative\"}, {\"claim\": \"The stock has a high short interest of 12.46% of float, indicating bearish sentiment among investors and potential downward pressure on the price.\", \"eviden...<truncated 5247 chars>",
+      "response": "{\n  \"rebuttals\": [\n    {\n      \"target_claim\": \"WYNN's valuation is stretched with a PEG ratio of 6.94, indicating that the stock is priced at a significant premium to its expected earnings growth.\",\n      \"response\": \"The PEG ratio is misleading here because it's based on trailing EPS growth of only 8.8%, while forward EPS is expected to grow to $3.995 (a 12.9% increase), and the stock trades at a forward P/E of 21.85, which is reasonable for a company with a 'Strong Buy' consensus and a price target of $116.75 (34% upside).\",\n      \"counter_evidence\": \"fundamentals.forward_pe, fundamentals.eps_forward, fundamentals.price_target\",\n      \"concede\": false,\n      \"strength\": 0.7\n    },\n    {\n      \"target_claim\": \"The company has a massive net debt position of $10.56 billion, with negative net cash per share of -$104.55, raising concerns about financial leverage and balance sheet risk.\",\n      \"response\": \"While net debt is high, WYNN generates $1.22 billion in operating cash flow and $515 million in free cash flow, with an EV/EBITDA of 11.28 and a debt load that is typical for the capital-intensive casino industry; the company also pays a dividend, indicating financial flexibility.\",\n      \"counter_evidence\": \"fundamentals.ocf, fundamentals.fcf, fundamentals.ev_ebitda, fundamentals.dividend_yield\",\n      \"concede\": false,\n      \"strength\": 0.6\n    },\n    {\n      \"target_claim\": \"WYNN's book value per share is negative at -$2.15, suggesting that liabilities exceed assets on a per-share basis, which could signal financial instability.\",\n      \"response\": \"Negative book value is common for companies with large share buybacks and high debt in asset-heavy industries; WYNN's ROA of 5.14% and ROIC of 9.27% show it is generating solid returns on its assets, and the negative book...<truncated 1540 chars>",
+      "ok": true
+    },
+    "judge": {
+      "system": "You are the head of a sell-side equity research team. You have read the bull case, the bear case, their rebuttals, the evidence grading, and a deterministic valuation computed in Python (never modify its numbers). Produce the final verdict.\nRules:\n1. Scenarios: bull/base/bear 12-month price targets and probabilities. Base-case target MUST stay within +-25% of the deterministic valuation's base fair value when one exists. Probabilities must sum to 1.0.\n2. Rating scale: BUY / OVERWEIGHT / HOLD / UNDERWEIGHT / SELL.\n3. In the 'catalysts' list, when the data's 'catalyst' section has an explicit date (e.g. next earnings date), use it as the date; otherwise 'unknown'.\n4. Convergence detection: if bull and bear largely agree on direction (or disagree on nothing material), set convergence true and keep conviction; if the debate is unresolved, convergence false and lower conviction.\n4. All facts ...<truncated 478 chars>",
+      "user": "TICKER: WYNN\nPRICE: 86.69999694824219\n\n=== BULL CASE ===\nbull (confidence 0.72):\n- [positive] WYNN trades at a discount to its intrinsic value, with a forward P/E of 21.85 versus a price target of $116.75, implying ~34% upside. (evidence: fundamentals.forward_pe, fundamentals.price_target)\n- [positive] The company generates strong free cash flow, with a 5.94% FCF yield and a price-to-FCF of 16.82, indicating solid cash generation relative to its market cap. (evidence: fundamentals.fcf_yield, fundamentals.pfcf)\n- [positive] WYNN maintains high profitability with a gross margin of 67.6% and an EBITDA margin of 23.5%, reflecting efficient operations and pricing power. (evidence: fundamentals.gross_margin, fundamentals.ebitda_margin)\n- [positive] The stock is rated 'Strong Buy' by analysts, with a consensus price target of $116.75, representing a significant premium to the current price of $...<truncated 8614 chars>",
+      "response": "{\n  \"convergence\": false,\n  \"rating\": \"UNDERWEIGHT\",\n  \"conviction\": 0.6,\n  \"scenarios\": {\n    \"bull\": {\n      \"prob\": 0.25,\n      \"pt\": 116.75,\n      \"thesis\": \"Analyst consensus and strong margins support a re-rating to the $116.75 target, driven by operational resilience and cash flow generation.\"\n    },\n    \"base\": {\n      \"prob\": 0.45,\n      \"pt\": 65.0,\n      \"thesis\": \"The stock trades near current levels as high leverage and modest growth offset solid margins, with the deterministic valuation suggesting significant downside.\"\n    },\n    \"bear\": {\n      \"prob\": 0.3,\n      \"pt\": 45.0,\n      \"thesis\": \"Elevated debt, negative book value, and a stretched PEG ratio lead to further de-rating and price decline.\"\n    }\n  },\n  \"catalysts\": [\n    {\n      \"catalyst\": \"Next earnings report (Q4 2026) could confirm or refute operational resilience\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"catalyst\": \"Analyst price target revisions following recent sharp fall\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"catalyst\": \"Potential short squeeze given high short interest\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    }\n  ],\n  \"risks\": [\n    {\n      \"risk\": \"High net debt and negative book value increase financial distress risk\",\n      \"likelihood\": \"medium\"\n    },\n    {\n      \"risk\": \"Valuation premium (PEG 6.94) leaves little room for growth disappointment\",\n      \"likelihood\": \"high\"\n    },\n    {\n      \"risk\": \"High short interest could lead to sharp downward moves if sentiment deteriorates\",\n      \"likelihood\": \"medium\"\n    }\n  ],\n  \"decision_rationale\": \"The bull case relies on analyst targets and operational strength, but the bear case highlights severe balance sheet risks and valuation concerns that are not ...<truncated 470 chars>",
+      "ok": true
+    }
+  },
+  "errors": [],
+  "elapsed_sec": 0.0,
+  "report_path": null,
+  "json_path": null
+}

@@ -1,0 +1,447 @@
+{
+  "sym": "TSCO",
+  "generated_utc": "2026-11-12T03:55:43Z",
+  "price": 37.400001525878906,
+  "data_sections": [
+    "quote",
+    "fundamentals",
+    "news",
+    "filings",
+    "hn_mentions",
+    "clusters"
+  ],
+  "bull": {
+    "stance": "bullish",
+    "confidence": 0.72,
+    "claims": [
+      {
+        "claim": "Tractor Supply is a high-return business, with a return on equity of 37.35%, indicating strong profitability and efficient use of shareholder capital.",
+        "evidence": "fundamentals.roe",
+        "impact": "positive"
+      },
+      {
+        "claim": "The stock is trading at a reasonable valuation with a forward P/E of 18.23, which is in line with its expected earnings growth and below the broader market average.",
+        "evidence": "fundamentals.forward_pe",
+        "impact": "positive"
+      },
+      {
+        "claim": "Analysts have a 'Buy' recommendation with a price target of $37.48, which is essentially at the current price, suggesting limited downside and potential for upside if earnings beat expectations.",
+        "evidence": "fundamentals.analyst_recommendation",
+        "impact": "positive"
+      },
+      {
+        "claim": "The company has a low beta of 0.48, indicating that its stock price is less volatile than the market, providing a defensive investment characteristic.",
+        "evidence": "fundamentals.beta",
+        "impact": "positive"
+      },
+      {
+        "claim": "Tractor Supply has a solid dividend yield of 2.61% with a payout ratio of 51.63%, leaving room for future dividend increases while still rewarding shareholders.",
+        "evidence": "fundamentals.dividend_yield",
+        "impact": "positive"
+      },
+      {
+        "claim": "The company has shown consistent growth with revenue up 4.17% year-over-year and EPS up 3.38%, demonstrating resilience in a challenging retail environment.",
+        "evidence": "fundamentals.revenue_growth_yoy",
+        "impact": "positive"
+      }
+    ]
+  },
+  "bear": {
+    "stance": "bearish",
+    "confidence": 0.7,
+    "claims": [
+      {
+        "claim": "TSCO's valuation is stretched with a PEG ratio of 3.06, indicating that the stock's growth prospects do not justify its current earnings multiple.",
+        "evidence": "fundamentals.peg",
+        "impact": "negative"
+      },
+      {
+        "claim": "The company's free cash flow yield is a mere 1.52%, while the price-to-free-cash-flow multiple is 65.64, suggesting that shareholders are paying a premium for limited cash generation.",
+        "evidence": "fundamentals.fcf_yield",
+        "impact": "negative"
+      },
+      {
+        "claim": "TSCO's high debt burden is a concern, with a debt-to-equity ratio of 2.53 and negative net cash per share of -12.58, which could constrain financial flexibility.",
+        "evidence": "fundamentals.debt_eq",
+        "impact": "negative"
+      },
+      {
+        "claim": "The company's operating margin of 8.7% and profit margin of 6.13% are thin, leaving little room for error if input costs rise or consumer spending weakens.",
+        "evidence": "fundamentals.operating_margin",
+        "impact": "negative"
+      },
+      {
+        "claim": "Recent insider activity includes Form 4 filings, which may indicate insider selling or other transactions that could signal a lack of confidence in the stock's near-term prospects.",
+        "evidence": "filings.form",
+        "impact": "negative"
+      }
+    ]
+  },
+  "rebuttals": {
+    "bear": {
+      "rebuttals": [
+        {
+          "target_claim": "Tractor Supply is a high-return business, with a return on equity of 37.35%, indicating strong profitability and efficient use of shareholder capital.",
+          "response": "The 37.35% ROE is inflated by extreme leverage\u2014debt-to-equity is 2.53 and net cash per share is -$12.58\u2014meaning the high return is driven by borrowed capital, not operational efficiency. ROIC of 12.13% and ROA of 7.5% show far more modest underlying profitability.",
+          "counter_evidence": "fundamentals.debt_eq",
+          "concede": false,
+          "strength": 0.8
+        },
+        {
+          "target_claim": "The stock is trading at a reasonable valuation with a forward P/E of 18.23, which is in line with its expected earnings growth and below the broader market average.",
+          "response": "The PEG ratio of 3.06 reveals the forward P/E is not in line with growth\u2014it's roughly 3x the earnings growth rate, indicating the stock is expensive relative to its growth prospects. The forward P/E of 18.23 is also above the company's own TTM P/E of 19.76 only slightly, but with EPS growth of just 3.38%, the multiple is not justified.",
+          "counter_evidence": "fundamentals.peg",
+          "concede": false,
+          "strength": 0.9
+        },
+        {
+          "target_claim": "Analysts have a 'Buy' recommendation with a price target of $37.48, which is essentially at the current price, suggesting limited downside and potential for upside if earnings beat expectations.",
+          "response": "A price target of $37.48 versus the current price of $37.40 implies only 0.2% upside\u2014essentially no upside at all. The 'Buy' rating is contradicted by the target being at the current price, and the stock has underperformed competitors recently per MarketWatch, suggesting the target may be stale or overly optimistic.",
+          "counter_evidence": "fundamentals.price_target",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "The company has a low beta of 0.48, indicating that its stock price is less volatile than the market, providing a defensive investment characteristic.",
+          "response": "While low beta does indicate lower volatility, this is not a positive in a market where the stock has already declined significantly\u2014the news headline 'Then Came 2026' suggests a major downturn. Low beta also means less upside potential in a recovery, and the high debt load (debt-to-equity 2.53) makes the company more vulnerable to interest rate shocks despite the low beta.",
+          "counter_evidence": "fundamentals.debt_eq",
+          "concede": true,
+          "strength": 0.4
+        },
+        {
+          "target_claim": "Tractor Supply has a solid dividend yield of 2.61% with a payout ratio of 51.63%, leaving room for future dividend increases while still rewarding shareholders.",
+          "response": "The dividend yield of 2.61% is supported by a payout ratio of 51.63%, but free cash flow per share is only $0.56 versus a dividend per share of $0.96\u2014the dividend is not covered by free cash flow, meaning it's being paid from debt or other sources. This is unsustainable and leaves no room for increases.",
+          "counter_evidence": "fundamentals.fcf_per_share",
+          "concede": false,
+          "strength": 0.85
+        },
+        {
+          "target_claim": "The company has shown consistent growth with revenue up 4.17% year-over-year and EPS up 3.38%, demonstrating resilience in a challenging retail environment.",
+          "response": "Revenue growth of 4.17% and EPS growth of 3.38% are modest, but the quality is poor\u2014free cash flow margin is just 1.82% and FCF per share is $0.56, indicating that growth is not translating into cash generation. With a PEG of 3.06, the market is paying a premium for this low growth, and the stock has underperformed competitors recently.",
+          "counter_evidence": "fundamentals.fcf_margin",
+          "concede": false,
+          "strength": 0.75
+        }
+      ]
+    },
+    "bull": {
+      "rebuttals": [
+        {
+          "target_claim": "TSCO's valuation is stretched with a PEG ratio of 3.06, indicating that the stock's growth prospects do not justify its current earnings multiple.",
+          "response": "The PEG ratio is misleading here because TSCO's earnings growth is currently depressed by heavy capex investment; the forward P/E of 18.23 is below the TTM P/E of 19.76, and analysts maintain a Buy recommendation with a price target of $37.48, essentially at the current price, suggesting the market sees fair value rather than overvaluation.",
+          "counter_evidence": "fundamentals.forward_pe",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "The company's free cash flow yield is a mere 1.52%, while the price-to-free-cash-flow multiple is 65.64, suggesting that shareholders are paying a premium for limited cash generation.",
+          "response": "The low FCF yield is a result of massive strategic capex ($917M) that is funding growth; operating cash flow is a robust $1.21B, and the company still generates $290M in FCF while paying a 2.61% dividend, indicating the cash generation is being reinvested for future returns rather than being weak.",
+          "counter_evidence": "fundamentals.ocf",
+          "concede": false,
+          "strength": 0.8
+        },
+        {
+          "target_claim": "TSCO's high debt burden is a concern, with a debt-to-equity ratio of 2.53 and negative net cash per share of -12.58, which could constrain financial flexibility.",
+          "response": "The debt-to-equity ratio is elevated because book value is only $5.12 per share due to aggressive buybacks, but the company's ROE of 37.35% and EBITDA of $1.91B provide ample coverage; the EV/EBITDA of 13.42 is reasonable for a stable retailer with a beta of 0.48, indicating low risk.",
+          "counter_evidence": "fundamentals.roe",
+          "concede": false,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "The company's operating margin of 8.7% and profit margin of 6.13% are thin, leaving little room for error if input costs rise or consumer spending weakens.",
+          "response": "While margins are modest, TSCO's gross margin of 36.28% is strong for retail, and the company's low beta of 0.48 demonstrates resilience to economic cycles; the 4.17% revenue growth and 3.38% EPS growth show the company is expanding despite margin pressure.",
+          "counter_evidence": "fundamentals.gross_margin",
+          "concede": false,
+          "strength": 0.5
+        },
+        {
+          "target_claim": "Recent insider activity includes Form 4 filings, which may indicate insider selling or other transactions that could signal a lack of confidence in the stock's near-term prospects.",
+          "response": "Form 4 filings are routine and can represent option exercises, automatic dividend reinvestment, or compensation awards, not necessarily selling; the filings on 2026-11-06 also coincide with a Form 3 (new insider) and a 10-Q filing, suggesting normal administrative activity rather than a bearish signal.",
+          "counter_evidence": "filings.form",
+          "concede": false,
+          "strength": 0.4
+        }
+      ]
+    }
+  },
+  "grading": {
+    "bull": {
+      "side": "bull",
+      "n_claims": 6,
+      "grounded": 6,
+      "ungrounded": 0,
+      "sections_cited": [
+        "fundamentals"
+      ],
+      "claims": [
+        {
+          "claim": "Tractor Supply is a high-return business, with a return on equity of 37.35%, indicating strong profitability and efficient use of shareholder capital.",
+          "evidence": "fundamentals.roe",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The stock is trading at a reasonable valuation with a forward P/E of 18.23, which is in line with its expected earnings growth and below the broader market average.",
+          "evidence": "fundamentals.forward_pe",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Analysts have a 'Buy' recommendation with a price target of $37.48, which is essentially at the current price, suggesting limited downside and potential for upside if earnings beat expectations.",
+          "evidence": "fundamentals.analyst_recommendation",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The company has a low beta of 0.48, indicating that its stock price is less volatile than the market, providing a defensive investment characteristic.",
+          "evidence": "fundamentals.beta",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Tractor Supply has a solid dividend yield of 2.61% with a payout ratio of 51.63%, leaving room for future dividend increases while still rewarding shareholders.",
+          "evidence": "fundamentals.dividend_yield",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The company has shown consistent growth with revenue up 4.17% year-over-year and EPS up 3.38%, demonstrating resilience in a challenging retail environment.",
+          "evidence": "fundamentals.revenue_growth_yoy",
+          "grounded": true,
+          "reason": "ok"
+        }
+      ]
+    },
+    "bear": {
+      "side": "bear",
+      "n_claims": 5,
+      "grounded": 5,
+      "ungrounded": 0,
+      "sections_cited": [
+        "filings",
+        "fundamentals"
+      ],
+      "claims": [
+        {
+          "claim": "TSCO's valuation is stretched with a PEG ratio of 3.06, indicating that the stock's growth prospects do not justify its current earnings multiple.",
+          "evidence": "fundamentals.peg",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The company's free cash flow yield is a mere 1.52%, while the price-to-free-cash-flow multiple is 65.64, suggesting that shareholders are paying a premium for limited cash generation.",
+          "evidence": "fundamentals.fcf_yield",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "TSCO's high debt burden is a concern, with a debt-to-equity ratio of 2.53 and negative net cash per share of -12.58, which could constrain financial flexibility.",
+          "evidence": "fundamentals.debt_eq",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The company's operating margin of 8.7% and profit margin of 6.13% are thin, leaving little room for error if input costs rise or consumer spending weakens.",
+          "evidence": "fundamentals.operating_margin",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Recent insider activity includes Form 4 filings, which may indicate insider selling or other transactions that could signal a lack of confidence in the stock's near-term prospects.",
+          "evidence": "filings.form",
+          "grounded": true,
+          "reason": "ok"
+        }
+      ]
+    }
+  },
+  "valuation": {
+    "sym": "TSCO",
+    "price": 37.400001525878906,
+    "deterministic": true,
+    "inputs": {
+      "eps_ttm": 1.86,
+      "eps_forward (consensus-derived)": 2.0570488206253428,
+      "pe_ttm": 19.76,
+      "forward_pe": 18.23,
+      "eps_growth_3y_fcst": 0.0338,
+      "revenue_growth_3y_fcst": 0.0417,
+      "beta": 0.48,
+      "net_cash_per_share": -12.58,
+      "base EPS used": 1.86,
+      "valuation multiple (P/E) used": 19.76,
+      "P/E band (bear/base/bull)": "15.8 / 19.8 / 24.7",
+      "DCF growth (5y)": 0.0111,
+      "DCF discount rate": 0.0896,
+      "DCF exit P/E": 17.8
+    },
+    "outputs": {
+      "quality_signals": {
+        "roe": 0.3735,
+        "roic": 0.1213,
+        "debt_eq": 2.53,
+        "fcf_margin": 0.0182,
+        "beta": 0.48
+      },
+      "dcf_lite": {
+        "method": "5-yr EPS power value discounted at beta-tilted flat rate, terminal exit P/E + net cash/share",
+        "growth_5y": 0.0111,
+        "discount_rate": 0.0896,
+        "exit_pe": 17.8,
+        "fair_value": 17.66
+      },
+      "scenario_grid": {
+        "bear": {
+          "growth": 0.0056,
+          "exit_pe": 15.8,
+          "value": 14.45,
+          "upside": -0.614
+        },
+        "base": {
+          "growth": 0.0111,
+          "exit_pe": 19.8,
+          "value": 20.24,
+          "upside": -0.459
+        },
+        "bull": {
+          "growth": 0.0167,
+          "exit_pe": 24.7,
+          "value": 27.51,
+          "upside": -0.264
+        }
+      },
+      "fair_value_basis": "DCF-lite base scenario (5-yr EPS power value + net cash/share)",
+      "fair_value": {
+        "bear": 14.45,
+        "base": 20.24,
+        "bull": 27.51
+      },
+      "upside_base": -0.459,
+      "peg": 17.73
+    },
+    "notes": [
+      "3Y cumulative growth forecast converted to per-year CAGR ((1+G)^(1/3)-1)",
+      "DCF-lite: growth clamped to [0%, 25%]; discount 10% base + 2pp per beta-unit above 1 (clamped [7%,14%]); exit P/E 0.9x trailing; +net cash/share"
+    ]
+  },
+  "judge": {
+    "convergence": false,
+    "rating": "UNDERWEIGHT",
+    "conviction": 0.55,
+    "scenarios": {
+      "bull": {
+        "prob": 0.25,
+        "pt": 27.51,
+        "thesis": "TSCO's strong ROE, low beta, and dividend yield provide defensive appeal, but the bull case relies on the market paying a premium multiple that the deterministic valuation does not support."
+      },
+      "base": {
+        "prob": 0.5,
+        "pt": 20.24,
+        "thesis": "The stock is likely to drift toward its fundamental value as modest growth and cash flow generation are insufficient to justify the current valuation, with the base case reflecting a P/E of 19.8 and low growth."
+      },
+      "bear": {
+        "prob": 0.25,
+        "pt": 14.45,
+        "thesis": "High leverage, thin margins, and poor free cash flow coverage could lead to a de-rating if consumer spending weakens or interest costs rise, pushing the stock to a lower multiple."
+      }
+    },
+    "catalysts": [
+      {
+        "catalyst": "Next earnings report (10-Q filing)",
+        "date": "2026-11-06",
+        "impact": "positive"
+      },
+      {
+        "catalyst": "Insider Form 4 filings",
+        "date": "2026-11-06",
+        "impact": "negative"
+      },
+      {
+        "catalyst": "Analyst price target revisions",
+        "date": "unknown",
+        "impact": "positive"
+      }
+    ],
+    "risks": [
+      {
+        "risk": "High debt-to-equity ratio (2.53) and negative net cash per share constrain financial flexibility",
+        "likelihood": "high"
+      },
+      {
+        "risk": "Free cash flow does not cover dividend payments, potentially forcing a cut or increased debt",
+        "likelihood": "medium"
+      },
+      {
+        "risk": "Thin operating and profit margins leave little buffer against cost inflation or demand weakness",
+        "likelihood": "medium"
+      },
+      {
+        "risk": "PEG ratio of 3.06 suggests the market is overpaying for low growth",
+        "likelihood": "medium"
+      }
+    ],
+    "decision_rationale": "The deterministic valuation indicates significant downside to the current price, with the base fair value at $20.24 versus $37.40, and even the bull scenario only reaches $27.51. The bear case highlights real financial weaknesses\u2014high leverage, poor FCF coverage, and thin margins\u2014that the bull's rebuttals do not fully resolve. Given the unresolved debate and the valuation gap, an UNDERWEIGHT rating with moderate conviction is appropriate, as the risk-reward is skewed to the downside."
+  },
+  "risk_manager": {
+    "sym": "TSCO",
+    "verdict": "approved",
+    "checks": {
+      "base_pt_within_25pct": {
+        "ok": true,
+        "detail": "judge base PT 20.24 vs deterministic base fair value 20.24 (deviation 0.0%)"
+      },
+      "probs_sum_1": {
+        "ok": true,
+        "detail": "bull/base/bear probs sum to 1.000"
+      },
+      "rating_in_scale": {
+        "ok": true,
+        "detail": "rating 'UNDERWEIGHT'"
+      },
+      "conviction_01": {
+        "ok": true,
+        "detail": "conviction 0.55"
+      }
+    },
+    "n_checks_passed": 4,
+    "n_checks": 4,
+    "override_applied": false,
+    "reason": "all deterministic checks passed; judge verdict stands"
+  },
+  "audit": {
+    "bull_researcher": {
+      "system": "You are the bull case researcher for an equity research report. Your job is to argue the strongest honest bull case for the ticker, based ONLY on the data provided. Rules:\n1. Every claim MUST be grounded in a specific data field. Cite it in the 'evidence' field as <section>.<field>, e.g. 'fundamentals.pe_ttm' or 'catalyst.eps_est' or 'earnings.surprise_pct'.\n2. If the data does not support a claim, do NOT make it. Missing data is a reason to stay silent or to say so explicitly.\n3. Do not hedge: this is your side's case. Pick the 4-6 strongest claims. No filler.\n4. Return ONLY the JSON object:\n{\"stance\": \"bullish|bearish\", \"confidence\": <0-1>, \"claims\": [{\"claim\": \"<one sentence>\", \"evidence\": \"<section.field>\", \"impact\": \"positive|negative\"}]}",
+      "user": "TICKER: TSCO\n\nROLE: BULL case\n\n[fundamentals] valuation & quality: market cap, P/E, P/B, P/S, ROE, margins, growth, cash/debt, 52w range, analyst targets\n{\n\"price\": 37.5,\n\"market_cap\": 19050000000.0,\n\"enterprise_value\": 25570000000.0,\n\"pe_ttm\": 19.76,\n\"forward_pe\": 18.23,\n\"peg\": 3.06,\n\"ps_ttm\": 1.2,\n\"pb\": 7.17,\n\"pfcf\": 65.64,\n\"ev_ebitda\": 13.42,\n\"eps_ttm\": 1.86,\n\"eps_forward\": 2.0570488206253428,\n\"fcf_per_share\": 0.56,\n\"revenue_per_share\": null,\n\"cash_per_share\": -12.58,\n\"book_value_per_share\": 5.12,\n\"roe\": 0.3735,\n\"roa\": 0.075,\n\"roic\": 0.1213,\n\"roce\": 0.15109999999999998,\n\"gross_margin\": 0.3628,\n\"operating_margin\": 0.087,\n\"profit_margin\": 0.0613,\n\"fcf_margin\": 0.0182,\n\"ebitda_margin\": 0.1195,\n\"pretax_margin\": 0.0774,\n\"revenue_growth_yoy\": 0.0417,\n\"eps_growth_yoy\": 0.0338,\n\"fcf\": 290260000.0,\n\"ocf\": 1210000000.0,\n\"capex\": -917190000.0,\n\"cash\": null,\n\"debt\": 6720000000.0,\n\"net_cash\": -652...<truncated 5111 chars>",
+      "response": "{\n  \"stance\": \"bullish\",\n  \"confidence\": 0.72,\n  \"claims\": [\n    {\n      \"claim\": \"Tractor Supply is a high-return business, with a return on equity of 37.35%, indicating strong profitability and efficient use of shareholder capital.\",\n      \"evidence\": \"fundamentals.roe\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"The stock is trading at a reasonable valuation with a forward P/E of 18.23, which is in line with its expected earnings growth and below the broader market average.\",\n      \"evidence\": \"fundamentals.forward_pe\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"Analysts have a 'Buy' recommendation with a price target of $37.48, which is essentially at the current price, suggesting limited downside and potential for upside if earnings beat expectations.\",\n      \"evidence\": \"fundamentals.analyst_recommendation\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"The company has a low beta of 0.48, indicating that its stock price is less volatile than the market, providing a defensive investment characteristic.\",\n      \"evidence\": \"fundamentals.beta\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"Tractor Supply has a solid dividend yield of 2.61% with a payout ratio of 51.63%, leaving room for future dividend increases while still rewarding shareholders.\",\n      \"evidence\": \"fundamentals.dividend_yield\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"The company has shown consistent growth with revenue up 4.17% year-over-year and EPS up 3.38%, demonstrating resilience in a challenging retail environment.\",\n      \"evidence\": \"fundamentals.revenue_growth_yoy\",\n      \"impact\": \"positive\"\n    }\n  ]\n}",
+      "ok": true
+    },
+    "bear_researcher": {
+      "system": "You are the bear case researcher for an equity research report. Your job is to argue the strongest honest bear case for the ticker, based ONLY on the data provided. Rules:\n1. Every claim MUST be grounded in a specific data field. Cite it in the 'evidence' field as <section>.<field>, e.g. 'fundamentals.pe_ttm' or 'catalyst.eps_est' or 'earnings.surprise_pct'.\n2. If the data does not support a claim, do NOT make it. Missing data is a reason to stay silent or to say so explicitly.\n3. Do not hedge: this is your side's case. Pick the 4-6 strongest claims. No filler.\n4. Return ONLY the JSON object:\n{\"stance\": \"bullish|bearish\", \"confidence\": <0-1>, \"claims\": [{\"claim\": \"<one sentence>\", \"evidence\": \"<section.field>\", \"impact\": \"positive|negative\"}]}",
+      "user": "TICKER: TSCO\n\nROLE: BEAR case\n\n[filings] recent SEC filings (8-K etc.)\n[\n{\n\"form\": \"4\",\n\"filing_date\": \"2026-11-06\",\n\"accession\": \"0001819248-26-000011\",\n\"primary_doc\": \"xslF345X06/wk-form4_1794002509.xml\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/916365/000181924826000011/xslF345X06/wk-form4_1794002509.xml\"\n},\n{\n\"form\": \"4\",\n\"filing_date\": \"2026-11-06\",\n\"accession\": \"0001926550-26-000007\",\n\"primary_doc\": \"xslF345X06/wk-form4_1793999978.xml\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/916365/000192655026000007/xslF345X06/wk-form4_1793999978.xml\"\n},\n{\n\"form\": \"10-Q\",\n\"filing_date\": \"2026-11-05\",\n\"accession\": \"0000916365-26-000079\",\n\"primary_doc\": \"tsco-20260926.htm\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/916365/000091636526000079/tsco-20260926.htm\"\n},\n{\n\"form\": \"3\",\n\"filing_date\": \"2026-11-05\",\n\"accession\": \"0001926550-26-000006\",\n\"primary_doc\": \"xslF345X06/wk-form3_...<truncated 5111 chars>",
+      "response": "{\n  \"stance\": \"bearish\",\n  \"confidence\": 0.7,\n  \"claims\": [\n    {\n      \"claim\": \"TSCO's valuation is stretched with a PEG ratio of 3.06, indicating that the stock's growth prospects do not justify its current earnings multiple.\",\n      \"evidence\": \"fundamentals.peg\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The company's free cash flow yield is a mere 1.52%, while the price-to-free-cash-flow multiple is 65.64, suggesting that shareholders are paying a premium for limited cash generation.\",\n      \"evidence\": \"fundamentals.fcf_yield\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"TSCO's high debt burden is a concern, with a debt-to-equity ratio of 2.53 and negative net cash per share of -12.58, which could constrain financial flexibility.\",\n      \"evidence\": \"fundamentals.debt_eq\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The company's operating margin of 8.7% and profit margin of 6.13% are thin, leaving little room for error if input costs rise or consumer spending weakens.\",\n      \"evidence\": \"fundamentals.operating_margin\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"Recent insider activity includes Form 4 filings, which may indicate insider selling or other transactions that could signal a lack of confidence in the stock's near-term prospects.\",\n      \"evidence\": \"filings.form\",\n      \"impact\": \"negative\"\n    }\n  ]\n}",
+      "ok": true
+    },
+    "bear_rebuttal": {
+      "system": "You are the bear researcher responding to the OPPOSING case. Address each of the opposing side's claims head-on. For each one: either concede it, or rebut it using a specific counter-field from the data (evidence as <section>.<field>), or point out the inference gap. Be specific and numerical. Return ONLY:\n{\"rebuttals\": [{\"target_claim\": \"<the claim you are answering>\", \"response\": \"<your counter-argument, 1-2 sentences>\", \"counter_evidence\": \"<section.field or null>\", \"concede\": true|false, \"strength\": <0-1>}]}",
+      "user": "OPPOSING (bull) CLAIMS:\n[{\"claim\": \"Tractor Supply is a high-return business, with a return on equity of 37.35%, indicating strong profitability and efficient use of shareholder capital.\", \"evidence\": \"fundamentals.roe\", \"impact\": \"positive\"}, {\"claim\": \"The stock is trading at a reasonable valuation with a forward P/E of 18.23, which is in line with its expected earnings growth and below the broader market average.\", \"evidence\": \"fundamentals.forward_pe\", \"impact\": \"positive\"}, {\"claim\": \"Analysts have a 'Buy' recommendation with a price target of $37.48, which is essentially at the current price, suggesting limited downside and potential for upside if earnings beat expectations.\", \"evidence\": \"fundamentals.analyst_recommendation\", \"impact\": \"positive\"}, {\"claim\": \"The company has a low beta of 0.48, indicating that its stock price is less volatile than the market, providing a defensive...<truncated 6601 chars>",
+      "response": "{\"rebuttals\": [{\"target_claim\": \"Tractor Supply is a high-return business, with a return on equity of 37.35%, indicating strong profitability and efficient use of shareholder capital.\", \"response\": \"The 37.35% ROE is inflated by extreme leverage\u2014debt-to-equity is 2.53 and net cash per share is -$12.58\u2014meaning the high return is driven by borrowed capital, not operational efficiency. ROIC of 12.13% and ROA of 7.5% show far more modest underlying profitability.\", \"counter_evidence\": \"fundamentals.debt_eq\", \"concede\": false, \"strength\": 0.8}, {\"target_claim\": \"The stock is trading at a reasonable valuation with a forward P/E of 18.23, which is in line with its expected earnings growth and below the broader market average.\", \"response\": \"The PEG ratio of 3.06 reveals the forward P/E is not in line with growth\u2014it's roughly 3x the earnings growth rate, indicating the stock is expensive relative to its growth prospects. The forward P/E of 18.23 is also above the company's own TTM P/E of 19.76 only slightly, but with EPS growth of just 3.38%, the multiple is not justified.\", \"counter_evidence\": \"fundamentals.peg\", \"concede\": false, \"strength\": 0.9}, {\"target_claim\": \"Analysts have a 'Buy' recommendation with a price target of $37.48, which is essentially at the current price, suggesting limited downside and potential for upside if earnings beat expectations.\", \"response\": \"A price target of $37.48 versus the current price of $37.40 implies only 0.2% upside\u2014essentially no upside at all. The 'Buy' rating is contradicted by the target being at the current price, and the stock has underperformed competitors recently per MarketWatch, suggesting the target may be stale or overly optimistic.\", \"counter_evidence\": \"fundamentals.price_target\", \"concede\": false, \"strength\": 0.7}, {\"targe...<truncated 1838 chars>",
+      "ok": true
+    },
+    "bull_rebuttal": {
+      "system": "You are the bull researcher responding to the OPPOSING case. Address each of the opposing side's claims head-on. For each one: either concede it, or rebut it using a specific counter-field from the data (evidence as <section>.<field>), or point out the inference gap. Be specific and numerical. Return ONLY:\n{\"rebuttals\": [{\"target_claim\": \"<the claim you are answering>\", \"response\": \"<your counter-argument, 1-2 sentences>\", \"counter_evidence\": \"<section.field or null>\", \"concede\": true|false, \"strength\": <0-1>}]}",
+      "user": "OPPOSING (bear) CLAIMS:\n[{\"claim\": \"TSCO's valuation is stretched with a PEG ratio of 3.06, indicating that the stock's growth prospects do not justify its current earnings multiple.\", \"evidence\": \"fundamentals.peg\", \"impact\": \"negative\"}, {\"claim\": \"The company's free cash flow yield is a mere 1.52%, while the price-to-free-cash-flow multiple is 65.64, suggesting that shareholders are paying a premium for limited cash generation.\", \"evidence\": \"fundamentals.fcf_yield\", \"impact\": \"negative\"}, {\"claim\": \"TSCO's high debt burden is a concern, with a debt-to-equity ratio of 2.53 and negative net cash per share of -12.58, which could constrain financial flexibility.\", \"evidence\": \"fundamentals.debt_eq\", \"impact\": \"negative\"}, {\"claim\": \"The company's operating margin of 8.7% and profit margin of 6.13% are thin, leaving little room for error if input costs rise or consumer spending weakens.\",...<truncated 6349 chars>",
+      "response": "{\"rebuttals\": [{\"target_claim\": \"TSCO's valuation is stretched with a PEG ratio of 3.06, indicating that the stock's growth prospects do not justify its current earnings multiple.\", \"response\": \"The PEG ratio is misleading here because TSCO's earnings growth is currently depressed by heavy capex investment; the forward P/E of 18.23 is below the TTM P/E of 19.76, and analysts maintain a Buy recommendation with a price target of $37.48, essentially at the current price, suggesting the market sees fair value rather than overvaluation.\", \"counter_evidence\": \"fundamentals.forward_pe\", \"concede\": false, \"strength\": 0.7}, {\"target_claim\": \"The company's free cash flow yield is a mere 1.52%, while the price-to-free-cash-flow multiple is 65.64, suggesting that shareholders are paying a premium for limited cash generation.\", \"response\": \"The low FCF yield is a result of massive strategic capex ($917M) that is funding growth; operating cash flow is a robust $1.21B, and the company still generates $290M in FCF while paying a 2.61% dividend, indicating the cash generation is being reinvested for future returns rather than being weak.\", \"counter_evidence\": \"fundamentals.ocf\", \"concede\": false, \"strength\": 0.8}, {\"target_claim\": \"TSCO's high debt burden is a concern, with a debt-to-equity ratio of 2.53 and negative net cash per share of -12.58, which could constrain financial flexibility.\", \"response\": \"The debt-to-equity ratio is elevated because book value is only $5.12 per share due to aggressive buybacks, but the company's ROE of 37.35% and EBITDA of $1.91B provide ample coverage; the EV/EBITDA of 13.42 is reasonable for a stable retailer with a beta of 0.48, indicating low risk.\", \"counter_evidence\": \"fundamentals.roe\", \"concede\": false, \"strength\": 0.6}, {\"target_claim\": \"The co...<truncated 1102 chars>",
+      "ok": true
+    },
+    "judge": {
+      "system": "You are the head of a sell-side equity research team. You have read the bull case, the bear case, their rebuttals, the evidence grading, and a deterministic valuation computed in Python (never modify its numbers). Produce the final verdict.\nRules:\n1. Scenarios: bull/base/bear 12-month price targets and probabilities. Base-case target MUST stay within +-25% of the deterministic valuation's base fair value when one exists. Probabilities must sum to 1.0.\n2. Rating scale: BUY / OVERWEIGHT / HOLD / UNDERWEIGHT / SELL.\n3. In the 'catalysts' list, when the data's 'catalyst' section has an explicit date (e.g. next earnings date), use it as the date; otherwise 'unknown'.\n4. Convergence detection: if bull and bear largely agree on direction (or disagree on nothing material), set convergence true and keep conviction; if the debate is unresolved, convergence false and lower conviction.\n4. All facts ...<truncated 478 chars>",
+      "user": "TICKER: TSCO\nPRICE: 37.400001525878906\n\n=== BULL CASE ===\nbull (confidence 0.72):\n- [positive] Tractor Supply is a high-return business, with a return on equity of 37.35%, indicating strong profitability and efficient use of shareholder capital. (evidence: fundamentals.roe)\n- [positive] The stock is trading at a reasonable valuation with a forward P/E of 18.23, which is in line with its expected earnings growth and below the broader market average. (evidence: fundamentals.forward_pe)\n- [positive] Analysts have a 'Buy' recommendation with a price target of $37.48, which is essentially at the current price, suggesting limited downside and potential for upside if earnings beat expectations. (evidence: fundamentals.analyst_recommendation)\n- [positive] The company has a low beta of 0.48, indicating that its stock price is less volatile than the market, providing a defensive investment charact...<truncated 8880 chars>",
+      "response": "{\n  \"convergence\": false,\n  \"rating\": \"UNDERWEIGHT\",\n  \"conviction\": 0.55,\n  \"scenarios\": {\n    \"bull\": {\n      \"prob\": 0.25,\n      \"pt\": 27.51,\n      \"thesis\": \"TSCO's strong ROE, low beta, and dividend yield provide defensive appeal, but the bull case relies on the market paying a premium multiple that the deterministic valuation does not support.\"\n    },\n    \"base\": {\n      \"prob\": 0.5,\n      \"pt\": 20.24,\n      \"thesis\": \"The stock is likely to drift toward its fundamental value as modest growth and cash flow generation are insufficient to justify the current valuation, with the base case reflecting a P/E of 19.8 and low growth.\"\n    },\n    \"bear\": {\n      \"prob\": 0.25,\n      \"pt\": 14.45,\n      \"thesis\": \"High leverage, thin margins, and poor free cash flow coverage could lead to a de-rating if consumer spending weakens or interest costs rise, pushing the stock to a lower multiple.\"\n    }\n  },\n  \"catalysts\": [\n    {\n      \"catalyst\": \"Next earnings report (10-Q filing)\",\n      \"date\": \"2026-11-06\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"catalyst\": \"Insider Form 4 filings\",\n      \"date\": \"2026-11-06\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"catalyst\": \"Analyst price target revisions\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    }\n  ],\n  \"risks\": [\n    {\n      \"risk\": \"High debt-to-equity ratio (2.53) and negative net cash per share constrain financial flexibility\",\n      \"likelihood\": \"high\"\n    },\n    {\n      \"risk\": \"Free cash flow does not cover dividend payments, potentially forcing a cut or increased debt\",\n      \"likelihood\": \"medium\"\n    },\n    {\n      \"risk\": \"Thin operating and profit margins leave little buffer against cost inflation or demand weakness\",\n      \"likelihood\": \"medium\"\n    },\n    {\n      \"risk\": \"PEG ratio of 3.06 sug...<truncated 604 chars>",
+      "ok": true
+    }
+  },
+  "errors": [],
+  "elapsed_sec": 0.0,
+  "report_path": null,
+  "json_path": null
+}

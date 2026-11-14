@@ -1,0 +1,443 @@
+{
+  "sym": "AAPL",
+  "generated_utc": "2026-11-11T15:46:18Z",
+  "price": 350.69000244140625,
+  "data_sections": [
+    "quote",
+    "fundamentals",
+    "news",
+    "filings",
+    "hn_mentions",
+    "clusters"
+  ],
+  "bull": {
+    "stance": "bullish",
+    "confidence": 0.75,
+    "claims": [
+      {
+        "claim": "Apple's exceptional profitability, with a return on equity of 142.3%, demonstrates its ability to generate outsized shareholder value from its capital base.",
+        "evidence": "fundamentals.roe",
+        "impact": "positive"
+      },
+      {
+        "claim": "Apple's robust free cash flow generation of $136.06 billion, representing a 28.4% margin, provides ample resources for innovation, buybacks, and dividends.",
+        "evidence": "fundamentals.fcf",
+        "impact": "positive"
+      },
+      {
+        "claim": "Apple maintains a strong net cash position of $42.46 billion, indicating financial stability and flexibility to weather economic uncertainties.",
+        "evidence": "fundamentals.net_cash",
+        "impact": "positive"
+      },
+      {
+        "claim": "Apple's revenue and EPS growth of 8.24% and 9.45% year-over-year, respectively, show consistent expansion in its core business.",
+        "evidence": "fundamentals.revenue_growth_yoy",
+        "impact": "positive"
+      },
+      {
+        "claim": "Analysts maintain a 'Buy' recommendation with a price target of $344.62, suggesting the stock is fairly valued with potential upside from current levels.",
+        "evidence": "fundamentals.analyst_recommendation",
+        "impact": "positive"
+      },
+      {
+        "claim": "Recent news highlights the iPhone duo as a catalyst for a 'New Decade' for Apple, indicating strong product momentum and future growth prospects.",
+        "evidence": "news.0.headline",
+        "impact": "positive"
+      }
+    ]
+  },
+  "bear": {
+    "stance": "bearish",
+    "confidence": 0.7,
+    "claims": [
+      {
+        "claim": "AAPL's valuation is stretched, trading at a P/E of 39.16 and a PEG of 4.49, implying the market expects growth that is not supported by fundamentals.",
+        "evidence": "fundamentals.pe_ttm, fundamentals.peg",
+        "impact": "negative"
+      },
+      {
+        "claim": "The stock trades at a price-to-book ratio of 45.18, indicating extreme overvaluation relative to its book value of $7.71 per share.",
+        "evidence": "fundamentals.pb, fundamentals.book_value_per_share",
+        "impact": "negative"
+      },
+      {
+        "claim": "The current price of $350.69 is above the average analyst price target of $344.62, suggesting limited upside potential and possible downside risk.",
+        "evidence": "quote.c, fundamentals.price_target",
+        "impact": "negative"
+      },
+      {
+        "claim": "Apple's revenue growth of 8.24% year-over-year is modest relative to its high valuation multiples, making it difficult to justify the premium.",
+        "evidence": "fundamentals.revenue_growth_yoy",
+        "impact": "negative"
+      },
+      {
+        "claim": "The company's high payout ratio of 12.03% and low dividend yield of 0.31% offer minimal income support, reducing the stock's appeal as a defensive holding.",
+        "evidence": "fundamentals.payout_ratio, fundamentals.dividend_yield",
+        "impact": "negative"
+      }
+    ]
+  },
+  "rebuttals": {
+    "bear": {
+      "rebuttals": [
+        {
+          "target_claim": "Apple's exceptional profitability, with a return on equity of 142.3%, demonstrates its ability to generate outsized shareholder value from its capital base.",
+          "response": "The 142.3% ROE is inflated by Apple's massive share buybacks, which have reduced book value per share to just $7.71. This is not sustainable operational performance but a financial engineering artifact, as evidenced by the debt-to-equity ratio of 0.84 and the fact that ROE is nearly 5x ROA (25.87%), indicating extreme leverage on the equity base.",
+          "counter_evidence": "fundamentals.book_value_per_share",
+          "concede": false,
+          "strength": 0.8
+        },
+        {
+          "target_claim": "Apple's robust free cash flow generation of $136.06 billion, representing a 28.4% margin, provides ample resources for innovation, buybacks, and dividends.",
+          "response": "While FCF is strong, the market already prices this in at a P/FCF of 37.22x, meaning investors pay a huge premium for that cash flow. Moreover, the FCF yield of just 2.69% is below the risk-free rate, suggesting the stock is overvalued relative to its cash generation.",
+          "counter_evidence": "fundamentals.pfcf",
+          "concede": true,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "Apple maintains a strong net cash position of $42.46 billion, indicating financial stability and flexibility to weather economic uncertainties.",
+          "response": "The net cash position is misleading because Apple also carries $94.48 billion in debt, and the net cash per share of $2.92 is only 0.8% of the stock price. This is minimal financial flexibility relative to a $5.11 trillion market cap, and the company's high leverage (debt/equity 0.84) offsets any perceived stability.",
+          "counter_evidence": "fundamentals.debt",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "Apple's revenue and EPS growth of 8.24% and 9.45% year-over-year, respectively, show consistent expansion in its core business.",
+          "response": "The growth rates are modest and far below the valuation multiple: with a PEG ratio of 4.49, the stock is priced for much faster growth than the 8-9% being delivered. EPS growth is also partly driven by buybacks reducing share count, not purely organic earnings expansion.",
+          "counter_evidence": "fundamentals.peg",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "Analysts maintain a 'Buy' recommendation with a price target of $344.62, suggesting the stock is fairly valued with potential upside from current levels.",
+          "response": "The price target of $344.62 is actually 1.7% BELOW the current price of $350.69, meaning analysts see downside, not upside. The 'Buy' rating is inconsistent with a target below market price, and the stock is trading at a 39.16x P/E, well above historical norms for a mature company.",
+          "counter_evidence": "quote.c",
+          "concede": false,
+          "strength": 0.9
+        },
+        {
+          "target_claim": "Recent news highlights the iPhone duo as a catalyst for a 'New Decade' for Apple, indicating strong product momentum and future growth prospects.",
+          "response": "This is speculative media hype, not fundamental evidence. The Barron's headline is forward-looking commentary, not a data point on actual sales or margins. Apple's revenue growth of 8.24% does not support a 'new decade' narrative, and the stock's 39x P/E already prices in such optimism, leaving no margin of safety.",
+          "counter_evidence": "fundamentals.revenue_growth_yoy",
+          "concede": false,
+          "strength": 0.5
+        }
+      ]
+    },
+    "bull": {
+      "rebuttals": [
+        {
+          "target_claim": "AAPL's valuation is stretched, trading at a P/E of 39.16 and a PEG of 4.49, implying the market expects growth that is not supported by fundamentals.",
+          "response": "The P/E and PEG are backward-looking; AAPL's forward P/E of 37.41 and EPS growth of 9.45% YoY show continued earnings momentum, and the PEG fails to capture the quality of earnings (ROE of 142.3%) that justifies a premium multiple.",
+          "counter_evidence": "fundamentals.forward_pe, fundamentals.eps_growth_yoy, fundamentals.roe",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "The stock trades at a price-to-book ratio of 45.18, indicating extreme overvaluation relative to its book value of $7.71 per share.",
+          "response": "P/B is misleading for asset-light tech companies; AAPL generates $136B in FCF and holds $136.9B in cash, making book value an irrelevant metric when the business is valued on cash flows and earnings, not tangible assets.",
+          "counter_evidence": "fundamentals.fcf, fundamentals.cash",
+          "concede": false,
+          "strength": 0.8
+        },
+        {
+          "target_claim": "The current price of $350.69 is above the average analyst price target of $344.62, suggesting limited upside potential and possible downside risk.",
+          "response": "Analyst targets are lagging indicators; the consensus recommendation is 'Buy' and the stock's 52-week high is not provided, but the recent 8-K filing and positive news (e.g., Barron's 'New Decade' article) suggest catalysts that could push targets higher.",
+          "counter_evidence": "fundamentals.analyst_recommendation, news",
+          "concede": true,
+          "strength": 0.5
+        },
+        {
+          "target_claim": "Apple's revenue growth of 8.24% year-over-year is modest relative to its high valuation multiples, making it difficult to justify the premium.",
+          "response": "Revenue growth of 8.24% is solid for a $5.1T company, and with operating margins of 33% and FCF margin of 28.4%, AAPL converts growth into outsized profits, justifying a premium P/S of 10.58.",
+          "counter_evidence": "fundamentals.operating_margin, fundamentals.fcf_margin",
+          "concede": false,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "The company's high payout ratio of 12.03% and low dividend yield of 0.31% offer minimal income support, reducing the stock's appeal as a defensive holding.",
+          "response": "The low payout ratio (12%) actually signals ample room for dividend growth, and AAPL's $136B FCF provides massive buyback capacity, making it a defensive holding through capital returns rather than yield.",
+          "counter_evidence": "fundamentals.fcf, fundamentals.payout_ratio",
+          "concede": false,
+          "strength": 0.6
+        }
+      ]
+    }
+  },
+  "grading": {
+    "bull": {
+      "side": "bull",
+      "n_claims": 6,
+      "grounded": 5,
+      "ungrounded": 1,
+      "sections_cited": [
+        "fundamentals",
+        "news"
+      ],
+      "claims": [
+        {
+          "claim": "Apple's exceptional profitability, with a return on equity of 142.3%, demonstrates its ability to generate outsized shareholder value from its capital base.",
+          "evidence": "fundamentals.roe",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Apple's robust free cash flow generation of $136.06 billion, representing a 28.4% margin, provides ample resources for innovation, buybacks, and dividends.",
+          "evidence": "fundamentals.fcf",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Apple maintains a strong net cash position of $42.46 billion, indicating financial stability and flexibility to weather economic uncertainties.",
+          "evidence": "fundamentals.net_cash",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Apple's revenue and EPS growth of 8.24% and 9.45% year-over-year, respectively, show consistent expansion in its core business.",
+          "evidence": "fundamentals.revenue_growth_yoy",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Analysts maintain a 'Buy' recommendation with a price target of $344.62, suggesting the stock is fairly valued with potential upside from current levels.",
+          "evidence": "fundamentals.analyst_recommendation",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Recent news highlights the iPhone duo as a catalyst for a 'New Decade' for Apple, indicating strong product momentum and future growth prospects.",
+          "evidence": "news.0.headline",
+          "grounded": false,
+          "reason": "'news.0.headline': '0.headline' not found in section 'news'"
+        }
+      ]
+    },
+    "bear": {
+      "side": "bear",
+      "n_claims": 5,
+      "grounded": 5,
+      "ungrounded": 0,
+      "sections_cited": [
+        "fundamentals",
+        "quote"
+      ],
+      "claims": [
+        {
+          "claim": "AAPL's valuation is stretched, trading at a P/E of 39.16 and a PEG of 4.49, implying the market expects growth that is not supported by fundamentals.",
+          "evidence": "fundamentals.pe_ttm, fundamentals.peg",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The stock trades at a price-to-book ratio of 45.18, indicating extreme overvaluation relative to its book value of $7.71 per share.",
+          "evidence": "fundamentals.pb, fundamentals.book_value_per_share",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The current price of $350.69 is above the average analyst price target of $344.62, suggesting limited upside potential and possible downside risk.",
+          "evidence": "quote.c, fundamentals.price_target",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Apple's revenue growth of 8.24% year-over-year is modest relative to its high valuation multiples, making it difficult to justify the premium.",
+          "evidence": "fundamentals.revenue_growth_yoy",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The company's high payout ratio of 12.03% and low dividend yield of 0.31% offer minimal income support, reducing the stock's appeal as a defensive holding.",
+          "evidence": "fundamentals.payout_ratio, fundamentals.dividend_yield",
+          "grounded": true,
+          "reason": "ok"
+        }
+      ]
+    }
+  },
+  "valuation": {
+    "sym": "AAPL",
+    "price": 350.69000244140625,
+    "deterministic": true,
+    "inputs": {
+      "eps_ttm": 8.98,
+      "eps_forward (consensus-derived)": 9.37423148890671,
+      "pe_ttm": 39.16,
+      "forward_pe": 37.41,
+      "eps_growth_3y_fcst": 0.09449999999999999,
+      "revenue_growth_3y_fcst": 0.0824,
+      "beta": 1.09,
+      "net_cash_per_share": 2.92,
+      "base EPS used": 9.3742,
+      "valuation multiple (P/E) used": 39.16,
+      "P/E band (bear/base/bull)": "31.3 / 39.2 / 48.9",
+      "DCF growth (5y)": 0.0945,
+      "DCF discount rate": 0.1018,
+      "DCF exit P/E": 35.2
+    },
+    "outputs": {
+      "quality_signals": {
+        "roe": 1.4225999999999999,
+        "roic": 0.9394,
+        "debt_eq": 0.84,
+        "fcf_margin": 0.2841,
+        "beta": 1.09
+      },
+      "dcf_lite": {
+        "method": "5-yr EPS power value discounted at beta-tilted flat rate, terminal exit P/E + net cash/share",
+        "growth_5y": 0.0945,
+        "discount_rate": 0.1018,
+        "exit_pe": 35.2,
+        "fair_value": 368.45
+      },
+      "scenario_grid": {
+        "bear": {
+          "growth": 0.0472,
+          "exit_pe": 31.3,
+          "value": 270.9,
+          "upside": -0.228
+        },
+        "base": {
+          "growth": 0.0945,
+          "exit_pe": 39.2,
+          "value": 404.32,
+          "upside": 0.153
+        },
+        "bull": {
+          "growth": 0.1417,
+          "exit_pe": 48.9,
+          "value": 602.9,
+          "upside": 0.719
+        }
+      },
+      "fair_value_basis": "DCF-lite base scenario (5-yr EPS power value + net cash/share)",
+      "fair_value": {
+        "bear": 270.9,
+        "base": 404.32,
+        "bull": 602.9
+      },
+      "upside_base": 0.153,
+      "peg": 4.14
+    },
+    "notes": [
+      "DCF-lite: growth clamped to [0%, 25%]; discount 10% base + 2pp per beta-unit above 1 (clamped [7%,14%]); exit P/E 0.9x trailing; +net cash/share"
+    ]
+  },
+  "judge": {
+    "convergence": false,
+    "rating": "HOLD",
+    "conviction": 0.4,
+    "scenarios": {
+      "bull": {
+        "prob": 0.25,
+        "pt": 602.9,
+        "thesis": "Apple's exceptional profitability, robust free cash flow, and strong product momentum could drive a re-rating to a higher multiple, yielding substantial upside."
+      },
+      "base": {
+        "prob": 0.5,
+        "pt": 404.32,
+        "thesis": "Apple's solid fundamentals and moderate growth support a fair value near the deterministic base case, with the stock trading close to its intrinsic worth."
+      },
+      "bear": {
+        "prob": 0.25,
+        "pt": 270.9,
+        "thesis": "High valuation multiples and modest growth relative to expectations could lead to multiple compression and significant downside if growth disappoints."
+      }
+    },
+    "catalysts": [
+      {
+        "catalyst": "Next earnings report",
+        "date": "unknown",
+        "impact": "positive"
+      },
+      {
+        "catalyst": "iPhone duo launch and product cycle momentum",
+        "date": "unknown",
+        "impact": "positive"
+      },
+      {
+        "catalyst": "Potential dividend increases or buyback announcements",
+        "date": "unknown",
+        "impact": "positive"
+      }
+    ],
+    "risks": [
+      {
+        "risk": "Valuation multiple compression due to high P/E and PEG",
+        "likelihood": "medium"
+      },
+      {
+        "risk": "Slower-than-expected revenue growth failing to justify premium valuation",
+        "likelihood": "medium"
+      },
+      {
+        "risk": "Macroeconomic headwinds affecting consumer spending and iPhone demand",
+        "likelihood": "medium"
+      }
+    ],
+    "decision_rationale": "The bull and bear cases present a clear disagreement on valuation sustainability: bulls emphasize quality and cash flow, while bears highlight stretched multiples and modest growth. The deterministic valuation suggests a base fair value of $404.32, implying about 15% upside from the current price, but the wide scenario range (270.9 to 602.9) reflects high uncertainty. Given the unresolved debate and the stock trading near analyst targets, a HOLD rating with moderate conviction is appropriate."
+  },
+  "risk_manager": {
+    "sym": "AAPL",
+    "verdict": "approved",
+    "checks": {
+      "base_pt_within_25pct": {
+        "ok": true,
+        "detail": "judge base PT 404.32 vs deterministic base fair value 404.32 (deviation 0.0%)"
+      },
+      "probs_sum_1": {
+        "ok": true,
+        "detail": "bull/base/bear probs sum to 1.000"
+      },
+      "rating_in_scale": {
+        "ok": true,
+        "detail": "rating 'HOLD'"
+      },
+      "conviction_01": {
+        "ok": true,
+        "detail": "conviction 0.4"
+      }
+    },
+    "n_checks_passed": 4,
+    "n_checks": 4,
+    "override_applied": false,
+    "reason": "all deterministic checks passed; judge verdict stands"
+  },
+  "audit": {
+    "bull_researcher": {
+      "system": "You are the bull case researcher for an equity research report. Your job is to argue the strongest honest bull case for the ticker, based ONLY on the data provided. Rules:\n1. Every claim MUST be grounded in a specific data field. Cite it in the 'evidence' field as <section>.<field>, e.g. 'fundamentals.pe_ttm' or 'catalyst.eps_est' or 'earnings.surprise_pct'.\n2. If the data does not support a claim, do NOT make it. Missing data is a reason to stay silent or to say so explicitly.\n3. Do not hedge: this is your side's case. Pick the 4-6 strongest claims. No filler.\n4. Return ONLY the JSON object:\n{\"stance\": \"bullish|bearish\", \"confidence\": <0-1>, \"claims\": [{\"claim\": \"<one sentence>\", \"evidence\": \"<section.field>\", \"impact\": \"positive|negative\"}]}",
+      "user": "TICKER: AAPL\n\nROLE: BULL case\n\n[fundamentals] valuation & quality: market cap, P/E, P/B, P/S, ROE, margins, growth, cash/debt, 52w range, analyst targets\n{\n\"price\": 350.69,\n\"market_cap\": 5110000000000.0,\n\"enterprise_value\": 5070000000000.0,\n\"pe_ttm\": 39.16,\n\"forward_pe\": 37.41,\n\"peg\": 4.49,\n\"ps_ttm\": 10.58,\n\"pb\": 45.18,\n\"pfcf\": 37.22,\n\"ev_ebitda\": 29.29,\n\"eps_ttm\": 8.98,\n\"eps_forward\": 9.37423148890671,\n\"fcf_per_share\": 9.36,\n\"revenue_per_share\": null,\n\"cash_per_share\": 9.424638678596008,\n\"book_value_per_share\": 7.71,\n\"roe\": 1.4225999999999999,\n\"roa\": 0.2587,\n\"roic\": 0.9394,\n\"roce\": 0.6737000000000001,\n\"gross_margin\": 0.4879,\n\"operating_margin\": 0.3301,\n\"profit_margin\": 0.276,\n\"fcf_margin\": 0.2841,\n\"ebitda_margin\": 0.35810000000000003,\n\"pretax_margin\": 0.3326,\n\"revenue_growth_yoy\": 0.0824,\n\"eps_growth_yoy\": 0.09449999999999999,\n\"fcf\": 136060000000.0,\n\"ocf\": 145100000000.0,\n\"capex\": -9040...<truncated 5176 chars>",
+      "response": "{\n  \"stance\": \"bullish\",\n  \"confidence\": 0.75,\n  \"claims\": [\n    {\n      \"claim\": \"Apple's exceptional profitability, with a return on equity of 142.3%, demonstrates its ability to generate outsized shareholder value from its capital base.\",\n      \"evidence\": \"fundamentals.roe\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"Apple's robust free cash flow generation of $136.06 billion, representing a 28.4% margin, provides ample resources for innovation, buybacks, and dividends.\",\n      \"evidence\": \"fundamentals.fcf\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"Apple maintains a strong net cash position of $42.46 billion, indicating financial stability and flexibility to weather economic uncertainties.\",\n      \"evidence\": \"fundamentals.net_cash\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"Apple's revenue and EPS growth of 8.24% and 9.45% year-over-year, respectively, show consistent expansion in its core business.\",\n      \"evidence\": \"fundamentals.revenue_growth_yoy\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"Analysts maintain a 'Buy' recommendation with a price target of $344.62, suggesting the stock is fairly valued with potential upside from current levels.\",\n      \"evidence\": \"fundamentals.analyst_recommendation\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"Recent news highlights the iPhone duo as a catalyst for a 'New Decade' for Apple, indicating strong product momentum and future growth prospects.\",\n      \"evidence\": \"news.0.headline\",\n      \"impact\": \"positive\"\n    }\n  ]\n}",
+      "ok": true
+    },
+    "bear_researcher": {
+      "system": "You are the bear case researcher for an equity research report. Your job is to argue the strongest honest bear case for the ticker, based ONLY on the data provided. Rules:\n1. Every claim MUST be grounded in a specific data field. Cite it in the 'evidence' field as <section>.<field>, e.g. 'fundamentals.pe_ttm' or 'catalyst.eps_est' or 'earnings.surprise_pct'.\n2. If the data does not support a claim, do NOT make it. Missing data is a reason to stay silent or to say so explicitly.\n3. Do not hedge: this is your side's case. Pick the 4-6 strongest claims. No filler.\n4. Return ONLY the JSON object:\n{\"stance\": \"bullish|bearish\", \"confidence\": <0-1>, \"claims\": [{\"claim\": \"<one sentence>\", \"evidence\": \"<section.field>\", \"impact\": \"positive|negative\"}]}",
+      "user": "TICKER: AAPL\n\nROLE: BEAR case\n\n[filings] recent SEC filings (8-K etc.)\n[\n{\n\"form\": \"25-NSE\",\n\"filing_date\": \"2026-11-09\",\n\"accession\": \"0001354457-26-001062\",\n\"primary_doc\": \"xslF25X02/primary_doc.xml\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/320193/000135445726001062/xslF25X02/primary_doc.xml\"\n},\n{\n\"form\": \"8-K\",\n\"filing_date\": \"2026-11-09\",\n\"accession\": \"0001140361-26-042798\",\n\"primary_doc\": \"ef20085077_8k.htm\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/320193/000114036126042798/ef20085077_8k.htm\"\n},\n{\n\"form\": \"424B2\",\n\"filing_date\": \"2026-11-06\",\n\"accession\": \"0001140361-26-042505\",\n\"primary_doc\": \"ny20084621x2_424b2.htm\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/320193/000114036126042505/ny20084621x2_424b2.htm\"\n},\n{\n\"form\": \"FWP\",\n\"filing_date\": \"2026-11-06\",\n\"accession\": \"0001140361-26-042173\",\n\"primary_doc\": \"ny20084621x3_fwp.htm\",\n\"url\": \"https://www.sec.gov/A...<truncated 5176 chars>",
+      "response": "{\n  \"stance\": \"bearish\",\n  \"confidence\": 0.7,\n  \"claims\": [\n    {\n      \"claim\": \"AAPL's valuation is stretched, trading at a P/E of 39.16 and a PEG of 4.49, implying the market expects growth that is not supported by fundamentals.\",\n      \"evidence\": \"fundamentals.pe_ttm, fundamentals.peg\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The stock trades at a price-to-book ratio of 45.18, indicating extreme overvaluation relative to its book value of $7.71 per share.\",\n      \"evidence\": \"fundamentals.pb, fundamentals.book_value_per_share\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The current price of $350.69 is above the average analyst price target of $344.62, suggesting limited upside potential and possible downside risk.\",\n      \"evidence\": \"quote.c, fundamentals.price_target\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"Apple's revenue growth of 8.24% year-over-year is modest relative to its high valuation multiples, making it difficult to justify the premium.\",\n      \"evidence\": \"fundamentals.revenue_growth_yoy\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The company's high payout ratio of 12.03% and low dividend yield of 0.31% offer minimal income support, reducing the stock's appeal as a defensive holding.\",\n      \"evidence\": \"fundamentals.payout_ratio, fundamentals.dividend_yield\",\n      \"impact\": \"negative\"\n    }\n  ]\n}",
+      "ok": true
+    },
+    "bear_rebuttal": {
+      "system": "You are the bear researcher responding to the OPPOSING case. Address each of the opposing side's claims head-on. For each one: either concede it, or rebut it using a specific counter-field from the data (evidence as <section>.<field>), or point out the inference gap. Be specific and numerical. Return ONLY:\n{\"rebuttals\": [{\"target_claim\": \"<the claim you are answering>\", \"response\": \"<your counter-argument, 1-2 sentences>\", \"counter_evidence\": \"<section.field or null>\", \"concede\": true|false, \"strength\": <0-1>}]}",
+      "user": "OPPOSING (bull) CLAIMS:\n[{\"claim\": \"Apple's exceptional profitability, with a return on equity of 142.3%, demonstrates its ability to generate outsized shareholder value from its capital base.\", \"evidence\": \"fundamentals.roe\", \"impact\": \"positive\"}, {\"claim\": \"Apple's robust free cash flow generation of $136.06 billion, representing a 28.4% margin, provides ample resources for innovation, buybacks, and dividends.\", \"evidence\": \"fundamentals.fcf\", \"impact\": \"positive\"}, {\"claim\": \"Apple maintains a strong net cash position of $42.46 billion, indicating financial stability and flexibility to weather economic uncertainties.\", \"evidence\": \"fundamentals.net_cash\", \"impact\": \"positive\"}, {\"claim\": \"Apple's revenue and EPS growth of 8.24% and 9.45% year-over-year, respectively, show consistent expansion in its core business.\", \"evidence\": \"fundamentals.revenue_growth_yoy\", \"impact\": \"positive\"}...<truncated 6556 chars>",
+      "response": "{\"rebuttals\": [{\"target_claim\": \"Apple's exceptional profitability, with a return on equity of 142.3%, demonstrates its ability to generate outsized shareholder value from its capital base.\", \"response\": \"The 142.3% ROE is inflated by Apple's massive share buybacks, which have reduced book value per share to just $7.71. This is not sustainable operational performance but a financial engineering artifact, as evidenced by the debt-to-equity ratio of 0.84 and the fact that ROE is nearly 5x ROA (25.87%), indicating extreme leverage on the equity base.\", \"counter_evidence\": \"fundamentals.book_value_per_share\", \"concede\": false, \"strength\": 0.8}, {\"target_claim\": \"Apple's robust free cash flow generation of $136.06 billion, representing a 28.4% margin, provides ample resources for innovation, buybacks, and dividends.\", \"response\": \"While FCF is strong, the market already prices this in at a P/FCF of 37.22x, meaning investors pay a huge premium for that cash flow. Moreover, the FCF yield of just 2.69% is below the risk-free rate, suggesting the stock is overvalued relative to its cash generation.\", \"counter_evidence\": \"fundamentals.pfcf\", \"concede\": true, \"strength\": 0.6}, {\"target_claim\": \"Apple maintains a strong net cash position of $42.46 billion, indicating financial stability and flexibility to weather economic uncertainties.\", \"response\": \"The net cash position is misleading because Apple also carries $94.48 billion in debt, and the net cash per share of $2.92 is only 0.8% of the stock price. This is minimal financial flexibility relative to a $5.11 trillion market cap, and the company's high leverage (debt/equity 0.84) offsets any perceived stability.\", \"counter_evidence\": \"fundamentals.debt\", \"concede\": false, \"strength\": 0.7}, {\"target_claim\": \"Apple's revenue and EP...<truncated 1599 chars>",
+      "ok": true
+    },
+    "bull_rebuttal": {
+      "system": "You are the bull researcher responding to the OPPOSING case. Address each of the opposing side's claims head-on. For each one: either concede it, or rebut it using a specific counter-field from the data (evidence as <section>.<field>), or point out the inference gap. Be specific and numerical. Return ONLY:\n{\"rebuttals\": [{\"target_claim\": \"<the claim you are answering>\", \"response\": \"<your counter-argument, 1-2 sentences>\", \"counter_evidence\": \"<section.field or null>\", \"concede\": true|false, \"strength\": <0-1>}]}",
+      "user": "OPPOSING (bear) CLAIMS:\n[{\"claim\": \"AAPL's valuation is stretched, trading at a P/E of 39.16 and a PEG of 4.49, implying the market expects growth that is not supported by fundamentals.\", \"evidence\": \"fundamentals.pe_ttm, fundamentals.peg\", \"impact\": \"negative\"}, {\"claim\": \"The stock trades at a price-to-book ratio of 45.18, indicating extreme overvaluation relative to its book value of $7.71 per share.\", \"evidence\": \"fundamentals.pb, fundamentals.book_value_per_share\", \"impact\": \"negative\"}, {\"claim\": \"The current price of $350.69 is above the average analyst price target of $344.62, suggesting limited upside potential and possible downside risk.\", \"evidence\": \"quote.c, fundamentals.price_target\", \"impact\": \"negative\"}, {\"claim\": \"Apple's revenue growth of 8.24% year-over-year is modest relative to its high valuation multiples, making it difficult to justify the premium.\", \"evidence\": \"...<truncated 6419 chars>",
+      "response": "{\"rebuttals\": [{\"target_claim\": \"AAPL's valuation is stretched, trading at a P/E of 39.16 and a PEG of 4.49, implying the market expects growth that is not supported by fundamentals.\", \"response\": \"The P/E and PEG are backward-looking; AAPL's forward P/E of 37.41 and EPS growth of 9.45% YoY show continued earnings momentum, and the PEG fails to capture the quality of earnings (ROE of 142.3%) that justifies a premium multiple.\", \"counter_evidence\": \"fundamentals.forward_pe, fundamentals.eps_growth_yoy, fundamentals.roe\", \"concede\": false, \"strength\": 0.7}, {\"target_claim\": \"The stock trades at a price-to-book ratio of 45.18, indicating extreme overvaluation relative to its book value of $7.71 per share.\", \"response\": \"P/B is misleading for asset-light tech companies; AAPL generates $136B in FCF and holds $136.9B in cash, making book value an irrelevant metric when the business is valued on cash flows and earnings, not tangible assets.\", \"counter_evidence\": \"fundamentals.fcf, fundamentals.cash\", \"concede\": false, \"strength\": 0.8}, {\"target_claim\": \"The current price of $350.69 is above the average analyst price target of $344.62, suggesting limited upside potential and possible downside risk.\", \"response\": \"Analyst targets are lagging indicators; the consensus recommendation is 'Buy' and the stock's 52-week high is not provided, but the recent 8-K filing and positive news (e.g., Barron's 'New Decade' article) suggest catalysts that could push targets higher.\", \"counter_evidence\": \"fundamentals.analyst_recommendation, news\", \"concede\": true, \"strength\": 0.5}, {\"target_claim\": \"Apple's revenue growth of 8.24% year-over-year is modest relative to its high valuation multiples, making it difficult to justify the premium.\", \"response\": \"Revenue growth of 8.24% is solid for a $5...<truncated 766 chars>",
+      "ok": true
+    },
+    "judge": {
+      "system": "You are the head of a sell-side equity research team. You have read the bull case, the bear case, their rebuttals, the evidence grading, and a deterministic valuation computed in Python (never modify its numbers). Produce the final verdict.\nRules:\n1. Scenarios: bull/base/bear 12-month price targets and probabilities. Base-case target MUST stay within +-25% of the deterministic valuation's base fair value when one exists. Probabilities must sum to 1.0.\n2. Rating scale: BUY / OVERWEIGHT / HOLD / UNDERWEIGHT / SELL.\n3. In the 'catalysts' list, when the data's 'catalyst' section has an explicit date (e.g. next earnings date), use it as the date; otherwise 'unknown'.\n4. Convergence detection: if bull and bear largely agree on direction (or disagree on nothing material), set convergence true and keep conviction; if the debate is unresolved, convergence false and lower conviction.\n4. All facts ...<truncated 478 chars>",
+      "user": "TICKER: AAPL\nPRICE: 350.69000244140625\n\n=== BULL CASE ===\nbull (confidence 0.75):\n- [positive] Apple's exceptional profitability, with a return on equity of 142.3%, demonstrates its ability to generate outsized shareholder value from its capital base. (evidence: fundamentals.roe)\n- [positive] Apple's robust free cash flow generation of $136.06 billion, representing a 28.4% margin, provides ample resources for innovation, buybacks, and dividends. (evidence: fundamentals.fcf)\n- [positive] Apple maintains a strong net cash position of $42.46 billion, indicating financial stability and flexibility to weather economic uncertainties. (evidence: fundamentals.net_cash)\n- [positive] Apple's revenue and EPS growth of 8.24% and 9.45% year-over-year, respectively, show consistent expansion in its core business. (evidence: fundamentals.revenue_growth_yoy)\n- [positive] Analysts maintain a 'Buy' recomm...<truncated 8009 chars>",
+      "response": "{\n  \"convergence\": false,\n  \"rating\": \"HOLD\",\n  \"conviction\": 0.4,\n  \"scenarios\": {\n    \"bull\": {\n      \"prob\": 0.25,\n      \"pt\": 602.9,\n      \"thesis\": \"Apple's exceptional profitability, robust free cash flow, and strong product momentum could drive a re-rating to a higher multiple, yielding substantial upside.\"\n    },\n    \"base\": {\n      \"prob\": 0.5,\n      \"pt\": 404.32,\n      \"thesis\": \"Apple's solid fundamentals and moderate growth support a fair value near the deterministic base case, with the stock trading close to its intrinsic worth.\"\n    },\n    \"bear\": {\n      \"prob\": 0.25,\n      \"pt\": 270.9,\n      \"thesis\": \"High valuation multiples and modest growth relative to expectations could lead to multiple compression and significant downside if growth disappoints.\"\n    }\n  },\n  \"catalysts\": [\n    {\n      \"catalyst\": \"Next earnings report\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"catalyst\": \"iPhone duo launch and product cycle momentum\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"catalyst\": \"Potential dividend increases or buyback announcements\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    }\n  ],\n  \"risks\": [\n    {\n      \"risk\": \"Valuation multiple compression due to high P/E and PEG\",\n      \"likelihood\": \"medium\"\n    },\n    {\n      \"risk\": \"Slower-than-expected revenue growth failing to justify premium valuation\",\n      \"likelihood\": \"medium\"\n    },\n    {\n      \"risk\": \"Macroeconomic headwinds affecting consumer spending and iPhone demand\",\n      \"likelihood\": \"medium\"\n    }\n  ],\n  \"decision_rationale\": \"The bull and bear cases present a clear disagreement on valuation sustainability: bulls emphasize quality and cash flow, while bears highlight stretched multiples and modest growth. The determini...<truncated 305 chars>",
+      "ok": true
+    }
+  },
+  "errors": [],
+  "elapsed_sec": 0.0,
+  "report_path": null,
+  "json_path": null
+}

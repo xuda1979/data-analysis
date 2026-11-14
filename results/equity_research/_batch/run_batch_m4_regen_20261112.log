@@ -1,0 +1,8 @@
+[batch] 42 tickers, force=True, out=/home/david/software/world-trader/results/equity_research
+[batch] 01/42 ADI: done (79s, errors=0) risk=approved
+[batch] 02/42 AMD: done (76s, errors=0) risk=approved
+[batch] 03/42 APA: done (74s, errors=0) risk=approved
+[batch] 04/42 APTV: done (70s, errors=0) risk=approved
+[batch] 05/42 AXON: done (80s, errors=0) risk=approved
+[batch] 06/42 BDX: done (73s, errors=0) risk=approved
+[batch] 07/42 BIIB: done (68s, errors=0) risk=approved

@@ -1,0 +1,402 @@
+{
+  "sym": "SKYD",
+  "generated_utc": "2026-11-12T03:50:49Z",
+  "price": 8.699999809265137,
+  "data_sections": [
+    "quote",
+    "fundamentals",
+    "news",
+    "filings",
+    "hn_mentions",
+    "clusters"
+  ],
+  "bull": {
+    "stance": "bullish",
+    "confidence": 0.6,
+    "claims": [
+      {
+        "claim": "Revenue growth is exceptionally strong at 35.4% year-over-year, indicating robust business momentum.",
+        "evidence": "fundamentals.revenue_growth_yoy",
+        "impact": "positive"
+      },
+      {
+        "claim": "The stock trades at a reasonable price-to-sales ratio of 1.35, which is attractive given the high revenue growth rate.",
+        "evidence": "fundamentals.ps_ttm",
+        "impact": "positive"
+      },
+      {
+        "claim": "Analyst price target of $9.06 implies upside of over 12% from the current price of $8.04.",
+        "evidence": "fundamentals.price_target",
+        "impact": "positive"
+      },
+      {
+        "claim": "The company generates positive free cash flow of $486 million, providing financial flexibility for growth investments.",
+        "evidence": "fundamentals.fcf",
+        "impact": "positive"
+      },
+      {
+        "claim": "A dividend yield of 2.53% offers income to shareholders while the company continues to grow.",
+        "evidence": "fundamentals.dividend_yield",
+        "impact": "positive"
+      }
+    ]
+  },
+  "bear": {
+    "stance": "bearish",
+    "confidence": 0.7,
+    "claims": [
+      {
+        "claim": "Skydance is unprofitable on a trailing twelve-month basis, with a net loss of $291 million and negative profit margin, indicating fundamental earnings weakness.",
+        "evidence": "fundamentals.net_income_ttm",
+        "impact": "negative"
+      },
+      {
+        "claim": "The company's return on equity is negative at -1.75%, and return on invested capital is -3.89%, signaling poor capital efficiency and value destruction for shareholders.",
+        "evidence": "fundamentals.roe",
+        "impact": "negative"
+      },
+      {
+        "claim": "Skydance carries a substantial debt burden with $16.07 billion in debt and negative net cash of -$14.7 billion, translating to -$2.91 net cash per share, which heightens financial risk.",
+        "evidence": "fundamentals.debt",
+        "impact": "negative"
+      },
+      {
+        "claim": "The stock trades at a high price-to-free-cash-flow multiple of 81.99, despite a low free cash flow margin of 1.65%, suggesting the market is overpaying for limited cash generation.",
+        "evidence": "fundamentals.pfcf",
+        "impact": "negative"
+      },
+      {
+        "claim": "Earnings per share declined by 4.17% year-over-year, while revenue grew 35.36%, indicating that growth is not translating into bottom-line profitability.",
+        "evidence": "fundamentals.eps_growth_yoy",
+        "impact": "negative"
+      },
+      {
+        "claim": "With a beta of 1.64 and short interest at 3.56% of float, the stock is highly volatile and faces significant bearish sentiment from short sellers.",
+        "evidence": "fundamentals.beta",
+        "impact": "negative"
+      }
+    ]
+  },
+  "rebuttals": {
+    "bear": {
+      "rebuttals": [
+        {
+          "target_claim": "Revenue growth is exceptionally strong at 35.4% year-over-year, indicating robust business momentum.",
+          "response": "While revenue growth is indeed high, the company is unprofitable on a net basis (net income TTM of -$291M) and ROE is negative at -1.75%, suggesting this growth is not translating into shareholder value creation.",
+          "counter_evidence": "fundamentals.net_income_ttm",
+          "concede": true,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "The stock trades at a reasonable price-to-sales ratio of 1.35, which is attractive given the high revenue growth rate.",
+          "response": "The P/S ratio is not attractive when considering the company's negative profit margin (-0.99%) and negative earnings yield (-0.73%), meaning investors are paying 1.35x sales for a business that loses money on every dollar of revenue.",
+          "counter_evidence": "fundamentals.profit_margin",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "Analyst price target of $9.06 implies upside of over 12% from the current price of $8.04.",
+          "response": "The analyst recommendation is only 'Hold', not 'Buy', and the price target may be stale given the stock closed at $8.70 on 2026-11-09, reducing the implied upside to just ~4% from the current market price.",
+          "counter_evidence": "fundamentals.analyst_recommendation",
+          "concede": false,
+          "strength": 0.5
+        },
+        {
+          "target_claim": "The company generates positive free cash flow of $486 million, providing financial flexibility for growth investments.",
+          "response": "Positive FCF is misleading given the company has $16.07B in debt and negative net cash of -$14.7B, with a debt-to-equity ratio of 1.23, meaning the FCF is largely consumed by debt servicing obligations.",
+          "counter_evidence": "fundamentals.debt",
+          "concede": true,
+          "strength": 0.8
+        },
+        {
+          "target_claim": "A dividend yield of 2.53% offers income to shareholders while the company continues to grow.",
+          "response": "The dividend yield is not sustainable given the company's negative net income and negative earnings yield; the payout ratio is undefined (null) because earnings are negative, suggesting the dividend may be funded by debt.",
+          "counter_evidence": "fundamentals.payout_ratio",
+          "concede": false,
+          "strength": 0.6
+        }
+      ]
+    },
+    "bull": {
+      "rebuttals": [
+        {
+          "target_claim": "Skydance is unprofitable on a trailing twelve-month basis, with a net loss of $291 million and negative profit margin, indicating fundamental earnings weakness.",
+          "response": "The net loss is largely driven by non-cash items and one-time charges; operating income is positive at $1.79B with a 6.08% operating margin, and EBITDA is $3.25B, showing the core business is profitable.",
+          "counter_evidence": "fundamentals.operating_income_ttm",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "The company's return on equity is negative at -1.75%, and return on invested capital is -3.89%, signaling poor capital efficiency and value destruction for shareholders.",
+          "response": "ROE and ROIC are distorted by the large net loss; however, ROCE is positive at 5.24% and ROA is 2.54%, indicating the company is generating returns on its capital base before financing effects.",
+          "counter_evidence": "fundamentals.roce",
+          "concede": false,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "Skydance carries a substantial debt burden with $16.07 billion in debt and negative net cash of -$14.7 billion, translating to -$2.91 net cash per share, which heightens financial risk.",
+          "response": "The debt-to-equity ratio of 1.23 is manageable for a media company with $3.25B EBITDA, and the company generates $844M in operating cash flow, providing ample coverage for interest obligations.",
+          "counter_evidence": "fundamentals.debt_eq",
+          "concede": false,
+          "strength": 0.5
+        },
+        {
+          "target_claim": "The stock trades at a high price-to-free-cash-flow multiple of 81.99, despite a low free cash flow margin of 1.65%, suggesting the market is overpaying for limited cash generation.",
+          "response": "The P/FCF multiple is elevated due to heavy capex investment ($358M) that is fueling 35.36% revenue growth; as growth matures, FCF margins should expand, justifying the premium.",
+          "counter_evidence": "fundamentals.revenue_growth_yoy",
+          "concede": false,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "Earnings per share declined by 4.17% year-over-year, while revenue grew 35.36%, indicating that growth is not translating into bottom-line profitability.",
+          "response": "EPS decline is due to one-time charges and increased share count; operating income grew to $1.79B and EBITDA margin is 11.05%, showing operational leverage is improving despite the accounting loss.",
+          "counter_evidence": "fundamentals.ebitda_margin",
+          "concede": false,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "With a beta of 1.64 and short interest at 3.56% of float, the stock is highly volatile and faces significant bearish sentiment from short sellers.",
+          "response": "Short interest of 3.56% is moderate and not extreme; the beta reflects the media sector's cyclicality, and the analyst price target of $9.06 is 12.7% above the current price, indicating upside potential.",
+          "counter_evidence": "fundamentals.price_target",
+          "concede": false,
+          "strength": 0.5
+        }
+      ]
+    }
+  },
+  "grading": {
+    "bull": {
+      "side": "bull",
+      "n_claims": 5,
+      "grounded": 5,
+      "ungrounded": 0,
+      "sections_cited": [
+        "fundamentals"
+      ],
+      "claims": [
+        {
+          "claim": "Revenue growth is exceptionally strong at 35.4% year-over-year, indicating robust business momentum.",
+          "evidence": "fundamentals.revenue_growth_yoy",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The stock trades at a reasonable price-to-sales ratio of 1.35, which is attractive given the high revenue growth rate.",
+          "evidence": "fundamentals.ps_ttm",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Analyst price target of $9.06 implies upside of over 12% from the current price of $8.04.",
+          "evidence": "fundamentals.price_target",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The company generates positive free cash flow of $486 million, providing financial flexibility for growth investments.",
+          "evidence": "fundamentals.fcf",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "A dividend yield of 2.53% offers income to shareholders while the company continues to grow.",
+          "evidence": "fundamentals.dividend_yield",
+          "grounded": true,
+          "reason": "ok"
+        }
+      ]
+    },
+    "bear": {
+      "side": "bear",
+      "n_claims": 6,
+      "grounded": 6,
+      "ungrounded": 0,
+      "sections_cited": [
+        "fundamentals"
+      ],
+      "claims": [
+        {
+          "claim": "Skydance is unprofitable on a trailing twelve-month basis, with a net loss of $291 million and negative profit margin, indicating fundamental earnings weakness.",
+          "evidence": "fundamentals.net_income_ttm",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The company's return on equity is negative at -1.75%, and return on invested capital is -3.89%, signaling poor capital efficiency and value destruction for shareholders.",
+          "evidence": "fundamentals.roe",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Skydance carries a substantial debt burden with $16.07 billion in debt and negative net cash of -$14.7 billion, translating to -$2.91 net cash per share, which heightens financial risk.",
+          "evidence": "fundamentals.debt",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The stock trades at a high price-to-free-cash-flow multiple of 81.99, despite a low free cash flow margin of 1.65%, suggesting the market is overpaying for limited cash generation.",
+          "evidence": "fundamentals.pfcf",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Earnings per share declined by 4.17% year-over-year, while revenue grew 35.36%, indicating that growth is not translating into bottom-line profitability.",
+          "evidence": "fundamentals.eps_growth_yoy",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "With a beta of 1.64 and short interest at 3.56% of float, the stock is highly volatile and faces significant bearish sentiment from short sellers.",
+          "evidence": "fundamentals.beta",
+          "grounded": true,
+          "reason": "ok"
+        }
+      ]
+    }
+  },
+  "valuation": {
+    "sym": "SKYD",
+    "price": 8.699999809265137,
+    "deterministic": true,
+    "inputs": {
+      "eps_ttm": null,
+      "eps_forward (consensus-derived)": null,
+      "pe_ttm": null,
+      "forward_pe": null,
+      "eps_growth_3y_fcst": -0.0417,
+      "revenue_growth_3y_fcst": 0.35359999999999997,
+      "beta": 1.64,
+      "net_cash_per_share": -2.91
+    },
+    "outputs": {
+      "quality_signals": {
+        "roe": -0.0175,
+        "roic": -0.038900000000000004,
+        "debt_eq": 1.23,
+        "fcf_margin": 0.0165,
+        "beta": 1.64
+      },
+      "fair_value": null,
+      "peg": null
+    },
+    "notes": [
+      "no EPS and/or P/E available -- fair value NOT computed (abstain, never fabricate)"
+    ]
+  },
+  "judge": {
+    "convergence": false,
+    "rating": "HOLD",
+    "conviction": 0.4,
+    "scenarios": {
+      "bull": {
+        "prob": 0.3,
+        "pt": 9.5,
+        "thesis": "Strong revenue growth and positive operating cash flow could drive continued momentum, with the stock re-rating toward the analyst target of $9.06 and beyond."
+      },
+      "base": {
+        "prob": 0.4,
+        "pt": 8.7,
+        "thesis": "The stock remains fairly valued near current levels as high growth is offset by persistent net losses and elevated leverage, keeping the price range-bound."
+      },
+      "bear": {
+        "prob": 0.3,
+        "pt": 7.0,
+        "thesis": "Unprofitability, negative returns on equity and invested capital, and a heavy debt burden could pressure the stock, especially if growth decelerates or financing costs rise."
+      }
+    },
+    "catalysts": [
+      {
+        "catalyst": "Next earnings report",
+        "date": "unknown",
+        "impact": "positive"
+      },
+      {
+        "catalyst": "Potential analyst price target revisions",
+        "date": "unknown",
+        "impact": "positive"
+      },
+      {
+        "catalyst": "Debt refinancing or credit rating action",
+        "date": "unknown",
+        "impact": "negative"
+      }
+    ],
+    "risks": [
+      {
+        "risk": "Continued net losses and negative profit margin",
+        "likelihood": "high"
+      },
+      {
+        "risk": "High debt burden and negative net cash position",
+        "likelihood": "high"
+      },
+      {
+        "risk": "High volatility (beta 1.64) and short interest",
+        "likelihood": "medium"
+      }
+    ],
+    "decision_rationale": "The bull case highlights strong revenue growth and positive operating cash flow, while the bear case emphasizes net losses, negative ROE/ROIC, and high leverage. The deterministic valuation abstains due to missing EPS data, and the debate remains unresolved with no clear directional edge. Given the balanced arguments and lack of a computed fair value, a HOLD rating with moderate conviction is appropriate."
+  },
+  "risk_manager": {
+    "sym": "SKYD",
+    "verdict": "approved",
+    "checks": {
+      "base_pt_within_25pct": {
+        "ok": true,
+        "detail": "no deterministic fair value (valuation abstained) -- constraint not applicable"
+      },
+      "probs_sum_1": {
+        "ok": true,
+        "detail": "bull/base/bear probs sum to 1.000"
+      },
+      "rating_in_scale": {
+        "ok": true,
+        "detail": "rating 'HOLD'"
+      },
+      "conviction_01": {
+        "ok": true,
+        "detail": "conviction 0.4"
+      }
+    },
+    "n_checks_passed": 4,
+    "n_checks": 4,
+    "override_applied": false,
+    "reason": "all deterministic checks passed; judge verdict stands"
+  },
+  "audit": {
+    "bull_researcher": {
+      "system": "You are the bull case researcher for an equity research report. Your job is to argue the strongest honest bull case for the ticker, based ONLY on the data provided. Rules:\n1. Every claim MUST be grounded in a specific data field. Cite it in the 'evidence' field as <section>.<field>, e.g. 'fundamentals.pe_ttm' or 'catalyst.eps_est' or 'earnings.surprise_pct'.\n2. If the data does not support a claim, do NOT make it. Missing data is a reason to stay silent or to say so explicitly.\n3. Do not hedge: this is your side's case. Pick the 4-6 strongest claims. No filler.\n4. Return ONLY the JSON object:\n{\"stance\": \"bullish|bearish\", \"confidence\": <0-1>, \"claims\": [{\"claim\": \"<one sentence>\", \"evidence\": \"<section.field>\", \"impact\": \"positive|negative\"}]}",
+      "user": "TICKER: SKYD\n\nROLE: BULL case\n\n[fundamentals] valuation & quality: market cap, P/E, P/B, P/S, ROE, margins, growth, cash/debt, 52w range, analyst targets\n{\n\"price\": 8.04,\n\"market_cap\": 39850000000.0,\n\"enterprise_value\": 54550000000.0,\n\"pe_ttm\": null,\n\"forward_pe\": null,\n\"peg\": null,\n\"ps_ttm\": 1.35,\n\"pb\": 3.06,\n\"pfcf\": 81.99,\n\"ev_ebitda\": 16.78,\n\"eps_ttm\": null,\n\"eps_forward\": null,\n\"fcf_per_share\": 0.1,\n\"revenue_per_share\": null,\n\"cash_per_share\": -2.91,\n\"book_value_per_share\": null,\n\"roe\": -0.0175,\n\"roa\": 0.0254,\n\"roic\": -0.038900000000000004,\n\"roce\": 0.0524,\n\"gross_margin\": 0.33,\n\"operating_margin\": 0.0608,\n\"profit_margin\": -0.009899999999999999,\n\"fcf_margin\": 0.0165,\n\"ebitda_margin\": 0.1105,\n\"pretax_margin\": 0.013000000000000001,\n\"revenue_growth_yoy\": 0.35359999999999997,\n\"eps_growth_yoy\": -0.0417,\n\"fcf\": 486000000.0,\n\"ocf\": 844000000.0,\n\"capex\": -358000000.0,\n\"cash\": null,\n\"debt\": 16...<truncated 5132 chars>",
+      "response": "{\n  \"stance\": \"bullish\",\n  \"confidence\": 0.6,\n  \"claims\": [\n    {\n      \"claim\": \"Revenue growth is exceptionally strong at 35.4% year-over-year, indicating robust business momentum.\",\n      \"evidence\": \"fundamentals.revenue_growth_yoy\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"The stock trades at a reasonable price-to-sales ratio of 1.35, which is attractive given the high revenue growth rate.\",\n      \"evidence\": \"fundamentals.ps_ttm\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"Analyst price target of $9.06 implies upside of over 12% from the current price of $8.04.\",\n      \"evidence\": \"fundamentals.price_target\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"The company generates positive free cash flow of $486 million, providing financial flexibility for growth investments.\",\n      \"evidence\": \"fundamentals.fcf\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"A dividend yield of 2.53% offers income to shareholders while the company continues to grow.\",\n      \"evidence\": \"fundamentals.dividend_yield\",\n      \"impact\": \"positive\"\n    }\n  ]\n}",
+      "ok": true
+    },
+    "bear_researcher": {
+      "system": "You are the bear case researcher for an equity research report. Your job is to argue the strongest honest bear case for the ticker, based ONLY on the data provided. Rules:\n1. Every claim MUST be grounded in a specific data field. Cite it in the 'evidence' field as <section>.<field>, e.g. 'fundamentals.pe_ttm' or 'catalyst.eps_est' or 'earnings.surprise_pct'.\n2. If the data does not support a claim, do NOT make it. Missing data is a reason to stay silent or to say so explicitly.\n3. Do not hedge: this is your side's case. Pick the 4-6 strongest claims. No filler.\n4. Return ONLY the JSON object:\n{\"stance\": \"bullish|bearish\", \"confidence\": <0-1>, \"claims\": [{\"claim\": \"<one sentence>\", \"evidence\": \"<section.field>\", \"impact\": \"positive|negative\"}]}",
+      "user": "TICKER: SKYD\n\nROLE: BEAR case\n\n[filings] recent SEC filings (8-K etc.)\n[\n{\n\"form\": \"4\",\n\"filing_date\": \"2026-11-10\",\n\"accession\": \"0001225208-26-008807\",\n\"primary_doc\": \"xslF345X06/doc4.xml\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/2041610/000122520826008807/xslF345X06/doc4.xml\"\n},\n{\n\"form\": \"4\",\n\"filing_date\": \"2026-11-10\",\n\"accession\": \"0001225208-26-008806\",\n\"primary_doc\": \"xslF345X06/doc4.xml\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/2041610/000122520826008806/xslF345X06/doc4.xml\"\n},\n{\n\"form\": \"10-Q\",\n\"filing_date\": \"2026-11-09\",\n\"accession\": \"0002041610-26-000067\",\n\"primary_doc\": \"skyd-20260930.htm\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/2041610/000204161026000067/skyd-20260930.htm\"\n},\n{\n\"form\": \"8-K\",\n\"filing_date\": \"2026-11-09\",\n\"accession\": \"0002041610-26-000062\",\n\"primary_doc\": \"skyd-20261109.htm\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/2041610...<truncated 5132 chars>",
+      "response": "{\n  \"stance\": \"bearish\",\n  \"confidence\": 0.7,\n  \"claims\": [\n    {\n      \"claim\": \"Skydance is unprofitable on a trailing twelve-month basis, with a net loss of $291 million and negative profit margin, indicating fundamental earnings weakness.\",\n      \"evidence\": \"fundamentals.net_income_ttm\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The company's return on equity is negative at -1.75%, and return on invested capital is -3.89%, signaling poor capital efficiency and value destruction for shareholders.\",\n      \"evidence\": \"fundamentals.roe\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"Skydance carries a substantial debt burden with $16.07 billion in debt and negative net cash of -$14.7 billion, translating to -$2.91 net cash per share, which heightens financial risk.\",\n      \"evidence\": \"fundamentals.debt\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The stock trades at a high price-to-free-cash-flow multiple of 81.99, despite a low free cash flow margin of 1.65%, suggesting the market is overpaying for limited cash generation.\",\n      \"evidence\": \"fundamentals.pfcf\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"Earnings per share declined by 4.17% year-over-year, while revenue grew 35.36%, indicating that growth is not translating into bottom-line profitability.\",\n      \"evidence\": \"fundamentals.eps_growth_yoy\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"With a beta of 1.64 and short interest at 3.56% of float, the stock is highly volatile and faces significant bearish sentiment from short sellers.\",\n      \"evidence\": \"fundamentals.beta\",\n      \"impact\": \"negative\"\n    }\n  ]\n}",
+      "ok": true
+    },
+    "bear_rebuttal": {
+      "system": "You are the bear researcher responding to the OPPOSING case. Address each of the opposing side's claims head-on. For each one: either concede it, or rebut it using a specific counter-field from the data (evidence as <section>.<field>), or point out the inference gap. Be specific and numerical. Return ONLY:\n{\"rebuttals\": [{\"target_claim\": \"<the claim you are answering>\", \"response\": \"<your counter-argument, 1-2 sentences>\", \"counter_evidence\": \"<section.field or null>\", \"concede\": true|false, \"strength\": <0-1>}]}",
+      "user": "OPPOSING (bull) CLAIMS:\n[{\"claim\": \"Revenue growth is exceptionally strong at 35.4% year-over-year, indicating robust business momentum.\", \"evidence\": \"fundamentals.revenue_growth_yoy\", \"impact\": \"positive\"}, {\"claim\": \"The stock trades at a reasonable price-to-sales ratio of 1.35, which is attractive given the high revenue growth rate.\", \"evidence\": \"fundamentals.ps_ttm\", \"impact\": \"positive\"}, {\"claim\": \"Analyst price target of $9.06 implies upside of over 12% from the current price of $8.04.\", \"evidence\": \"fundamentals.price_target\", \"impact\": \"positive\"}, {\"claim\": \"The company generates positive free cash flow of $486 million, providing financial flexibility for growth investments.\", \"evidence\": \"fundamentals.fcf\", \"impact\": \"positive\"}, {\"claim\": \"A dividend yield of 2.53% offers income to shareholders while the company continues to grow.\", \"evidence\": \"fundamentals.dividend_yield\"...<truncated 6081 chars>",
+      "response": "{\"rebuttals\": [{\"target_claim\": \"Revenue growth is exceptionally strong at 35.4% year-over-year, indicating robust business momentum.\", \"response\": \"While revenue growth is indeed high, the company is unprofitable on a net basis (net income TTM of -$291M) and ROE is negative at -1.75%, suggesting this growth is not translating into shareholder value creation.\", \"counter_evidence\": \"fundamentals.net_income_ttm\", \"concede\": true, \"strength\": 0.6}, {\"target_claim\": \"The stock trades at a reasonable price-to-sales ratio of 1.35, which is attractive given the high revenue growth rate.\", \"response\": \"The P/S ratio is not attractive when considering the company's negative profit margin (-0.99%) and negative earnings yield (-0.73%), meaning investors are paying 1.35x sales for a business that loses money on every dollar of revenue.\", \"counter_evidence\": \"fundamentals.profit_margin\", \"concede\": false, \"strength\": 0.7}, {\"target_claim\": \"Analyst price target of $9.06 implies upside of over 12% from the current price of $8.04.\", \"response\": \"The analyst recommendation is only 'Hold', not 'Buy', and the price target may be stale given the stock closed at $8.70 on 2026-11-09, reducing the implied upside to just ~4% from the current market price.\", \"counter_evidence\": \"fundamentals.analyst_recommendation\", \"concede\": false, \"strength\": 0.5}, {\"target_claim\": \"The company generates positive free cash flow of $486 million, providing financial flexibility for growth investments.\", \"response\": \"Positive FCF is misleading given the company has $16.07B in debt and negative net cash of -$14.7B, with a debt-to-equity ratio of 1.23, meaning the FCF is largely consumed by debt servicing obligations.\", \"counter_evidence\": \"fundamentals.debt\", \"concede\": true, \"strength\": 0.8}, {\"target_claim\": ...<truncated 418 chars>",
+      "ok": true
+    },
+    "bull_rebuttal": {
+      "system": "You are the bull researcher responding to the OPPOSING case. Address each of the opposing side's claims head-on. For each one: either concede it, or rebut it using a specific counter-field from the data (evidence as <section>.<field>), or point out the inference gap. Be specific and numerical. Return ONLY:\n{\"rebuttals\": [{\"target_claim\": \"<the claim you are answering>\", \"response\": \"<your counter-argument, 1-2 sentences>\", \"counter_evidence\": \"<section.field or null>\", \"concede\": true|false, \"strength\": <0-1>}]}",
+      "user": "OPPOSING (bear) CLAIMS:\n[{\"claim\": \"Skydance is unprofitable on a trailing twelve-month basis, with a net loss of $291 million and negative profit margin, indicating fundamental earnings weakness.\", \"evidence\": \"fundamentals.net_income_ttm\", \"impact\": \"negative\"}, {\"claim\": \"The company's return on equity is negative at -1.75%, and return on invested capital is -3.89%, signaling poor capital efficiency and value destruction for shareholders.\", \"evidence\": \"fundamentals.roe\", \"impact\": \"negative\"}, {\"claim\": \"Skydance carries a substantial debt burden with $16.07 billion in debt and negative net cash of -$14.7 billion, translating to -$2.91 net cash per share, which heightens financial risk.\", \"evidence\": \"fundamentals.debt\", \"impact\": \"negative\"}, {\"claim\": \"The stock trades at a high price-to-free-cash-flow multiple of 81.99, despite a low free cash flow margin of 1.65%, suggesting the ...<truncated 6613 chars>",
+      "response": "{\"rebuttals\": [{\"target_claim\": \"Skydance is unprofitable on a trailing twelve-month basis, with a net loss of $291 million and negative profit margin, indicating fundamental earnings weakness.\", \"response\": \"The net loss is largely driven by non-cash items and one-time charges; operating income is positive at $1.79B with a 6.08% operating margin, and EBITDA is $3.25B, showing the core business is profitable.\", \"counter_evidence\": \"fundamentals.operating_income_ttm\", \"concede\": false, \"strength\": 0.7}, {\"target_claim\": \"The company's return on equity is negative at -1.75%, and return on invested capital is -3.89%, signaling poor capital efficiency and value destruction for shareholders.\", \"response\": \"ROE and ROIC are distorted by the large net loss; however, ROCE is positive at 5.24% and ROA is 2.54%, indicating the company is generating returns on its capital base before financing effects.\", \"counter_evidence\": \"fundamentals.roce\", \"concede\": false, \"strength\": 0.6}, {\"target_claim\": \"Skydance carries a substantial debt burden with $16.07 billion in debt and negative net cash of -$14.7 billion, translating to -$2.91 net cash per share, which heightens financial risk.\", \"response\": \"The debt-to-equity ratio of 1.23 is manageable for a media company with $3.25B EBITDA, and the company generates $844M in operating cash flow, providing ample coverage for interest obligations.\", \"counter_evidence\": \"fundamentals.debt_eq\", \"concede\": false, \"strength\": 0.5}, {\"target_claim\": \"The stock trades at a high price-to-free-cash-flow multiple of 81.99, despite a low free cash flow margin of 1.65%, suggesting the market is overpaying for limited cash generation.\", \"response\": \"The P/FCF multiple is elevated due to heavy capex investment ($358M) that is fueling 35.36% revenue growth;...<truncated 1108 chars>",
+      "ok": true
+    },
+    "judge": {
+      "system": "You are the head of a sell-side equity research team. You have read the bull case, the bear case, their rebuttals, the evidence grading, and a deterministic valuation computed in Python (never modify its numbers). Produce the final verdict.\nRules:\n1. Scenarios: bull/base/bear 12-month price targets and probabilities. Base-case target MUST stay within +-25% of the deterministic valuation's base fair value when one exists. Probabilities must sum to 1.0.\n2. Rating scale: BUY / OVERWEIGHT / HOLD / UNDERWEIGHT / SELL.\n3. In the 'catalysts' list, when the data's 'catalyst' section has an explicit date (e.g. next earnings date), use it as the date; otherwise 'unknown'.\n4. Convergence detection: if bull and bear largely agree on direction (or disagree on nothing material), set convergence true and keep conviction; if the debate is unresolved, convergence false and lower conviction.\n4. All facts ...<truncated 478 chars>",
+      "user": "TICKER: SKYD\nPRICE: 8.699999809265137\n\n=== BULL CASE ===\nbull (confidence 0.6):\n- [positive] Revenue growth is exceptionally strong at 35.4% year-over-year, indicating robust business momentum. (evidence: fundamentals.revenue_growth_yoy)\n- [positive] The stock trades at a reasonable price-to-sales ratio of 1.35, which is attractive given the high revenue growth rate. (evidence: fundamentals.ps_ttm)\n- [positive] Analyst price target of $9.06 implies upside of over 12% from the current price of $8.04. (evidence: fundamentals.price_target)\n- [positive] The company generates positive free cash flow of $486 million, providing financial flexibility for growth investments. (evidence: fundamentals.fcf)\n- [positive] A dividend yield of 2.53% offers income to shareholders while the company continues to grow. (evidence: fundamentals.dividend_yield)\n\n=== BEAR CASE ===\nbear (confidence 0.7):\n- [negat...<truncated 6040 chars>",
+      "response": "{\n  \"convergence\": false,\n  \"rating\": \"HOLD\",\n  \"conviction\": 0.4,\n  \"scenarios\": {\n    \"bull\": {\n      \"prob\": 0.3,\n      \"pt\": 9.5,\n      \"thesis\": \"Strong revenue growth and positive operating cash flow could drive continued momentum, with the stock re-rating toward the analyst target of $9.06 and beyond.\"\n    },\n    \"base\": {\n      \"prob\": 0.4,\n      \"pt\": 8.7,\n      \"thesis\": \"The stock remains fairly valued near current levels as high growth is offset by persistent net losses and elevated leverage, keeping the price range-bound.\"\n    },\n    \"bear\": {\n      \"prob\": 0.3,\n      \"pt\": 7.0,\n      \"thesis\": \"Unprofitability, negative returns on equity and invested capital, and a heavy debt burden could pressure the stock, especially if growth decelerates or financing costs rise.\"\n    }\n  },\n  \"catalysts\": [\n    {\n      \"catalyst\": \"Next earnings report\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"catalyst\": \"Potential analyst price target revisions\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"catalyst\": \"Debt refinancing or credit rating action\",\n      \"date\": \"unknown\",\n      \"impact\": \"negative\"\n    }\n  ],\n  \"risks\": [\n    {\n      \"risk\": \"Continued net losses and negative profit margin\",\n      \"likelihood\": \"high\"\n    },\n    {\n      \"risk\": \"High debt burden and negative net cash position\",\n      \"likelihood\": \"high\"\n    },\n    {\n      \"risk\": \"High volatility (beta 1.64) and short interest\",\n      \"likelihood\": \"medium\"\n    }\n  ],\n  \"decision_rationale\": \"The bull case highlights strong revenue growth and positive operating cash flow, while the bear case emphasizes net losses, negative ROE/ROIC, and high leverage. The deterministic valuation abstains due to missing EPS data, and the debate remains unresolved ...<truncated 153 chars>",
+      "ok": true
+    }
+  },
+  "errors": [],
+  "elapsed_sec": 0.0,
+  "report_path": null,
+  "json_path": null
+}

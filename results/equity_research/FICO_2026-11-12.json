@@ -1,0 +1,442 @@
+{
+  "sym": "FICO",
+  "generated_utc": "2026-11-12T03:27:50Z",
+  "price": 723.760009765625,
+  "data_sections": [
+    "quote",
+    "fundamentals",
+    "news",
+    "filings",
+    "hn_mentions",
+    "clusters"
+  ],
+  "bull": {
+    "stance": "bullish",
+    "confidence": 0.78,
+    "claims": [
+      {
+        "claim": "FICO trades at a PEG of 0.96, indicating the stock is undervalued relative to its expected earnings growth.",
+        "evidence": "fundamentals.peg",
+        "impact": "positive"
+      },
+      {
+        "claim": "FICO's forward P/E of 16.29 is well below its trailing P/E of 20.07, signaling strong expected earnings growth ahead.",
+        "evidence": "fundamentals.forward_pe",
+        "impact": "positive"
+      },
+      {
+        "claim": "FICO generates robust free cash flow with a 42.2% FCF margin and a 6.87% FCF yield, providing ample capital for reinvestment or shareholder returns.",
+        "evidence": "fundamentals.fcf_margin",
+        "impact": "positive"
+      },
+      {
+        "claim": "FICO's high gross margin of 86.1% and operating margin of 51.0% demonstrate a highly profitable, scalable business model.",
+        "evidence": "fundamentals.gross_margin",
+        "impact": "positive"
+      },
+      {
+        "claim": "Analysts are bullish on FICO with a 'Buy' recommendation and a price target of $821.37, implying over 12% upside from the current price of $730.66.",
+        "evidence": "fundamentals.analyst_recommendation",
+        "impact": "positive"
+      },
+      {
+        "claim": "FICO's recent 10-K filing and 8-K filings indicate ongoing operational and financial reporting, supporting transparency and continued business momentum.",
+        "evidence": "filings.10-K",
+        "impact": "positive"
+      }
+    ]
+  },
+  "bear": {
+    "stance": "bearish",
+    "confidence": 0.7,
+    "claims": [
+      {
+        "claim": "FICO's stock is vulnerable to competitive threats, as evidenced by a 14% drop after Pulte Group pledged 'more action' on credit score competition, indicating that major customers are actively seeking alternatives.",
+        "evidence": "news[2].headline",
+        "impact": "negative"
+      },
+      {
+        "claim": "The company's balance sheet is highly leveraged, with net debt of $5.07 billion and negative book value per share of -$181.15, exposing it to financial risk if cash flows falter.",
+        "evidence": "fundamentals.net_cash",
+        "impact": "negative"
+      },
+      {
+        "claim": "FICO's revenue growth is slowing to just 4.63% year-over-year, which may not justify its premium valuation, especially as competition intensifies in its core mortgage lending market.",
+        "evidence": "fundamentals.revenue_growth_yoy",
+        "impact": "negative"
+      },
+      {
+        "claim": "The stock trades at a price-to-earnings ratio of 20.07, which is elevated relative to its modest earnings growth of 10.99%, leaving little room for error if growth decelerates further.",
+        "evidence": "fundamentals.pe_ttm",
+        "impact": "negative"
+      },
+      {
+        "claim": "FICO's cash flow per share of $50.04 is strong, but the company's negative cash per share of -$237.24 indicates that its cash is largely offset by debt, limiting financial flexibility to invest in defensive measures against competition.",
+        "evidence": "fundamentals.cash_per_share",
+        "impact": "negative"
+      }
+    ]
+  },
+  "rebuttals": {
+    "bear": {
+      "rebuttals": [
+        {
+          "target_claim": "FICO trades at a PEG of 0.96, indicating the stock is undervalued relative to its expected earnings growth.",
+          "response": "The PEG of 0.96 is based on forward EPS growth of ~23.5% (from $36.32 to $44.85), but revenue growth is only 4.63% YoY; the earnings growth is driven by margin expansion and buybacks, not sustainable top-line growth, and the stock has already fallen 14% on competitive threats.",
+          "counter_evidence": "fundamentals.revenue_growth_yoy",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "FICO's forward P/E of 16.29 is well below its trailing P/E of 20.07, signaling strong expected earnings growth ahead.",
+          "response": "The forward P/E drop is purely a function of the 23.5% EPS growth estimate, but with revenue growth of only 4.63%, this growth is not broad-based; it relies on continued price increases and buybacks, which face regulatory and competitive headwinds.",
+          "counter_evidence": "fundamentals.revenue_growth_yoy",
+          "concede": false,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "FICO generates robust free cash flow with a 42.2% FCF margin and a 6.87% FCF yield, providing ample capital for reinvestment or shareholder returns.",
+          "response": "While FCF margin is high, the company has $5.29B in debt and negative net cash of -$5.07B, meaning much of that FCF is needed for debt service; the 6.87% FCF yield is modest and the company pays no dividend, so shareholder returns are limited to buybacks that inflate EPS.",
+          "counter_evidence": "fundamentals.debt",
+          "concede": true,
+          "strength": 0.5
+        },
+        {
+          "target_claim": "FICO's high gross margin of 86.1% and operating margin of 51.0% demonstrate a highly profitable, scalable business model.",
+          "response": "Margins are indeed high, but they are already near peak; with revenue growth of only 4.63% and competitive pressure from Pulte and others on credit scoring, margin expansion is unlikely to continue, and the stock has already dropped 14% on these threats.",
+          "counter_evidence": "fundamentals.revenue_growth_yoy",
+          "concede": true,
+          "strength": 0.4
+        },
+        {
+          "target_claim": "Analysts are bullish on FICO with a 'Buy' recommendation and a price target of $821.37, implying over 12% upside from the current price of $730.66.",
+          "response": "The analyst price target of $821.37 is 13.6% above the current price of $723.76 (as of 2026-11-09), but the stock has already fallen 14% on competitive news, and analyst targets often lag negative developments; the 11.74% short interest suggests significant bearish sentiment.",
+          "counter_evidence": "quote.c",
+          "concede": false,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "FICO's recent 10-K filing and 8-K filings indicate ongoing operational and financial reporting, supporting transparency and continued business momentum.",
+          "response": "The 10-K and 8-K filings are routine SEC requirements and do not indicate positive momentum; the 8-K from 2026-10-06 likely relates to the competitive threat from Pulte, which caused a 14% stock drop, and the 10-K shows a company with negative book value per share of -$181.15.",
+          "counter_evidence": "fundamentals.book_value_per_share",
+          "concede": false,
+          "strength": 0.5
+        }
+      ]
+    },
+    "bull": {
+      "rebuttals": [
+        {
+          "target_claim": "FICO's stock is vulnerable to competitive threats, as evidenced by a 14% drop after Pulte Group pledged 'more action' on credit score competition, indicating that major customers are actively seeking alternatives.",
+          "response": "The 14% drop is a short-term market reaction, not evidence of fundamental erosion. FICO has maintained its $10 pricing for mortgage lenders despite new competition (news[1]), and its ROIC of 80.2% and operating margin of 51.01% demonstrate pricing power that competitors have not yet disrupted.",
+          "counter_evidence": "news[1].headline",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "The company's balance sheet is highly leveraged, with net debt of $5.07 billion and negative book value per share of -$181.15, exposing it to financial risk if cash flows falter.",
+          "response": "While net debt is $5.07B, FICO generates $1.07B in operating cash flow annually, giving a net debt/OCF ratio of just 4.7x\u2014manageable for a company with 86.13% gross margins and 42.21% FCF margins. The negative book value is a result of aggressive share buybacks, not operational weakness.",
+          "counter_evidence": "fundamentals.ocf",
+          "concede": true,
+          "strength": 0.5
+        },
+        {
+          "target_claim": "FICO's revenue growth is slowing to just 4.63% year-over-year, which may not justify its premium valuation, especially as competition intensifies in its core mortgage lending market.",
+          "response": "Revenue growth of 4.63% is accompanied by EPS growth of 10.99% and a PEG ratio of 0.96, indicating that earnings are growing faster than revenue due to margin expansion. The forward P/E of 16.29 is not premium for a company with 51% operating margins and 80% ROIC.",
+          "counter_evidence": "fundamentals.peg",
+          "concede": false,
+          "strength": 0.8
+        },
+        {
+          "target_claim": "The stock trades at a price-to-earnings ratio of 20.07, which is elevated relative to its modest earnings growth of 10.99%, leaving little room for error if growth decelerates further.",
+          "response": "The trailing P/E of 20.07 is misleading; the forward P/E of 16.29 and PEG of 0.96 show the stock is fairly valued relative to expected growth. With analyst price target of $821.37 (12.4% upside) and a 'Buy' recommendation, the market sees room for growth, not vulnerability.",
+          "counter_evidence": "fundamentals.forward_pe",
+          "concede": false,
+          "strength": 0.8
+        },
+        {
+          "target_claim": "FICO's cash flow per share of $50.04 is strong, but the company's negative cash per share of -$237.24 indicates that its cash is largely offset by debt, limiting financial flexibility to invest in defensive measures against competition.",
+          "response": "The negative cash per share reflects debt used for buybacks that have reduced share count to 21.38M, boosting EPS and FCF per share. FCF yield of 6.87% and FCF of $1.07B provide ample flexibility to invest in R&D and defend against competition, as evidenced by maintaining pricing despite new entrants.",
+          "counter_evidence": "fundamentals.fcf_yield",
+          "concede": false,
+          "strength": 0.6
+        }
+      ]
+    }
+  },
+  "grading": {
+    "bull": {
+      "side": "bull",
+      "n_claims": 6,
+      "grounded": 6,
+      "ungrounded": 0,
+      "sections_cited": [
+        "filings",
+        "fundamentals"
+      ],
+      "claims": [
+        {
+          "claim": "FICO trades at a PEG of 0.96, indicating the stock is undervalued relative to its expected earnings growth.",
+          "evidence": "fundamentals.peg",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "FICO's forward P/E of 16.29 is well below its trailing P/E of 20.07, signaling strong expected earnings growth ahead.",
+          "evidence": "fundamentals.forward_pe",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "FICO generates robust free cash flow with a 42.2% FCF margin and a 6.87% FCF yield, providing ample capital for reinvestment or shareholder returns.",
+          "evidence": "fundamentals.fcf_margin",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "FICO's high gross margin of 86.1% and operating margin of 51.0% demonstrate a highly profitable, scalable business model.",
+          "evidence": "fundamentals.gross_margin",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Analysts are bullish on FICO with a 'Buy' recommendation and a price target of $821.37, implying over 12% upside from the current price of $730.66.",
+          "evidence": "fundamentals.analyst_recommendation",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "FICO's recent 10-K filing and 8-K filings indicate ongoing operational and financial reporting, supporting transparency and continued business momentum.",
+          "evidence": "filings.10-K",
+          "grounded": true,
+          "reason": "ok"
+        }
+      ]
+    },
+    "bear": {
+      "side": "bear",
+      "n_claims": 5,
+      "grounded": 4,
+      "ungrounded": 1,
+      "sections_cited": [
+        "fundamentals",
+        "news[2]"
+      ],
+      "claims": [
+        {
+          "claim": "FICO's stock is vulnerable to competitive threats, as evidenced by a 14% drop after Pulte Group pledged 'more action' on credit score competition, indicating that major customers are actively seeking alternatives.",
+          "evidence": "news[2].headline",
+          "grounded": false,
+          "reason": "'news[2].headline': section 'news[2]' not present in gathered data"
+        },
+        {
+          "claim": "The company's balance sheet is highly leveraged, with net debt of $5.07 billion and negative book value per share of -$181.15, exposing it to financial risk if cash flows falter.",
+          "evidence": "fundamentals.net_cash",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "FICO's revenue growth is slowing to just 4.63% year-over-year, which may not justify its premium valuation, especially as competition intensifies in its core mortgage lending market.",
+          "evidence": "fundamentals.revenue_growth_yoy",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The stock trades at a price-to-earnings ratio of 20.07, which is elevated relative to its modest earnings growth of 10.99%, leaving little room for error if growth decelerates further.",
+          "evidence": "fundamentals.pe_ttm",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "FICO's cash flow per share of $50.04 is strong, but the company's negative cash per share of -$237.24 indicates that its cash is largely offset by debt, limiting financial flexibility to invest in defensive measures against competition.",
+          "evidence": "fundamentals.cash_per_share",
+          "grounded": true,
+          "reason": "ok"
+        }
+      ]
+    }
+  },
+  "valuation": {
+    "sym": "FICO",
+    "price": 723.760009765625,
+    "deterministic": true,
+    "inputs": {
+      "eps_ttm": 36.32,
+      "eps_forward (consensus-derived)": 44.85328422344997,
+      "pe_ttm": 20.07,
+      "forward_pe": 16.29,
+      "eps_growth_3y_fcst": 0.1099,
+      "revenue_growth_3y_fcst": 0.0463,
+      "beta": 1.34,
+      "net_cash_per_share": -237.24,
+      "base EPS used": 36.32,
+      "valuation multiple (P/E) used": 20.07,
+      "P/E band (bear/base/bull)": "16.1 / 20.1 / 25.1",
+      "DCF growth (5y)": 0.0354,
+      "DCF discount rate": 0.1068,
+      "DCF exit P/E": 18.1
+    },
+    "outputs": {
+      "quality_signals": {
+        "roic": 0.802,
+        "fcf_margin": 0.42210000000000003,
+        "beta": 1.34
+      },
+      "dcf_lite": {
+        "method": "5-yr EPS power value discounted at beta-tilted flat rate, terminal exit P/E + net cash/share",
+        "growth_5y": 0.0354,
+        "discount_rate": 0.1068,
+        "exit_pe": 18.1,
+        "fair_value": 382.04
+      },
+      "scenario_grid": {
+        "bear": {
+          "growth": 0.0177,
+          "exit_pe": 16.1,
+          "value": 289.25,
+          "upside": -0.6
+        },
+        "base": {
+          "growth": 0.0354,
+          "exit_pe": 20.1,
+          "value": 435.04,
+          "upside": -0.399
+        },
+        "bull": {
+          "growth": 0.0531,
+          "exit_pe": 25.1,
+          "value": 630.31,
+          "upside": -0.129
+        }
+      },
+      "fair_value_basis": "DCF-lite base scenario (5-yr EPS power value + net cash/share)",
+      "fair_value": {
+        "bear": 289.25,
+        "base": 435.04,
+        "bull": 630.31
+      },
+      "upside_base": -0.399,
+      "peg": 5.67
+    },
+    "notes": [
+      "3Y cumulative growth forecast converted to per-year CAGR ((1+G)^(1/3)-1)",
+      "DCF-lite: growth clamped to [0%, 25%]; discount 10% base + 2pp per beta-unit above 1 (clamped [7%,14%]); exit P/E 0.9x trailing; +net cash/share"
+    ]
+  },
+  "judge": {
+    "convergence": false,
+    "rating": "UNDERWEIGHT",
+    "conviction": 0.55,
+    "scenarios": {
+      "bull": {
+        "prob": 0.25,
+        "pt": 630.31,
+        "thesis": "FICO's high margins, strong FCF, and analyst optimism support a rebound, but valuation remains rich relative to growth."
+      },
+      "base": {
+        "prob": 0.45,
+        "pt": 435.04,
+        "thesis": "Modest growth and competitive pressures keep the stock range-bound, with valuation compressing toward fair value."
+      },
+      "bear": {
+        "prob": 0.3,
+        "pt": 289.25,
+        "thesis": "Competitive threats and slowing revenue growth could trigger multiple compression and a significant downside."
+      }
+    },
+    "catalysts": [
+      {
+        "catalyst": "Next earnings report",
+        "date": "unknown",
+        "impact": "positive"
+      },
+      {
+        "catalyst": "Pulte Group competition updates",
+        "date": "unknown",
+        "impact": "negative"
+      },
+      {
+        "catalyst": "Analyst price target revisions",
+        "date": "unknown",
+        "impact": "positive"
+      }
+    ],
+    "risks": [
+      {
+        "risk": "Competitive disruption in credit scoring",
+        "likelihood": "medium"
+      },
+      {
+        "risk": "High leverage and negative book value",
+        "likelihood": "medium"
+      },
+      {
+        "risk": "Slowing revenue growth",
+        "likelihood": "high"
+      }
+    ],
+    "decision_rationale": "The deterministic valuation indicates a base fair value of $435, implying 40% downside from the current price, and even the bull scenario is below the current price. The bear case highlights credible competitive threats and slowing growth, while the bull's reliance on PEG and forward P/E is undermined by the high PEG of 5.67 and the fact that earnings growth is driven by buybacks rather than top-line expansion. Given the unresolved debate and the valuation gap, an UNDERWEIGHT rating with moderate conviction is appropriate."
+  },
+  "risk_manager": {
+    "sym": "FICO",
+    "verdict": "approved",
+    "checks": {
+      "base_pt_within_25pct": {
+        "ok": true,
+        "detail": "judge base PT 435.04 vs deterministic base fair value 435.04 (deviation 0.0%)"
+      },
+      "probs_sum_1": {
+        "ok": true,
+        "detail": "bull/base/bear probs sum to 1.000"
+      },
+      "rating_in_scale": {
+        "ok": true,
+        "detail": "rating 'UNDERWEIGHT'"
+      },
+      "conviction_01": {
+        "ok": true,
+        "detail": "conviction 0.55"
+      }
+    },
+    "n_checks_passed": 4,
+    "n_checks": 4,
+    "override_applied": false,
+    "reason": "all deterministic checks passed; judge verdict stands"
+  },
+  "audit": {
+    "bull_researcher": {
+      "system": "You are the bull case researcher for an equity research report. Your job is to argue the strongest honest bull case for the ticker, based ONLY on the data provided. Rules:\n1. Every claim MUST be grounded in a specific data field. Cite it in the 'evidence' field as <section>.<field>, e.g. 'fundamentals.pe_ttm' or 'catalyst.eps_est' or 'earnings.surprise_pct'.\n2. If the data does not support a claim, do NOT make it. Missing data is a reason to stay silent or to say so explicitly.\n3. Do not hedge: this is your side's case. Pick the 4-6 strongest claims. No filler.\n4. Return ONLY the JSON object:\n{\"stance\": \"bullish|bearish\", \"confidence\": <0-1>, \"claims\": [{\"claim\": \"<one sentence>\", \"evidence\": \"<section.field>\", \"impact\": \"positive|negative\"}]}",
+      "user": "TICKER: FICO\n\nROLE: BULL case\n\n[fundamentals] valuation & quality: market cap, P/E, P/B, P/S, ROE, margins, growth, cash/debt, 52w range, analyst targets\n{\n\"price\": 730.66,\n\"market_cap\": 15580000000.0,\n\"enterprise_value\": 20660000000.0,\n\"pe_ttm\": 20.07,\n\"forward_pe\": 16.29,\n\"peg\": 0.96,\n\"ps_ttm\": 6.15,\n\"pb\": null,\n\"pfcf\": 14.57,\n\"ev_ebitda\": 15.77,\n\"eps_ttm\": 36.32,\n\"eps_forward\": 44.85328422344997,\n\"fcf_per_share\": 50.04,\n\"revenue_per_share\": null,\n\"cash_per_share\": -237.24,\n\"book_value_per_share\": -181.15,\n\"roe\": null,\n\"roa\": 0.40990000000000004,\n\"roic\": 0.802,\n\"roce\": 1.1192,\n\"gross_margin\": 0.8613,\n\"operating_margin\": 0.5101,\n\"profit_margin\": 0.32939999999999997,\n\"fcf_margin\": 0.42210000000000003,\n\"ebitda_margin\": 0.5167,\n\"pretax_margin\": 0.434,\n\"revenue_growth_yoy\": 0.0463,\n\"eps_growth_yoy\": 0.1099,\n\"fcf\": 1070000000.0000001,\n\"ocf\": 1070000000.0000001,\n\"capex\": -2140000.0,\n\"cash\": n...<truncated 5141 chars>",
+      "response": "{\n  \"stance\": \"bullish\",\n  \"confidence\": 0.78,\n  \"claims\": [\n    {\n      \"claim\": \"FICO trades at a PEG of 0.96, indicating the stock is undervalued relative to its expected earnings growth.\",\n      \"evidence\": \"fundamentals.peg\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"FICO's forward P/E of 16.29 is well below its trailing P/E of 20.07, signaling strong expected earnings growth ahead.\",\n      \"evidence\": \"fundamentals.forward_pe\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"FICO generates robust free cash flow with a 42.2% FCF margin and a 6.87% FCF yield, providing ample capital for reinvestment or shareholder returns.\",\n      \"evidence\": \"fundamentals.fcf_margin\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"FICO's high gross margin of 86.1% and operating margin of 51.0% demonstrate a highly profitable, scalable business model.\",\n      \"evidence\": \"fundamentals.gross_margin\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"Analysts are bullish on FICO with a 'Buy' recommendation and a price target of $821.37, implying over 12% upside from the current price of $730.66.\",\n      \"evidence\": \"fundamentals.analyst_recommendation\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"FICO's recent 10-K filing and 8-K filings indicate ongoing operational and financial reporting, supporting transparency and continued business momentum.\",\n      \"evidence\": \"filings.10-K\",\n      \"impact\": \"positive\"\n    }\n  ]\n}",
+      "ok": true
+    },
+    "bear_researcher": {
+      "system": "You are the bear case researcher for an equity research report. Your job is to argue the strongest honest bear case for the ticker, based ONLY on the data provided. Rules:\n1. Every claim MUST be grounded in a specific data field. Cite it in the 'evidence' field as <section>.<field>, e.g. 'fundamentals.pe_ttm' or 'catalyst.eps_est' or 'earnings.surprise_pct'.\n2. If the data does not support a claim, do NOT make it. Missing data is a reason to stay silent or to say so explicitly.\n3. Do not hedge: this is your side's case. Pick the 4-6 strongest claims. No filler.\n4. Return ONLY the JSON object:\n{\"stance\": \"bullish|bearish\", \"confidence\": <0-1>, \"claims\": [{\"claim\": \"<one sentence>\", \"evidence\": \"<section.field>\", \"impact\": \"positive|negative\"}]}",
+      "user": "TICKER: FICO\n\nROLE: BEAR case\n\n[filings] recent SEC filings (8-K etc.)\n[\n{\n\"form\": \"4\",\n\"filing_date\": \"2026-11-06\",\n\"accession\": \"0001214659-26-013844\",\n\"primary_doc\": \"xslF345X06/marketforms-74037.xml\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/814547/000121465926013844/xslF345X06/marketforms-74037.xml\"\n},\n{\n\"form\": \"10-K\",\n\"filing_date\": \"2026-11-06\",\n\"accession\": \"0000814547-26-000042\",\n\"primary_doc\": \"fico-20260930.htm\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/814547/000081454726000042/fico-20260930.htm\"\n},\n{\n\"form\": \"8-K\",\n\"filing_date\": \"2026-11-04\",\n\"accession\": \"0000814547-26-000037\",\n\"primary_doc\": \"fico-20261104.htm\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/814547/000081454726000037/fico-20261104.htm\"\n},\n{\n\"form\": \"8-K\",\n\"filing_date\": \"2026-10-06\",\n\"accession\": \"0001193125-26-415732\",\n\"primary_doc\": \"d127042d8k.htm\",\n\"url\": \"https://www.sec.gov/Archives/...<truncated 5141 chars>",
+      "response": "{\n  \"stance\": \"bearish\",\n  \"confidence\": 0.7,\n  \"claims\": [\n    {\n      \"claim\": \"FICO's stock is vulnerable to competitive threats, as evidenced by a 14% drop after Pulte Group pledged 'more action' on credit score competition, indicating that major customers are actively seeking alternatives.\",\n      \"evidence\": \"news[2].headline\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The company's balance sheet is highly leveraged, with net debt of $5.07 billion and negative book value per share of -$181.15, exposing it to financial risk if cash flows falter.\",\n      \"evidence\": \"fundamentals.net_cash\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"FICO's revenue growth is slowing to just 4.63% year-over-year, which may not justify its premium valuation, especially as competition intensifies in its core mortgage lending market.\",\n      \"evidence\": \"fundamentals.revenue_growth_yoy\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The stock trades at a price-to-earnings ratio of 20.07, which is elevated relative to its modest earnings growth of 10.99%, leaving little room for error if growth decelerates further.\",\n      \"evidence\": \"fundamentals.pe_ttm\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"FICO's cash flow per share of $50.04 is strong, but the company's negative cash per share of -$237.24 indicates that its cash is largely offset by debt, limiting financial flexibility to invest in defensive measures against competition.\",\n      \"evidence\": \"fundamentals.cash_per_share\",\n      \"impact\": \"negative\"\n    }\n  ]\n}",
+      "ok": true
+    },
+    "bear_rebuttal": {
+      "system": "You are the bear researcher responding to the OPPOSING case. Address each of the opposing side's claims head-on. For each one: either concede it, or rebut it using a specific counter-field from the data (evidence as <section>.<field>), or point out the inference gap. Be specific and numerical. Return ONLY:\n{\"rebuttals\": [{\"target_claim\": \"<the claim you are answering>\", \"response\": \"<your counter-argument, 1-2 sentences>\", \"counter_evidence\": \"<section.field or null>\", \"concede\": true|false, \"strength\": <0-1>}]}",
+      "user": "OPPOSING (bull) CLAIMS:\n[{\"claim\": \"FICO trades at a PEG of 0.96, indicating the stock is undervalued relative to its expected earnings growth.\", \"evidence\": \"fundamentals.peg\", \"impact\": \"positive\"}, {\"claim\": \"FICO's forward P/E of 16.29 is well below its trailing P/E of 20.07, signaling strong expected earnings growth ahead.\", \"evidence\": \"fundamentals.forward_pe\", \"impact\": \"positive\"}, {\"claim\": \"FICO generates robust free cash flow with a 42.2% FCF margin and a 6.87% FCF yield, providing ample capital for reinvestment or shareholder returns.\", \"evidence\": \"fundamentals.fcf_margin\", \"impact\": \"positive\"}, {\"claim\": \"FICO's high gross margin of 86.1% and operating margin of 51.0% demonstrate a highly profitable, scalable business model.\", \"evidence\": \"fundamentals.gross_margin\", \"impact\": \"positive\"}, {\"claim\": \"Analysts are bullish on FICO with a 'Buy' recommendation and a price tar...<truncated 6434 chars>",
+      "response": "{\"rebuttals\": [{\"target_claim\": \"FICO trades at a PEG of 0.96, indicating the stock is undervalued relative to its expected earnings growth.\", \"response\": \"The PEG of 0.96 is based on forward EPS growth of ~23.5% (from $36.32 to $44.85), but revenue growth is only 4.63% YoY; the earnings growth is driven by margin expansion and buybacks, not sustainable top-line growth, and the stock has already fallen 14% on competitive threats.\", \"counter_evidence\": \"fundamentals.revenue_growth_yoy\", \"concede\": false, \"strength\": 0.7}, {\"target_claim\": \"FICO's forward P/E of 16.29 is well below its trailing P/E of 20.07, signaling strong expected earnings growth ahead.\", \"response\": \"The forward P/E drop is purely a function of the 23.5% EPS growth estimate, but with revenue growth of only 4.63%, this growth is not broad-based; it relies on continued price increases and buybacks, which face regulatory and competitive headwinds.\", \"counter_evidence\": \"fundamentals.revenue_growth_yoy\", \"concede\": false, \"strength\": 0.6}, {\"target_claim\": \"FICO generates robust free cash flow with a 42.2% FCF margin and a 6.87% FCF yield, providing ample capital for reinvestment or shareholder returns.\", \"response\": \"While FCF margin is high, the company has $5.29B in debt and negative net cash of -$5.07B, meaning much of that FCF is needed for debt service; the 6.87% FCF yield is modest and the company pays no dividend, so shareholder returns are limited to buybacks that inflate EPS.\", \"counter_evidence\": \"fundamentals.debt\", \"concede\": true, \"strength\": 0.5}, {\"target_claim\": \"FICO's high gross margin of 86.1% and operating margin of 51.0% demonstrate a highly profitable, scalable business model.\", \"response\": \"Margins are indeed high, but they are already near peak; with revenue growth of only 4.63% a...<truncated 1341 chars>",
+      "ok": true
+    },
+    "bull_rebuttal": {
+      "system": "You are the bull researcher responding to the OPPOSING case. Address each of the opposing side's claims head-on. For each one: either concede it, or rebut it using a specific counter-field from the data (evidence as <section>.<field>), or point out the inference gap. Be specific and numerical. Return ONLY:\n{\"rebuttals\": [{\"target_claim\": \"<the claim you are answering>\", \"response\": \"<your counter-argument, 1-2 sentences>\", \"counter_evidence\": \"<section.field or null>\", \"concede\": true|false, \"strength\": <0-1>}]}",
+      "user": "OPPOSING (bear) CLAIMS:\n[{\"claim\": \"FICO's stock is vulnerable to competitive threats, as evidenced by a 14% drop after Pulte Group pledged 'more action' on credit score competition, indicating that major customers are actively seeking alternatives.\", \"evidence\": \"news[2].headline\", \"impact\": \"negative\"}, {\"claim\": \"The company's balance sheet is highly leveraged, with net debt of $5.07 billion and negative book value per share of -$181.15, exposing it to financial risk if cash flows falter.\", \"evidence\": \"fundamentals.net_cash\", \"impact\": \"negative\"}, {\"claim\": \"FICO's revenue growth is slowing to just 4.63% year-over-year, which may not justify its premium valuation, especially as competition intensifies in its core mortgage lending market.\", \"evidence\": \"fundamentals.revenue_growth_yoy\", \"impact\": \"negative\"}, {\"claim\": \"The stock trades at a price-to-earnings ratio of 20.07, which is...<truncated 6562 chars>",
+      "response": "{\"rebuttals\": [{\"target_claim\": \"FICO's stock is vulnerable to competitive threats, as evidenced by a 14% drop after Pulte Group pledged 'more action' on credit score competition, indicating that major customers are actively seeking alternatives.\", \"response\": \"The 14% drop is a short-term market reaction, not evidence of fundamental erosion. FICO has maintained its $10 pricing for mortgage lenders despite new competition (news[1]), and its ROIC of 80.2% and operating margin of 51.01% demonstrate pricing power that competitors have not yet disrupted.\", \"counter_evidence\": \"news[1].headline\", \"concede\": false, \"strength\": 0.7}, {\"target_claim\": \"The company's balance sheet is highly leveraged, with net debt of $5.07 billion and negative book value per share of -$181.15, exposing it to financial risk if cash flows falter.\", \"response\": \"While net debt is $5.07B, FICO generates $1.07B in operating cash flow annually, giving a net debt/OCF ratio of just 4.7x\u2014manageable for a company with 86.13% gross margins and 42.21% FCF margins. The negative book value is a result of aggressive share buybacks, not operational weakness.\", \"counter_evidence\": \"fundamentals.ocf\", \"concede\": true, \"strength\": 0.5}, {\"target_claim\": \"FICO's revenue growth is slowing to just 4.63% year-over-year, which may not justify its premium valuation, especially as competition intensifies in its core mortgage lending market.\", \"response\": \"Revenue growth of 4.63% is accompanied by EPS growth of 10.99% and a PEG ratio of 0.96, indicating that earnings are growing faster than revenue due to margin expansion. The forward P/E of 16.29 is not premium for a company with 51% operating margins and 80% ROIC.\", \"counter_evidence\": \"fundamentals.peg\", \"concede\": false, \"strength\": 0.8}, {\"target_claim\": \"The stock ...<truncated 1207 chars>",
+      "ok": true
+    },
+    "judge": {
+      "system": "You are the head of a sell-side equity research team. You have read the bull case, the bear case, their rebuttals, the evidence grading, and a deterministic valuation computed in Python (never modify its numbers). Produce the final verdict.\nRules:\n1. Scenarios: bull/base/bear 12-month price targets and probabilities. Base-case target MUST stay within +-25% of the deterministic valuation's base fair value when one exists. Probabilities must sum to 1.0.\n2. Rating scale: BUY / OVERWEIGHT / HOLD / UNDERWEIGHT / SELL.\n3. In the 'catalysts' list, when the data's 'catalyst' section has an explicit date (e.g. next earnings date), use it as the date; otherwise 'unknown'.\n4. Convergence detection: if bull and bear largely agree on direction (or disagree on nothing material), set convergence true and keep conviction; if the debate is unresolved, convergence false and lower conviction.\n4. All facts ...<truncated 478 chars>",
+      "user": "TICKER: FICO\nPRICE: 723.760009765625\n\n=== BULL CASE ===\nbull (confidence 0.78):\n- [positive] FICO trades at a PEG of 0.96, indicating the stock is undervalued relative to its expected earnings growth. (evidence: fundamentals.peg)\n- [positive] FICO's forward P/E of 16.29 is well below its trailing P/E of 20.07, signaling strong expected earnings growth ahead. (evidence: fundamentals.forward_pe)\n- [positive] FICO generates robust free cash flow with a 42.2% FCF margin and a 6.87% FCF yield, providing ample capital for reinvestment or shareholder returns. (evidence: fundamentals.fcf_margin)\n- [positive] FICO's high gross margin of 86.1% and operating margin of 51.0% demonstrate a highly profitable, scalable business model. (evidence: fundamentals.gross_margin)\n- [positive] Analysts are bullish on FICO with a 'Buy' recommendation and a price target of $821.37, implying over 12% upside from t...<truncated 8442 chars>",
+      "response": "{\n  \"convergence\": false,\n  \"rating\": \"UNDERWEIGHT\",\n  \"conviction\": 0.55,\n  \"scenarios\": {\n    \"bull\": {\n      \"prob\": 0.25,\n      \"pt\": 630.31,\n      \"thesis\": \"FICO's high margins, strong FCF, and analyst optimism support a rebound, but valuation remains rich relative to growth.\"\n    },\n    \"base\": {\n      \"prob\": 0.45,\n      \"pt\": 435.04,\n      \"thesis\": \"Modest growth and competitive pressures keep the stock range-bound, with valuation compressing toward fair value.\"\n    },\n    \"bear\": {\n      \"prob\": 0.30,\n      \"pt\": 289.25,\n      \"thesis\": \"Competitive threats and slowing revenue growth could trigger multiple compression and a significant downside.\"\n    }\n  },\n  \"catalysts\": [\n    {\n      \"catalyst\": \"Next earnings report\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"catalyst\": \"Pulte Group competition updates\",\n      \"date\": \"unknown\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"catalyst\": \"Analyst price target revisions\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    }\n  ],\n  \"risks\": [\n    {\n      \"risk\": \"Competitive disruption in credit scoring\",\n      \"likelihood\": \"medium\"\n    },\n    {\n      \"risk\": \"High leverage and negative book value\",\n      \"likelihood\": \"medium\"\n    },\n    {\n      \"risk\": \"Slowing revenue growth\",\n      \"likelihood\": \"high\"\n    }\n  ],\n  \"decision_rationale\": \"The deterministic valuation indicates a base fair value of $435, implying 40% downside from the current price, and even the bull scenario is below the current price. The bear case highlights credible competitive threats and slowing growth, while the bull's reliance on PEG and forward P/E is undermined by the high PEG of 5.67 and the fact that earnings growth is driven by buybacks rather than top-line expansion. Given the unresolved debat...<truncated 90 chars>",
+      "ok": true
+    }
+  },
+  "errors": [],
+  "elapsed_sec": 0.0,
+  "report_path": null,
+  "json_path": null
+}

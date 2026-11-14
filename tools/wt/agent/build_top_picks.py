@@ -2,15 +2,23 @@
 """Build results/equity_research/TOP_PICKS.md — actionable synthesis of the
 top picks, assembled deterministically from the report JSONs (no LLM).
 
+Uses the effective base PT (risk-team override when the judge was vetoed),
+same as build_index/build_portfolios.
+
     python tools/wt/agent/build_top_picks.py
 """
 from __future__ import annotations
-import glob, json, os
+import json, os, sys
 
-OUT_DIR = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.dirname(
-        os.path.dirname(os.path.abspath(__file__))))),
-    "results", "equity_research")
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__)))))
+for p in (os.path.join(ROOT, "tools"), ROOT):
+    if p not in sys.path:
+        sys.path.insert(0, p)
+
+from wt.agent.report_view import (  # noqa: E402
+    OUT_DIR, latest_json_per_sym, effective_scenarios,
+)
 
 
 def _pct(x) -> str:
@@ -19,25 +27,20 @@ def _pct(x) -> str:
     return f"{x * 100:+.1f}%"
 
 
-def _latest_json_per_sym() -> list:
-    """All report JSONs, keeping only the newest date per symbol."""
-    files = {}
-    for f in glob.glob(os.path.join(OUT_DIR, "*.json")):
-        name = os.path.basename(f)
-        if "_" not in name or not name.endswith(".json"):
-            continue
-        sym, date = name.rsplit("_", 1)[0], name.rsplit("_", 1)[1][:-5]
-        if sym not in files or date > files[sym][0]:
-            files[sym] = (date, f)
-    return [f for _, f in sorted(files.values())]
+def _num(x) -> str:
+    """Format a price/PT at 2dp — never leak binary floats like
+    886.510009765625 onto the page."""
+    if x is None:
+        return "n/a"
+    return f"{x:,.2f}"
 
 
 def main() -> int:
     rows = []
-    for f in _latest_json_per_sym():
+    for f in latest_json_per_sym():
         d = json.load(open(f))
         j = d.get("judge") or {}
-        sc = j.get("scenarios") or {}
+        sc = effective_scenarios(d)
         base, bear = sc.get("base") or {}, sc.get("bear") or {}
         price = d.get("price")
         exp = (base.get("pt") / price - 1.0) if (base.get("pt") and price) else None
@@ -67,20 +70,21 @@ def main() -> int:
     L.append("- Signal: each name got a full agent debate (bull/bear with "
              "rebuttals, evidence-graded against real data) plus a "
              "deterministic Python valuation. Names below only appear here "
-             "when the judge's base-case 12-mo target is above the price "
-             "AND a forward-consensus EPS anchor existed (no anchor -> the "
-             "valuation abstains and no signal is claimed).")
+             "when the effective base-case 12-mo PT (risk-team deterministic "
+             "override when the judge was vetoed, else the judge's target) "
+             "is above the price AND a forward-consensus EPS anchor existed "
+             "(no anchor -> the valuation abstains and no signal is claimed).")
     L.append("")
     L.append("| Sym | Rating | Conv | Current price | Predicted 1-yr price | Expected return |")
     L.append("|---|---|---|---|---|---|")
     for r in rows:
         L.append(f"| **{r['sym']}** | {r['rating']} | {r['conv']} | "
-                 f"{r['price']} | {r['base_pt']} | **{_pct(r['exp'])}** |")
+                 f"{_num(r['price'])} | {_num(r['base_pt'])} | **{_pct(r['exp'])}** |")
     L.append("")
     for r in rows:
         L.append(f"## {r['sym']} — {r['rating']} "
                  f"(conviction {r['conv']}, expected {_pct(r['exp'])} to "
-                 f"base PT {r['base_pt']})")
+                 f"base PT {_num(r['base_pt'])})")
         L.append("")
         L.append(f"**Judge's rationale:** {r['rationale']}")
         L.append("")

@@ -1,0 +1,448 @@
+{
+  "sym": "AMD",
+  "generated_utc": "2026-11-12T04:32:38Z",
+  "price": 508.5799865722656,
+  "data_sections": [
+    "quote",
+    "fundamentals",
+    "news",
+    "filings",
+    "hn_mentions",
+    "clusters"
+  ],
+  "bull": {
+    "stance": "bullish",
+    "confidence": 0.8,
+    "claims": [
+      {
+        "claim": "AMD's forward P/E of 36.73 is dramatically lower than its trailing P/E of 119.84, indicating the market expects substantial earnings growth ahead.",
+        "evidence": "fundamentals.forward_pe",
+        "impact": "positive"
+      },
+      {
+        "claim": "With a PEG ratio of 0.51, AMD is trading at a significant discount to its growth rate, suggesting the stock is undervalued relative to its earnings growth potential.",
+        "evidence": "fundamentals.peg",
+        "impact": "positive"
+      },
+      {
+        "claim": "AMD's revenue grew 57.39% year-over-year and EPS grew 83.04%, demonstrating strong momentum in its core business.",
+        "evidence": "fundamentals.revenue_growth_yoy",
+        "impact": "positive"
+      },
+      {
+        "claim": "The analyst consensus is a Strong Buy with a price target of $657.49, implying over 27% upside from the current price of $515.21.",
+        "evidence": "fundamentals.analyst_recommendation",
+        "impact": "positive"
+      },
+      {
+        "claim": "AMD's recent Google Cloud deal and Wall Street upgrade have driven the stock higher, reflecting growing confidence in its AI and cloud computing prospects.",
+        "evidence": "news[2].headline",
+        "impact": "positive"
+      },
+      {
+        "claim": "AMD's net cash position of $6.57 billion and low debt-to-equity ratio of 0.13 provide financial flexibility for future investments and growth initiatives.",
+        "evidence": "fundamentals.net_cash",
+        "impact": "positive"
+      }
+    ]
+  },
+  "bear": {
+    "stance": "bearish",
+    "confidence": 0.7,
+    "claims": [
+      {
+        "claim": "AMD's stock is priced at an extreme premium with a trailing P/E of 119.84 and price-to-sales of 20.24, leaving no room for error in execution.",
+        "evidence": "fundamentals.pe_ttm, fundamentals.ps_ttm",
+        "impact": "negative"
+      },
+      {
+        "claim": "The stock trades at a price-to-free-cash-flow of 130.32, implying the market is pricing in massive future cash flow growth that may not materialize.",
+        "evidence": "fundamentals.pfcf",
+        "impact": "negative"
+      },
+      {
+        "claim": "AMD's beta of 2.54 indicates the stock is highly volatile and would amplify any market downturn, posing significant downside risk to investors.",
+        "evidence": "fundamentals.beta",
+        "impact": "negative"
+      },
+      {
+        "claim": "The company's return on equity is only 11.96%, which is modest relative to its rich valuation, suggesting the market is overpaying for the current level of profitability.",
+        "evidence": "fundamentals.roe",
+        "impact": "negative"
+      },
+      {
+        "claim": "Recent insider selling, as indicated by Form 144 filings, may signal that insiders believe the stock is overvalued at current levels.",
+        "evidence": "filings[4].form",
+        "impact": "negative"
+      }
+    ]
+  },
+  "rebuttals": {
+    "bear": {
+      "rebuttals": [
+        {
+          "target_claim": "AMD's forward P/E of 36.73 is dramatically lower than its trailing P/E of 119.84, indicating the market expects substantial earnings growth ahead.",
+          "response": "The forward P/E relies on analyst EPS estimates of $14.03, which may be overly optimistic given AMD's history of volatile guidance and intense competition in AI chips from NVIDIA; the market has already priced in this growth at a $906.8B market cap, leaving little room for disappointment.",
+          "counter_evidence": "fundamentals.eps_forward",
+          "concede": false,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "With a PEG ratio of 0.51, AMD is trading at a significant discount to its growth rate, suggesting the stock is undervalued relative to its earnings growth potential.",
+          "response": "The PEG ratio of 0.51 is based on trailing growth rates (EPS +83%) that are unsustainable; forward EPS growth implied by the P/E gap is only ~28% annually, and the stock's beta of 2.54 means it carries far more risk than the PEG metric captures.",
+          "counter_evidence": "fundamentals.beta",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "AMD's revenue grew 57.39% year-over-year and EPS grew 83.04%, demonstrating strong momentum in its core business.",
+          "response": "While growth is strong, the stock already trades at 20.24x sales and 130x free cash flow, meaning the market has fully priced in this momentum; any slowdown in AI spending or share loss to competitors would trigger a severe de-rating.",
+          "counter_evidence": "fundamentals.ps_ttm",
+          "concede": true,
+          "strength": 0.5
+        },
+        {
+          "target_claim": "The analyst consensus is a Strong Buy with a price target of $657.49, implying over 27% upside from the current price of $515.21.",
+          "response": "Analyst price targets are often lagging indicators and have been systematically too high for AMD; the stock's short interest of 2.34% and high beta suggest significant downside risk if earnings fail to meet the aggressive expectations embedded in the $657 target.",
+          "counter_evidence": "fundamentals.short_interest_pct_float",
+          "concede": false,
+          "strength": 0.5
+        },
+        {
+          "target_claim": "AMD's recent Google Cloud deal and Wall Street upgrade have driven the stock higher, reflecting growing confidence in its AI and cloud computing prospects.",
+          "response": "News-driven rallies are often short-lived; the stock's beta of 2.54 means it can reverse sharply on any negative headline, and the Google Cloud deal's financial impact is not quantified in the data, so its contribution to earnings is speculative.",
+          "counter_evidence": "fundamentals.beta",
+          "concede": false,
+          "strength": 0.4
+        },
+        {
+          "target_claim": "AMD's net cash position of $6.57 billion and low debt-to-equity ratio of 0.13 provide financial flexibility for future investments and growth initiatives.",
+          "response": "The net cash position is modest relative to AMD's $906.8B market cap (less than 1% of market value), and the company's heavy capex of $2.07B and negative free cash flow yield of 0.77% suggest it needs to spend aggressively just to maintain competitive position.",
+          "counter_evidence": "fundamentals.fcf_yield",
+          "concede": false,
+          "strength": 0.6
+        }
+      ]
+    },
+    "bull": {
+      "rebuttals": [
+        {
+          "target_claim": "AMD's stock is priced at an extreme premium with a trailing P/E of 119.84 and price-to-sales of 20.24, leaving no room for error in execution.",
+          "response": "The trailing P/E is backward-looking and ignores AMD's explosive growth trajectory. With forward P/E of 36.73 and PEG of 0.51, the stock is actually undervalued relative to its expected earnings growth, and the 57.4% YoY revenue growth justifies the premium.",
+          "counter_evidence": "fundamentals.forward_pe, fundamentals.peg, fundamentals.revenue_growth_yoy",
+          "concede": false,
+          "strength": 0.9
+        },
+        {
+          "target_claim": "The stock trades at a price-to-free-cash-flow of 130.32, implying the market is pricing in massive future cash flow growth that may not materialize.",
+          "response": "The P/FCF is distorted by AMD's heavy capex investments to expand AI capacity. FCF is expected to scale dramatically with revenue growth (57.4% YoY) and improving margins (gross margin 56%), making the current multiple a temporary artifact of the investment cycle.",
+          "counter_evidence": "fundamentals.capex, fundamentals.revenue_growth_yoy, fundamentals.gross_margin",
+          "concede": false,
+          "strength": 0.7
+        },
+        {
+          "target_claim": "AMD's beta of 2.54 indicates the stock is highly volatile and would amplify any market downturn, posing significant downside risk to investors.",
+          "response": "High beta cuts both ways\u2014it amplifies upside in a bull market, and AMD's 83% EPS growth and strong analyst consensus (Strong Buy, price target $657.49, 27.6% upside) suggest the current trajectory favors the upside scenario.",
+          "counter_evidence": "fundamentals.eps_growth_yoy, fundamentals.analyst_recommendation, fundamentals.price_target",
+          "concede": true,
+          "strength": 0.4
+        },
+        {
+          "target_claim": "The company's return on equity is only 11.96%, which is modest relative to its rich valuation, suggesting the market is overpaying for the current level of profitability.",
+          "response": "ROE of 11.96% is understated because AMD holds $6.57B net cash and has a low 0.13 debt-to-equity ratio. ROIC of 12.82% and ROCE of 10.08% show efficient capital deployment, and profitability is rapidly improving with operating margin at 17.82% and rising.",
+          "counter_evidence": "fundamentals.net_cash, fundamentals.debt_eq, fundamentals.roic, fundamentals.operating_margin",
+          "concede": false,
+          "strength": 0.6
+        },
+        {
+          "target_claim": "Recent insider selling, as indicated by Form 144 filings, may signal that insiders believe the stock is overvalued at current levels.",
+          "response": "Form 144 filings are routine and often reflect pre-planned diversification or tax strategies, not a bearish signal. The stock has surged on strong fundamentals (83% EPS growth, Google Cloud deal) and analysts maintain a Strong Buy with a 27.6% upside target, suggesting insiders are not signaling overvaluation.",
+          "counter_evidence": "fundamentals.eps_growth_yoy, news[2].headline, fundamentals.analyst_recommendation",
+          "concede": false,
+          "strength": 0.5
+        }
+      ]
+    }
+  },
+  "grading": {
+    "bull": {
+      "side": "bull",
+      "n_claims": 6,
+      "grounded": 6,
+      "ungrounded": 0,
+      "sections_cited": [
+        "fundamentals",
+        "news[2]"
+      ],
+      "claims": [
+        {
+          "claim": "AMD's forward P/E of 36.73 is dramatically lower than its trailing P/E of 119.84, indicating the market expects substantial earnings growth ahead.",
+          "evidence": "fundamentals.forward_pe",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "With a PEG ratio of 0.51, AMD is trading at a significant discount to its growth rate, suggesting the stock is undervalued relative to its earnings growth potential.",
+          "evidence": "fundamentals.peg",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "AMD's revenue grew 57.39% year-over-year and EPS grew 83.04%, demonstrating strong momentum in its core business.",
+          "evidence": "fundamentals.revenue_growth_yoy",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The analyst consensus is a Strong Buy with a price target of $657.49, implying over 27% upside from the current price of $515.21.",
+          "evidence": "fundamentals.analyst_recommendation",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "AMD's recent Google Cloud deal and Wall Street upgrade have driven the stock higher, reflecting growing confidence in its AI and cloud computing prospects.",
+          "evidence": "news[2].headline",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "AMD's net cash position of $6.57 billion and low debt-to-equity ratio of 0.13 provide financial flexibility for future investments and growth initiatives.",
+          "evidence": "fundamentals.net_cash",
+          "grounded": true,
+          "reason": "ok"
+        }
+      ]
+    },
+    "bear": {
+      "side": "bear",
+      "n_claims": 5,
+      "grounded": 5,
+      "ungrounded": 0,
+      "sections_cited": [
+        "filings[4]",
+        "fundamentals"
+      ],
+      "claims": [
+        {
+          "claim": "AMD's stock is priced at an extreme premium with a trailing P/E of 119.84 and price-to-sales of 20.24, leaving no room for error in execution.",
+          "evidence": "fundamentals.pe_ttm, fundamentals.ps_ttm",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The stock trades at a price-to-free-cash-flow of 130.32, implying the market is pricing in massive future cash flow growth that may not materialize.",
+          "evidence": "fundamentals.pfcf",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "AMD's beta of 2.54 indicates the stock is highly volatile and would amplify any market downturn, posing significant downside risk to investors.",
+          "evidence": "fundamentals.beta",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "The company's return on equity is only 11.96%, which is modest relative to its rich valuation, suggesting the market is overpaying for the current level of profitability.",
+          "evidence": "fundamentals.roe",
+          "grounded": true,
+          "reason": "ok"
+        },
+        {
+          "claim": "Recent insider selling, as indicated by Form 144 filings, may signal that insiders believe the stock is overvalued at current levels.",
+          "evidence": "filings[4].form",
+          "grounded": true,
+          "reason": "ok"
+        }
+      ]
+    }
+  },
+  "valuation": {
+    "sym": "AMD",
+    "price": 508.5799865722656,
+    "deterministic": true,
+    "inputs": {
+      "eps_ttm": 4.61,
+      "eps_forward (consensus-derived)": 14.026953444051186,
+      "pe_ttm": 119.84,
+      "forward_pe": 36.73,
+      "eps_growth_3y_fcst": 0.8304,
+      "revenue_growth_3y_fcst": 0.5739,
+      "beta": 2.54,
+      "net_cash_per_share": 4.0,
+      "base EPS used": 4.61,
+      "valuation multiple (P/E) used": 119.84,
+      "P/E band (bear/base/bull)": "95.9 / 119.8 / 149.8",
+      "DCF growth (5y)": 0.2233,
+      "DCF discount rate": 0.1308,
+      "DCF exit P/E": 107.9
+    },
+    "outputs": {
+      "quality_signals": {
+        "roe": 0.11960000000000001,
+        "roic": 0.1282,
+        "debt_eq": 0.13,
+        "fcf_margin": 0.1553,
+        "beta": 2.54
+      },
+      "dcf_lite": {
+        "method": "5-yr EPS power value discounted at beta-tilted flat rate, terminal exit P/E + net cash/share",
+        "growth_5y": 0.2233,
+        "discount_rate": 0.1308,
+        "exit_pe": 107.9,
+        "fair_value": 769.89
+      },
+      "scenario_grid": {
+        "bear": {
+          "growth": 0.1116,
+          "exit_pe": 95.9,
+          "value": 431.77,
+          "upside": -0.151
+        },
+        "base": {
+          "growth": 0.2233,
+          "exit_pe": 119.8,
+          "value": 851.46,
+          "upside": 0.674
+        },
+        "bull": {
+          "growth": 0.3349,
+          "exit_pe": 149.8,
+          "value": 1175.26,
+          "upside": 1.311
+        }
+      },
+      "fair_value_basis": "DCF-lite base scenario (5-yr EPS power value + net cash/share)",
+      "fair_value": {
+        "bear": 431.77,
+        "base": 851.46,
+        "bull": 1175.26
+      },
+      "upside_base": 0.674,
+      "peg": 5.37
+    },
+    "notes": [
+      "3Y cumulative growth forecast converted to per-year CAGR ((1+G)^(1/3)-1)",
+      "DCF-lite: growth clamped to [0%, 25%]; discount 10% base + 2pp per beta-unit above 1 (clamped [7%,14%]); exit P/E 0.9x trailing; +net cash/share"
+    ]
+  },
+  "judge": {
+    "convergence": false,
+    "rating": "HOLD",
+    "conviction": 0.5,
+    "scenarios": {
+      "bull": {
+        "prob": 0.3,
+        "pt": 1175.26,
+        "thesis": "AMD's explosive growth and AI momentum justify a re-rating to a higher P/E multiple, driving the stock to the bull-case valuation."
+      },
+      "base": {
+        "prob": 0.4,
+        "pt": 851.46,
+        "thesis": "AMD continues to grow strongly but the market maintains its current valuation multiple, resulting in a base-case fair value of $851."
+      },
+      "bear": {
+        "prob": 0.3,
+        "pt": 431.77,
+        "thesis": "If growth decelerates or competition intensifies, the stock could de-rate to a lower P/E, falling to the bear-case value."
+      }
+    },
+    "catalysts": [
+      {
+        "catalyst": "Next earnings report (date not specified in data)",
+        "date": "unknown",
+        "impact": "positive"
+      },
+      {
+        "catalyst": "Google Cloud deal and Wall Street upgrade (news[2])",
+        "date": "unknown",
+        "impact": "positive"
+      },
+      {
+        "catalyst": "Insider selling via Form 144 filings (filings[4])",
+        "date": "unknown",
+        "impact": "negative"
+      }
+    ],
+    "risks": [
+      {
+        "risk": "High valuation (trailing P/E 119.84, P/FCF 130.32) leaves no room for error",
+        "likelihood": "medium"
+      },
+      {
+        "risk": "High beta (2.54) amplifies downside in market downturns",
+        "likelihood": "medium"
+      },
+      {
+        "risk": "Competition from NVIDIA in AI chips could pressure growth and margins",
+        "likelihood": "medium"
+      },
+      {
+        "risk": "Analyst EPS estimates may be overly optimistic, leading to earnings misses",
+        "likelihood": "medium"
+      }
+    ],
+    "decision_rationale": "The bull and bear cases are sharply divided on whether AMD's growth justifies its premium valuation, with the bull citing strong momentum and the bear pointing to extreme multiples and volatility. The deterministic valuation's base case of $851 implies significant upside, but the wide scenario range (from $432 to $1175) and unresolved debate warrant a cautious stance. Given the high uncertainty and lack of convergence, a HOLD rating with moderate conviction is appropriate."
+  },
+  "risk_manager": {
+    "sym": "AMD",
+    "verdict": "approved",
+    "checks": {
+      "base_pt_within_25pct": {
+        "ok": true,
+        "detail": "judge base PT 851.46 vs deterministic base fair value 851.46 (deviation 0.0%)"
+      },
+      "probs_sum_1": {
+        "ok": true,
+        "detail": "bull/base/bear probs sum to 1.000"
+      },
+      "rating_in_scale": {
+        "ok": true,
+        "detail": "rating 'HOLD'"
+      },
+      "conviction_01": {
+        "ok": true,
+        "detail": "conviction 0.5"
+      }
+    },
+    "n_checks_passed": 4,
+    "n_checks": 4,
+    "override_applied": false,
+    "reason": "all deterministic checks passed; judge verdict stands"
+  },
+  "audit": {
+    "bull_researcher": {
+      "system": "You are the bull case researcher for an equity research report. Your job is to argue the strongest honest bull case for the ticker, based ONLY on the data provided. Rules:\n1. Every claim MUST be grounded in a specific data field. Cite it in the 'evidence' field as <section>.<field>, e.g. 'fundamentals.pe_ttm' or 'catalyst.eps_est' or 'earnings.surprise_pct'. To cite a specific row of a list section (e.g. news or filings), use <section>[i].<field> with i the 1-based row number shown in the data, e.g. 'news[2].headline' for the second headline.\n2. If the data does not support a claim, do NOT make it. Missing data is a reason to stay silent or to say so explicitly.\n3. Do not hedge: this is your side's case. Pick the 4-6 strongest claims. No filler.\n4. Return ONLY the JSON object:\n{\"stance\": \"bullish|bearish\", \"confidence\": <0-1>, \"claims\": [{\"claim\": \"<one sentence>\", \"evidence\": \"<section....<truncated 41 chars>",
+      "user": "TICKER: AMD\n\nROLE: BULL case\n\n[fundamentals] valuation & quality: market cap, P/E, P/B, P/S, ROE, margins, growth, cash/debt, 52w range, analyst targets\n{\n\"price\": 515.21,\n\"market_cap\": 906800000000.0,\n\"enterprise_value\": 900240000000.0,\n\"pe_ttm\": 119.84,\n\"forward_pe\": 36.73,\n\"peg\": 0.51,\n\"ps_ttm\": 20.24,\n\"pb\": 12.35,\n\"pfcf\": 130.32,\n\"ev_ebitda\": 81.93,\n\"eps_ttm\": 4.61,\n\"eps_forward\": 14.026953444051186,\n\"fcf_per_share\": 4.3,\n\"revenue_per_share\": null,\n\"cash_per_share\": 4.0,\n\"book_value_per_share\": 41.7,\n\"roe\": 0.11960000000000001,\n\"roa\": 0.058899999999999994,\n\"roic\": 0.1282,\n\"roce\": 0.1008,\n\"gross_margin\": 0.56,\n\"operating_margin\": 0.1782,\n\"profit_margin\": 0.1677,\n\"fcf_margin\": 0.1553,\n\"ebitda_margin\": 0.2452,\n\"pretax_margin\": 0.17859999999999998,\n\"revenue_growth_yoy\": 0.5739,\n\"eps_growth_yoy\": 0.8304,\n\"fcf\": 7060000000.0,\n\"ocf\": 9120000000.0,\n\"capex\": -2069999999.9999998,\n\"cash\": null,...<truncated 5145 chars>",
+      "response": "{\n  \"stance\": \"bullish\",\n  \"confidence\": 0.8,\n  \"claims\": [\n    {\n      \"claim\": \"AMD's forward P/E of 36.73 is dramatically lower than its trailing P/E of 119.84, indicating the market expects substantial earnings growth ahead.\",\n      \"evidence\": \"fundamentals.forward_pe\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"With a PEG ratio of 0.51, AMD is trading at a significant discount to its growth rate, suggesting the stock is undervalued relative to its earnings growth potential.\",\n      \"evidence\": \"fundamentals.peg\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"AMD's revenue grew 57.39% year-over-year and EPS grew 83.04%, demonstrating strong momentum in its core business.\",\n      \"evidence\": \"fundamentals.revenue_growth_yoy\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"The analyst consensus is a Strong Buy with a price target of $657.49, implying over 27% upside from the current price of $515.21.\",\n      \"evidence\": \"fundamentals.analyst_recommendation\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"AMD's recent Google Cloud deal and Wall Street upgrade have driven the stock higher, reflecting growing confidence in its AI and cloud computing prospects.\",\n      \"evidence\": \"news[2].headline\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"claim\": \"AMD's net cash position of $6.57 billion and low debt-to-equity ratio of 0.13 provide financial flexibility for future investments and growth initiatives.\",\n      \"evidence\": \"fundamentals.net_cash\",\n      \"impact\": \"positive\"\n    }\n  ]\n}",
+      "ok": true
+    },
+    "bear_researcher": {
+      "system": "You are the bear case researcher for an equity research report. Your job is to argue the strongest honest bear case for the ticker, based ONLY on the data provided. Rules:\n1. Every claim MUST be grounded in a specific data field. Cite it in the 'evidence' field as <section>.<field>, e.g. 'fundamentals.pe_ttm' or 'catalyst.eps_est' or 'earnings.surprise_pct'. To cite a specific row of a list section (e.g. news or filings), use <section>[i].<field> with i the 1-based row number shown in the data, e.g. 'news[2].headline' for the second headline.\n2. If the data does not support a claim, do NOT make it. Missing data is a reason to stay silent or to say so explicitly.\n3. Do not hedge: this is your side's case. Pick the 4-6 strongest claims. No filler.\n4. Return ONLY the JSON object:\n{\"stance\": \"bullish|bearish\", \"confidence\": <0-1>, \"claims\": [{\"claim\": \"<one sentence>\", \"evidence\": \"<section....<truncated 41 chars>",
+      "user": "TICKER: AMD\n\nROLE: BEAR case\n\n[filings] recent SEC filings (8-K etc.)\n[1] {\n\"form\": \"10-Q\",\n\"filing_date\": \"2026-11-04\",\n\"accession\": \"0000002488-26-000191\",\n\"primary_doc\": \"amd-20260926.htm\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/2488/000000248826000191/amd-20260926.htm\"\n}\n[2] {\n\"form\": \"8-K\",\n\"filing_date\": \"2026-11-03\",\n\"accession\": \"0000002488-26-000188\",\n\"primary_doc\": \"amd-20261103.htm\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/2488/000000248826000188/amd-20261103.htm\"\n}\n[3] {\n\"form\": \"4\",\n\"filing_date\": \"2026-10-19\",\n\"accession\": \"0000002488-26-000184\",\n\"primary_doc\": \"xslF345X06/wk-form4_1792441001.xml\",\n\"url\": \"https://www.sec.gov/Archives/edgar/data/2488/000000248826000184/xslF345X06/wk-form4_1792441001.xml\"\n}\n[4] {\n\"form\": \"144\",\n\"filing_date\": \"2026-10-15\",\n\"accession\": \"0001950047-26-010251\",\n\"primary_doc\": \"xsl144X01/primary_doc.xml\",\n\"url\": \"https://www.se...<truncated 5145 chars>",
+      "response": "{\n  \"stance\": \"bearish\",\n  \"confidence\": 0.7,\n  \"claims\": [\n    {\n      \"claim\": \"AMD's stock is priced at an extreme premium with a trailing P/E of 119.84 and price-to-sales of 20.24, leaving no room for error in execution.\",\n      \"evidence\": \"fundamentals.pe_ttm, fundamentals.ps_ttm\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The stock trades at a price-to-free-cash-flow of 130.32, implying the market is pricing in massive future cash flow growth that may not materialize.\",\n      \"evidence\": \"fundamentals.pfcf\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"AMD's beta of 2.54 indicates the stock is highly volatile and would amplify any market downturn, posing significant downside risk to investors.\",\n      \"evidence\": \"fundamentals.beta\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"The company's return on equity is only 11.96%, which is modest relative to its rich valuation, suggesting the market is overpaying for the current level of profitability.\",\n      \"evidence\": \"fundamentals.roe\",\n      \"impact\": \"negative\"\n    },\n    {\n      \"claim\": \"Recent insider selling, as indicated by Form 144 filings, may signal that insiders believe the stock is overvalued at current levels.\",\n      \"evidence\": \"filings[4].form\",\n      \"impact\": \"negative\"\n    }\n  ]\n}",
+      "ok": true
+    },
+    "bear_rebuttal": {
+      "system": "You are the bear researcher responding to the OPPOSING case. Address each of the opposing side's claims head-on. For each one: either concede it, or rebut it using a specific counter-field from the data (evidence as <section>.<field>), or point out the inference gap. Be specific and numerical. Return ONLY:\n{\"rebuttals\": [{\"target_claim\": \"<the claim you are answering>\", \"response\": \"<your counter-argument, 1-2 sentences>\", \"counter_evidence\": \"<section.field or null>\", \"concede\": true|false, \"strength\": <0-1>}]}",
+      "user": "OPPOSING (bull) CLAIMS:\n[{\"claim\": \"AMD's forward P/E of 36.73 is dramatically lower than its trailing P/E of 119.84, indicating the market expects substantial earnings growth ahead.\", \"evidence\": \"fundamentals.forward_pe\", \"impact\": \"positive\"}, {\"claim\": \"With a PEG ratio of 0.51, AMD is trading at a significant discount to its growth rate, suggesting the stock is undervalued relative to its earnings growth potential.\", \"evidence\": \"fundamentals.peg\", \"impact\": \"positive\"}, {\"claim\": \"AMD's revenue grew 57.39% year-over-year and EPS grew 83.04%, demonstrating strong momentum in its core business.\", \"evidence\": \"fundamentals.revenue_growth_yoy\", \"impact\": \"positive\"}, {\"claim\": \"The analyst consensus is a Strong Buy with a price target of $657.49, implying over 27% upside from the current price of $515.21.\", \"evidence\": \"fundamentals.analyst_recommendation\", \"impact\": \"positive\"}, {\"cla...<truncated 6516 chars>",
+      "response": "{\"rebuttals\": [{\"target_claim\": \"AMD's forward P/E of 36.73 is dramatically lower than its trailing P/E of 119.84, indicating the market expects substantial earnings growth ahead.\", \"response\": \"The forward P/E relies on analyst EPS estimates of $14.03, which may be overly optimistic given AMD's history of volatile guidance and intense competition in AI chips from NVIDIA; the market has already priced in this growth at a $906.8B market cap, leaving little room for disappointment.\", \"counter_evidence\": \"fundamentals.eps_forward\", \"concede\": false, \"strength\": 0.6}, {\"target_claim\": \"With a PEG ratio of 0.51, AMD is trading at a significant discount to its growth rate, suggesting the stock is undervalued relative to its earnings growth potential.\", \"response\": \"The PEG ratio of 0.51 is based on trailing growth rates (EPS +83%) that are unsustainable; forward EPS growth implied by the P/E gap is only ~28% annually, and the stock's beta of 2.54 means it carries far more risk than the PEG metric captures.\", \"counter_evidence\": \"fundamentals.beta\", \"concede\": false, \"strength\": 0.7}, {\"target_claim\": \"AMD's revenue grew 57.39% year-over-year and EPS grew 83.04%, demonstrating strong momentum in its core business.\", \"response\": \"While growth is strong, the stock already trades at 20.24x sales and 130x free cash flow, meaning the market has fully priced in this momentum; any slowdown in AI spending or share loss to competitors would trigger a severe de-rating.\", \"counter_evidence\": \"fundamentals.ps_ttm\", \"concede\": true, \"strength\": 0.5}, {\"target_claim\": \"The analyst consensus is a Strong Buy with a price target of $657.49, implying over 27% upside from the current price of $515.21.\", \"response\": \"Analyst price targets are often lagging indicators and have been systematically ...<truncated 1332 chars>",
+      "ok": true
+    },
+    "bull_rebuttal": {
+      "system": "You are the bull researcher responding to the OPPOSING case. Address each of the opposing side's claims head-on. For each one: either concede it, or rebut it using a specific counter-field from the data (evidence as <section>.<field>), or point out the inference gap. Be specific and numerical. Return ONLY:\n{\"rebuttals\": [{\"target_claim\": \"<the claim you are answering>\", \"response\": \"<your counter-argument, 1-2 sentences>\", \"counter_evidence\": \"<section.field or null>\", \"concede\": true|false, \"strength\": <0-1>}]}",
+      "user": "OPPOSING (bear) CLAIMS:\n[{\"claim\": \"AMD's stock is priced at an extreme premium with a trailing P/E of 119.84 and price-to-sales of 20.24, leaving no room for error in execution.\", \"evidence\": \"fundamentals.pe_ttm, fundamentals.ps_ttm\", \"impact\": \"negative\"}, {\"claim\": \"The stock trades at a price-to-free-cash-flow of 130.32, implying the market is pricing in massive future cash flow growth that may not materialize.\", \"evidence\": \"fundamentals.pfcf\", \"impact\": \"negative\"}, {\"claim\": \"AMD's beta of 2.54 indicates the stock is highly volatile and would amplify any market downturn, posing significant downside risk to investors.\", \"evidence\": \"fundamentals.beta\", \"impact\": \"negative\"}, {\"claim\": \"The company's return on equity is only 11.96%, which is modest relative to its rich valuation, suggesting the market is overpaying for the current level of profitability.\", \"evidence\": \"fundamentals...<truncated 6300 chars>",
+      "response": "{\"rebuttals\": [{\"target_claim\": \"AMD's stock is priced at an extreme premium with a trailing P/E of 119.84 and price-to-sales of 20.24, leaving no room for error in execution.\", \"response\": \"The trailing P/E is backward-looking and ignores AMD's explosive growth trajectory. With forward P/E of 36.73 and PEG of 0.51, the stock is actually undervalued relative to its expected earnings growth, and the 57.4% YoY revenue growth justifies the premium.\", \"counter_evidence\": \"fundamentals.forward_pe, fundamentals.peg, fundamentals.revenue_growth_yoy\", \"concede\": false, \"strength\": 0.9}, {\"target_claim\": \"The stock trades at a price-to-free-cash-flow of 130.32, implying the market is pricing in massive future cash flow growth that may not materialize.\", \"response\": \"The P/FCF is distorted by AMD's heavy capex investments to expand AI capacity. FCF is expected to scale dramatically with revenue growth (57.4% YoY) and improving margins (gross margin 56%), making the current multiple a temporary artifact of the investment cycle.\", \"counter_evidence\": \"fundamentals.capex, fundamentals.revenue_growth_yoy, fundamentals.gross_margin\", \"concede\": false, \"strength\": 0.7}, {\"target_claim\": \"AMD's beta of 2.54 indicates the stock is highly volatile and would amplify any market downturn, posing significant downside risk to investors.\", \"response\": \"High beta cuts both ways\u2014it amplifies upside in a bull market, and AMD's 83% EPS growth and strong analyst consensus (Strong Buy, price target $657.49, 27.6% upside) suggest the current trajectory favors the upside scenario.\", \"counter_evidence\": \"fundamentals.eps_growth_yoy, fundamentals.analyst_recommendation, fundamentals.price_target\", \"concede\": true, \"strength\": 0.4}, {\"target_claim\": \"The company's return on equity is only 11.96%, which is...<truncated 1165 chars>",
+      "ok": true
+    },
+    "judge": {
+      "system": "You are the head of a sell-side equity research team. You have read the bull case, the bear case, their rebuttals, the evidence grading, and a deterministic valuation computed in Python (never modify its numbers). Produce the final verdict.\nRules:\n1. Scenarios: bull/base/bear 12-month price targets and probabilities. Base-case target MUST stay within +-25% of the deterministic valuation's base fair value when one exists. Probabilities must sum to 1.0.\n2. Rating scale: BUY / OVERWEIGHT / HOLD / UNDERWEIGHT / SELL.\n3. In the 'catalysts' list, when the data's 'catalyst' section has an explicit date (e.g. next earnings date), use it as the date; otherwise 'unknown'.\n4. Convergence detection: if bull and bear largely agree on direction (or disagree on nothing material), set convergence true and keep conviction; if the debate is unresolved, convergence false and lower conviction.\n4. All facts ...<truncated 478 chars>",
+      "user": "TICKER: AMD\nPRICE: 508.5799865722656\n\n=== BULL CASE ===\nbull (confidence 0.8):\n- [positive] AMD's forward P/E of 36.73 is dramatically lower than its trailing P/E of 119.84, indicating the market expects substantial earnings growth ahead. (evidence: fundamentals.forward_pe)\n- [positive] With a PEG ratio of 0.51, AMD is trading at a significant discount to its growth rate, suggesting the stock is undervalued relative to its earnings growth potential. (evidence: fundamentals.peg)\n- [positive] AMD's revenue grew 57.39% year-over-year and EPS grew 83.04%, demonstrating strong momentum in its core business. (evidence: fundamentals.revenue_growth_yoy)\n- [positive] The analyst consensus is a Strong Buy with a price target of $657.49, implying over 27% upside from the current price of $515.21. (evidence: fundamentals.analyst_recommendation)\n- [positive] AMD's recent Google Cloud deal and Wall St...<truncated 7936 chars>",
+      "response": "{\n  \"convergence\": false,\n  \"rating\": \"HOLD\",\n  \"conviction\": 0.5,\n  \"scenarios\": {\n    \"bull\": {\n      \"prob\": 0.3,\n      \"pt\": 1175.26,\n      \"thesis\": \"AMD's explosive growth and AI momentum justify a re-rating to a higher P/E multiple, driving the stock to the bull-case valuation.\"\n    },\n    \"base\": {\n      \"prob\": 0.4,\n      \"pt\": 851.46,\n      \"thesis\": \"AMD continues to grow strongly but the market maintains its current valuation multiple, resulting in a base-case fair value of $851.\"\n    },\n    \"bear\": {\n      \"prob\": 0.3,\n      \"pt\": 431.77,\n      \"thesis\": \"If growth decelerates or competition intensifies, the stock could de-rate to a lower P/E, falling to the bear-case value.\"\n    }\n  },\n  \"catalysts\": [\n    {\n      \"catalyst\": \"Next earnings report (date not specified in data)\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"catalyst\": \"Google Cloud deal and Wall Street upgrade (news[2])\",\n      \"date\": \"unknown\",\n      \"impact\": \"positive\"\n    },\n    {\n      \"catalyst\": \"Insider selling via Form 144 filings (filings[4])\",\n      \"date\": \"unknown\",\n      \"impact\": \"negative\"\n    }\n  ],\n  \"risks\": [\n    {\n      \"risk\": \"High valuation (trailing P/E 119.84, P/FCF 130.32) leaves no room for error\",\n      \"likelihood\": \"medium\"\n    },\n    {\n      \"risk\": \"High beta (2.54) amplifies downside in market downturns\",\n      \"likelihood\": \"medium\"\n    },\n    {\n      \"risk\": \"Competition from NVIDIA in AI chips could pressure growth and margins\",\n      \"likelihood\": \"medium\"\n    },\n    {\n      \"risk\": \"Analyst EPS estimates may be overly optimistic, leading to earnings misses\",\n      \"likelihood\": \"medium\"\n    }\n  ],\n  \"decision_rationale\": \"The bull and bear cases are sharply divided on whether AMD's growth justifies its premium valuation, with...<truncated 375 chars>",
+      "ok": true
+    }
+  },
+  "errors": [],
+  "elapsed_sec": 0.0,
+  "report_path": null,
+  "json_path": null
+}

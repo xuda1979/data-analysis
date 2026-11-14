@@ -3,9 +3,13 @@
 Provider priority (first available wins):
   1. xAI Grok         -- XAI_API_KEY (OpenAI-compatible)
   2. OpenAI-compat    -- OPENAI_API_KEY + OPENAI_BASE_URL (any compatible endpoint)
-  3. Anthropic-native -- ANTHROPIC_API_KEY (or the Huanxin local proxy via
+  3. Huanxin DP4      -- HUANXIN_DP4_BASE_URL + HUANXIN_DP4_API_KEY
+                        (OpenAI-compatible ingress; model deepseek_v4).
+                        Bearer auth. The only provider verified working on
+                        this machine as of 2026-11-10.
+  4. Anthropic-native -- ANTHROPIC_API_KEY (or the Huanxin local proxy via
                         ANTHROPIC_BASE_URL + ANTHROPIC_MODEL=glm5.2)
-  4. Huanxin GLM 5.2 direct -- HUANXIN_GLM52_DIRECT=1 bypasses the local
+  5. Huanxin GLM 5.2 direct -- HUANXIN_GLM52_DIRECT=1 bypasses the local
                         proxy and calls the upstream URL directly. Used
                         when the proxy is up but returns null because its
                         own upstream is being retried.
@@ -77,6 +81,12 @@ _HUANXIN_DIRECT = os.environ.get("HUANXIN_GLM52_DIRECT", "") == "1"
 _HUANXIN_UPSTREAM_URL = os.environ.get("HUANXIN_GLM52_UPSTREAM_URL", "")
 _HUANXIN_UPSTREAM_TOKEN = os.environ.get("HUANXIN_GLM52_UPSTREAM_TOKEN", "")
 _HUANXIN_MODEL = os.environ.get("HUANXIN_GLM52_MODEL", "glm5.2")
+
+# Huanxin DP4 ingress (OpenAI-compatible; verified 2026-11-10 on this machine)
+_DP4_URL = os.environ.get("HUANXIN_DP4_BASE_URL", "")
+_DP4_KEY = os.environ.get("HUANXIN_DP4_API_KEY", "")
+_DP4_MODEL = os.environ.get("HUANXIN_DP4_UPSTREAM_MODEL", "deepseek_v4")
+_DP4_MAX_INPUT = int(os.environ.get("HUANXIN_DP4_MAX_INPUT_CHARS", "350000"))
 
 # Agent-level retry config (on top of any provider-internal retries)
 _RETRIES = max(1, int(os.environ.get("WT_LLM_RETRIES", "3")))
@@ -172,6 +182,55 @@ def _openai_compat_chat(system: str, user: str, model: str,
         )
     except Exception as e:
         _log(f"openai-compat error: {repr(e)[:200]}")
+        return None
+    if not resp:
+        return None
+    try:
+        d = json.loads(resp)
+        return (d.get("choices") or [{}])[0].get("message", {}).get("content", "")
+    except (json.JSONDecodeError, IndexError, KeyError):
+        return None
+
+
+# ---------------------------------------------------------------------------
+# Provider: Huanxin DP4 ingress (OpenAI-compatible, Bearer auth)
+# ---------------------------------------------------------------------------
+
+def _huanxin_dp4_chat(system: str, user: str, model: str,
+                      temperature: float = 0.2,
+                      max_tokens: int = 1500,
+                      disable_thinking: bool = False) -> Optional[str]:
+    """Call the Huanxin DP4 ingress (deepseek_v4). Verified working
+    2026-11-10 with Bearer auth; only provider available on this machine."""
+    if not _DP4_URL or not _DP4_KEY:
+        return None
+    # Respect the ingress input cap; truncate the user prompt (keep the tail,
+    # which carries the actual instructions) rather than fail the call.
+    if len(system) + len(user) > _DP4_MAX_INPUT:
+        user = user[-(_DP4_MAX_INPUT - len(system)):]
+    body = {
+        "model": model or _DP4_MODEL,
+        "messages": [
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+        ],
+        "temperature": temperature,
+        "max_tokens": max_tokens,
+    }
+    if disable_thinking:
+        body["chat_template_kwargs"] = {"thinking": False}
+    try:
+        resp = core.http_post(
+            _DP4_URL,
+            headers={
+                "Authorization": f"Bearer {_DP4_KEY}",
+                "Content-Type": "application/json",
+            },
+            body=json.dumps(body).encode("utf-8"),
+            timeout=LLM_TIMEOUT,
+        )
+    except Exception as e:
+        _log(f"huanxin-dp4 error: {repr(e)[:200]}")
         return None
     if not resp:
         return None
@@ -334,6 +393,8 @@ def chat(system: str, user: str, strong: bool = False,
         providers.append(("xai", _xai_chat))
     if core.api_key("OPENAI_API_KEY"):
         providers.append(("openai", _openai_compat_chat))
+    if _DP4_URL and _DP4_KEY:
+        providers.append(("huanxin_dp4", _huanxin_dp4_chat))
     if _HUANXIN_DIRECT and _HUANXIN_UPSTREAM_URL and _HUANXIN_UPSTREAM_TOKEN:
         providers.append(("huanxin_direct", _huanxin_direct_chat))
     if core.api_key("ANTHROPIC_API_KEY"):
@@ -378,6 +439,8 @@ def _pick_model(provider: str, strong: bool) -> str:
         return _DEFAULT_XAI_MODEL
     if provider == "openai":
         return _DEFAULT_OPENAI_MODEL
+    if provider == "huanxin_dp4":
+        return _DP4_MODEL
     if provider == "huanxin_direct":
         return _HUANXIN_MODEL
     if provider == "anthropic":
@@ -391,6 +454,8 @@ def available_provider() -> Optional[str]:
         return "xai"
     if core.api_key("OPENAI_API_KEY"):
         return "openai"
+    if _DP4_URL and _DP4_KEY:
+        return "huanxin_dp4"
     if _HUANXIN_DIRECT and _HUANXIN_UPSTREAM_URL and _HUANXIN_UPSTREAM_TOKEN:
         return "huanxin_direct"
     if core.api_key("ANTHROPIC_API_KEY"):
@@ -409,6 +474,7 @@ def probe_llm() -> dict:
     for name, fn, model in (
         ("xai", _xai_chat, _DEFAULT_XAI_MODEL),
         ("openai", _openai_compat_chat, _DEFAULT_OPENAI_MODEL),
+        ("huanxin_dp4", _huanxin_dp4_chat, _DP4_MODEL),
         ("huanxin_direct", _huanxin_direct_chat, _HUANXIN_MODEL),
         ("anthropic", _anthropic_chat,
          _DEFAULT_ANTHROPIC_FAST_MODEL),
@@ -418,6 +484,9 @@ def probe_llm() -> dict:
             out["providers"][name] = {"configured": False}
             continue
         if name == "openai" and not core.api_key("OPENAI_API_KEY"):
+            out["providers"][name] = {"configured": False}
+            continue
+        if name == "huanxin_dp4" and not (_DP4_URL and _DP4_KEY):
             out["providers"][name] = {"configured": False}
             continue
         if name == "huanxin_direct" and not (_HUANXIN_DIRECT and
