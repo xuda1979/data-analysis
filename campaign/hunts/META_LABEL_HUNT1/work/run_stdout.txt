@@ -1,0 +1,36 @@
+pins: 14/14 GREEN (run-time sha16 verification)
+run_hunt.py sha256[:16] = 7318e895753a9808 (recorded at execution, §7)
+G-1 identity: max|b==1 book - champion CSV| = 6.870e-16 (threshold 1e-12) -> GREEN
+grid: 4806 rows 2008-03-31..2026-08-28 | IS 2286 | OOS 2520
+live sleeves: 11/12 (CFX4 relw pinned 0 -> b == 1 by construction)
+IRLS: n_train=22656 n_iter=5 final_grad_inf=1.178e-13 converged=True
+  beta[intercept] = -0.640597
+  beta[vol63] = +0.063576
+  beta[sharpe126] = +0.029672
+  beta[dd252] = -0.054328
+  beta[win21] = +0.844217
+  beta[mom21] = -0.226585
+arms built: M (treatment), V (vol-target twin), P (time-reversed control), N (iid control, seed 20261113)
+IS classifier: accuracy 0.6782 AUC 0.7179 (n_train=22656, in-sample by design)
+
+========================================================================
+META_LABEL_HUNT1 — frozen single run (FINDINGS_PRECOMMIT sealed 2026-11-13)
+========================================================================
+champion : SR 3.784489 CAGR 23.8610% MDD -3.3048% to 4.1917 bp/yr
+arm M   : SR 3.826400 CAGR 22.6760% MDD -3.0913% to 10.5370 bp/yr | OOS SR 3.794615 (dSR +0.137023)
+arm V   : SR 3.819813 CAGR 21.5599% MDD -3.0411% to 14.9915 bp/yr | OOS SR 3.724083 (dSR +0.066490)
+arm P   : SR 3.801481 CAGR 22.3616% MDD -3.1716% to 10.7040 bp/yr | OOS SR 3.738757 (dSR +0.081164)
+arm N   : SR 2.929141 CAGR 17.8250% MDD -4.2657% to 494.0456 bp/yr | OOS SR 2.970586 (dSR -0.687006)
+G-1 identity max|diff| = 6.870e-16 (< 1e-12) PASS
+G0 drawdown pre-screen: n_better = 3/3 -> PASS
+G1 OOS dSR(M) = +0.137023 (>= +0.15) -> FAIL
+G2 CAGR sacrifice = +1.1850 pp (<= 0.5) -> FAIL
+G3 MDD(M) = -3.0913% (<= champ+1pp) -> PASS
+G4 incr cost = 6.3453 bp/yr (<= 50) -> PASS
+G5 max roll-252 incr cost = 13.1329 bp (<= 75) -> PASS
+G6 controls OOS dSR: P +0.081164 N -0.687006 (both < +0.15) -> PASS
+G7 OOS dSR(M-V) = +0.070533 (>= +0.05) -> PASS
+activity band (report-only): 96.01% (band [2%, 60%])
+V vol-target follow-up (report-only): no (V OOS dSR +0.066490)
+------------------------------------------------------------------------
+VERDICT: NEGATIVE -> campaign/results/DEAD_IDEAS.csv row 80
